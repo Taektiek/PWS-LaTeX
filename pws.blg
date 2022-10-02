@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: pws.aux
+The style file: apalike.bst
+Database file #1: refs.bib
+Warning--empty journal in NvidiaRTX
+Warning--empty journal in NeRFactor
+Warning--empty journal in Reif:1991
+Warning--empty journal in HowToyStory3WasMade
+You've used 5 entries,
+            1935 wiz_defined-function locations,
+            500 strings with 4159 characters,
+and the built_in function-call counts, 1350 in all, are:
+= -- 124
+> -- 41
+< -- 5
++ -- 12
+- -- 12
+* -- 93
+:= -- 260
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 31
+chr.to.int$ -- 5
+cite$ -- 9
+duplicate$ -- 62
+empty$ -- 96
+format.name$ -- 19
+if$ -- 248
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 4
+newline$ -- 23
+num.names$ -- 15
+pop$ -- 33
+preamble$ -- 1
+purify$ -- 31
+quote$ -- 0
+skip$ -- 54
+stack$ -- 0
+substring$ -- 60
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 30
+warning$ -- 4
+while$ -- 10
+width$ -- 0
+write$ -- 52
+(There were 4 warnings)

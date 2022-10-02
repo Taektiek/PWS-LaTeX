@@ -1,0 +1,127 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{listings}
+\usepackage[dutch]{babel}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\title{Efficiëntie van raymarching in renderen}
+\author{Taeke Roukema}
+\date{Oktober 2022}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\clearpage
+\tableofcontents{}
+\clearpage
+\section{Voorwoord}
+\clearpage
+\section{Inleiding}
+\subsection{Introductie onderwerp}
+
+\paragraph{}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{encanto.jpg}
+    \caption{Een frame uit de film Encanto van Walt Disney Animation Studios}
+    \label{fig:encanto}
+\end{figure}
+Renderen is overal. Als je je telefoon opent zie je allerlei gerenderde vormen. Bij het ontbijt zijn verpakkingen volgeprint met teksten die met de computer getekend zijn. Als je langs een bouwterrein loopt zie je hyperrealistische visualisaties van de architectuur. Moderne blockbuster-films zitten tegenwoordig bomvol CGI\footnote{\textbf{C}omputer \textbf{G}enerated \textbf{I}magery}. En er zijn al tientallen jaren films te zien die helemaal door de computer gemaakt zijn. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{toystory3comparison.jpg}
+    \caption{Een frame uit Toy Story 3, links zonder lichtberekeningen en rechts met.}
+    \label{fig:toystory3}
+\end{figure}
+
+\paragraph{}
+Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphical \textbf{P}rogramming \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwd support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden in het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{minecraftrtx.jpg}
+    \caption{De videogame Minecraft kan gebruik maken van de Nvidia GPU's om realtime lichtsimulaties te berekenen.}
+    \label{fig:minecraftrtx}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bighero6.png}
+    \caption{Een frame uit de film Big Hero 6 van Pixar Animation Studios}
+    \label{fig:bighero6}
+\end{figure}
+\subsection{Relevantie}
+\subsection{Onderzoeksvraag/deelvragen }
+\clearpage
+\section{Theorie}
+\subsection{Wat is renderen?}
+\paragraph{}
+Renderen is, in feite, het weergeven van een representatie van een concept op een beeldscherm. Wij zijn voortdurend bezig met het interacteren met computers, en die interactie verloopt via het beeldscherm. Maar de computer kan uit zichzelf niet zomaar alles tekenen. Daar worden allemaal algoritmes voor geschreven. Een voorbeeld van zo'n algoritme is het tekenen van een rechthoek. In pseudocode zou je dat als volgt voor kunnen stellen:
+\begin{lstlisting}[language=C]
+function drawRectangle(x1, x2, y1, y2) {
+	for (x = x1; x < x2; x++) {
+		for (y = y1; y < y2; y++) {
+			drawPixel(x, y);
+		}
+	}
+}
+\end{lstlisting}
+\paragraph{}
+Het algoritme beschouwt elke pixel die binnen de rechthoek valt en kleurt die pixel. In dit geval wordt dat gedaan door twee loops, die samen alle mogelijke combinaties van x- en y-coördinaten doorlopen. 
+
+\paragraph{}
+Renderen omvat, in principe, niks anders dan het aansturen van individuele pixels. Zo'n pixel heeft op de meeste moderne beeldschermen drie waarden die de kleur aansturen: R, G en B, die respectievelijk staan voor rood, groen en blauw. Ze kunnen een geheel getal tussen de 0 en 255 aannemen wat resulteert in 224 mogelijke kleuren.
+	
+\paragraph{}
+Renderen doen we op een twee-dimensionaal beeldscherm. Dat betekent dat de positie van elke pixel te beschrijven is met twee waarden. Maar de wereld om ons heen kent niet twee, maar drie ruimtelijke dimensies. Door licht dat op ons netvlies valt na weerkaatst te zijn door verschillende objecten kunnen wij die wereld representeren in onze hersenen op een tweedimensionale manier. Camera's gebruiken een gelijksoortige techniek, de lens neemt het licht en projecteert het op een sensor die de intensiteit en de kleur waarneemt. Met het renderen van driedimensionale objecten proberen we deze processen na te bootsen. 
+\subsection{Wat is raytracing?}
+
+Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermethode. Het ligt het dichtst in de buurt van het simuleren van echt licht. Het belangrijkste verschil tussen raytracen en licht in onze fysieke wereld is dat we met raytracen alleen het licht beschouwen wat zichtbaar is voor ons perspectief. Om dit te bereiken voeren we de lichtstralen niet af vanuit de lichtbron, maar vanuit de camera, vervolgens kaatsen we de straal af naar de lichtbron om te kijken hoe vel die plek zou zijn, en of er een ander object in de weg zit die een schaduw zou kunnen werpen. Op Figuur \ref{fig:raytracing_diagram} is zichtbaar hoe dat raytracen in werking gaat.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{raytracing_diagram.png}
+    \caption{Een diagram die laat zien hoe raytracen werkt}
+    \label{fig:raytracing_diagram}
+\end{figure}
+\subsection{Wat is rasterization?}
+\subsection{Wat is raymarching?}
+\clearpage
+\section{Ontwikkeling}
+\clearpage
+\section{Methode}
+\clearpage
+\section{Resultaten}
+\clearpage
+\section{Nauwkeurigheidsanalyse}
+\clearpage
+\section{Conclusie}
+\clearpage
+\section{Discussie}
+\clearpage
+\section{Nawoord}
+Bedankt aan mijn moeder Arria Gosman.
+\clearpage
+\section{Literatuurlijst}
+\bibliographystyle{apalike}
+\bibliography{refs}
+\clearpage
+\section{Logboek}
+\begin{adjustbox}{angle=270}
+\begin{tabular}{ | c | c c c c c | }
+\hline
+Activiteit & Datum & Tijd (m) & Totale tijd (h) &       \% Voltooid \\
+\hline
+Programmeren & 20220906 & 45 & 0.8 & 0.94\% \\
+Programmeren & 20220908 & 30 & 1.3 & 1.56\% \\
+Gesprek met begeleider & 20220909 & 20 & 1.6 & 1.98\% \\
+Programmeren & 20220921 & 90 & 3.1 & 3.85\% \\
+Inhoudsopgave Opzet & 20220928 & 35 & 3.7 & 4.58\% \\
+Schrijven Theorie/Achtergrond Renderen & 20220930 & 45 & 4.4 & 5.52\% \\
+Opzetten \LaTeX \space Document & 20221002 & 120 & 6.4 & 8.02\% \\
+\hline
+\end{tabular}
+\end{adjustbox}
+
+\end{document}

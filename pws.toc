@@ -1,0 +1,26 @@
+\babel@toc {dutch}{}\relax 
+\contentsline {section}{\numberline {1}Voorwoord}{3}{}%
+\contentsline {section}{\numberline {2}Inleiding}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Introductie onderwerp}{4}{}%
+\contentsline {paragraph}{}{4}{}%
+\contentsline {paragraph}{}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Relevantie}{5}{}%
+\contentsline {subsection}{\numberline {2.3}Onderzoeksvraag/deelvragen }{5}{}%
+\contentsline {section}{\numberline {3}Theorie}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Wat is renderen?}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{8}{}%
+\contentsline {subsection}{\numberline {3.4}Wat is raymarching?}{8}{}%
+\contentsline {section}{\numberline {4}Ontwikkeling}{9}{}%
+\contentsline {section}{\numberline {5}Methode}{10}{}%
+\contentsline {section}{\numberline {6}Resultaten}{11}{}%
+\contentsline {section}{\numberline {7}Nauwkeurigheidsanalyse}{12}{}%
+\contentsline {section}{\numberline {8}Conclusie}{13}{}%
+\contentsline {section}{\numberline {9}Discussie}{14}{}%
+\contentsline {section}{\numberline {10}Nawoord}{15}{}%
+\contentsline {section}{\numberline {11}Literatuurlijst}{16}{}%
+\contentsline {section}{\numberline {12}Logboek}{17}{}%

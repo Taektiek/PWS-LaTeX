@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  2 OCT 2022 21:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  2 OCT 2022 21:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -150,6 +150,14 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen160
 \@vwid@roff=\dimen161
 ))
+(/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen162
+\WF@size=\dimen163
+\c@WF@wrappedlines=\count272
+\WF@box=\box56
+\WF@everypar=\toks21
+Package: wrapfig 2003/01/31  v 3.6
+)
 (/usr/share/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
@@ -157,40 +165,40 @@ Package chngcntr Info: \counterwithout already defined.
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count272
-\l__pdf_internal_box=\box56
+\l__color_backend_stack_int=\count273
+\l__pdf_internal_box=\box57
 ) (./pws.aux)
 \openout1 = `pws.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-\c@lstlisting=\count273
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+\c@lstlisting=\count274
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count274
-\scratchdimen=\dimen162
-\scratchbox=\box57
-\nofMPsegments=\count275
-\nofMParguments=\count276
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count277
-\MPscratchDim=\dimen163
-\MPnumerator=\count278
-\makeMPintoPDFobject=\count279
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count275
+\scratchdimen=\dimen164
+\scratchbox=\box58
+\nofMPsegments=\count276
+\nofMParguments=\count277
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count278
+\MPscratchDim=\dimen165
+\MPnumerator=\count279
+\makeMPintoPDFobject=\count280
+\everyMPtoPDFconversion=\toks23
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -201,9 +209,9 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 14.
+(Font)              <14.4> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 14.
+(Font)              <7> on input line 15.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pws.toc
@@ -222,58 +230,53 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ] [3
 
 ]
-<images//encanto.jpg, id=17, 1927.2pt x 1041.8925pt>
-File: images//encanto.jpg Graphic file (type jpg)
-<use images//encanto.jpg>
-Package pdftex.def Info: images//encanto.jpg  used on input line 29.
-(pdftex.def)             Requested size: 312.00119pt x 168.66165pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 33.
-<images//toystory3comparison.jpg, id=18, 1195.46625pt x 796.9775pt>
+(Font)              <5> on input line 28.
+<images//toystory3comparison.jpg, id=17, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
-Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 36
+Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 32
 .
-(pdftex.def)             Requested size: 234.00238pt x 155.99979pt.
+(pdftex.def)             Requested size: 195.0pt x 129.99982pt.
+<images//minecraftrtx.jpg, id=18, 3854.4pt x 2168.1pt>
+File: images//minecraftrtx.jpg Graphic file (type jpg)
+<use images//minecraftrtx.jpg>
+Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 39.
+(pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images//minecraftrtx.jpg, id=19, 3854.4pt x 2168.1pt>
-File: images//minecraftrtx.jpg Graphic file (type jpg)
-<use images//minecraftrtx.jpg>
-Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 45.
-(pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 [4
 
- <./images//encanto.jpg>] [5 <./images//toystory3comparison.jpg> <./images//min
-ecraftrtx.jpg>] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+ <./images//toystory3comparison.jpg>] [5 <./images//minecraftrtx.jpg>]
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
-7.
+1.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 57.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 5
-8.
+2.
 
 (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 58.
-<images//RGB_channels_separation.png, id=28, 401.5pt x 321.2pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 52.
+<images//RGB_channels_separation.png, id=27, 401.5pt x 321.2pt>
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
-e 72.
+e 66.
 (pdftex.def)             Requested size: 195.0pt x 156.00237pt.
 
 
@@ -282,10 +285,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [6
 
 ]
-<images//raytracing_diagram.png, id=34, 803.0pt x 533.995pt>
+<images//raytracing_diagram.png, id=33, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 85.
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 79.
 
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
 
@@ -307,16 +310,18 @@ g>] [9
 
 ] [15
 
-] (./pws.bbl) [16
+] [16
 
-] [17
+] (./pws.bbl) [17
+
+] [18
 
 ] (./pws.aux) ) 
 Here is how much of TeX's memory you used:
- 5359 strings out of 478238
- 85628 string characters out of 5850456
- 580582 words of memory out of 5000000
- 23542 multiletter control sequences out of 15000+600000
+ 5432 strings out of 478238
+ 86739 string characters out of 5850456
+ 581852 words of memory out of 5000000
+ 23612 multiletter control sequences out of 15000+600000
  475343 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,90p,1329b,1403s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -328,10 +333,10 @@ amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on pws.pdf (17 pages, 1314603 bytes).
+Output written on pws.pdf (18 pages, 1072198 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

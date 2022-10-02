@@ -3,6 +3,7 @@
 \usepackage[dutch]{babel}
 \usepackage{array}
 \usepackage{adjustbox}
+\usepackage{wrapfig}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{chngcntr}
@@ -24,21 +25,14 @@ Renderen met raymarching is fucking lijp brooo. Iedereen zou het moeten doen eig
 \subsection{Introductie onderwerp}
 
 \paragraph{}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{encanto.jpg}
-    \caption{Een frame uit de film Encanto van Walt Disney Animation Studios}
-    \label{fig:encanto}
-\end{figure}
 Renderen is overal. Als je je telefoon opent zie je allerlei gerenderde vormen. Bij het ontbijt zijn verpakkingen volgeprint met teksten die met de computer getekend zijn. Als je langs een bouwterrein loopt zie je hyperrealistische visualisaties van de architectuur. Moderne blockbuster-films zitten tegenwoordig bomvol CGI\footnote{\textbf{C}omputer \textbf{G}enerated \textbf{I}magery}. En er zijn al tientallen jaren films te zien die helemaal door de computer gemaakt zijn. 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\textwidth]{toystory3comparison.jpg}
-    \caption{Een frame uit Toy Story 3, aan de linkerkant worden geen lichtberekeningen gedaan, en aan de rechterkant wel.}
-    \label{fig:toystory3}
-\end{figure}
 
 \paragraph{}
+\begin{wrapfigure}{s}{0.5\textwidth}
+    \includegraphics[width=1\linewidth]{toystory3comparison.jpg}
+    \caption{Een frame uit Toy Story 3, aan de linkerkant worden geen lichtberekeningen gedaan, en aan de rechterkant wel.}
+    \label{fig:toystory3}
+\end{wrapfigure}
 Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphical \textbf{P}rogramming \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
 \begin{figure}[h]
     \centering
@@ -88,6 +82,8 @@ Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermet
 \end{figure}
 \subsection{Wat is rasterization?}
 \subsection{Wat is raymarching?}
+\clearpage
+\section{Hypothese}
 \clearpage
 \section{Ontwikkeling}
 \subsection{Hardware}

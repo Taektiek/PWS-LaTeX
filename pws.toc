@@ -15,20 +15,21 @@
 \contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{7}{}%
 \contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{7}{}%
 \contentsline {subsection}{\numberline {3.4}Wat is raymarching?}{7}{}%
-\contentsline {section}{\numberline {4}Ontwikkeling}{9}{}%
-\contentsline {subsection}{\numberline {4.1}Hardware}{9}{}%
-\contentsline {subsection}{\numberline {4.2}Software}{9}{}%
-\contentsline {subsection}{\numberline {4.3}Programmeren}{9}{}%
-\contentsline {section}{\numberline {5}Methode}{10}{}%
-\contentsline {subsection}{\numberline {5.1}Variabelen}{10}{}%
-\contentsline {subsection}{\numberline {5.2}Meetmethoden}{10}{}%
-\contentsline {section}{\numberline {6}Resultaten}{11}{}%
-\contentsline {subsection}{\numberline {6.1}Snelheid}{11}{}%
-\contentsline {subsection}{\numberline {6.2}Geheugenbezetting}{11}{}%
-\contentsline {subsection}{\numberline {6.3}Renders}{11}{}%
-\contentsline {section}{\numberline {7}Nauwkeurigheidsanalyse}{12}{}%
-\contentsline {section}{\numberline {8}Conclusie}{13}{}%
-\contentsline {section}{\numberline {9}Discussie}{14}{}%
-\contentsline {section}{\numberline {10}Nawoord}{15}{}%
-\contentsline {section}{\numberline {11}Literatuurlijst}{16}{}%
-\contentsline {section}{\numberline {12}Logboek}{17}{}%
+\contentsline {section}{\numberline {4}Hypothese}{9}{}%
+\contentsline {section}{\numberline {5}Ontwikkeling}{10}{}%
+\contentsline {subsection}{\numberline {5.1}Hardware}{10}{}%
+\contentsline {subsection}{\numberline {5.2}Software}{10}{}%
+\contentsline {subsection}{\numberline {5.3}Programmeren}{10}{}%
+\contentsline {section}{\numberline {6}Methode}{11}{}%
+\contentsline {subsection}{\numberline {6.1}Variabelen}{11}{}%
+\contentsline {subsection}{\numberline {6.2}Meetmethoden}{11}{}%
+\contentsline {section}{\numberline {7}Resultaten}{12}{}%
+\contentsline {subsection}{\numberline {7.1}Snelheid}{12}{}%
+\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{12}{}%
+\contentsline {subsection}{\numberline {7.3}Renders}{12}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{13}{}%
+\contentsline {section}{\numberline {9}Conclusie}{14}{}%
+\contentsline {section}{\numberline {10}Discussie}{15}{}%
+\contentsline {section}{\numberline {11}Nawoord}{16}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{17}{}%
+\contentsline {section}{\numberline {13}Logboek}{18}{}%

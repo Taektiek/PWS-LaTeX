@@ -13,6 +13,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
+Renderen met raymarching is fucking lijp brooo. Iedereen zou het moeten doen eigenlijk.
 \end{abstract}
 \clearpage
 \tableofcontents{}
@@ -32,24 +33,18 @@
 Renderen is overal. Als je je telefoon opent zie je allerlei gerenderde vormen. Bij het ontbijt zijn verpakkingen volgeprint met teksten die met de computer getekend zijn. Als je langs een bouwterrein loopt zie je hyperrealistische visualisaties van de architectuur. Moderne blockbuster-films zitten tegenwoordig bomvol CGI\footnote{\textbf{C}omputer \textbf{G}enerated \textbf{I}magery}. En er zijn al tientallen jaren films te zien die helemaal door de computer gemaakt zijn. 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{toystory3comparison.jpg}
-    \caption{Een frame uit Toy Story 3, links zonder lichtberekeningen en rechts met.}
+    \includegraphics[width=0.6\textwidth]{toystory3comparison.jpg}
+    \caption{Een frame uit Toy Story 3, aan de linkerkant worden geen lichtberekeningen gedaan, en aan de rechterkant wel.}
     \label{fig:toystory3}
 \end{figure}
 
 \paragraph{}
-Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphical \textbf{P}rogramming \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwd support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden in het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
+Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphical \textbf{P}rogramming \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{minecraftrtx.jpg}
-    \caption{De videogame Minecraft kan gebruik maken van de Nvidia GPU's om realtime lichtsimulaties te berekenen.}
+    \includegraphics[width=0.5\textwidth]{minecraftrtx.jpg}
+    \caption{De videogame Minecraft kan gebruik maken van Nvidia GPU's om realtime lichtsimulaties te berekenen.}
     \label{fig:minecraftrtx}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{bighero6.png}
-    \caption{Een frame uit de film Big Hero 6 van Pixar Animation Studios}
-    \label{fig:bighero6}
 \end{figure}
 \subsection{Relevantie}
 \subsection{Onderzoeksvraag/deelvragen }
@@ -72,7 +67,13 @@ Het algoritme beschouwt elke pixel die binnen de rechthoek valt en kleurt die pi
 
 \paragraph{}
 Renderen omvat, in principe, niks anders dan het aansturen van individuele pixels. Zo'n pixel heeft op de meeste moderne beeldschermen drie waarden die de kleur aansturen: R, G en B, die respectievelijk staan voor rood, groen en blauw. Ze kunnen een geheel getal tussen de 0 en 255 aannemen wat resulteert in 224 mogelijke kleuren.
-	
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{RGB_channels_separation.png}
+\caption{De kleuren in een foto kunnen opgesplitst worden in rode, groene en blauwe kanalen.}
+\label{fig:rgb_separated}
+\end{figure}
+
 \paragraph{}
 Renderen doen we op een twee-dimensionaal beeldscherm. Dat betekent dat de positie van elke pixel te beschrijven is met twee waarden. Maar de wereld om ons heen kent niet twee, maar drie ruimtelijke dimensies. Door licht dat op ons netvlies valt na weerkaatst te zijn door verschillende objecten kunnen wij die wereld representeren in onze hersenen op een tweedimensionale manier. Camera's gebruiken een gelijksoortige techniek, de lens neemt het licht en projecteert het op een sensor die de intensiteit en de kleur waarneemt. Met het renderen van driedimensionale objecten proberen we deze processen na te bootsen. 
 \subsection{Wat is raytracing?}
@@ -89,10 +90,18 @@ Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermet
 \subsection{Wat is raymarching?}
 \clearpage
 \section{Ontwikkeling}
+\subsection{Hardware}
+\subsection{Software}
+\subsection{Programmeren}
 \clearpage
 \section{Methode}
+\subsection{Variabelen}
+\subsection{Meetmethoden}
 \clearpage
 \section{Resultaten}
+\subsection{Snelheid}
+\subsection{Geheugenbezetting}
+\subsection{Renders}
 \clearpage
 \section{Nauwkeurigheidsanalyse}
 \clearpage

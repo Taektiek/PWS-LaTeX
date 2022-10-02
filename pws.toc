@@ -6,18 +6,26 @@
 \contentsline {paragraph}{}{4}{}%
 \contentsline {subsection}{\numberline {2.2}Relevantie}{5}{}%
 \contentsline {subsection}{\numberline {2.3}Onderzoeksvraag/deelvragen }{5}{}%
-\contentsline {section}{\numberline {3}Theorie}{7}{}%
-\contentsline {subsection}{\numberline {3.1}Wat is renderen?}{7}{}%
-\contentsline {paragraph}{}{7}{}%
-\contentsline {paragraph}{}{7}{}%
-\contentsline {paragraph}{}{7}{}%
-\contentsline {paragraph}{}{7}{}%
-\contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{8}{}%
-\contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{8}{}%
-\contentsline {subsection}{\numberline {3.4}Wat is raymarching?}{8}{}%
+\contentsline {section}{\numberline {3}Theorie}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Wat is renderen?}{6}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {paragraph}{}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{7}{}%
+\contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{7}{}%
+\contentsline {subsection}{\numberline {3.4}Wat is raymarching?}{7}{}%
 \contentsline {section}{\numberline {4}Ontwikkeling}{9}{}%
+\contentsline {subsection}{\numberline {4.1}Hardware}{9}{}%
+\contentsline {subsection}{\numberline {4.2}Software}{9}{}%
+\contentsline {subsection}{\numberline {4.3}Programmeren}{9}{}%
 \contentsline {section}{\numberline {5}Methode}{10}{}%
+\contentsline {subsection}{\numberline {5.1}Variabelen}{10}{}%
+\contentsline {subsection}{\numberline {5.2}Meetmethoden}{10}{}%
 \contentsline {section}{\numberline {6}Resultaten}{11}{}%
+\contentsline {subsection}{\numberline {6.1}Snelheid}{11}{}%
+\contentsline {subsection}{\numberline {6.2}Geheugenbezetting}{11}{}%
+\contentsline {subsection}{\numberline {6.3}Renders}{11}{}%
 \contentsline {section}{\numberline {7}Nauwkeurigheidsanalyse}{12}{}%
 \contentsline {section}{\numberline {8}Conclusie}{13}{}%
 \contentsline {section}{\numberline {9}Discussie}{14}{}%

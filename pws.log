@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  2 OCT 2022 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  2 OCT 2022 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -222,76 +222,78 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ] [3
 
 ]
-<images//encanto.jpg, id=16, 1927.2pt x 1041.8925pt>
+<images//encanto.jpg, id=17, 1927.2pt x 1041.8925pt>
 File: images//encanto.jpg Graphic file (type jpg)
 <use images//encanto.jpg>
-Package pdftex.def Info: images//encanto.jpg  used on input line 28.
+Package pdftex.def Info: images//encanto.jpg  used on input line 29.
 (pdftex.def)             Requested size: 312.00119pt x 168.66165pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
-<images//toystory3comparison.jpg, id=17, 1195.46625pt x 796.9775pt>
+(Font)              <5> on input line 33.
+<images//toystory3comparison.jpg, id=18, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
-Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 35
+Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 36
 .
-(pdftex.def)             Requested size: 312.00119pt x 207.99971pt.
+(pdftex.def)             Requested size: 234.00238pt x 155.99979pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images//minecraftrtx.jpg, id=18, 3854.4pt x 2168.1pt>
+<images//minecraftrtx.jpg, id=19, 3854.4pt x 2168.1pt>
 File: images//minecraftrtx.jpg Graphic file (type jpg)
 <use images//minecraftrtx.jpg>
-Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 44.
-(pdftex.def)             Requested size: 312.00119pt x 175.46957pt.
-<images//bighero6.png, id=19, 1390.44469pt x 582.67688pt>
-File: images//bighero6.png Graphic file (type png)
-<use images//bighero6.png>
-Package pdftex.def Info: images//bighero6.png  used on input line 50.
-(pdftex.def)             Requested size: 312.00119pt x 130.741pt.
+Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 45.
+(pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 [4
 
- <./images//encanto.jpg>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5 <./images//toystory3comparison.jpg>] [6 <./images//minecraftrtx.jpg> <./imag
-es//bighero6.png (PNG copy)>]
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+ <./images//encanto.jpg>] [5 <./images//toystory3comparison.jpg> <./images//min
+ecraftrtx.jpg>] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
-2.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
+7.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 6
-3.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 57.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 5
+8.
 
 (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 63.
- [7
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 58.
+<images//RGB_channels_separation.png, id=28, 401.5pt x 321.2pt>
+File: images//RGB_channels_separation.png Graphic file (type png)
+<use images//RGB_channels_separation.png>
+Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
+e 72.
+(pdftex.def)             Requested size: 195.0pt x 156.00237pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6
 
 ]
-<images//raytracing_diagram.png, id=38, 803.0pt x 533.995pt>
+<images//raytracing_diagram.png, id=34, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 84.
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 85.
 
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
- [8 <./images//raytracing_diagram.png>] [9
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./images//RGB_channels_separation.png>] [8 <./images//raytracing_diagram.pn
+g>] [9
 
 ] [10
 
@@ -312,12 +314,12 @@ Package pdftex.def Info: images//raytracing_diagram.png  used on input line 84.
 ] (./pws.aux) ) 
 Here is how much of TeX's memory you used:
  5359 strings out of 478238
- 85503 string characters out of 5850456
- 580643 words of memory out of 5000000
+ 85628 string characters out of 5850456
+ 580582 words of memory out of 5000000
  23542 multiletter control sequences out of 15000+600000
  475343 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,90p,1326b,1403s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,10n,90p,1329b,1403s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/font
@@ -326,7 +328,7 @@ amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on pws.pdf (17 pages, 2544460 bytes).
+Output written on pws.pdf (17 pages, 1314603 bytes).
 PDF statistics:
  111 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream

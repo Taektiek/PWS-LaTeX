@@ -4,8 +4,9 @@
 \contentsline {subsection}{\numberline {2.1}Introductie onderwerp}{4}{}%
 \contentsline {paragraph}{}{4}{}%
 \contentsline {paragraph}{}{4}{}%
+\contentsline {paragraph}{}{4}{}%
 \contentsline {subsection}{\numberline {2.2}Relevantie}{5}{}%
-\contentsline {subsection}{\numberline {2.3}Onderzoeksvraag/deelvragen }{5}{}%
+\contentsline {subsection}{\numberline {2.3}Onderzoeksvraag/deelvragen}{5}{}%
 \contentsline {section}{\numberline {3}Theorie}{6}{}%
 \contentsline {subsection}{\numberline {3.1}Wat is renderen?}{6}{}%
 \contentsline {paragraph}{}{6}{}%
@@ -15,6 +16,7 @@
 \contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{7}{}%
 \contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{7}{}%
 \contentsline {subsection}{\numberline {3.4}Wat is raymarching?}{7}{}%
+\contentsline {subsection}{\numberline {3.5}Hoe werkt het geheugen?}{7}{}%
 \contentsline {section}{\numberline {4}Hypothese}{9}{}%
 \contentsline {section}{\numberline {5}Ontwikkeling}{10}{}%
 \contentsline {subsection}{\numberline {5.1}Hardware}{10}{}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  2 OCT 2022 21:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  3 OCT 2022 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,26 +257,26 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
-1.
+7.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 57.
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 5
-2.
+8.
 
 (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 52.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 58.
 <images//RGB_channels_separation.png, id=27, 401.5pt x 321.2pt>
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
-e 66.
+e 72.
 (pdftex.def)             Requested size: 195.0pt x 156.00237pt.
 
 
@@ -288,7 +288,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images//raytracing_diagram.png, id=33, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 79.
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 85.
 
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
 
@@ -318,10 +318,10 @@ g>] [9
 
 ] (./pws.aux) ) 
 Here is how much of TeX's memory you used:
- 5432 strings out of 478238
- 86739 string characters out of 5850456
- 581852 words of memory out of 5000000
- 23612 multiletter control sequences out of 15000+600000
+ 5433 strings out of 478238
+ 86747 string characters out of 5850456
+ 581851 words of memory out of 5000000
+ 23613 multiletter control sequences out of 15000+600000
  475343 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,90p,1329b,1403s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -333,7 +333,7 @@ amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on pws.pdf (18 pages, 1072198 bytes).
+Output written on pws.pdf (18 pages, 1074314 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream

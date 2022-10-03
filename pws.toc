@@ -1,37 +1,42 @@
 \babel@toc {dutch}{}\relax 
-\contentsline {section}{\numberline {1}Voorwoord}{3}{}%
-\contentsline {section}{\numberline {2}Inleiding}{4}{}%
-\contentsline {subsection}{\numberline {2.1}Introductie onderwerp}{4}{}%
-\contentsline {paragraph}{}{4}{}%
-\contentsline {paragraph}{}{4}{}%
-\contentsline {paragraph}{}{4}{}%
-\contentsline {subsection}{\numberline {2.2}Relevantie}{5}{}%
-\contentsline {subsection}{\numberline {2.3}Onderzoeksvraag/deelvragen}{5}{}%
-\contentsline {section}{\numberline {3}Theorie}{6}{}%
-\contentsline {subsection}{\numberline {3.1}Wat is renderen?}{6}{}%
-\contentsline {paragraph}{}{6}{}%
-\contentsline {paragraph}{}{6}{}%
-\contentsline {paragraph}{}{6}{}%
-\contentsline {paragraph}{}{6}{}%
-\contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{7}{}%
-\contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{7}{}%
-\contentsline {subsection}{\numberline {3.4}Wat is raymarching?}{7}{}%
-\contentsline {subsection}{\numberline {3.5}Hoe werkt het geheugen?}{7}{}%
-\contentsline {section}{\numberline {4}Hypothese}{9}{}%
-\contentsline {section}{\numberline {5}Ontwikkeling}{10}{}%
-\contentsline {subsection}{\numberline {5.1}Hardware}{10}{}%
-\contentsline {subsection}{\numberline {5.2}Software}{10}{}%
-\contentsline {subsection}{\numberline {5.3}Programmeren}{10}{}%
-\contentsline {section}{\numberline {6}Methode}{11}{}%
-\contentsline {subsection}{\numberline {6.1}Variabelen}{11}{}%
-\contentsline {subsection}{\numberline {6.2}Meetmethoden}{11}{}%
-\contentsline {section}{\numberline {7}Resultaten}{12}{}%
-\contentsline {subsection}{\numberline {7.1}Snelheid}{12}{}%
-\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{12}{}%
-\contentsline {subsection}{\numberline {7.3}Renders}{12}{}%
-\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{13}{}%
-\contentsline {section}{\numberline {9}Conclusie}{14}{}%
-\contentsline {section}{\numberline {10}Discussie}{15}{}%
-\contentsline {section}{\numberline {11}Nawoord}{16}{}%
-\contentsline {section}{\numberline {12}Literatuurlijst}{17}{}%
-\contentsline {section}{\numberline {13}Logboek}{18}{}%
+\contentsline {section}{\numberline {1}Voorwoord}{4}{}%
+\contentsline {section}{\numberline {2}Inleiding}{5}{}%
+\contentsline {subsection}{\numberline {2.1}Introductie onderwerp}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {subsection}{\numberline {2.2}Relevantie}{6}{}%
+\contentsline {subsection}{\numberline {2.3}Onderzoeksvraag/deelvragen}{6}{}%
+\contentsline {section}{\numberline {3}Theorie}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Wat is renderen?}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Wat is raytracing?}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{8}{}%
+\contentsline {subsection}{\numberline {3.4}Wat zijn polygonen?}{8}{}%
+\contentsline {subsection}{\numberline {3.5}Wat is raymarching?}{8}{}%
+\contentsline {subsection}{\numberline {3.6}Hoe werkt het geheugen?}{8}{}%
+\contentsline {section}{\numberline {4}Hypothese}{10}{}%
+\contentsline {section}{\numberline {5}Ontwikkeling}{11}{}%
+\contentsline {subsection}{\numberline {5.1}Hardware}{11}{}%
+\contentsline {subsection}{\numberline {5.2}Software}{11}{}%
+\contentsline {subsubsection}{\numberline {5.2.1}Besturingssysteem}{11}{}%
+\contentsline {subsubsection}{\numberline {5.2.2}Programmeertaal}{11}{}%
+\contentsline {subsubsection}{\numberline {5.2.3}Framework}{12}{}%
+\contentsline {subsubsection}{\numberline {5.2.4}Integrated Development Environment}{13}{}%
+\contentsline {subsection}{\numberline {5.3}Programmeren}{13}{}%
+\contentsline {section}{\numberline {6}Methode}{14}{}%
+\contentsline {subsection}{\numberline {6.1}Variabelen}{14}{}%
+\contentsline {subsection}{\numberline {6.2}Meetmethoden}{14}{}%
+\contentsline {section}{\numberline {7}Resultaten}{15}{}%
+\contentsline {subsection}{\numberline {7.1}Snelheid}{15}{}%
+\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{15}{}%
+\contentsline {subsection}{\numberline {7.3}Renders}{15}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{16}{}%
+\contentsline {section}{\numberline {9}Conclusie}{17}{}%
+\contentsline {section}{\numberline {10}Discussie}{18}{}%
+\contentsline {section}{\numberline {11}Nawoord}{19}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{20}{}%
+\contentsline {section}{\numberline {13}Logboek}{21}{}%

@@ -3,49 +3,51 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: pws.aux
 The style file: apalike.bst
 Database file #1: refs.bib
+Warning--to sort, need author or key in StackOverflowSurvey
+Warning--empty author in StackOverflowSurvey
+Warning--empty journal in StackOverflowSurvey
 Warning--empty journal in NvidiaRTX
 Warning--empty journal in NeRFactor
-Warning--empty journal in Reif:1991
 Warning--empty journal in HowToyStory3WasMade
 You've used 5 entries,
             1935 wiz_defined-function locations,
-            500 strings with 4159 characters,
-and the built_in function-call counts, 1350 in all, are:
-= -- 124
-> -- 41
-< -- 5
-+ -- 12
-- -- 12
-* -- 93
-:= -- 260
+            499 strings with 4135 characters,
+and the built_in function-call counts, 1269 in all, are:
+= -- 115
+> -- 28
+< -- 4
++ -- 8
+- -- 8
+* -- 90
+:= -- 237
 add.period$ -- 10
 call.type$ -- 5
-change.case$ -- 31
+change.case$ -- 29
 chr.to.int$ -- 5
-cite$ -- 9
+cite$ -- 12
 duplicate$ -- 62
-empty$ -- 96
-format.name$ -- 19
-if$ -- 248
+empty$ -- 99
+format.name$ -- 12
+if$ -- 234
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 4
 newline$ -- 23
-num.names$ -- 15
+num.names$ -- 12
 pop$ -- 33
 preamble$ -- 1
-purify$ -- 31
+purify$ -- 29
 quote$ -- 0
-skip$ -- 54
+skip$ -- 52
 stack$ -- 0
-substring$ -- 60
+substring$ -- 61
 swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 30
-warning$ -- 4
-while$ -- 10
+warning$ -- 6
+while$ -- 8
 width$ -- 0
-write$ -- 52
-(There were 4 warnings)
+write$ -- 51
+(There were 6 warnings)

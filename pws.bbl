@@ -1,5 +1,9 @@
 \begin{thebibliography}{}
 
+\bibitem[Sta, 2022]{StackOverflowSurvey}
+ (2022).
+\newblock Stack overflow 2022 developer survey.
+
 \bibitem[Alwani, 2018]{NvidiaRTX}
 Alwani, R. (2018).
 \newblock Microsoft and nvidia tech to bring photorealistic games with ray
@@ -12,10 +16,6 @@ Anderson, M. (2021).
 \bibitem[Clay, 1990]{MakingOfBoredRoom}
 Clay, J. (1990).
 \newblock Making of bored room (production).
-
-\bibitem[J.H.~Reif and Yoshida, 1991]{Reif:1991}
-J.H.~Reif, J.~T. and Yoshida, A. (1991).
-\newblock Computability and complexity of ray tracing.
 
 \bibitem[Lehrer, 2010]{HowToyStory3WasMade}
 Lehrer, J. (2010).

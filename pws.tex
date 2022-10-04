@@ -4,6 +4,7 @@
 \usepackage{array}
 \usepackage{adjustbox}
 \usepackage{wrapfig}
+\usepackage{stix}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{chngcntr}
@@ -45,6 +46,8 @@ Er zijn twee belangrijke maatstaffen waarmee we de efficiëntie van een renderal
 \subsection{Relevantie}
 Vrijwel alles is tegenwoordig op een manier gerenderd. Objecten zijn gedesigned met gebruik van CAD\footnote{\textbf{C}omputer \textbf{A}ided \textbf{D}esign}. Besturingssytemen runnen op een grafische shell. En een meerendeel van advertenties gebruikt CGI.
 % Beschrijven hoe renderen voorkomt in het dagelijkse leven
+
+Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render farm van pixar 24000 processor cores verdeeld over 2000 computers. Er wordt dus waarschijnlijk gebruik gemaakt van computers met \(24000/2000=12\) cores. De Ryzen 9 5900x is een voorbeeld van een processor met 12 cores, het energiegebruik zal niet exact hetzelfde zijn maar het ligt bij elkaar in de buurt. De 5900x gebruikt 105 Watt. \(105W\cdot 2000\approx 2,10\cdot 10^5W\). Volgens dezelfde bron kostte het renderen van Monster's University twee jaar. Dat is \(2\cdot 365\cdot 24\approx17520h\). \[210kW \cdot 17520h\approx 3679200kWh\] Een gemiddeld huishouden in Nederland gebruikt 2479 kWh per jaar. Dit betekent dat het renderen van Monster's University \(3679200/2479\approx 1484\) huishoudens een jaar lang van energie had kunnen voorzien. En dat is alleen nog maar de processorkracht, er gaat ook nog energie naar de moederborden, het geheugen, de koeling en de harde schijven. Kortom, er valt een hoop te besparen.
 % Beschrijven hoeveel energie renderen kan kosten
 % Impact klimaat
 \subsection{Onderzoeksvraag/deelvragen}
@@ -86,6 +89,8 @@ Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermet
     \caption{Een diagram die laat zien hoe raytracen werkt}
     \label{fig:raytracing_diagram}
 \end{figure}
+
+
 \subsection{Wat is rasterization?}
 \subsection{Wat zijn polygonen?}
 \subsection{Wat is raymarching?}
@@ -109,6 +114,9 @@ Maar toch heb ik daar niet voor gekozen. Dit is omdat OpenGL heel goed is in het
 \subsubsection{Integrated Development Environment}
 Ik ga al mijn programmeren doen in Visual Studio Code\footnote{https://code.visualstudio.com/} omdat het een mooie simpele text editor is die precies doet wat ik wil. Het geeft goede IntelliSense\footnote{Verzamelnaam voor tools die helpen in het schrijven van code zoals: code completion en informatie over parameters}, syntax highlighting en het geeft een goed overzicht van het project. Bovendien heeft het een enorme markt van plugins die het product nog meer verbeteren. Zo gebruik ik de Vim keybinds plugin om de efficiënte workflow van de editor Vim\footnote{https://www.vim.org/} te emuleren. 
 \subsection{Programmeren}
+\subsubsection{Raylib uitproberen}
+\subsubsection{Header Hell}
+\subsubsection{Rotatie? Qu'est-que c'est?}
 \clearpage
 \section{Methode}
 \subsection{Variabelen}

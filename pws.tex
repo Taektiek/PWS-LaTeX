@@ -15,7 +15,6 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Renderen met raymarching is fucking lijp brooo. Iedereen zou het moeten doen eigenlijk.
 \end{abstract}
 \clearpage
 \tableofcontents{}
@@ -51,18 +50,32 @@ Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render f
 % Beschrijven hoeveel energie renderen kan kosten
 % Impact klimaat
 \subsection{Onderzoeksvraag/deelvragen}
+\subsubsection{Hoofdvraag WIP}
+In welke situaties is raymarching een efficiëntere rendertechniek dan polygonaal renderen?
+\subsubsection{Deelvragen WIP}
+\begin{itemize}
+\item{Hoe beschrijf je een driedimensionale vorm?}
+\item{Hoe werkt raytracing?}
+\item{Hoe werkt raymarching?}
+\item{Hoe werkt rasterization?}
+\item{Hoe beschrijf je een vorm zodat het gerenderd kan worden met raymarching?}
+\item{Hoeveel geheugen neemt polygonaal renderen in?}
+\item{Hoeveel geheugen neemt renderen met raymarching in?}
+\item{Hoe snel is renderen met raymarching vergeleken met polygonaal renderen?}
+\item{Hoe kan je met raymarching objecten modelleren?}
+\end{itemize}
 \clearpage
 \section{Theorie}
 \subsection{Wat is renderen?}
 \paragraph{}
 Renderen is, in feite, het weergeven van een representatie van een concept op een beeldscherm. Wij zijn voortdurend bezig met het interacteren met computers, en die interactie verloopt via het beeldscherm. Maar de computer kan uit zichzelf niet zomaar alles tekenen. Daar worden allemaal algoritmes voor geschreven. Een voorbeeld van zo'n algoritme is het tekenen van een rechthoek. In pseudocode zou je dat als volgt voor kunnen stellen:
 \begin{lstlisting}[language=C]
-function drawRectangle(x1, x2, y1, y2) {
-	for (x = x1; x < x2; x++) {
-		for (y = y1; y < y2; y++) {
-			drawPixel(x, y);
-		}
-	}
+drawRectangle(x1, x2, y1, y2) {
+   for (x = x1; x < x2; x++) {
+     for (y = y1; y < y2; y++) {
+         drawPixel(x, y);
+      }
+   }
 }
 \end{lstlisting}
 \paragraph{}
@@ -90,9 +103,15 @@ Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermet
     \label{fig:raytracing_diagram}
 \end{figure}
 
+\subsection{Wat zijn polygonen?}
 
 \subsection{Wat is rasterization?}
-\subsection{Wat zijn polygonen?}
+In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar we vandaag de dag toegang tot hebben. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(\frac{1}{2^{20}}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes zoals raytracing toe te passen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
+
+De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan je de vorm gewoon invullen, wat een vrij goedkoop proces is.
+
+ 
+
 \subsection{Wat is raymarching?}
 \subsection{Hoe werkt het geheugen?}
 \clearpage
@@ -102,7 +121,7 @@ Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermet
 \subsection{Hardware}
 \subsection{Software}
 \subsubsection{Besturingssysteem}
-Het uitvoeren en programmeren van de code zal volledig met Linux gedaan worden. Deze keuze is om meerdere redenen gemaakt. Ten eerste is Linux de standaardkeuze voor developers om te ontwikkelen. Windows en MacOS zijn ontwikkeld als product voor de gebruiker, terwijl Linux ontwikkeld is voor stabiliteit en 	betrouwbaarheid. Dit heeft als effect dat er met Linux veel minder tegen het besturingssysteem in gewerkt hoeft te worden. Bovendien zijn alle tools die gebruikt worden voor dit onderzoek FOSS\footnote{\textbf{F}ree and \textbf{O}pen \textbf{S}ource \textbf{S}oftware}, en daardoor voor zowel Windows als Linux beschikbaar. Dus qua support maakt het geen verschil.
+Het uitvoeren en programmeren van de code zal volledig met Linux gedaan worden. Deze keuze is om meerdere redenen gemaakt. Ten eerste is Linux de standaardkeuze voor developers om te ontwikkelen. Windows en MacOS zijn ontwikkeld als product voor de gebruiker, terwijl Linux ontwikkeld is voor stabiliteit en betrouwbaarheid. Dit heeft als effect dat er met Linux veel minder tegen het besturingssysteem in gewerkt hoeft te worden. Bovendien zijn alle tools die gebruikt worden voor dit onderzoek FOSS\footnote{\textbf{F}ree and \textbf{O}pen \textbf{S}ource \textbf{S}oftware}, en daardoor voor zowel Windows als Linux beschikbaar. Dus qua support maakt het geen verschil.
 
 Als distributie\footnote{Linux zelf is slechts een \emph{kernel} die de interactie tussen de hardware en de software regelt. Bovenop deze \emph{kernel} bestaan distributies die het een werkend besturingssysteem maken.} is voor Manjaro\footnote{https://manjaro.org/} gekozen. Dit is een fork van Arch Linux. Arch Linux staat erom bekend dat het altijd de nieuwste versie van software support. Dit komt doordat het een \emph{rolling release model} heeft, in tegenstelling tot \emph{fixed release}, waar distributies zoals Debian gebruik van maken. Bovendien heeft Arch Linux toegang tot de Arch User Repository (AUR). Dat is een enorme collectie van software die gebruikers zelf kunnen uploaden naar de Arch servers, met helpers zoals \emph{yay} kan je met één commando vrijwel alle software die beschikbaar is op GNU/Linux op de computer installeren. De combinatie van deze voordelen maken Arch Linux een erg aantrekkelijke distributie om te gebruiken als programmeur. Manjaro voegt de rest van de functies toe aan het besturingssysteem, zoals een Desktop Environment (DE) en een terminal.
 \subsubsection{Programmeertaal}
@@ -114,6 +133,16 @@ Maar toch heb ik daar niet voor gekozen. Dit is omdat OpenGL heel goed is in het
 \subsubsection{Integrated Development Environment}
 Ik ga al mijn programmeren doen in Visual Studio Code\footnote{https://code.visualstudio.com/} omdat het een mooie simpele text editor is die precies doet wat ik wil. Het geeft goede IntelliSense\footnote{Verzamelnaam voor tools die helpen in het schrijven van code zoals: code completion en informatie over parameters}, syntax highlighting en het geeft een goed overzicht van het project. Bovendien heeft het een enorme markt van plugins die het product nog meer verbeteren. Zo gebruik ik de Vim keybinds plugin om de efficiënte workflow van de editor Vim\footnote{https://www.vim.org/} te emuleren. 
 \subsection{Programmeren}
+\subsubsection{Specificaties}
+Voor het onderzoek ga ik twee verschillende renderers ontwikkelen. De eerste gebruikt raytracing, en de objecten worden beschreven met raymarching. De tweede gebruikt ook raytracing alleen worden de objecten polygonaal beschreven. Het is voor het onderzoek belangrijk dat de twee algoritmes zo veel mogelijk op elkaar lijken, zodat het vergelijkende onderzoek iets objectiefs kan zeggen over de effectiviteit van de verschillende technieken. Vandaar dat hier eerst de specificaties worden beschreven waar de algoritmes aan zullen moeten doen. Deze specificaties kunnen uitgebreid worden of ingekort gebaseerd op de progressie over de tijd.
+
+De renderer moet kunnen renderen vanuit een \textbf{camera} die een bepaalde positie en draaiing heeft binnen de driedimensionale ruimte. De camera heeft ook een \emph{field of view} (fov), die aangeeft hoe breed het zichtveld is. Uit de camera komt uit elke pixel een \emph{ray}. De resolutie van het beeldscherm wordt in het programma aangegeven. Waarschijnlijk willen we renderen op een resolutie van \(500\times 500\). De \emph{rays} hebben ook een positie en een rotatie. De \emph{ray} zal een methode hebben die de plaats van raaking met een object teruggeeft. De objecten zijn uiteraard anders beschreven in de twee verschillende programma's, maar ze hebben wel delen gemeen. Zo heeft een object altijd een positie, een draaiing en een grootte. Verder zal elk object materiaal-eigenschappen hebben.
+%Materiaaleigenschappen bedenken (kleur, roughness etc.)
+Bovendien willen we een aantal primitieve vormen hebben die standaard beschikbaar zijn. Voor raymarching zal dit triviaal zijn aangezien elke vorm slechts een \emph{signed distance function} is. Maar voor het polygonale renderen moeten hier nog aparte algoritmes voor komen.
+
+De eerste generatie van de algoritmes zal gebruik maken van de diepteinformatie om de kleur te bepalen. Hoe verder hoe donkerder. Dit zal niet voor mooie resultaten zorgen maar het is een goede manier om de werking van de verschillende technieken te testen. In deze fase zijn er nog geen lichten nodig.
+
+Hierna, in de tweede generatie, introduceren we lichten. Als een \emph{ray} het object raakt kaatsen we het af naar het licht. We testen of het een ander object raakt om te kijken of er een schaduw getekend moet worden. Verder meten we de afstand van het raakpunt tot de lichten om te bepalen hoe belicht dat punt is. Om de intensiteit te bepalen van een lichtstraal gebruiken we de omgekeerde kwadratenwet.
 \subsubsection{Raylib uitproberen}
 \subsubsection{Header Hell}
 \subsubsection{Rotatie? Qu'est-que c'est?}

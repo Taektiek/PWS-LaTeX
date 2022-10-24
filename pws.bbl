@@ -17,9 +17,20 @@ Alwani, R. (2018).
 Anderson, M. (2021).
 \newblock Nerf moves another step closer to replacing cgi.
 
+\bibitem[Chaitanya et~al., 2017]{MonteCarloDenoiser}
+Chaitanya, C. R.~A., Kaplanyan, A.~S., Scheid, C., Salvi, M., Lefohn, A.,
+  Nowrouzezahrai, D., and Aila, T. (2017).
+\newblock Interactive reconstruction of monte carlo image sequences using a
+  recurrent denoising autoencoder.
+
 \bibitem[Clay, 1990]{MakingOfBoredRoom}
 Clay, J. (1990).
 \newblock Making of bored room (production).
+
+\bibitem[Gambetta, 2021]{ComputerGraphicsFromScratch}
+Gambetta, G. (2021).
+\newblock {\em Computer Graphics from Scratch}.
+\newblock No Starch Press.
 
 \bibitem[Lehrer, 2010]{HowToyStory3WasMade}
 Lehrer, J. (2010).
@@ -28,5 +39,9 @@ Lehrer, J. (2010).
 \bibitem[Moore, 1965]{CrammingComponents}
 Moore, G. (1965).
 \newblock Cramming more components onto integrated circuits.
+
+\bibitem[Phong, 1975]{PhongReflectionModel}
+Phong, B.~T. (1975).
+\newblock Illumination for computer generated images.
 
 \end{thebibliography}

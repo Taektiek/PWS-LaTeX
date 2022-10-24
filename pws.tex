@@ -5,6 +5,7 @@
 \usepackage{adjustbox}
 \usepackage{wrapfig}
 \usepackage{stix}
+\usepackage{amsmath}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{chngcntr}
@@ -82,7 +83,7 @@ drawRectangle(x1, x2, y1, y2) {
 Het algoritme beschouwt elke pixel die binnen de rechthoek valt en kleurt die pixel. In dit geval wordt dat gedaan door twee loops, die samen alle mogelijke combinaties van x- en y-coördinaten doorlopen. 
 
 \paragraph{}
-Renderen omvat, in principe, niks anders dan het aansturen van individuele pixels. Zo'n pixel heeft op de meeste moderne beeldschermen drie waarden die de kleur aansturen: R, G en B, die respectievelijk staan voor rood, groen en blauw. Ze kunnen een geheel getal tussen de 0 en 255 aannemen wat resulteert in 224 mogelijke kleuren.
+Renderen omvat, in principe, niks anders dan het aansturen van individuele pixels. Zo'n pixel heeft op de meeste moderne beeldschermen drie waarden die de kleur aansturen: R, G en B, die respectievelijk staan voor rood, groen en blauw. Ze kunnen een geheel getal tussen de 0 en 255 aannemen wat resulteert in \(2^{24}\) mogelijke kleuren.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{RGB_channels_separation.png}
@@ -92,9 +93,29 @@ Renderen omvat, in principe, niks anders dan het aansturen van individuele pixel
 
 \paragraph{}
 Renderen doen we op een twee-dimensionaal beeldscherm. Dat betekent dat de positie van elke pixel te beschrijven is met twee waarden. Maar de wereld om ons heen kent niet twee, maar drie ruimtelijke dimensies. Door licht dat op ons netvlies valt na weerkaatst te zijn door verschillende objecten kunnen wij die wereld representeren in onze hersenen op een tweedimensionale manier. Camera's gebruiken een gelijksoortige techniek, de lens neemt het licht en projecteert het op een sensor die de intensiteit en de kleur waarneemt. Met het renderen van driedimensionale objecten proberen we deze processen na te bootsen. 
+
+\subsection{De rendervergelijking}
+\[
+L_{\text{o}}(\mathbf x, \omega_{\text{o}}, \lambda, t) = L_{\text{e}}(\mathbf x, \omega_{\text{o}}, \lambda, t) \ + \int_\Omega f_{\text{r}}(\mathbf x, \omega_{\text{i}}, \omega_{\text{o}}, \lambda, t) L_{\text{i}}(\mathbf x, \omega_{\text{i}}, \lambda, t) (\omega_{\text{i}}\cdot\mathbf n) \operatorname d \omega_{\text{i}}
+\]
+
+\subsection{Wat is rasterization?}
+In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar we vandaag de dag toegang tot hebben. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(\frac{1}{2^{20}}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes zoals raytracing toe te passen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
+
+De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan je de vorm gewoon invullen, wat een vrij goedkoop proces is.
+
+Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. Een voorbeeld van zo'n truc is het \emph{Phong Reflection Model} \cite{PhongReflectionModel}. Hierbij wordt de belichting van een object opgesplitst in drie delen: Ambient, Diffuse en Specular. Samen geeft dit dan een idee van hoe een object er in het echt uit zou kunnen zien. Dit model kent geen ondersteuning voor schaduwen of reflecties.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Phong_components.png}
+\caption{De verschillende componenten van het \emph{Phong Reflection Model}.}
+\label{fig:phong_components}
+\end{figure}
 \subsection{Wat is raytracing?}
 
-Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermethode. Het ligt het dichtst in de buurt van het simuleren van echt licht. Het belangrijkste verschil tussen raytracen en licht in onze fysieke wereld is dat we met raytracen alleen het licht beschouwen wat zichtbaar is voor ons perspectief. Om dit te bereiken voeren we de lichtstralen niet af vanuit de lichtbron, maar vanuit de camera, vervolgens kaatsen we de straal af naar de lichtbron om te kijken hoe vel die plek zou zijn, en of er een ander object in de weg zit die een schaduw zou kunnen werpen. Op Figuur \ref{fig:raytracing_diagram} is zichtbaar hoe dat raytracen in werking gaat.
+Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbron miljoenen lichtstralen af te vuren, die laat je door de scène kaatsen totdat ze het zichtveld van de observeerder raken. In theorie is dit de realistische benadering, en ook exact wat de rendervergelijking op het eerste oog impliceert. Deze methode wordt \emph{photon tracing} genoemd, naar de naam van lichtdeeltjes: fotonen. Maar in de werkelijkheid is dit vrijwel onmogelijk. Maar een klein gedeelte van de lichtstralen bereikt daadwerkelijk ooit de camera, wat betekent dat verreweg de meeste berekeningen die gemaakt worden geen invloed hebben op het uiteindelijke eindbeeld. 
+
+Om dit probleem op te lossen vuren we de stralen niet af vanuit de lichtbronnen, maar vanuit de camera. Voor elke pixel op het scherm wordt een straal door het zichtveld afgevuurd. Als die straal een object raakt kaatsen we die vervolgens af naar de lichtbronnen om te kijken hoe sterk die pixel belicht moet zijn, en of er eventueel een object in de weg zit die een schaduw zou werpen. Bovendien kunnen we de stralen door laten kaatsen tussen objecten, hiermee kunnen we een model van reflectie benaderen. 
 
 \begin{figure}[h]
     \centering
@@ -103,15 +124,23 @@ Raytracing zou gezien kunnen worden als de meest voor de hand liggende rendermet
     \label{fig:raytracing_diagram}
 \end{figure}
 
+Het renderen wordt met deze methode al een stuk meer te overzien. Voor het genereren van een plaatje van \(1000\times 1000\) pixels vuren we een miljoen stralen af, wat klinkt alsof het veel is. Maar voor moderne computers is dat zeker haalbaar. Pas als we reflecties toe gaan passen lopen we tegen een klein probleem aan, omdat de rendertijd dan polynomiaal groeit met het aantal objecten in de scène. Dit is omdat we elk object moeten testen met ieder ander, wat zorgt voor een kwadratisch verband.
+
+\subsection{Wat is global illumination?}
+De methode die hierboven beschreven staat is niet perfect. Als een straal een object ziet tussen het raakpunt en de lichtbron wordt dat punt helemaal niet belicht. Dit is omdat het algoritme niet berekent hoe het licht door de kamer heen kaatst vanuit de lichtbron. Dat concept heet \emph{global illumination}. Het benaderen van \emph{global illumination} is in principe hetzelfde probleem als het benaderen van de rendervergelijking. Dit betekent dat we technieken uit de wiskunde voor het numeriek oplossen van integralen direct toe kunnen passen op de rendervergelijking, waarmee we realistische beelden kunnen tekenen. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{global_illumination.png}
+    \caption{Een plaatje gerenderd met \emph{global illumination}.}
+    \label{fig:global_illumination}
+\end{figure}
+
+Eén van die technieken valt binnen de categorie van Monte-Carlosimulaties. Monte-Carlosimulaties gebruiken een willekeurig element  om in principe deterministische problemen op te lossen. Bij de rendervergelijking manifesteert dit zich in \emph{path tracing}. Bij \emph{path tracing} worden bij elk geraakt punt willekeurige nieuwe stralen afgevuurd, deze kaatsen door totdat ze een licht bereikt hebben. We komen hier bij hetzelfde probleem als eerder besproken terecht, de kans op het raken van een licht is niet erg groot. Hiertoe zijn twee belangrijke oplossingen. De eerste is \emph{bidirectional path tracing}, hier wordt tegelijk een straal vanuit de camera afgevuurd als van het licht. Na een bepaalde hoeveelheid kaatsen worden de twee verbonden waardoor er altijd een pad van de camera naar het licht is. De andere oplossing wordt \emph{importance sampling} genoemd. Daarbij is de distributie van de willekeurig afgekaatste lichtstralen niet uniform, er worden meer stralen richting de lichtbronnen afgekaatst. Hierdoor bereiken de stralen natuurlijk sneller de lichtbronnen. Met genoeg \emph{samples}\footnote{Hoeveelheid stralen} geeft dit algoritme een bijna perfecte benadering van de rendervergelijking, dat maakt het ook de industriële standaard van het moment. Maar het is relatief inefficiënt, dit komt doordat er met te weinig \emph{samples} veel ruis in het plaatje ontstaat. Dit is simpel te verklaren, omdat het algoritme fundamenteel willekeurig is zullen sommige pixels meer licht vinden dan die er direct naast. Puur omdat ze 'geluk' hadden. Slechts de limiet van het aantal \emph{samples} naar oneindig zou een werkelijk antwoord geven op de rendervergelijking. Daarom is er altijd een compromis met hoeveel tijd je wil besteden aan het renderen van een frame en de kwaliteit van het resultaat. Steeds vaker wordt kunstmatige intelligente gebruikt om die ruis weg te nemen of te verminderen \cite{MonteCarloDenoiser} maar in de industrie is dat nog steeds niet de norm. 
+
+Een andere manier om integralen op te lossen is de eindige-elementenmethode
+
 \subsection{Wat zijn polygonen?}
-
-\subsection{Wat is rasterization?}
-In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar we vandaag de dag toegang tot hebben. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(\frac{1}{2^{20}}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes zoals raytracing toe te passen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
-
-De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan je de vorm gewoon invullen, wat een vrij goedkoop proces is.
-
- 
-
 \subsection{Wat is raymarching?}
 \subsection{Hoe werkt het geheugen?}
 \clearpage
@@ -136,16 +165,39 @@ Ik ga al mijn programmeren doen in Visual Studio Code\footnote{https://code.visu
 \subsubsection{Specificaties}
 Voor het onderzoek ga ik twee verschillende renderers ontwikkelen. De eerste gebruikt raytracing, en de objecten worden beschreven met raymarching. De tweede gebruikt ook raytracing alleen worden de objecten polygonaal beschreven. Het is voor het onderzoek belangrijk dat de twee algoritmes zo veel mogelijk op elkaar lijken, zodat het vergelijkende onderzoek iets objectiefs kan zeggen over de effectiviteit van de verschillende technieken. Vandaar dat hier eerst de specificaties worden beschreven waar de algoritmes aan zullen moeten doen. Deze specificaties kunnen uitgebreid worden of ingekort gebaseerd op de progressie over de tijd.
 
-De renderer moet kunnen renderen vanuit een \textbf{camera} die een bepaalde positie en draaiing heeft binnen de driedimensionale ruimte. De camera heeft ook een \emph{field of view} (fov), die aangeeft hoe breed het zichtveld is. Uit de camera komt uit elke pixel een \emph{ray}. De resolutie van het beeldscherm wordt in het programma aangegeven. Waarschijnlijk willen we renderen op een resolutie van \(500\times 500\). De \emph{rays} hebben ook een positie en een rotatie. De \emph{ray} zal een methode hebben die de plaats van raaking met een object teruggeeft. De objecten zijn uiteraard anders beschreven in de twee verschillende programma's, maar ze hebben wel delen gemeen. Zo heeft een object altijd een positie, een draaiing en een grootte. Verder zal elk object materiaal-eigenschappen hebben.
-%Materiaaleigenschappen bedenken (kleur, roughness etc.)
-Bovendien willen we een aantal primitieve vormen hebben die standaard beschikbaar zijn. Voor raymarching zal dit triviaal zijn aangezien elke vorm slechts een \emph{signed distance function} is. Maar voor het polygonale renderen moeten hier nog aparte algoritmes voor komen.
+De renderer moet kunnen renderen vanuit een \textbf{camera} die een bepaalde positie heeft binnen de driedimensionale ruimte. De camera heeft ook een \emph{field of view} (fov), die aangeeft hoe breed het zichtveld is. Uit de camera komt uit elke pixel een \emph{ray} die snijdt met de \emph{viewport}. De resolutie van het beeldscherm wordt in het programma aangegeven. Waarschijnlijk willen we renderen op een resolutie van \(500\times 500\). De \emph{rays} worden beschreven als parametrische vergelijking. Hierdoor kan de parameter \(t\) gebruikt worden om de straal te snijden met de objecten. De objecten zijn uiteraard anders beschreven in de twee verschillende programma's, maar ze hebben wel delen gemeen. Zo heeft een object altijd een positie, een draaiing en een grootte. Verder wordt het materiaal van elk object beschreven met een kleur, de \emph{specularity} en het reflectievermogen. De kleur wordt beschreven met RGBA, met waarden op \([0, 255]\). De \emph{specularity} geeft de macht waarmee de cosinus die de verspreiding van de \emph{highlights} beschrijft wordt verheven. Het reflectievermogen is een getal op \([0, 1]\) die het aandeel van de kleur beschrijft die komt uit reflecties. Bovendien willen we een aantal primitieve vormen hebben die standaard beschikbaar zijn. Voor raymarching zal dit triviaal zijn aangezien elke vorm slechts een \emph{signed distance function} is. Maar voor het polygonale renderen moeten hier nog aparte algoritmes voor komen. De vormen die ondersteund moeten worden zijn als volgt:
+\begin{itemize}
+	\item Bol
+	\item Vlak
+	\item Driehoek
+	\item Balk
+	\item Ellipsoïde
+	\item Cylinder
+\end{itemize}
 
-De eerste generatie van de algoritmes zal gebruik maken van de diepteinformatie om de kleur te bepalen. Hoe verder hoe donkerder. Dit zal niet voor mooie resultaten zorgen maar het is een goede manier om de werking van de verschillende technieken te testen. In deze fase zijn er nog geen lichten nodig.
+Verder zijn er ook verschillende soorten lichten mogelijk. Die nemen drie typen aan:
+\begin{itemize}
+	\item Ambient
+	\item Point
+	\item Directional
+\end{itemize}
+Alle lichten hebben een intensiteit, die aangeeft hoe vel dat licht is. Ambient lichten belichten de hele scène met een standaard hoeveelheid, er wordt hierbij dus geen rekening gehouden met schaduwen. Ambient lichten hebben maar één waarde: de intensiteit, die een waarde op \([0, 1]\) aanneemt. Point lichten hebben daarbij ook nog een positie, bovendien kan de intensiteit hoger dan 1 zijn. Directional lichten hebben geen positie maar een richting, en hebben ook een intensiteit die hoger kan zijn dan 1.
 
-Hierna, in de tweede generatie, introduceren we lichten. Als een \emph{ray} het object raakt kaatsen we het af naar het licht. We testen of het een ander object raakt om te kijken of er een schaduw getekend moet worden. Verder meten we de afstand van het raakpunt tot de lichten om te bepalen hoe belicht dat punt is. Om de intensiteit te bepalen van een lichtstraal gebruiken we de omgekeerde kwadratenwet.
+De camera, alle objecten en de lichten worden allemaal beschreven met een Scene() object. Die heeft de methodes AddSDFObject(), AddPolygon(), AddPolygonalPrimitive() en AddLight(). De scène zal in een los bestand van de rest van de code beschreven worden.
 \subsubsection{Raylib uitproberen}
-\subsubsection{Header Hell}
-\subsubsection{Rotatie? Qu'est-que c'est?}
+\subsubsection{Computer Graphics From Scratch}
+Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een renderer kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde heb je een programma die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. 
+\subsubsection{Raytracing}
+\subsubsection{Diffusion}
+\subsubsection{Specular Highlights}
+\subsubsection{Schaduwen}
+\subsubsection{Reflecties}
+\subsubsection{Raymarching}
+\subsubsection{Driehoeken}
+\subsubsection{Polygonale primitieven}
+\subsubsection{Radiosity}
+\subsubsection{Interface}
+\subsubsection{Meten}
 \clearpage
 \section{Methode}
 \subsection{Variabelen}

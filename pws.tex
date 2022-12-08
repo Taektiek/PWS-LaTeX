@@ -6,16 +6,24 @@
 \usepackage{wrapfig}
 \usepackage{stix}
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
 \title{Efficiëntie van raymarching in renderen}
 \author{Taeke Roukema}
-\date{Oktober 2022}
+\date{December 2023}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
 \begin{document}
 \maketitle
 \begin{abstract}
+Renderen met raymarching
 \end{abstract}
 \clearpage
 \tableofcontents{}
@@ -53,6 +61,12 @@ Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render f
 \subsection{Onderzoeksvraag/deelvragen}
 \subsubsection{Hoofdvraag WIP}
 In welke situaties is raymarching een efficiëntere rendertechniek dan polygonaal renderen?
+
+Vergelijking van twee rendermethoden in rendersnelheid en geheugenbezetting.
+
+Vergelijking van raymarching en polygonaal renderen in rendersnelheid en geheugenbezetting.
+
+Hoe wegen raymarching en polygonaal renderen tegen elkaar op in rendersnelheid en geheugenbezetting?
 \subsubsection{Deelvragen WIP}
 \begin{itemize}
 \item{Hoe beschrijf je een driedimensionale vorm?}
@@ -70,15 +84,19 @@ In welke situaties is raymarching een efficiëntere rendertechniek dan polygonaa
 \subsection{Wat is renderen?}
 \paragraph{}
 Renderen is, in feite, het weergeven van een representatie van een concept op een beeldscherm. Wij zijn voortdurend bezig met het interacteren met computers, en die interactie verloopt via het beeldscherm. Maar de computer kan uit zichzelf niet zomaar alles tekenen. Daar worden allemaal algoritmes voor geschreven. Een voorbeeld van zo'n algoritme is het tekenen van een rechthoek. In pseudocode zou je dat als volgt voor kunnen stellen:
-\begin{lstlisting}[language=C]
-drawRectangle(x1, x2, y1, y2) {
-   for (x = x1; x < x2; x++) {
-     for (y = y1; y < y2; y++) {
-         drawPixel(x, y);
-      }
-   }
-}
-\end{lstlisting}
+\begin{algorithm}
+\caption{Rechthoek Algoritme}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{DrawRectangle}{x1, x2, y1, y2}
+    \For{$x \gets x1$ to $x2$}             
+	    \For{$y \gets y1$ to $y2$}             
+		\State $\text{draw pixel at }(x, y)$
+	    \EndFor
+    \EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
 \paragraph{}
 Het algoritme beschouwt elke pixel die binnen de rechthoek valt en kleurt die pixel. In dit geval wordt dat gedaan door twee loops, die samen alle mogelijke combinaties van x- en y-coördinaten doorlopen. 
 
@@ -141,7 +159,61 @@ Eén van die technieken valt binnen de categorie van Monte-Carlosimulaties. Mont
 Een andere manier om integralen op te lossen is de eindige-elementenmethode
 
 \subsection{Wat zijn polygonen?}
+Een polygoon is, in zijn elementairste vorm, een eindig aantal 1ijnstukken die met elkaar verbonden zijn in een polygonale lijn. Dit houdt in dat elk uiteinde van een lijnstuk het begin van een nieuwe betekent. Bovendien betekent dit dat de lijnstukken altijd één keten vormen. 
+
+Bij computer graphics hebben we het altijd over simpele polygonen. Deze polygonen snijden zichzelf niet en hebben geen gaten. Die simpele polygonen hebben een handige eigenschap, ze zijn altijd op te delen in driehoeken. Die driehoeken liggen altijd op een vlak, waar makkelijk een lijn mee te snijden valt. Vervolgens zijn er andere strategieën waarme te bepalen valt of dat punt in de driehoek ligt. 
+
+Driedimensionale vormen worden met moderne rendertechnieken vrijwel altijd beschreven met deze polygonen. De vorm wordt dan een \emph{mesh} genoemd.
+
+\subsection{Hoe wordt een mesh opgeslagen?}
+Er zijn twee hoofdtechnieken: \emph{vertex-vertex meshes} \cite{VVSystems} en \emph{face-vertex meshes}. De \emph{vertex-vertex meshes} of VV-meshes bevatten één lijst die alle punten beschrijft. Daarnaast staan alle verbindingen die dat punt heeft met andere punten. In theorie minimaliseer je met deze techniek de geheugenbezetting. Echter maakt het het ontleden van driehoeken uit de vorm erg complex. Daarvoor zijn FV-meshes geschikter. Daar wordt van twee lijsten gebruik gemaakt. De eerste bevat weer alle punten, echter worden in plaats van de andere punten waarmee die verbonden zijn de verbonden vlakken beschreven. De andere lijst beschrijft al die vlakken en de hoekpunten ervan. De vlakken kunnen alleen driehoeken beschrijven, maar het eerder genoemde polygonale triangulatie principe betekent dat enige polygonale vorm hiermee beschreven kan worden.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Vertex-Vertex_Meshes.png}
+    \caption{Voorbeeld van VV-representatie van een mesh.}
+    \label{fig:vertex_vertex}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Face-Vertex_Meshes.jpg}
+    \caption{Voorbeeld van FV-representatie van een mesh.}
+    \label{fig:face_vertex}
+\end{figure}
+
 \subsection{Wat is raymarching?}
+Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet sphere tracing. Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde van de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
+\begin{algorithm}
+\caption{Raymarch Algoritme}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{MarchRay}{pos, rot, obj, $\epsilon$}
+\State $\textit{r} \gets \text{distance between }\textit{pos}\text{ and }\textit{obj}$
+\While{$r  < \epsilon$}
+\State $\textit{pos} \gets \textit{pos} + \textit{rot} \cdot r$
+\State $\textit{r} \gets \text{distance between }\textit{pos}\text{ and }\textit{obj}$
+\EndWhile
+\Return $\textit{pos}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Wat zijn SDFs?}
+Het bepalen van de afstand van een punt tot het dichstbijzijnde punt op een vorm wordt gedaan met zogeheten \emph{signed distance}-functies. \emph{Signed} staat in deze term voor het feit dat aan de binnenkant van de vorm de functie een negatief getal geeft. De functie van een bol met middelpunt \(C\) en straal \(r\) is bijvoorbeeld als volgt:
+\[\phi (x)=\left |x-C \right | -r\]
+SDFs zijn enorm nuttig omdat we bewerkingen op deze formule toe kunnen passen waardoor we met vrijwel geen rekenkracht complexe vormen kunnen creëren. 
+
+Neem vorm $\phi_1$ en vorm $\phi_2$. Als je de \emph{union}\footnote{De vormen samengevoegd} wil nemen van de vormen gebruik je de volgende simpelweg de volgende formule: 
+\[\phi_{u(1,2)}=min(\phi_1, \phi_2)\]
+De \emph{subtraction}\footnote{De ene vorm van de andere afgetrokken} wordt als volgt berekend:
+\[\phi_{s(1,2)}=max(-\phi_1, \phi_2)\]
+En de \emph{intersection}\footnote{Het deel wat bij beide vormen hoort} zo:
+\[\phi_{i(1,2)}=max(\phi_1, \phi_2)\]
+Dit worden de boolean operaties genoemd, en staan respectievelijk voor: OR, NOT en AND.
+
+Een andere interessante operatie is de modulus, hiermee is het mogelijk om een vorm voor eeuwig te laten herhalen. Voor een periode $c$ en een SDF $\phi$ is de formule hiervoor:
+\[\phi_{mod}= \phi +\frac{1}{2}c\mod{c}\]
+
 \subsection{Hoe werkt het geheugen?}
 \clearpage
 \section{Hypothese}
@@ -193,8 +265,12 @@ Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer 
 \subsubsection{Schaduwen}
 \subsubsection{Reflecties}
 \subsubsection{Raymarching}
+\subsubsection{SDFs}
+\subsubsection{SDF operaties}
 \subsubsection{Driehoeken}
+\subsubsection{Mesh Representatie}
 \subsubsection{Polygonale primitieven}
+\subsubsection{Translatie, rotatie en schaling}
 \subsubsection{Radiosity}
 \subsubsection{Interface}
 \subsubsection{Meten}
@@ -216,6 +292,7 @@ Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer 
 \clearpage
 \section{Nawoord}
 Bedankt aan mijn moeder Arria Gosman.
+Bedankt aan Ina, voor haar mentale steun.
 \clearpage
 \section{Literatuurlijst}
 \bibliographystyle{apalike}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.10.2)  19 OCT 2022 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  8 DEC 2022 11:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -318,69 +318,109 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
 )
-(/usr/share/texmf-dist/tex/latex/chngcntr/chngcntr.sty
+(/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count285
+\float@exts=\toks27
+\float@box=\box59
+\@float@everytoks=\toks28
+\@floatcapt=\box60
+)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks29
+\c@algorithm=\count286
+)
+(/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count287
+\c@ALG@rem=\count288
+\c@ALG@nested=\count289
+\ALG@tlm=\skip54
+\ALG@thistlm=\skip55
+\c@ALG@Lnr=\count290
+\c@ALG@blocknr=\count291
+\c@ALG@storecount=\count292
+\c@ALG@tmpcounter=\count293
+\ALG@tmplength=\skip56
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 )
-LaTeX Font Info:    Trying to load font information for T1+stix on input line 1
-6.
+LaTeX Font Info:    Trying to load font information for T1+stix on input line 2
+3.
 
 (/usr/share/texmf-dist/tex/latex/stix/t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count285
-\l__pdf_internal_box=\box59
-) (./pws.aux)
+\l__color_backend_stack_int=\count294
+\l__pdf_internal_box=\box61
+) (./pws.aux
+
+LaTeX Warning: Label `euclid' multiply defined.
+
+)
 \openout1 = `pws.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 23.
 LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
-16.
-
-(/usr/share/texmf-dist/tex/latex/stix/ls1stix.fd
+23.
+ (/usr/share/texmf-dist/tex/latex/stix/ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 23.
 LaTeX Font Info:    Trying to load font information for LS2+stix on input line 
-16.
+23.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stix.fd
 File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 16.
-\c@lstlisting=\count286
+LaTeX Font Info:    ... okay on input line 23.
+\c@lstlisting=\count295
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count287
+\scratchcounter=\count296
 \scratchdimen=\dimen173
-\scratchbox=\box60
-\nofMPsegments=\count288
-\nofMParguments=\count289
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count290
+\scratchbox=\box62
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count299
 \MPscratchDim=\dimen174
-\MPnumerator=\count291
-\makeMPintoPDFobject=\count292
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -391,47 +431,47 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 17.
+ne 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 17.
+e 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 17.
+ine 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 17.
+e 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 17.
+ne 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 17.
+e 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 17.
+e 24.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
@@ -450,26 +490,26 @@ File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 <images//toystory3comparison.jpg, id=17, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
-Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 33
+Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 41
 .
 (pdftex.def)             Requested size: 195.0pt x 129.99982pt.
 <images//minecraftrtx.jpg, id=18, 3854.4pt x 2168.1pt>
 File: images//minecraftrtx.jpg Graphic file (type jpg)
 <use images//minecraftrtx.jpg>
-Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 40.
+Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 48.
 (pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 
-Underfull \hbox (badness 5490) in paragraph at lines 37--44
+Underfull \hbox (badness 5490) in paragraph at lines 45--52
 [] [] \T1/stix/m/n/12 Voor Toy Story 3 (Fi-guur 2.1[])
  []
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 37--44
+Underfull \hbox (badness 2591) in paragraph at lines 45--52
 \T1/stix/m/n/12 werd er ge-mid-deld ze-ven uur over
  []
 
 
-Underfull \hbox (badness 3989) in paragraph at lines 37--44
+Underfull \hbox (badness 3989) in paragraph at lines 45--52
 \T1/stix/m/n/12 ge-daan om een frame te ren-de-ren
  []
 
@@ -480,22 +520,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  <./images//toystory3comparison.jpg>] [6 <./images//minecraftrtx.jpg>]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
-58.
+72.
 
 (/usr/share/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 ) [7]
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-)
 <images//RGB_channels_separation.png, id=33, 401.5pt x 321.2pt>
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
-e 89.
+e 107.
 (pdftex.def)             Requested size: 195.0pt x 156.00237pt.
 
 
@@ -504,16 +538,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [8
 
 ]
-<images//Phong_components.png, id=37, 724.95844pt x 201.75375pt>
+<images//Phong_components.png, id=40, 724.95844pt x 201.75375pt>
 File: images//Phong_components.png Graphic file (type png)
 <use images//Phong_components.png>
-Package pdftex.def Info: images//Phong_components.png  used on input line 110.
+Package pdftex.def Info: images//Phong_components.png  used on input line 128.
 (pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
- [9 <./images//RGB_channels_separation.png>]
-<images//raytracing_diagram.png, id=44, 803.0pt x 533.995pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./images//RGB_channels_separation.png>]
+<images//raytracing_diagram.png, id=45, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 122
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 140
 .
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
 
@@ -521,60 +559,82 @@ Package pdftex.def Info: images//raytracing_diagram.png  used on input line 122
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [10 <./images//Phong_components.png (PNG copy)>]
-<images//global_illumination.png, id=49, 462.528pt x 346.896pt>
+<images//global_illumination.png, id=50, 462.528pt x 346.896pt>
 File: images//global_illumination.png Graphic file (type png)
 <use images//global_illumination.png>
-Package pdftex.def Info: images//global_illumination.png  used on input line 13
-4.
+Package pdftex.def Info: images//global_illumination.png  used on input line 15
+2.
 (pdftex.def)             Requested size: 292.5pt x 219.38724pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [11 <./images//raytracing_diagram.png>] [12 <./images//global_illumination.png>
-] [13
+]
+<images//Vertex-Vertex_Meshes.png, id=58, 571.38469pt x 421.575pt>
+File: images//Vertex-Vertex_Meshes.png Graphic file (type png)
+<use images//Vertex-Vertex_Meshes.png>
+Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 1
+73.
+(pdftex.def)             Requested size: 292.5pt x 215.81091pt.
+<images//Face-Vertex_Meshes.jpg, id=59, 702.625pt x 444.66125pt>
+File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
+<use images//Face-Vertex_Meshes.jpg>
+Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 180
+.
+(pdftex.def)             Requested size: 292.5pt x 185.11449pt.
 
-] [14
 
-] [15] [16] [17] [18] [19
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-] [20
+[13 <./images//Vertex-Vertex_Meshes.png>] [14 <./images//Face-Vertex_Meshes.jpg
+>] [15] [16
 
-] [21
+] [17
 
-] [22
+] [18] [19] [20] [21] [22
 
 ] [23
 
 ] [24
 
-] (./pws.bbl)
-[25
+] [25
 
 ] [26
 
-] (./pws.aux) ) 
+] [27
+
+] (./pws.bbl) [28
+
+] [29
+
+] (./pws.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 9207 strings out of 478238
- 133050 string characters out of 5850456
- 595909 words of memory out of 5000000
- 27327 multiletter control sequences out of 15000+600000
- 559035 words of font info for 130 fonts, out of 8000000 for 9000
+ 9546 strings out of 478238
+ 141451 string characters out of 5850455
+ 419681 words of memory out of 5000000
+ 27650 multiletter control sequences out of 15000+600000
+ 569290 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,90p,2029b,1166s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/sh
-are/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}</usr/share/texmf-dist/fonts/t
-ype1/public/stix/STIXGeneral-Bold.pfb></usr/share/texmf-dist/fonts/type1/public
-/stix/STIXGeneral-Italic.pfb></usr/share/texmf-dist/fonts/type1/public/stix/STI
-XGeneral-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathca
-l.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texmf-dis
-t/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/stix/stix-mathscr.pfb>
-Output written on pws.pdf (26 pages, 3382173 bytes).
+ 84i,10n,90p,2029b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/stix/stix-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/s
+tix/STIXGeneral-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGen
+eral-Italic.pfb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regu
+lar.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texmf-dist/
+fonts/type1/public/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/stix/stix-mathrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/sti
+x-mathrm.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></
+usr/share/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on pws.pdf (29 pages, 3556096 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 163 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

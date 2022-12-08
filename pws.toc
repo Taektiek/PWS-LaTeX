@@ -15,46 +15,52 @@
 \contentsline {paragraph}{}{8}{}%
 \contentsline {paragraph}{}{8}{}%
 \contentsline {paragraph}{}{8}{}%
-\contentsline {subsection}{\numberline {3.2}De rendervergelijking}{9}{}%
+\contentsline {subsection}{\numberline {3.2}De rendervergelijking}{8}{}%
 \contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{9}{}%
 \contentsline {subsection}{\numberline {3.4}Wat is raytracing?}{10}{}%
-\contentsline {subsection}{\numberline {3.5}Wat is global illumination?}{11}{}%
+\contentsline {subsection}{\numberline {3.5}Wat is global illumination?}{10}{}%
 \contentsline {subsection}{\numberline {3.6}Wat zijn polygonen?}{12}{}%
-\contentsline {subsection}{\numberline {3.7}Wat is raymarching?}{12}{}%
-\contentsline {subsection}{\numberline {3.8}Hoe werkt het geheugen?}{12}{}%
-\contentsline {section}{\numberline {4}Hypothese}{13}{}%
-\contentsline {section}{\numberline {5}Ontwikkeling}{14}{}%
-\contentsline {subsection}{\numberline {5.1}Hardware}{14}{}%
-\contentsline {subsection}{\numberline {5.2}Software}{14}{}%
-\contentsline {subsubsection}{\numberline {5.2.1}Besturingssysteem}{14}{}%
-\contentsline {subsubsection}{\numberline {5.2.2}Programmeertaal}{14}{}%
-\contentsline {subsubsection}{\numberline {5.2.3}Framework}{15}{}%
-\contentsline {subsubsection}{\numberline {5.2.4}Integrated Development Environment}{16}{}%
-\contentsline {subsection}{\numberline {5.3}Programmeren}{16}{}%
-\contentsline {subsubsection}{\numberline {5.3.1}Specificaties}{16}{}%
-\contentsline {subsubsection}{\numberline {5.3.2}Raylib uitproberen}{17}{}%
-\contentsline {subsubsection}{\numberline {5.3.3}Computer Graphics From Scratch}{17}{}%
-\contentsline {subsubsection}{\numberline {5.3.4}Raytracing}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.5}Diffusion}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.6}Specular Highlights}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.7}Schaduwen}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.8}Reflecties}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.9}Raymarching}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.10}Driehoeken}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.11}Polygonale primitieven}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.12}Radiosity}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.13}Interface}{18}{}%
-\contentsline {subsubsection}{\numberline {5.3.14}Meten}{18}{}%
-\contentsline {section}{\numberline {6}Methode}{19}{}%
-\contentsline {subsection}{\numberline {6.1}Variabelen}{19}{}%
-\contentsline {subsection}{\numberline {6.2}Meetmethoden}{19}{}%
-\contentsline {section}{\numberline {7}Resultaten}{20}{}%
-\contentsline {subsection}{\numberline {7.1}Snelheid}{20}{}%
-\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{20}{}%
-\contentsline {subsection}{\numberline {7.3}Renders}{20}{}%
-\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{21}{}%
-\contentsline {section}{\numberline {9}Conclusie}{22}{}%
-\contentsline {section}{\numberline {10}Discussie}{23}{}%
-\contentsline {section}{\numberline {11}Nawoord}{24}{}%
-\contentsline {section}{\numberline {12}Literatuurlijst}{25}{}%
-\contentsline {section}{\numberline {13}Logboek}{26}{}%
+\contentsline {subsection}{\numberline {3.7}Hoe wordt een mesh opgeslagen?}{13}{}%
+\contentsline {subsection}{\numberline {3.8}Wat is raymarching?}{13}{}%
+\contentsline {subsection}{\numberline {3.9}Wat zijn SDFs?}{14}{}%
+\contentsline {subsection}{\numberline {3.10}Hoe werkt het geheugen?}{15}{}%
+\contentsline {section}{\numberline {4}Hypothese}{16}{}%
+\contentsline {section}{\numberline {5}Ontwikkeling}{17}{}%
+\contentsline {subsection}{\numberline {5.1}Hardware}{17}{}%
+\contentsline {subsection}{\numberline {5.2}Software}{17}{}%
+\contentsline {subsubsection}{\numberline {5.2.1}Besturingssysteem}{17}{}%
+\contentsline {subsubsection}{\numberline {5.2.2}Programmeertaal}{17}{}%
+\contentsline {subsubsection}{\numberline {5.2.3}Framework}{18}{}%
+\contentsline {subsubsection}{\numberline {5.2.4}Integrated Development Environment}{19}{}%
+\contentsline {subsection}{\numberline {5.3}Programmeren}{19}{}%
+\contentsline {subsubsection}{\numberline {5.3.1}Specificaties}{19}{}%
+\contentsline {subsubsection}{\numberline {5.3.2}Raylib uitproberen}{20}{}%
+\contentsline {subsubsection}{\numberline {5.3.3}Computer Graphics From Scratch}{20}{}%
+\contentsline {subsubsection}{\numberline {5.3.4}Raytracing}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.5}Diffusion}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.6}Specular Highlights}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.7}Schaduwen}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.8}Reflecties}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.9}Raymarching}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.10}SDFs}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.12}Driehoeken}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.13}Mesh Representatie}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.14}Polygonale primitieven}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.15}Translatie, rotatie en schaling}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.16}Radiosity}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.17}Interface}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.18}Meten}{21}{}%
+\contentsline {section}{\numberline {6}Methode}{22}{}%
+\contentsline {subsection}{\numberline {6.1}Variabelen}{22}{}%
+\contentsline {subsection}{\numberline {6.2}Meetmethoden}{22}{}%
+\contentsline {section}{\numberline {7}Resultaten}{23}{}%
+\contentsline {subsection}{\numberline {7.1}Snelheid}{23}{}%
+\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{23}{}%
+\contentsline {subsection}{\numberline {7.3}Renders}{23}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{24}{}%
+\contentsline {section}{\numberline {9}Conclusie}{25}{}%
+\contentsline {section}{\numberline {10}Discussie}{26}{}%
+\contentsline {section}{\numberline {11}Nawoord}{27}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{28}{}%
+\contentsline {section}{\numberline {13}Logboek}{29}{}%

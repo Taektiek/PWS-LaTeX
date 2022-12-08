@@ -44,4 +44,9 @@ Moore, G. (1965).
 Phong, B.~T. (1975).
 \newblock Illumination for computer generated images.
 
+\bibitem[Smith, 2006]{VVSystems}
+Smith, C. (2006).
+\newblock On vertex-vertex systems and their use in geometric and biological
+  modelling.
+
 \end{thebibliography}

@@ -143,13 +143,7 @@ In de vroege jaren van de ontwikkeling van de computer was de rekenkracht minisc
 
 De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan je de vorm gewoon invullen, wat een vrij goedkoop proces is.
 
-Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. Een voorbeeld van zo'n truc is het \emph{Phong Reflection Model} \cite{PhongReflectionModel}. Hierbij wordt de belichting van een object opgesplitst in drie delen: Ambient, Diffuse en Specular. Samen geeft dit dan een idee van hoe een object er in het echt uit zou kunnen zien. Dit model kent geen ondersteuning voor schaduwen of reflecties.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{Phong_components.png}
-\caption{De verschillende componenten van het \emph{Phong Reflection Model}.}
-\label{fig:phong_components}
-\end{figure}
+Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. 
 \subsection{Wat is raytracing?}
 
 Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbron miljoenen lichtstralen af te vuren, die laat je door de scène kaatsen totdat ze het zichtveld van de observeerder raken. In theorie is dit de realistische benadering, en ook exact wat de rendervergelijking op het eerste oog impliceert. Deze methode wordt \emph{photon tracing} genoemd, naar de naam van lichtdeeltjes: fotonen. Maar in de werkelijkheid is dit vrijwel onmogelijk. Maar een klein gedeelte van de lichtstralen bereikt daadwerkelijk ooit de camera, wat betekent dat verreweg de meeste berekeningen die gemaakt worden geen invloed hebben op het uiteindelijke eindbeeld. 
@@ -164,6 +158,23 @@ Om dit probleem op te lossen vuren we de stralen niet af vanuit de lichtbronnen,
 \end{figure}
 
 Het renderen wordt met deze methode al een stuk meer te overzien. Voor het genereren van een plaatje van \(1000\times 1000\) pixels vuren we een miljoen stralen af, wat klinkt alsof het veel is. Maar voor moderne computers is dat zeker haalbaar. Pas als we reflecties toe gaan passen lopen we tegen een klein probleem aan, omdat de rendertijd dan polynomiaal groeit met het aantal objecten in de scène. Dit is omdat we elk object moeten testen met ieder ander, wat zorgt voor een kwadratisch verband.
+
+\subsection{Hoe werkt shading?}
+Eén manier om lichtsimulaties te benaderen is het \emph{Phong Reflection Model} \cite{PhongReflectionModel}. Hierbij wordt de belichting van een object opgesplitst in drie delen: Ambient, Diffuse en Specular.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Phong_components.png}
+\caption{De verschillende componenten van het \emph{Phong Reflection Model}.}
+\label{fig:phong_components}
+\end{figure}
+
+Ambient reflectie staat voor de kleine hoeveelheden licht die eigenlijk altijd wel aanwezig zijn door licht wat door de ruimte heen kaatst. Aangezien het berekenen van deze weerkaatsingen enorm veel rekenkracht kost wordt er uitgegaan van een universele gelijke belichting. 
+
+Diffuse reflectie wordt berekend aan de hand van de hoek tussen het licht op het object en de normaal. Als deze hoek groter is wordt de intensiteit kleiner, omdat het licht meer verdeeld wordt over het oppervlakte. Bij diffuse reflectie ga je ervan uit dat het licht evenveel in elke richting wordt afgekaatst, daarom wordt dit vooral veel voor ruwe oppervlakten gebruikt, waar kleine imperfecties in de textuur ervoor zorgen dat het licht alle kanten op gekaatst wordt.
+
+Bij gladdere oppervlakten is er sprake van specular reflectie. Hier wordt het licht meer gereflecteerd in de tegenovergestelde richting dat het binnenkomt tegenover de normaal. 
+
+Als deze drie technieken samengevoegd worden krijg je een vrij accurate benadering van de beweging van echt licht.
 
 \subsection{Wat is global illumination?}
 De methode die hierboven beschreven staat is niet perfect. Als een straal een object ziet tussen het raakpunt en de lichtbron wordt dat punt helemaal niet belicht. Dit is omdat het algoritme niet berekent hoe het licht door de kamer heen kaatst vanuit de lichtbron. Dat concept heet \emph{global illumination}. Het benaderen van \emph{global illumination} is in principe hetzelfde probleem als het benaderen van de rendervergelijking. Dit betekent dat we technieken uit de wiskunde voor het numeriek oplossen van integralen direct toe kunnen passen op de rendervergelijking, waarmee we realistische beelden kunnen tekenen. 
@@ -315,7 +326,7 @@ Met de derde bilineairiteitsregel kunnen we dit weer omschrijven naar:
 \right) + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle - r^2 = 0\]
 
 Nu heeft het de vorm aangenomen van de kwadratische vergelijking, die we op kunnen lossen met de ABC-formule.
-\[\{t1, t2\}=\frac{-b\pm \sqrt{b^2-4ac}}{2a}\]
+\[\{t_1, t_2\}=\frac{-b\pm \sqrt{b^2-4ac}}{2a}\]
 Hierbij geldt dus:
 \[a=\langle \overrightarrow{D},\overrightarrow{D}\rangle\]
 \[b=2\langle \overrightarrow{CO},\overrightarrow{D}\rangle\]
@@ -480,6 +491,8 @@ scene.AddSphere(Sphere(
 ));
 \end{lstlisting}
 
+In het begin wordt een Scene() object aangemaakt. Daaraan kunnen vervolgens objecten aan toegevoegd worden. Dat Scene() object ziet er zo uit:
+
 \begin{lstlisting}[language=C++]
 class Scene {
     public:
@@ -493,9 +506,7 @@ class Scene {
 };
 \end{lstlisting}
 
-
-
-De Sphere is als volgt gedefiniëerd:
+Alle bollen worden in een vector opgeslagen. Die bollen zijn zelf weer een aparte klasse, die als volgt is gedefiniëerd:
 
 \begin{lstlisting}[language=C++]
 class Sphere {
@@ -510,6 +521,8 @@ class Sphere {
 };
 \end{lstlisting}
 
+Ieder object heeft een ObjectMaterial, in deze eerste versie beschrijft die alleen de kleur:
+
 \begin{lstlisting}[language=C++]
 class ObjectMaterial {
     public: 
@@ -520,14 +533,44 @@ class ObjectMaterial {
 };
 \end{lstlisting}
 
+Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor krijgen we onze eerste render.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\textwidth]{renders/first_raytraced.png}
+    \includegraphics[width=0.50\textwidth]{renders/first_raytraced.png}
     \caption{De eerste render gemaakt met de raytracer.}
     \label{fig:first_raytraced}
 \end{figure}
 
 \subsubsection{Diffusion}
+Diffusie in het Phong-Model. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{diffuse-diagram.png}
+    \caption{Diagram die laat zien hoe licht op een oppervlakte terecht komt.}
+    \label{fig:diffuse-diagram}
+\end{figure}
+
+
+In dit diagram raakt lichtstraal $\overrightarrow{L}$ het object in P met hoek $\alpha$ tot normaal $\overrightarrow{N}$. De lichtstraal heeft intensiteit $I$, en is verspreidt over oppervlakte $A$. Dit betekent dat de intensiteit per eenheid oppervlakte $\frac{I}{A}$ is. In een rechte driehoek geldt: 
+\[\cos{\alpha}=\frac{A}{S}\]
+Hier is $A$ de aanliggende zijde en $S$ de schuine zijde. In het bovenstaande diagram is dat gelijk aan $\frac{I}{A}$.
+
+Ook geldt dat:
+\[\cos \alpha = \frac{\langle \overrightarrow{N},\overrightarrow{L}\rangle}{|\overrightarrow{N}||\overrightarrow{L}|}\]
+
+Dus: 
+
+\[\frac{I}{A} = \frac{\langle \overrightarrow{N},\overrightarrow{L}\rangle}{|\overrightarrow{N}||\overrightarrow{L}|}\]
+
+Hieruit kunnen we de volgende algemene formule voor diffusie opstellen, met een som voor elke lichtbron met intensiteit $I_i$ en richting $\overrightarrow{L_i}$. Verder is $I_A$ de ambient belichting.
+
+\[I_P=I_A+\sum_{i=l}^{n}I_i\frac{\langle \overrightarrow{N}, \overrightarrow{L_i} \rangle}{|\overrightarrow{N}||\overrightarrow{L_i}|}\]
+
+De normaal van de bol in punt $P$ wordt zo bepaald:
+\[\overrightarrow{N}=\frac{P-C}{|P-C|}\]
+Door te delen met $|P-C|$ wordt de vector genormaliseerd, waardoor de lengte 1 wordt.
+
 \subsubsection{Specular Highlights}
 \subsubsection{Schaduwen}
 \subsubsection{Reflecties}

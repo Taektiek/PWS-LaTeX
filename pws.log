@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.14)  12 DEC 2022 11:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  12 DEC 2022 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -711,58 +711,58 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8
 
-]
-<images//Phong_components.png, id=40, 724.95844pt x 201.75375pt>
-File: images//Phong_components.png Graphic file (type png)
-<use images//Phong_components.png>
-Package pdftex.def Info: images//Phong_components.png  used on input line 149.
-(pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9 <./images//RGB_channels_separation.png>]
-<images//raytracing_diagram.png, id=45, 803.0pt x 533.995pt>
+] [9 <./images//RGB_channels_separation.png>]
+<images//raytracing_diagram.png, id=44, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 161
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 155
 .
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
+<images//Phong_components.png, id=46, 724.95844pt x 201.75375pt>
+File: images//Phong_components.png Graphic file (type png)
+<use images//Phong_components.png>
+Package pdftex.def Info: images//Phong_components.png  used on input line 166.
+(pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
 
+Overfull \hbox (31.16399pt too wide) in paragraph at lines 163--170
+\T1/stix/m/n/12 Eén ma-nier om licht-si-mu-la-ties te be-na-de-ren is het \T1/s
+tix/m/it/12 Phong Re-flec-tion Mo-del \T1/stix/m/n/12 [[]].
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10 <./images//Phong_components.png (PNG copy)>]
-<images//global_illumination.png, id=50, 462.528pt x 346.896pt>
+[10 <./images//raytracing_diagram.png>]
+<images//global_illumination.png, id=51, 462.528pt x 346.896pt>
 File: images//global_illumination.png Graphic file (type png)
 <use images//global_illumination.png>
-Package pdftex.def Info: images//global_illumination.png  used on input line 17
-3.
+Package pdftex.def Info: images//global_illumination.png  used on input line 18
+4.
 (pdftex.def)             Requested size: 292.5pt x 219.38724pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11 <./images//raytracing_diagram.png>] [12 <./images//global_illumination.png>
-]
+[11 <./images//Phong_components.png (PNG copy)>] [12 <./images//global_illumina
+tion.png>]
 <images//Vertex-Vertex_Meshes.png, id=58, 571.38469pt x 421.575pt>
 File: images//Vertex-Vertex_Meshes.png Graphic file (type png)
 <use images//Vertex-Vertex_Meshes.png>
-Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 1
-94.
+Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 2
+05.
 (pdftex.def)             Requested size: 292.5pt x 215.81091pt.
-<images//Face-Vertex_Meshes.jpg, id=59, 702.625pt x 444.66125pt>
-File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
-<use images//Face-Vertex_Meshes.jpg>
-Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 201
-.
-(pdftex.def)             Requested size: 292.5pt x 185.11449pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13 <./images//Vertex-Vertex_Meshes.png>] [14 <./images//Face-Vertex_Meshes.jpg
->] [15] [16
+<images//Face-Vertex_Meshes.jpg, id=59, 702.625pt x 444.66125pt>
+File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
+<use images//Face-Vertex_Meshes.jpg>
+Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 212
+.
+(pdftex.def)             Requested size: 292.5pt x 185.11449pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13] [14 <./images//Vertex-Vertex_Meshes.png>] [15 <./images//Face-Vertex_Meshe
+s.jpg>] [16
 
 ] [17
 
@@ -777,21 +777,21 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on
- input line 325.
+ input line 336.
 
 (/usr/share/texmf-dist/tex/latex/sourcecodepro/T1SourceCodePro-TLF.fd
 File: T1SourceCodePro-TLF.fd 2018/02/18 (autoinst) Font definitions for T1/Sour
 ceCodePro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 325.
+(Font)              scaled to size 10.95pt on input line 336.
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 327.
+(Font)              scaled to size 10.95pt on input line 338.
  [22]
 <images//viewport.png, id=96, 265.2309pt x 248.6088pt>
 File: images//viewport.png Graphic file (type png)
 <use images//viewport.png>
-Package pdftex.def Info: images//viewport.png  used on input line 386.
+Package pdftex.def Info: images//viewport.png  used on input line 397.
 (pdftex.def)             Requested size: 292.5pt x 274.17987pt.
 
 [23] [24 <./images//viewport.png>] [25] [26]
@@ -799,24 +799,30 @@ Package pdftex.def Info: images//viewport.png  used on input line 386.
 File: images//renders/first_raytraced.png Graphic file (type png)
 <use images//renders/first_raytraced.png>
 Package pdftex.def Info: images//renders/first_raytraced.png  used on input lin
-e 525.
-(pdftex.def)             Requested size: 292.5pt x 298.2625pt.
- [27 <./images//renders/first_raytraced.png (PNG copy)>] [28] [29
-
-] [30
+e 539.
+(pdftex.def)             Requested size: 195.0pt x 198.83372pt.
+<images//diffuse-diagram.png, id=111, 290.5254pt x 161.8848pt>
+File: images//diffuse-diagram.png Graphic file (type png)
+<use images//diffuse-diagram.png>
+Package pdftex.def Info: images//diffuse-diagram.png  used on input line 549.
+(pdftex.def)             Requested size: 195.0pt x 108.65985pt.
+ [27 <./images//renders/first_raytraced.png (PNG copy)>] [28 <./images//diffuse
+-diagram.png>] [29] [30
 
 ] [31
 
-] [32
+]
+[32
 
 ] [33
 
 ] [34
 
-] (./pws.bbl) [35
+] [35
 
-]
-[36
+] (./pws.bbl) [36
+
+] [37
 
 ] (./pws.aux)
 
@@ -824,10 +830,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11291 strings out of 478238
- 164826 string characters out of 5850455
- 818946 words of memory out of 5000000
- 29344 multiletter control sequences out of 15000+600000
+ 11300 strings out of 478238
+ 165090 string characters out of 5850455
+ 818951 words of memory out of 5000000
+ 29352 multiletter control sequences out of 15000+600000
  571282 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,99p,2029b,1724s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -844,10 +850,10 @@ public/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix
 -mathrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb
 ></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/te
 xmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (36 pages, 3681939 bytes).
+Output written on pws.pdf (37 pages, 3691284 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 122 compressed objects within 2 object streams
+ 206 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

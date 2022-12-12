@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  8 DEC 2022 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  8 DEC 2022 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -631,7 +631,7 @@ fonts/type1/public/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/stix/stix-mathrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/sti
 x-mathrm.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></
 usr/share/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (29 pages, 3556096 bytes).
+Output written on pws.pdf (29 pages, 3556047 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
  100 compressed objects within 1 object stream

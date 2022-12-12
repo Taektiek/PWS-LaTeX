@@ -1,5 +1,26 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage{listings}
+\usepackage{sourcecodepro}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    numberstyle=\tiny\color{codegray},
+    keywordstyle=\color{black}\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+	basicstyle=\small\ttfamily
+}
+\lstset{style=mystyle}
 \usepackage[dutch]{babel}
 \usepackage{array}
 \usepackage{adjustbox}
@@ -259,6 +280,253 @@ De camera, alle objecten en de lichten worden allemaal beschreven met een Scene(
 \subsubsection{Computer Graphics From Scratch}
 Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een renderer kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde heb je een programma die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. 
 \subsubsection{Raytracing}
+De stralen worden aangegeven met een paramatervergelijking in de vorm:
+\[P=O+t(V-O)\]
+Hier is $P$ enig punt in de straal van $O$ naar $V$. $t$ geeft aan hoe ver op de straal punt $P$ is.
+
+$(V-O)$ is gelijk aan de richting van de straal, dus die noemen we $\overrightarrow{D}$. Dan krijg je:
+\[P=O+t\overrightarrow{D}\]
+
+In het begin zal de raytracer alleen bollen kunnen tekenen, de vergelijking van punt $P$ op een bol met middenpunt $C$ en straal $r$ is:
+\[|P-C|=r\]
+
+De lengte van een vector is gelijk aan de wortel van het inwendig product met zichzelf. Het inwendig product wordt aangegeven als $\langle\overrightarrow{V},\overrightarrow{V} \rangle$. Dat geeft:
+\[\langle P-C,P-C\rangle=r^2\]
+Dit combineren met de vergelijking van de straal $P=O+t\overrightarrow{D}$ geeft:
+\[\langle O+t\overrightarrow{D}-C,O+t\overrightarrow{D}-C\rangle=r^2\]
+$O-C$ kunnen we opschrijven als $\overrightarrow{CO}$:
+\[\langle{CO}+t\overrightarrow{D},\overrightarrow{CO}+t\overrightarrow{D}\rangle=r^2\]
+Inwendige producten zijn bilineair, dit betekent dat:
+\[\langle x+y,z\rangle=\langle x,z\rangle+\langle y,z\rangle\]
+En:
+\[\langle x,y+z\rangle=\langle x,y\rangle+\langle x,z\rangle\]
+En:
+\[\langle x,\lambda y\rangle=\lambda\langle x,y\rangle=\langle\lambda x,y\rangle\]
+Hieruit kunnen we de vergelijking afsplitsen tot:
+\[\langle \overrightarrow{CO},\overrightarrow{CO} \rangle + \langle t\overrightarrow{D},\overrightarrow{CO} \rangle + \langle \overrightarrow{CO},t\overrightarrow{D} \rangle + \langle t\overrightarrow{D},t\overrightarrow{D} \rangle = r^2\]
+
+Verder zijn kruisproducten commutatief dus $\langle x,y\rangle=\langle y,x\rangle$.
+
+Hieruit volgt:
+\[\langle t\overrightarrow{D},t\overrightarrow{D} \rangle + 2\langle t\overrightarrow{D},\overrightarrow{CO} \rangle + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle = r^2\]
+
+Met de derde bilineairiteitsregel kunnen we dit weer omschrijven naar:
+\[t^2\langle \overrightarrow{D},\overrightarrow{D} \rangle + t\left(2\langle \overrightarrow{D},\overrightarrow{CO} \rangle
+\right) + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle - r^2 = 0\]
+
+Nu heeft het de vorm aangenomen van de kwadratische vergelijking, die we op kunnen lossen met de ABC-formule.
+\[\{t1, t2\}=\frac{-b\pm \sqrt{b^2-4ac}}{2a}\]
+Hierbij geldt dus:
+\[a=\langle \overrightarrow{D},\overrightarrow{D}\rangle\]
+\[b=2\langle \overrightarrow{CO},\overrightarrow{D}\rangle\]
+\[c=\langle \overrightarrow{CO},\overrightarrow{CO}\rangle-r^2\]
+
+In de code wordt dit als volgt geschreven:
+\begin{lstlisting}[language=C++]
+Vector2 IntersectRaySphere(Vector3 O, Vector3 D, Sphere sphere) {
+    double r = sphere.radius;
+    Vector3 CO = subtract(O, sphere.center);
+
+    double a = dot(D, D);
+    double b = 2 * dot(CO, D);
+    double c = dot(CO, CO) - r*r;
+
+    double discriminant = b*b-4*a*c;
+
+    if (discriminant < 0) {
+        return (Vector2){1E9, 1E9};
+    }
+
+    double t1 = (-b + sqrt(discriminant))/(2*a);
+    double t2 = (-b - sqrt(discriminant))/(2*a);
+
+    return (Vector2){t1, t2};
+}
+\end{lstlisting}
+
+Voor de situatie zonder oplossing wordt $\{10^9,10^9\}$ teruggegeven. Later wordt gecheckt of de teruggeven waarde boven een bepaalde grens ligt, waarna hij wordt weggeworpen.
+
+\begin{lstlisting}[language=C++]
+for (int x = -canvas.width/2; x < canvas.width/2; x++) {
+    for (int y = -canvas.height/2; y < canvas.height/2; y++) {
+        Vector3 D = vp.CanvasToViewport(canvas, x, y);
+        Color color = TraceRay(O, D, 1, 1E9, scene, 3);
+        canvas.PutPixel(x, y, color);
+    }
+}
+\end{lstlisting}
+
+Hiervoor wordt gebruik gemaakt van de viewport, die als volgt is gedefiniëerd:
+\begin{lstlisting}[language=C++]
+class Viewport {
+    public:
+        double width;
+        double height;
+
+        double projection_plane_distance;
+
+        Viewport(double w, double h, double ppd);
+        Viewport();
+
+        Vector3 CanvasToViewport(Canvas canvas, int x, int y);
+};
+\end{lstlisting}
+
+De viewport is een virtueel vlak die op een bepaalde afstand $d$ van de camera staat. De stralen worden afgevuurd door deze viewport. Uit een punt $P$ op de viewport kan de vector $\overrightarrow{OP}$ gehaald worden. Dit is hetzelfde als de $\overrightarrow{D}$ uit de parametervergelijking van de straal.
+
+De volgende functie converteert screenspace coördinaten naar de coördinaten op de viewport.
+\begin{lstlisting}[language=C++]
+Vector3 Viewport::CanvasToViewport(Canvas canvas, int x, int y) {
+    return (Vector3){x*width/canvas.width, y*height/canvas.height, projection_plane_distance};
+}
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{viewport.png}
+    \caption{Projectie van camera op viewport.}
+    \label{fig:viewport}
+\end{figure}
+
+Het afvuren van de stralen vanuit de viewport wordt gedaan met de TraceRay() functie.
+
+\begin{lstlisting}[language=C++]
+Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {   
+    std::pair<Sphere, double> closest_intersection = ClosestIntersection(O, D, t_min, t_max, scene);
+    Sphere closest_sphere = closest_intersection.first;
+
+    if (closest_t==1E9) {
+        return RAYWHITE;
+    }
+
+    return closest_sphere.material.color;
+}
+\end{lstlisting}
+De functie geeft een kleur terug, in dit vroegste geval is dat gewoon de kleur van het object. Die kleur wordt vervolgens voor de bijbehorende pixel getekend.
+
+Er wordt gebruik gemaakt van de ClosestIntersection() functie. 
+
+\begin{lstlisting}[language=C++]
+std::pair<Sphere, double> ClosestIntersection(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
+    double closest_t = 1E9;
+    Sphere closest_sphere;
+
+    for (Sphere sphere: scene.spheres) {
+        Vector2 t_points = IntersectRaySphere(O, D, sphere);
+        double t1 = t_points.x;
+        double t2 = t_points.y;
+
+        if ((t1 > t_min && t1 < t_max)&&(t1<closest_t)) {
+            closest_t = t1;
+            closest_sphere = sphere;
+        }
+
+        if ((t2 > t_min && t2 < t_max)&&(t2<closest_t)) {
+            closest_t = t2;
+            closest_sphere = sphere;
+        }
+    }
+
+    return std::make_pair(closest_sphere, closest_t);
+}
+\end{lstlisting}
+Deze geeft terug welke bol het dichst bij is, en hoe ver die bol precies is. 
+
+Samen geeft dit de eerste versie van de raytracer. We initialiseren de scène als volgt:
+
+\begin{lstlisting}[language=C++]
+Viewport vp(1, 1, 1);
+
+Scene scene(vp);
+
+scene.AddSphere(Sphere(
+    (Vector3){0, -1, 3},
+    1,
+    ObjectMaterial (
+        (Color){255, 0, 0, 255},
+        500,
+        0.2
+    )
+));
+
+scene.AddSphere(Sphere(
+    (Vector3){2, 0, 4},
+    1,
+    ObjectMaterial (
+        (Color){0, 0, 255, 255},
+        500,
+        0.2
+    )
+));
+
+scene.AddSphere(Sphere(
+    (Vector3){-2, 0, 4},
+    1,
+    ObjectMaterial (
+        (Color){0, 255, 0, 255},
+        500,
+        0.2
+    )
+));
+
+scene.AddSphere(Sphere(
+    (Vector3){0, -5001, 0},
+    5000,
+    ObjectMaterial (
+        (Color){255, 255, 0, 255},
+        500,
+        0
+    )
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+class Scene {
+    public:
+        Viewport vp;
+
+        std::vector<Sphere> spheres;
+
+        Scene(Viewport viewport);
+
+        void AddSphere(Sphere sphere);
+};
+\end{lstlisting}
+
+
+
+De Sphere is als volgt gedefiniëerd:
+
+\begin{lstlisting}[language=C++]
+class Sphere {
+    public:
+        Vector3 center;
+        double radius;
+
+        ObjectMaterial material;
+
+        Sphere(Vector3 center, double radius, ObjectMaterial material);
+        Sphere();
+};
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+class ObjectMaterial {
+    public: 
+        Color color;
+
+        ObjectMaterial(Color color);
+        ObjectMaterial();
+};
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{renders/first_raytraced.png}
+    \caption{De eerste render gemaakt met de raytracer.}
+    \label{fig:first_raytraced}
+\end{figure}
+
 \subsubsection{Diffusion}
 \subsubsection{Specular Highlights}
 \subsubsection{Schaduwen}

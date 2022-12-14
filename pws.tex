@@ -27,6 +27,7 @@
 \usepackage{wrapfig}
 \usepackage{stix}
 \usepackage{amsmath}
+\newcommand*{\ora}{\overrightarrow}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{algorithm}
@@ -58,15 +59,14 @@ Renderen met raymarching
 \section{Inleiding}
 \subsection{Introductie onderwerp}
 
-\paragraph{}
 Renderen is overal. Als je je telefoon opent zie je allerlei gerenderde vormen. Bij het ontbijt zijn verpakkingen volgeprint met teksten die met de computer getekend zijn. Als je langs een bouwterrein loopt zie je hyperrealistische visualisaties van de architectuur. Moderne blockbuster-films zitten tegenwoordig bomvol CGI\footnote{\textbf{C}omputer \textbf{G}enerated \textbf{I}magery}. En er zijn al tientallen jaren films te zien die helemaal door de computer gemaakt zijn. 
 
-\paragraph{}
 \begin{wrapfigure}{s}{0.5\textwidth}
     \includegraphics[width=1\linewidth]{toystory3comparison.jpg}
     \caption{Een frame uit Toy Story 3, aan de linkerkant worden geen lichtberekeningen gedaan, en aan de rechterkant wel.}
     \label{fig:toystory3}
 \end{wrapfigure}
+
 Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphical \textbf{P}rogramming \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
 \begin{figure}[h]
     \centering
@@ -74,9 +74,9 @@ Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over g
     \caption{De videogame Minecraft kan gebruik maken van Nvidia GPU's om realtime lichtsimulaties te berekenen.}
     \label{fig:minecraftrtx}
 \end{figure}
-\paragraph{}
+
 Er zijn twee belangrijke maatstaffen waarmee we de efficiëntie van een renderalgoritme kunnen meten. De eerste is vanzelfsprekend: snelheid. Als een frame sneller gerenderd is wordt er minder energie gebruikt en zijn we goedkoper uit. Maar ook geheugenbezetting is belangrijk om rekening mee te houden. Het geheugen is simpelweg de plaats in de computer waar alle informatie wordt opgeslagen. Als je berekeningen doet moet je ergens de resultaten tussendoor opslaan. Complexe scènes kunnen enorm veel details hebben, die allemaal in het geheugen opgeslagen zijn. Het is niet gratis om extra geheugen toe te voegen, het is dus belangrijk om de geheugenbezetting te minimaliseren. 
-\subsection{Relevantie}
+
 Vrijwel alles is tegenwoordig op een manier gerenderd. Objecten zijn gedesigned met gebruik van CAD\footnote{\textbf{C}omputer \textbf{A}ided \textbf{D}esign}. Besturingssytemen runnen op een grafische shell. En een meerendeel van advertenties gebruikt CGI.
 % Beschrijven hoe renderen voorkomt in het dagelijkse leven
 
@@ -107,7 +107,6 @@ Hoe wegen raymarching en polygonaal renderen tegen elkaar op in rendersnelheid e
 \clearpage
 \section{Theorie}
 \subsection{Wat is renderen?}
-\paragraph{}
 Renderen is, in feite, het weergeven van een representatie van een concept op een beeldscherm. Wij zijn voortdurend bezig met het interacteren met computers, en die interactie verloopt via het beeldscherm. Maar de computer kan uit zichzelf niet zomaar alles tekenen. Daar worden allemaal algoritmes voor geschreven. Een voorbeeld van zo'n algoritme is het tekenen van een rechthoek. In pseudocode zou je dat als volgt voor kunnen stellen:
 \begin{algorithm}
 \caption{Rechthoek Algoritme}\label{euclid}
@@ -122,10 +121,8 @@ Renderen is, in feite, het weergeven van een representatie van een concept op ee
 \end{algorithmic}
 \end{algorithm}
 
-\paragraph{}
 Het algoritme beschouwt elke pixel die binnen de rechthoek valt en kleurt die pixel. In dit geval wordt dat gedaan door twee loops, die samen alle mogelijke combinaties van x- en y-coördinaten doorlopen. 
 
-\paragraph{}
 Renderen omvat, in principe, niks anders dan het aansturen van individuele pixels. Zo'n pixel heeft op de meeste moderne beeldschermen drie waarden die de kleur aansturen: R, G en B, die respectievelijk staan voor rood, groen en blauw. Ze kunnen een geheel getal tussen de 0 en 255 aannemen wat resulteert in \(2^{24}\) mogelijke kleuren.
 \begin{figure}[h]
 \centering
@@ -134,7 +131,6 @@ Renderen omvat, in principe, niks anders dan het aansturen van individuele pixel
 \label{fig:rgb_separated}
 \end{figure}
 
-\paragraph{}
 Renderen doen we op een twee-dimensionaal beeldscherm. Dat betekent dat de positie van elke pixel te beschrijven is met twee waarden. Maar de wereld om ons heen kent niet twee, maar drie ruimtelijke dimensies. Door licht dat op ons netvlies valt na weerkaatst te zijn door verschillende objecten kunnen wij die wereld representeren in onze hersenen op een tweedimensionale manier. Camera's gebruiken een gelijksoortige techniek, de lens neemt het licht en projecteert het op een sensor die de intensiteit en de kleur waarneemt. Met het renderen van driedimensionale objecten proberen we deze processen na te bootsen. 
 
 \subsection{De rendervergelijking}
@@ -556,7 +552,7 @@ Diffusie in het Phong-Model.
 \end{figure}
 
 
-In dit diagram raakt lichtstraal $\overrightarrow{L}$ het object in P met hoek $\alpha$ tot normaal $\overrightarrow{N}$. De lichtstraal heeft intensiteit $I$, en is verspreidt over oppervlakte $A$. Dit betekent dat de intensiteit per eenheid oppervlakte $\frac{I}{A}$ is. In een rechte driehoek geldt: 
+In figuur \ref{fig:diffuse-diagram} raakt lichtstraal $\overrightarrow{L}$ het object in P met hoek $\alpha$ tot normaal $\overrightarrow{N}$. De lichtstraal heeft intensiteit $I$, en is verspreidt over oppervlakte $A$. Dit betekent dat de intensiteit per eenheid oppervlakte $\frac{I}{A}$ is. In een rechte driehoek geldt: 
 \[\cos{\alpha}=\frac{A}{S}\]
 
 Hier is $A$ de aanliggende zijde en $S$ de schuine zijde. In het bovenstaande diagram is dat gelijk aan $\frac{I}{A}$.
@@ -699,47 +695,197 @@ Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
 
 \subsubsection{Specular Highlights}
 
-\begin{tikzpicture}
-\begin{axis}[
-	xtick=\empty,
-	ytick=\empty,
-	xmin=-3.5,
-	xmax=3.5,
-	ymin=-0.5,
-	ymax=1.5,
-	axis x line=center,
-	axis y line=center,
-	legend style={at={(1.1,1)},anchor=west, title={$y = \left(\frac{\cos(x) + 1}{2}\right)^n$}},
-	legend entries={$n=1$, $n=2$, $n=10$, $n=50$, $n=100$, $n=500$},
-]
-\addlegendentry[red]{$n=1$};
-\addlegendentry[green]{$n=2$};
-\addlegendentry[blue]{$n=10$};
-\addlegendentry[purple]{$n=50$};
-\addlegendentry[orange]{$n=100$};
-\addlegendentry[brown]{$n=500$};
-\addplot[color=red, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^1};
-\addplot[color=green, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^2};
-\addplot[color=blue, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^10};
-\addplot[color=purple, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^50};
-\addplot[color=orange, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^100};
-\addplot[color=brown, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^500};
-\end{axis}
-\end{tikzpicture}
+Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, maar meer in de richting tegenover de vector van inkomend licht gespiegeld in de normaal. De distributie van het teruggekaatste licht kunnen we met een cosinus functie aangeven. Die geeft een duidelijk distributie rondom de y-as. We verheffen de cosinus tot een bepaalde macht $s$, om te bepalen hoe scherp de reflecties zijn.
 
-\begin{tikzpicture}
+\begin{figure}[h]
+    \centering
+	\begin{tikzpicture}
+	\begin{axis}[
+		xtick=\empty,
+		ytick=\empty,
+		xmin=-100,
+		xmax=100,
+		ymin=-0.5,
+		ymax=1.5,
+		axis x line=center,
+		axis y line=center,
+		legend style={at={(1.1,1)},anchor=west, title={$y = \cos(x)^s$}},
+	]
+	\addlegendentry[brown]{$s=500$};
+	\addlegendentry[orange]{$s=100$};
+	\addlegendentry[purple]{$s=50$};
+	\addlegendentry[blue]{$s=10$};
+	\addlegendentry[green]{$s=2$};
+	\addlegendentry[red]{$s=1$};
+	\addplot[color=brown, thick, samples=200, domain=-90:90] {cos(x)^500};
+	\addplot[color=orange, thick, samples=200, domain=-90:90] {cos(x)^100};
+	\addplot[color=purple, thick, samples=200, domain=-90:90] {cos(x)^50};
+	\addplot[color=blue, thick, samples=200, domain=-90:90] {cos(x)^10};
+	\addplot[color=green, thick, samples=200, domain=-90:90] {cos(x)^2};
+	\addplot[color=red, thick, samples=200, domain=-90:90] {cos(x)^1};
+	\end{axis}
+	\end{tikzpicture}
+    \caption{Cosinus functies verheven tot verschillende machten $s$.}
+    \label{fig:cosini}
+\end{figure}
 
-% Vector
-\draw[->] (0,1) -- (1,0);
+We kunnen $\ora{L}$ ontleden in $\ora{L_P}$ en $\ora{L_N}$, waar $\ora{L_N}$ evenwijdig is aan $\ora{N}$ en $\ora{L_N}$ loodrecht staat op $\ora{N}$.
 
-% Line
-\draw (0,0) -- (2,0);
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{L_decomposition.png}
+    \caption{$\protect\overrightarrow{L}$ ontleden in componenten $\protect\overrightarrow{L_P}$ en $\protect\overrightarrow{L_N}$}
+    \label{fig:L_decomposition}
+\end{figure}
 
+Omdat $\left|\ora{N}\right| = 1$, geldt $\left|\ora{L_N}\right|=\langle\ora{N},\ora{L}\rangle$. $\ora{L_N}$ is evenwijdig met $\ora{N}$ dus $\ora{L_N}=\ora{N}\langle\ora{N},\ora{L}\rangle$.
 
-\end{tikzpicture}
+$\ora{L}=\ora{L_P}+\ora{L_N}$ dus $\ora{L_P}=\ora{L}-\ora{L_N}=\ora{L}-\ora{N}\langle\ora{N},\ora{L}\rangle$.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{LR_Calculation.png}
+    \caption{Het berekenen van $\protect\ora{L_R}$}
+    \label{fig:LR_Calculation}
+\end{figure}
+
+$\ora{R}$ is aan de andere kant van $\ora{N}$ en heeft dezelfde hoogte als $\ora{R}$ dus $\ora{R}=\ora{L_N}-\ora{L_P}$
+
+Als we hierin de eerder verkregen formules substitueren krijgen we:
+
+\[\ora{R}=\ora{N}\langle\ora{N},\ora{L}\rangle-\ora{L}+\ora{N}\langle\ora{N},\ora{L}\rangle\]
+\[\ora{R}=2\ora{N}\langle\ora{N},\ora{L}\rangle-\ora{L}\]
+
+Verder weten we dat:
+\[\cos\left(\angle\left(\ora{R}, \ora{V}\right)\right)=\frac{\langle\ora{R},\ora{V}\rangle}{\left|\ora{R}\right|\left|\ora{V}\right|}\]
+
+Hieruit volgt de volgende formule voor speculaire reflecties:
+\[I_S=I_L\left(\frac{\langle\ora{R},\ora{V}\rangle}{\left|\ora{R}\right|\left|\ora{V}\right|}\right)^s\]
+
+Dit kunnen we samenvoegen met de eerder vergaarde formule voor diffusie voor een volledige belichtingsformule:
+
+\[
+I_P=
+I_A+
+\sum_{i=l}^{n}I_i\cdot\left[
+\frac{\langle \overrightarrow{N}, \overrightarrow{L_i} \rangle}{|\overrightarrow{N}||\overrightarrow{L_i}|}+
+\left(\frac{\langle\ora{R_i},\ora{V}\rangle}{\left|\ora{R_i}\right|\left|\ora{V}\right|}\right)^s\right]
+\]
+
+In de code ziet de ComputeLighting() functie er nu als volgt uit:
+
+\begin{lstlisting}[language=C++]
+double ComputeLighting(Vector3 P, Vector3 N, Vector3 V, double s, Scene scene) {
+    double i = 0.0;
+    Vector3 L;
+
+    for (Light light: scene.lights) {
+        if (light.type == 0) {
+            i += light.intensity;
+        } else {
+            if (light.type == 1) {
+                L = subtract(light.position, P);
+            } else if (light.type == 2) {
+                L = light.direction;
+            }
+
+            // Diffuse
+            double n_dot_l = dot(N, L);
+            if (n_dot_l > 0) {
+                i += light.intensity * n_dot_l/magnitude(L);
+            }
+
+            // Specular
+            if (s != -1) {
+                Vector3 R = subtract(multiply(N, 2* dot(N, L)), L);
+                double r_dot_v = dot(R, V);
+                if (r_dot_v > 0) {
+                    i += light.intensity * pow(r_dot_v/(magnitude(R)*magnitude(V)), s);
+                }
+            }
+        }
+    }
+    return i;
+}
+\end{lstlisting}
+
+We stellen dat een object geen speculaire reflecties heeft als $s=-1$. 
+
+We voegen aan de ObjectMaterial() klasse de specular eigenschap toe:
+
+\begin{lstlisting}[language=C++]
+class ObjectMaterial {
+    public: 
+        Color color;
+        double specular;
+
+        ObjectMaterial(Color color, double specular);
+        ObjectMaterial();
+};
+\end{lstlisting}
+
+Nu kunnen we de bollen renderen met speculaire reflecties.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/specular.png}
+    \caption{De bollen gerenderd met speculaire reflecties. De rode bol heeft een hogere waarde $s$ dan de groene bol.}
+    \label{fig:specular}
+\end{figure}
 
 \subsubsection{Schaduwen}
+Om te weten waar schaduwen getekend moeten worden wordt een nieuwe straal vanaf een punt op de vorm afgevuurd richting de camera. Als er een andere vorm tussenzit berekenen we voor dat punt niet de diffuse en speculaire reflectie. We kunnen hiervoor de eerder geschreven ClosestIntersection() functie hergebruiken. De ComputeLighting functie ziet er dan als volgt uit:
+
+\begin{lstlisting}[language=C++]
+double ComputeLighting(Vector3 P, Vector3 N, Vector3 V, double s, Scene scene) {
+    double i = 0.0;
+    Vector3 L;
+
+    for (Light light: scene.lights) {
+        if (light.type == 0) {
+            i += light.intensity;
+        } else {
+            if (light.type == 1) {
+                L = subtract(light.position, P);
+            } else if (light.type == 2) {
+                L = light.direction;
+            }
+
+            // Shadow Check
+            double shadow_t = ClosestIntersection(P, L, 0.001, 1E9, scene).second;
+            if (shadow_t != 1E9) {
+                continue;
+            } 
+
+            // Diffuse
+            double n_dot_l = dot(N, L);
+            if (n_dot_l > 0) {
+                i += light.intensity * n_dot_l/magnitude(L);
+            }
+
+            // Specular
+            if (s != -1) {
+                Vector3 R = subtract(multiply(N, 2* dot(N, L)), L);
+                double r_dot_v = dot(R, V);
+                if (r_dot_v > 0) {
+                    i += light.intensity * pow(r_dot_v/(magnitude(R)*magnitude(V)), s);
+                }
+            }
+        }
+    }
+    return i;
+}
+\end{lstlisting}
+
+Dit zijn alle aanpassingen die gemaakt moeten worden aan de code.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/schaduw.png}
+    \caption{De bollen gerenderd met schaduwen.}
+    \label{fig:schaduw}
+\end{figure}
+
 \subsubsection{Reflecties}
 \subsubsection{Raymarching}
 \subsubsection{SDFs}

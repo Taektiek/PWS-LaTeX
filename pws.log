@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  14 DEC 2022 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.14)  14 DEC 2022 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,7 +871,7 @@ angles.code.tex
 File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 LaTeX Font Info:    Trying to load font information for T1+stix on input line 4
-8.
+9.
  (/usr/share/texmf-dist/tex/latex/stix/t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 )
@@ -879,47 +879,50 @@ File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count322
 \l__pdf_internal_box=\box73
+) (./pws.aux
+
+LaTeX Warning: Label `euclid' multiply defined.
+
 )
-No file pws.aux.
 \openout1 = `pws.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 49.
 LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 4
-8.
-(/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
+9.
+ (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 49.
 LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
-48.
+49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 49.
 LaTeX Font Info:    Trying to load font information for LS2+stix on input line 
-48.
+49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stix.fd
 File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    ... okay on input line 49.
 \c@lstlisting=\count323
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -948,202 +951,170 @@ e
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 48.
+ on input line 49.
 
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 49.
+ne 50.
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 49.
+e 50.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 49.
+ine 50.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 49.
+e 50.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 49.
+ne 50.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 49.
+e 50.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 49.
+e 50.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pws.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pws.toc [2
+
+])
 \tf@toc=\write4
 \openout4 = `pws.toc'.
 
- [2
-
-] [3
+ [3] [4
 
 ]
-<images//toystory3comparison.jpg, id=17, 1195.46625pt x 796.9775pt>
+<images//toystory3comparison.jpg, id=20, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
-Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 66
+Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 65
 .
 (pdftex.def)             Requested size: 195.0pt x 129.99982pt.
-
-
-LaTeX Warning: Reference `fig:toystory3' on page 4 undefined on input line 70.
-
-
-LaTeX Warning: Citation `HowToyStory3WasMade' on page 4 undefined on input line
- 70.
-
-
-LaTeX Warning: Citation `MakingOfBoredRoom' on page 4 undefined on input line 7
-0.
-
-
-LaTeX Warning: Citation `NeRFactor' on page 4 undefined on input line 70.
-
-
-LaTeX Warning: Citation `NvidiaRTX' on page 4 undefined on input line 70.
-
-<images//minecraftrtx.jpg, id=18, 3854.4pt x 2168.1pt>
+<images//minecraftrtx.jpg, id=21, 3854.4pt x 2168.1pt>
 File: images//minecraftrtx.jpg Graphic file (type jpg)
 <use images//minecraftrtx.jpg>
-Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 73.
+Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 72.
 (pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 
-Underfull \hbox (badness 1205) in paragraph at lines 70--77
-\T1/stix/m/n/12 van twee gi-gan-ti-sche ren-der farms[].
+Underfull \hbox (badness 2837) in paragraph at lines 69--76
+[][]\T1/stix/m/n/12 Voor Toy Story 3 (Fi-guur 2.1[])
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 69--76
+\T1/stix/m/n/12 werd er ge-mid-deld ze-ven uur over
+ []
+
+
+Underfull \hbox (badness 3989) in paragraph at lines 69--76
+\T1/stix/m/n/12 ge-daan om een frame te ren-de-ren
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4
+[5
 
- <./images//toystory3comparison.jpg>]
-
-LaTeX Warning: Citation `ScienceBehindPixarRendering' on page 5 undefined on in
-put line 83.
-
-[5 <./images//minecraftrtx.jpg>]
+ <./images//toystory3comparison.jpg>] [6 <./images//minecraftrtx.jpg>]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
-97.
+96.
 
 (/usr/share/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
-) [6]
-<images//RGB_channels_separation.png, id=32, 401.5pt x 321.2pt>
+) [7]
+<images//RGB_channels_separation.png, id=36, 401.5pt x 321.2pt>
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
-e 132.
+e 128.
 (pdftex.def)             Requested size: 195.0pt x 156.00237pt.
+ [8
+
+ <./images//RGB_channels_separation.png>] [9]
+<images//raytracing_diagram.png, id=47, 803.0pt x 533.995pt>
+File: images//raytracing_diagram.png Graphic file (type png)
+<use images//raytracing_diagram.png>
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 154
+.
+(pdftex.def)             Requested size: 292.5pt x 194.51952pt.
+<images//Phong_components.png, id=49, 724.95844pt x 201.75375pt>
+File: images//Phong_components.png Graphic file (type png)
+<use images//Phong_components.png>
+Package pdftex.def Info: images//Phong_components.png  used on input line 165.
+(pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
+
+Overfull \hbox (31.16399pt too wide) in paragraph at lines 162--169
+\T1/stix/m/n/12 Eén ma-nier om licht-si-mu-la-ties te be-na-de-ren is het \T1/s
+tix/m/it/12 Phong Re-flec-tion Mo-del \T1/stix/m/n/12 [[]].
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Citation `CrammingComponents' on page 7 undefined on input line 
-146.
-
-[7
-
-] [8 <./images//RGB_channels_separation.png>]
-<images//raytracing_diagram.png, id=44, 803.0pt x 533.995pt>
-File: images//raytracing_diagram.png Graphic file (type png)
-<use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 159
-.
-(pdftex.def)             Requested size: 292.5pt x 194.51952pt.
-
-
-LaTeX Warning: Citation `PhongReflectionModel' on page 9 undefined on input lin
-e 167.
-
-<images//Phong_components.png, id=46, 724.95844pt x 201.75375pt>
-File: images//Phong_components.png Graphic file (type png)
-<use images//Phong_components.png>
-Package pdftex.def Info: images//Phong_components.png  used on input line 170.
-(pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
-[9 <./images//raytracing_diagram.png>]
-<images//global_illumination.png, id=51, 462.528pt x 346.896pt>
+[10 <./images//raytracing_diagram.png>]
+<images//global_illumination.png, id=54, 462.528pt x 346.896pt>
 File: images//global_illumination.png Graphic file (type png)
 <use images//global_illumination.png>
 Package pdftex.def Info: images//global_illumination.png  used on input line 18
-8.
+3.
 (pdftex.def)             Requested size: 292.5pt x 219.38724pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Citation `MonteCarloDenoiser' on page 10 undefined on input line
- 193.
-
-[10 <./images//Phong_components.png (PNG copy)>] [11 <./images//global_illumina
+[11 <./images//Phong_components.png (PNG copy)>] [12 <./images//global_illumina
 tion.png>]
-
-LaTeX Warning: Citation `VVSystems' on page 12 undefined on input line 205.
-
-<images//Vertex-Vertex_Meshes.png, id=58, 571.38469pt x 421.575pt>
+<images//Vertex-Vertex_Meshes.png, id=61, 571.38469pt x 421.575pt>
 File: images//Vertex-Vertex_Meshes.png Graphic file (type png)
 <use images//Vertex-Vertex_Meshes.png>
 Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 2
-09.
+04.
 (pdftex.def)             Requested size: 292.5pt x 215.81091pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images//Face-Vertex_Meshes.jpg, id=59, 702.625pt x 444.66125pt>
+<images//Face-Vertex_Meshes.jpg, id=62, 702.625pt x 444.66125pt>
 File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
 <use images//Face-Vertex_Meshes.jpg>
-Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 216
+Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 211
 .
 (pdftex.def)             Requested size: 292.5pt x 185.11449pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13 <./images//Vertex-Vertex_Meshes.png>] [14 <./images//Face-Vertex_Meshe
-s.jpg>] [15
+[13] [14 <./images//Vertex-Vertex_Meshes.png>] [15 <./images//Face-Vertex_Meshe
+s.jpg>] [16
 
-]
+] [17
 
-LaTeX Warning: Citation `StackOverflowSurvey' on page 16 undefined on input lin
-e 264.
-
-[16
-
-] [17] [18]
-
-LaTeX Warning: Citation `ComputerGraphicsFromScratch' on page 19 undefined on i
-nput line 296.
-
-[19] [20] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+] [18] [19] [20] [21]
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1153,44 +1124,44 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on
- input line 340.
+ input line 335.
 
 (/usr/share/texmf-dist/tex/latex/sourcecodepro/T1SourceCodePro-TLF.fd
 File: T1SourceCodePro-TLF.fd 2018/02/18 (autoinst) Font definitions for T1/Sour
 ceCodePro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 340.
+(Font)              scaled to size 10.95pt on input line 335.
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 342.
- [21]
-<images//viewport.png, id=96, 265.2309pt x 248.6088pt>
+(Font)              scaled to size 10.95pt on input line 337.
+ [22]
+<images//viewport.png, id=99, 265.2309pt x 248.6088pt>
 File: images//viewport.png Graphic file (type png)
 <use images//viewport.png>
-Package pdftex.def Info: images//viewport.png  used on input line 401.
+Package pdftex.def Info: images//viewport.png  used on input line 396.
 (pdftex.def)             Requested size: 292.5pt x 274.17987pt.
 
-[22] [23 <./images//viewport.png>] [24] [25]
-<images//renders/first_raytraced.png, id=110, 764.8575pt x 779.91376pt>
+[23] [24 <./images//viewport.png>] [25] [26]
+<images//renders/first_raytraced.png, id=113, 764.8575pt x 779.91376pt>
 File: images//renders/first_raytraced.png Graphic file (type png)
 <use images//renders/first_raytraced.png>
 Package pdftex.def Info: images//renders/first_raytraced.png  used on input lin
-e 543.
+e 538.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
-<images//diffuse-diagram.png, id=111, 290.5254pt x 161.8848pt>
+<images//diffuse-diagram.png, id=114, 290.5254pt x 161.8848pt>
 File: images//diffuse-diagram.png Graphic file (type png)
 <use images//diffuse-diagram.png>
-Package pdftex.def Info: images//diffuse-diagram.png  used on input line 553.
+Package pdftex.def Info: images//diffuse-diagram.png  used on input line 548.
 (pdftex.def)             Requested size: 195.0pt x 108.65985pt.
- [26 <./images//renders/first_raytraced.png (PNG copy)>] [27 <./images//diffuse
+ [27 <./images//renders/first_raytraced.png (PNG copy)>] [28 <./images//diffuse
 -diagram.png>]
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 597.
- [28] [29]
-<images//renders/diffused.png, id=125, 764.8575pt x 779.91376pt>
+(Font)              scaled to size 10.95pt on input line 592.
+ [29] [30]
+<images//renders/diffused.png, id=128, 764.8575pt x 779.91376pt>
 File: images//renders/diffused.png Graphic file (type png)
 <use images//renders/diffused.png>
-Package pdftex.def Info: images//renders/diffused.png  used on input line 695.
+Package pdftex.def Info: images//renders/diffused.png  used on input line 690.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 Missing character: There is no ; in font nullfont!
@@ -1199,39 +1170,71 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-[30 <./images//renders/diffused.png (PNG copy)>] [31] [32
+[31 <./images//renders/diffused.png (PNG copy)>]
+<images//L_decomposition.png, id=133, 293.4162pt x 177.7842pt>
+File: images//L_decomposition.png Graphic file (type png)
+<use images//L_decomposition.png>
+Package pdftex.def Info: images//L_decomposition.png  used on input line 735.
+(pdftex.def)             Requested size: 195.0pt x 118.15445pt.
+<images//LR_Calculation.png, id=134, 293.4162pt x 177.7842pt>
+File: images//LR_Calculation.png Graphic file (type png)
+<use images//LR_Calculation.png>
+Package pdftex.def Info: images//LR_Calculation.png  used on input line 746.
+(pdftex.def)             Requested size: 195.0pt x 118.15445pt.
 
-] [33
 
-] [34
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-] [35
+[32 <./images//L_decomposition.png>] [33 <./images//LR_Calculation.png>]
+<images//renders/specular.png, id=143, 764.8575pt x 779.91376pt>
+File: images//renders/specular.png Graphic file (type png)
+<use images//renders/specular.png>
+Package pdftex.def Info: images//renders/specular.png  used on input line 830.
+(pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
-]
-[36
 
-] [37
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-] (./pws.bbl) [38
+[34] [35 <./images//renders/specular.png (PNG copy)>]
+<images//renders/schaduw.png, id=150, 764.8575pt x 779.91376pt>
+File: images//renders/schaduw.png Graphic file (type png)
+<use images//renders/schaduw.png>
+Package pdftex.def Info: images//renders/schaduw.png  used on input line 883.
+(pdftex.def)             Requested size: 195.0pt x 198.83372pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[36] [37 <./images//renders/schaduw.png (PNG copy)>] [38
 
 ] [39
 
+] [40
+
+] [41
+
+]
+[42
+
+] [43
+
+] (./pws.bbl) [44
+
+] [45
+
 ] (./pws.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31869 strings out of 478238
- 737382 string characters out of 5850455
- 1468121 words of memory out of 5000000
- 49572 multiletter control sequences out of 15000+600000
+ 31897 strings out of 478238
+ 738075 string characters out of 5850455
+ 1489385 words of memory out of 5000000
+ 49594 multiletter control sequences out of 15000+600000
  571920 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,17n,99p,2036b,2085s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,19n,99p,2029b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/sourcecodepro/a_lutrty.enc}{/usr/share
 /texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texmf-dist/fonts/enc/d
 vips/stix/stix-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/stix/STIXGener
@@ -1246,10 +1249,10 @@ lic/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-ma
 thrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></
 usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf
 -dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (39 pages, 3868494 bytes).
+Output written on pws.pdf (45 pages, 4175513 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
+ 246 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

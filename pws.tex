@@ -27,11 +27,15 @@
 \usepackage{wrapfig}
 \usepackage{stix}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 \usepackage{chngcntr}
+\usetikzlibrary{calc}
+\usetikzlibrary{angles}
 \counterwithin{figure}{section}
 \title{Efficiëntie van raymarching in renderen}
 \author{Taeke Roukema}
@@ -554,6 +558,7 @@ Diffusie in het Phong-Model.
 
 In dit diagram raakt lichtstraal $\overrightarrow{L}$ het object in P met hoek $\alpha$ tot normaal $\overrightarrow{N}$. De lichtstraal heeft intensiteit $I$, en is verspreidt over oppervlakte $A$. Dit betekent dat de intensiteit per eenheid oppervlakte $\frac{I}{A}$ is. In een rechte driehoek geldt: 
 \[\cos{\alpha}=\frac{A}{S}\]
+
 Hier is $A$ de aanliggende zijde en $S$ de schuine zijde. In het bovenstaande diagram is dat gelijk aan $\frac{I}{A}$.
 
 Ook geldt dat:
@@ -567,11 +572,173 @@ Hieruit kunnen we de volgende algemene formule voor diffusie opstellen, met een 
 
 \[I_P=I_A+\sum_{i=l}^{n}I_i\frac{\langle \overrightarrow{N}, \overrightarrow{L_i} \rangle}{|\overrightarrow{N}||\overrightarrow{L_i}|}\]
 
-De normaal van de bol in punt $P$ wordt zo bepaald:
+De normaal van de bol met middelpunt $C$ in punt $P$ wordt zo bepaald:
 \[\overrightarrow{N}=\frac{P-C}{|P-C|}\]
+
 Door te delen met $|P-C|$ wordt de vector genormaliseerd, waardoor de lengte 1 wordt.
 
+De volgende functie wordt gebruikt voor het berekenen van het licht:
+
+\begin{lstlisting}[language=C++]
+double ComputeLighting(Vector3 P, Vector3 N, Vector3 V,  Scene scene) {
+    double i = 0.0;
+    Vector3 L;
+
+    for (Light light: scene.lights) {
+        if (light.type == 0) {
+            i += light.intensity;
+        } else {
+            if (light.type == 1) {
+                L = subtract(light.position, P);
+            } else if (light.type == 2) {
+                L = light.direction;
+            }
+
+            // Diffuse
+            double n_dot_l = dot(N, L);
+            if (n_dot_l > 0) {
+                i += light.intensity * n_dot_l/magnitude(L);
+            }
+        }
+    }
+    return i;
+}
+\end{lstlisting}
+
+$P$ is het punt op de vorm, $N$ de normaal en $L$ de richting van het licht. Aan het Scene() object is nu ook een vector van de lichten in de scène toegevoegd. Die lichten zijn gedefiniëerd als volgt:
+
+\begin{lstlisting}[language=C++]
+class Light {
+    public:
+        int type; // 0: ambient; 1: point; 2: directional
+        double intensity;
+
+        Vector3 position;
+        Vector3 direction;
+
+        Light();
+        Light(int t, double i);
+        Light(int t, double i, Vector3 pos_or_rot);
+};
+\end{lstlisting}
+
+De functie heeft het argument $t$, wat voor type staat. Er zijn drie types: ambient, directional en point. Die staan voor 1, 2 en 3 respectievelijk. Het initialiseren van een ambient licht gaat met de volgende functie:
+
+\begin{lstlisting}[language=C++]
+Light::Light(int t, double i) {
+    type = t;
+    intensity = i;
+    position = (Vector3){0, 0, 0};
+    direction = (Vector3){0, 0, 0};
+}
+\end{lstlisting}
+
+En voor rotationele en positionele lichten gaat het zo:
+
+\begin{lstlisting}[language=C++]
+Light::Light(int t, double i, Vector3 pos_or_rot) {
+    type = t;
+    intensity = i;
+    if (type == 1) {
+        position = pos_or_rot;
+        direction = (Vector3){0, 0, 0};
+    } else if (type == 2) {
+        position = (Vector3){0, 0, 0};
+        direction = pos_or_rot;
+    }
+}
+\end{lstlisting}
+
+We voegen aan de scène de volgende lichten toe:
+
+\begin{lstlisting}[language=C++]
+scene.AddLight(Light(
+    0, // Ambient
+    0.2
+));
+
+scene.AddLight(Light(
+    1, // Point
+    0.6,
+    (Vector3){2, 1, 0}
+));
+
+scene.AddLight(Light(
+    2, // Directional
+    0.2,
+    (Vector3){1, 4, 4}
+));
+\end{lstlisting}
+
+In de TraceRay() functie vermenigvuldigen we nu de originele kleur met de teruggegeven intensiteit. 
+
+\begin{lstlisting}[language=C++]
+Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {   
+    std::pair<Sphere, double> closest_intersection = ClosestIntersection(O, D, t_min, t_max, scene);
+    Sphere closest_sphere = closest_intersection.first;
+    double closest_t = closest_intersection.second;
+
+    if (closest_t==1E9) {
+        return RAYWHITE;
+    }
+
+    Vector3 P = add(O, multiply(D, closest_t));
+    Vector3 N = subtract(P, closest_sphere.center);
+    N = multiply(N, 1/magnitude(N));
+    return multiply(closest_sphere.color, ComputeLighting(P, N, multiply(D, -1), scene));
+
+}
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/diffused.png}
+    \caption{De renderer, nu met diffuse oppervlakten.}
+    \label{fig:diffused}
+\end{figure}
+
 \subsubsection{Specular Highlights}
+
+\begin{tikzpicture}
+\begin{axis}[
+	xtick=\empty,
+	ytick=\empty,
+	xmin=-3.5,
+	xmax=3.5,
+	ymin=-0.5,
+	ymax=1.5,
+	axis x line=center,
+	axis y line=center,
+	legend style={at={(1.1,1)},anchor=west, title={$y = \left(\frac{\cos(x) + 1}{2}\right)^n$}},
+	legend entries={$n=1$, $n=2$, $n=10$, $n=50$, $n=100$, $n=500$},
+]
+\addlegendentry[red]{$n=1$};
+\addlegendentry[green]{$n=2$};
+\addlegendentry[blue]{$n=10$};
+\addlegendentry[purple]{$n=50$};
+\addlegendentry[orange]{$n=100$};
+\addlegendentry[brown]{$n=500$};
+\addplot[color=red, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^1};
+\addplot[color=green, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^2};
+\addplot[color=blue, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^10};
+\addplot[color=purple, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^50};
+\addplot[color=orange, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^100};
+\addplot[color=brown, thick, samples=200, domain=-pi:pi] {((cos(deg(x)) + 1) / 2)^500};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+
+% Vector
+\draw[->] (0,1) -- (1,0);
+
+% Line
+\draw (0,0) -- (2,0);
+
+
+\end{tikzpicture}
+
+
 \subsubsection{Schaduwen}
 \subsubsection{Reflecties}
 \subsubsection{Raymarching}

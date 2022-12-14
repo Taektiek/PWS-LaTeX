@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  12 DEC 2022 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  14 DEC 2022 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,23 +484,359 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
 )
-(/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen173
+\pgfutil@tempdimb=\dimen174
+
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box59
+)
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
+
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks30
+))
+\pgf@x=\dimen175
+\pgf@y=\dimen176
+\pgf@xa=\dimen177
+\pgf@ya=\dimen178
+\pgf@xb=\dimen179
+\pgf@yb=\dimen180
+\pgf@xc=\dimen181
+\pgf@yc=\dimen182
+\pgf@xd=\dimen183
+\pgf@yd=\dimen184
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count285
+\c@pgf@countb=\count286
+\c@pgf@countc=\count287
+\c@pgf@countd=\count288
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count289
+
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count290
+\pgfsyssoftpath@bigbuffer@items=\count291
+)
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen185
+\pgfmath@count=\count292
+\pgfmath@box=\box60
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
+)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code
+.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
+.code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count293
+)) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen186
+\pgf@picmaxx=\dimen187
+\pgf@picminy=\dimen188
+\pgf@picmaxy=\dimen189
+\pgf@pathminx=\dimen190
+\pgf@pathmaxx=\dimen191
+\pgf@pathminy=\dimen192
+\pgf@pathmaxy=\dimen193
+\pgf@xx=\dimen194
+\pgf@xy=\dimen195
+\pgf@yx=\dimen196
+\pgf@yy=\dimen197
+\pgf@zx=\dimen198
+\pgf@zy=\dimen199
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen256
+\pgf@path@lasty=\dimen257
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen258
+\pgf@shorten@start@additional=\dimen259
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box61
+\pgf@hbox=\box62
+\pgf@layerbox@main=\box63
+\pgf@picture@serial@count=\count294
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen260
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
+ex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen261
+\pgf@pt@y=\dimen262
+\pgf@pt@temp=\dimen263
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.te
+x
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen264
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen265
+\pgf@sys@shading@range@num=\count295
+\pgf@shadingcount=\count296
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box64
+))
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box65
+)
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen266
+\pgf@nodesepend=\dimen267
+)
+(/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen268
+\pgffor@skip=\dimen269
+\pgffor@stack=\toks37
+\pgffor@toks=\toks38
+))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
+x
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count297
+\pgfplotmarksize=\dimen270
+)
+\tikz@lastx=\dimen271
+\tikz@lasty=\dimen272
+\tikz@lastxsaved=\dimen273
+\tikz@lastysaved=\dimen274
+\tikz@lastmovetox=\dimen275
+\tikz@lastmovetoy=\dimen276
+\tikzleveldistance=\dimen277
+\tikzsiblingdistance=\dimen278
+\tikz@figbox=\box66
+\tikz@figbox@bg=\box67
+\tikz@tempbox=\box68
+\tikz@tempbox@bg=\box69
+\tikztreelevel=\count298
+\tikznumberofchildren=\count299
+\tikznumberofcurrentchild=\count300
+\tikz@fig@count=\count301
+ (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count302
+\pgfmatrixcurrentcolumn=\count303
+\pgf@matrix@numberofcolumns=\count304
+)
+\tikz@expandcount=\count305
+
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+topaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks39
+\t@pgfplots@tokb=\toks40
+\t@pgfplots@tokc=\toks41
+\pgfplots@tmpa=\dimen279
+\c@pgfplots@coordindex=\count306
+\c@pgfplots@scanlineindex=\count307
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_l
+oader.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure
+.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure
+ext.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.te
+x
+\c@pgfplotsarray@tmp=\count308
+)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.t
+ex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.t
+ex
+\c@pgfplotstable@counta=\count309
+\t@pgfplotstable@a=\toks42
+)
+(/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading
+.code.tex
+\c@pgfplotslibrarysurf@no=\count310
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.
+pgfsys-pdftex.def)))
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex)))
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen280
+\pgfdecoratedremainingdistance=\dimen281
+\pgfdecoratedinputsegmentcompleteddistance=\dimen282
+\pgfdecoratedinputsegmentremainingdistance=\dimen283
+\pgf@decorate@distancetomove=\dimen284
+\pgf@decorate@repeatstate=\count311
+\pgfdecorationsegmentamplitude=\dimen285
+\pgfdecorationsegmentlength=\dimen286
+)
+\tikz@lib@dec@box=\box70
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.pathmorphing.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorati
+ons.pathmorphing.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+decorations.pathreplacing.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorati
+ons.pathreplacing.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua
+.code.tex)
+\pgfplots@numplots=\count312
+\pgfplots@xmin@reg=\dimen287
+\pgfplots@xmax@reg=\dimen288
+\pgfplots@ymin@reg=\dimen289
+\pgfplots@ymax@reg=\dimen290
+\pgfplots@zmin@reg=\dimen291
+\pgfplots@zmax@reg=\dimen292
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+plotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count285
-\float@exts=\toks27
-\float@box=\box59
-\@float@everytoks=\toks28
-\@floatcapt=\box60
+\c@float@type=\count313
+\float@exts=\toks43
+\float@box=\box71
+\@float@everytoks=\toks44
+\@floatcapt=\box72
 )
 (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks29
-\c@algorithm=\count286
+\@float@every@algorithm=\toks45
+\c@algorithm=\count314
 )
 (/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -509,15 +845,15 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count287
-\c@ALG@rem=\count288
-\c@ALG@nested=\count289
+\c@ALG@line=\count315
+\c@ALG@rem=\count316
+\c@ALG@nested=\count317
 \ALG@tlm=\skip54
 \ALG@thistlm=\skip55
-\c@ALG@Lnr=\count290
-\c@ALG@blocknr=\count291
-\c@ALG@storecount=\count292
-\c@ALG@tmpcounter=\count293
+\c@ALG@Lnr=\count318
+\c@ALG@blocknr=\count319
+\c@ALG@storecount=\count320
+\c@ALG@tmpcounter=\count321
 \ALG@tmplength=\skip56
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -526,75 +862,79 @@ Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 )
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+calc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+angles.code.tex
+File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
 LaTeX Font Info:    Trying to load font information for T1+stix on input line 4
-4.
-
-(/usr/share/texmf-dist/tex/latex/stix/t1stix.fd
+8.
+ (/usr/share/texmf-dist/tex/latex/stix/t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count294
-\l__pdf_internal_box=\box61
-) (./pws.aux
-
-LaTeX Warning: Label `euclid' multiply defined.
-
+\l__color_backend_stack_int=\count322
+\l__pdf_internal_box=\box73
 )
+No file pws.aux.
 \openout1 = `pws.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 48.
 LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 4
-4.
- (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
+8.
+(/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 48.
 LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
-44.
+48.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 48.
 LaTeX Font Info:    Trying to load font information for LS2+stix on input line 
-44.
+48.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stix.fd
 File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 44.
-\c@lstlisting=\count295
+LaTeX Font Info:    ... okay on input line 48.
+\c@lstlisting=\count323
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count296
-\scratchdimen=\dimen173
-\scratchbox=\box62
-\nofMPsegments=\count297
-\nofMParguments=\count298
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count299
-\MPscratchDim=\dimen174
-\MPnumerator=\count300
-\makeMPintoPDFobject=\count301
-\everyMPtoPDFconversion=\toks31
+\scratchcounter=\count324
+\scratchdimen=\dimen293
+\scratchbox=\box74
+\nofMPsegments=\count325
+\nofMParguments=\count326
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen294
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
+\everyMPtoPDFconversion=\toks47
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -604,170 +944,206 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 45.
 
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
+your preamble.
+ on input line 48.
+
+LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
+ne 49.
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 45.
+e 49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 45.
+ine 49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 45.
+e 49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 45.
+ne 49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 45.
+e 49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 45.
+e 49.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pws.toc [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pws.toc)
+\tf@toc=\write4
+\openout4 = `pws.toc'.
 
-])
-\tf@toc=\write3
-\openout3 = `pws.toc'.
+ [2
 
- [3] [4
+] [3
 
 ]
 <images//toystory3comparison.jpg, id=17, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
-Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 62
+Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 66
 .
 (pdftex.def)             Requested size: 195.0pt x 129.99982pt.
+
+
+LaTeX Warning: Reference `fig:toystory3' on page 4 undefined on input line 70.
+
+
+LaTeX Warning: Citation `HowToyStory3WasMade' on page 4 undefined on input line
+ 70.
+
+
+LaTeX Warning: Citation `MakingOfBoredRoom' on page 4 undefined on input line 7
+0.
+
+
+LaTeX Warning: Citation `NeRFactor' on page 4 undefined on input line 70.
+
+
+LaTeX Warning: Citation `NvidiaRTX' on page 4 undefined on input line 70.
+
 <images//minecraftrtx.jpg, id=18, 3854.4pt x 2168.1pt>
 File: images//minecraftrtx.jpg Graphic file (type jpg)
 <use images//minecraftrtx.jpg>
-Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 69.
+Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 73.
 (pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 
-Underfull \hbox (badness 5490) in paragraph at lines 66--73
-[] [] \T1/stix/m/n/12 Voor Toy Story 3 (Fi-guur 2.1[])
- []
-
-
-Underfull \hbox (badness 2591) in paragraph at lines 66--73
-\T1/stix/m/n/12 werd er ge-mid-deld ze-ven uur over
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 66--73
-\T1/stix/m/n/12 ge-daan om een frame te ren-de-ren
+Underfull \hbox (badness 1205) in paragraph at lines 70--77
+\T1/stix/m/n/12 van twee gi-gan-ti-sche ren-der farms[].
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5
+[4
 
- <./images//toystory3comparison.jpg>] [6 <./images//minecraftrtx.jpg>]
+ <./images//toystory3comparison.jpg>]
+
+LaTeX Warning: Citation `ScienceBehindPixarRendering' on page 5 undefined on in
+put line 83.
+
+[5 <./images//minecraftrtx.jpg>]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
-93.
+97.
 
 (/usr/share/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
-) [7]
-<images//RGB_channels_separation.png, id=33, 401.5pt x 321.2pt>
+) [6]
+<images//RGB_channels_separation.png, id=32, 401.5pt x 321.2pt>
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
-e 128.
+e 132.
 (pdftex.def)             Requested size: 195.0pt x 156.00237pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8
 
-] [9 <./images//RGB_channels_separation.png>]
+LaTeX Warning: Citation `CrammingComponents' on page 7 undefined on input line 
+146.
+
+[7
+
+] [8 <./images//RGB_channels_separation.png>]
 <images//raytracing_diagram.png, id=44, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 155
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 159
 .
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
+
+
+LaTeX Warning: Citation `PhongReflectionModel' on page 9 undefined on input lin
+e 167.
+
 <images//Phong_components.png, id=46, 724.95844pt x 201.75375pt>
 File: images//Phong_components.png Graphic file (type png)
 <use images//Phong_components.png>
-Package pdftex.def Info: images//Phong_components.png  used on input line 166.
+Package pdftex.def Info: images//Phong_components.png  used on input line 170.
 (pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
-
-Overfull \hbox (31.16399pt too wide) in paragraph at lines 163--170
-\T1/stix/m/n/12 Eén ma-nier om licht-si-mu-la-ties te be-na-de-ren is het \T1/s
-tix/m/it/12 Phong Re-flec-tion Mo-del \T1/stix/m/n/12 [[]].
- []
-
-[10 <./images//raytracing_diagram.png>]
+[9 <./images//raytracing_diagram.png>]
 <images//global_illumination.png, id=51, 462.528pt x 346.896pt>
 File: images//global_illumination.png Graphic file (type png)
 <use images//global_illumination.png>
 Package pdftex.def Info: images//global_illumination.png  used on input line 18
-4.
+8.
 (pdftex.def)             Requested size: 292.5pt x 219.38724pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11 <./images//Phong_components.png (PNG copy)>] [12 <./images//global_illumina
+
+LaTeX Warning: Citation `MonteCarloDenoiser' on page 10 undefined on input line
+ 193.
+
+[10 <./images//Phong_components.png (PNG copy)>] [11 <./images//global_illumina
 tion.png>]
+
+LaTeX Warning: Citation `VVSystems' on page 12 undefined on input line 205.
+
 <images//Vertex-Vertex_Meshes.png, id=58, 571.38469pt x 421.575pt>
 File: images//Vertex-Vertex_Meshes.png Graphic file (type png)
 <use images//Vertex-Vertex_Meshes.png>
 Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 2
-05.
+09.
 (pdftex.def)             Requested size: 292.5pt x 215.81091pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 <images//Face-Vertex_Meshes.jpg, id=59, 702.625pt x 444.66125pt>
 File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
 <use images//Face-Vertex_Meshes.jpg>
-Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 212
+Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 216
 .
 (pdftex.def)             Requested size: 292.5pt x 185.11449pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13] [14 <./images//Vertex-Vertex_Meshes.png>] [15 <./images//Face-Vertex_Meshe
-s.jpg>] [16
+[12] [13 <./images//Vertex-Vertex_Meshes.png>] [14 <./images//Face-Vertex_Meshe
+s.jpg>] [15
 
-] [17
+]
 
-] [18] [19] [20] [21]
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+LaTeX Warning: Citation `StackOverflowSurvey' on page 16 undefined on input lin
+e 264.
+
+[16
+
+] [17] [18]
+
+LaTeX Warning: Citation `ComputerGraphicsFromScratch' on page 19 undefined on i
+nput line 296.
+
+[19] [20] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -777,42 +1153,53 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on
- input line 336.
+ input line 340.
 
 (/usr/share/texmf-dist/tex/latex/sourcecodepro/T1SourceCodePro-TLF.fd
 File: T1SourceCodePro-TLF.fd 2018/02/18 (autoinst) Font definitions for T1/Sour
 ceCodePro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 336.
+(Font)              scaled to size 10.95pt on input line 340.
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 338.
- [22]
+(Font)              scaled to size 10.95pt on input line 342.
+ [21]
 <images//viewport.png, id=96, 265.2309pt x 248.6088pt>
 File: images//viewport.png Graphic file (type png)
 <use images//viewport.png>
-Package pdftex.def Info: images//viewport.png  used on input line 397.
+Package pdftex.def Info: images//viewport.png  used on input line 401.
 (pdftex.def)             Requested size: 292.5pt x 274.17987pt.
 
-[23] [24 <./images//viewport.png>] [25] [26]
+[22] [23 <./images//viewport.png>] [24] [25]
 <images//renders/first_raytraced.png, id=110, 764.8575pt x 779.91376pt>
 File: images//renders/first_raytraced.png Graphic file (type png)
 <use images//renders/first_raytraced.png>
 Package pdftex.def Info: images//renders/first_raytraced.png  used on input lin
-e 539.
+e 543.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 <images//diffuse-diagram.png, id=111, 290.5254pt x 161.8848pt>
 File: images//diffuse-diagram.png Graphic file (type png)
 <use images//diffuse-diagram.png>
-Package pdftex.def Info: images//diffuse-diagram.png  used on input line 549.
+Package pdftex.def Info: images//diffuse-diagram.png  used on input line 553.
 (pdftex.def)             Requested size: 195.0pt x 108.65985pt.
- [27 <./images//renders/first_raytraced.png (PNG copy)>] [28 <./images//diffuse
--diagram.png>] [29] [30
+ [26 <./images//renders/first_raytraced.png (PNG copy)>] [27 <./images//diffuse
+-diagram.png>]
+LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/it' will be
+(Font)              scaled to size 10.95pt on input line 597.
+ [28] [29]
+<images//renders/diffused.png, id=125, 764.8575pt x 779.91376pt>
+File: images//renders/diffused.png Graphic file (type png)
+<use images//renders/diffused.png>
+Package pdftex.def Info: images//renders/diffused.png  used on input line 695.
+(pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
-] [31
-
-]
-[32
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+[30 <./images//renders/diffused.png (PNG copy)>] [31] [32
 
 ] [33
 
@@ -820,40 +1207,49 @@ Package pdftex.def Info: images//diffuse-diagram.png  used on input line 549.
 
 ] [35
 
-] (./pws.bbl) [36
+]
+[36
 
 ] [37
 
+] (./pws.bbl) [38
+
+] [39
+
 ] (./pws.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 11300 strings out of 478238
- 165090 string characters out of 5850455
- 818951 words of memory out of 5000000
- 29352 multiletter control sequences out of 15000+600000
- 571282 words of font info for 139 fonts, out of 8000000 for 9000
+ 31869 strings out of 478238
+ 737382 string characters out of 5850455
+ 1468121 words of memory out of 5000000
+ 49572 multiletter control sequences out of 15000+600000
+ 571920 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,99p,2029b,1724s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,17n,99p,2036b,2085s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/sourcecodepro/a_lutrty.enc}{/usr/share
 /texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texmf-dist/fonts/enc/d
 vips/stix/stix-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/stix/STIXGener
 al-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.p
 fb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr
 /share/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Bold.pfb></usr/
-share/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb></us
-r/share/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texmf-d
-ist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texmf-dist/fonts/type1/
-public/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix
--mathrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb
-></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/te
-xmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (37 pages, 3691284 bytes).
+share/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-It.pfb></usr/sha
+re/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texmf-dist
+/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-ma
+thrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></
+usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf
+-dist/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on pws.pdf (39 pages, 3868494 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
+ 221 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

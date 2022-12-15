@@ -681,7 +681,7 @@ Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
     Vector3 P = add(O, multiply(D, closest_t));
     Vector3 N = subtract(P, closest_sphere.center);
     N = multiply(N, 1/magnitude(N));
-    return multiply(closest_sphere.color, ComputeLighting(P, N, multiply(D, -1), scene));
+    return multiply(closest_sphere.material.color, ComputeLighting(P, N, multiply(D, -1), scene));
 
 }
 \end{lstlisting}
@@ -887,6 +887,70 @@ Dit zijn alle aanpassingen die gemaakt moeten worden aan de code.
 \end{figure}
 
 \subsubsection{Reflecties}
+
+Om reflecties te tekenen moet de TraceRay() functie vanaf het raakpunt opnieuw uitgevoerd worden in de tegenovergestelde richting van de normaal. De formule voor reflectie was eerder vastgesteld als:
+\[\ora{L}=2\ora{N}\langle\ora{N},\ora{R}\rangle-\ora{R}\]
+
+Daaruit is de volgende functie geschreven:
+
+\begin{lstlisting}[language=C++]
+Vector3 ReflectRay(Vector3 R, Vector3 N) {
+    return subtract(multiply(N, 2 * dot(N, R)), R);
+}
+\end{lstlisting}
+
+We passen de TraceRay() functie recursief toe:
+\begin{lstlisting}[language=C++]
+Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene, int recursion_depth) {   
+    std::pair<Sphere, double> closest_intersection = ClosestIntersection(O, D, t_min, t_max, scene);
+    Sphere closest_sphere = closest_intersection.first;
+    double closest_t = closest_intersection.second;
+
+    if (closest_t==1E9) {
+        return RAYWHITE;
+    }
+
+    Vector3 P = add(O, multiply(D, closest_t));
+    Vector3 N = subtract(P, closest_sphere.center);
+    N = multiply(N, 1/magnitude(N));
+    Color local_color = multiply(closest_sphere.material.color, ComputeLighting(P, N, multiply(D, -1), closest_sphere.material.specular, scene));
+
+    double r = closest_sphere.material.reflective;
+    if (recursion_depth <=0 || r <= 0) {
+        return local_color;
+    }
+
+    Vector3 R = ReflectRay(multiply(D, -1), N);
+    Color reflected_color = TraceRay(P, R, 0.001, 1E9, scene, recursion_depth - 1);
+
+    return add(multiply(local_color, 1 - r), multiply(reflected_color, r)); 
+
+}
+\end{lstlisting}
+
+Aan de ObjectMaterial() klasse is de laatste nieuwe eigenschap reflective toegevoegd, de reflectie wordt met deze waarde vermenigvuldigd:
+
+\begin{lstlisting}[language=C++]
+class ObjectMaterial {
+    public: 
+        Color color;
+        double specular;
+        double reflective;
+
+        ObjectMaterial(Color color, double specular, double reflective);
+        ObjectMaterial();
+};
+\end{lstlisting}
+
+Als reflective lager is dan 0 stellen we dat er geen reflecties zijn voor dat object. Deze kleine toevoegingen maken de basis van de raytracer af.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/reflection.png}
+    \caption{De bollen gerenderd met reflecties.}
+    \label{fig:reflection}
+\end{figure}
+
 \subsubsection{Raymarching}
 \subsubsection{SDFs}
 \subsubsection{SDF operaties}

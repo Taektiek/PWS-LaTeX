@@ -952,13 +952,63 @@ Als reflective lager is dan 0 stellen we dat er geen reflecties zijn voor dat ob
 \end{figure}
 
 \subsubsection{Raymarching}
+
+De IntersectRaySphere() functie wordt vervangen door MarchRay(). Verder is het Sphere() object nu weg. In plaats daarvan spreken we over een SDFObject(), die een methode SDF() heeft.
+
+\begin{lstlisting}[language=C++]
+double marchRay(Vector3 O, Vector3 D, SDFObject *object, double max_distance, int max_marching_steps, double max_depth) {
+    double depth = magnitude(D);
+
+    for (int i = 0; i < max_marching_steps; i++) {
+        double distance = object->SDF(add(O, multiply(D, depth)));
+        if (distance < max_distance) {
+            return depth;
+        }
+
+        depth += distance;
+
+
+        if (depth >= max_depth) {
+            return 1E9;
+        }
+    }
+
+    return 1E9;
+}
+\end{lstlisting}
+
+Er wordt steeds een stap in de richting van de straal gezet met de grootte van de afstand tot het object, totdat de afstand lager is dan een bepaalde aangegeven grenswaarde.
+
+Verder moet de normaal nog berekend worden. De normaal is gelijk aan de gradiënt van het oppervlakte:
+
+\[\ora{N} = \text{normalize}(\nabla f(p))\]
+
+Waar $f(p)$ de SDF is.
+
+De definitie van de gradiënt zegt:
+
+\[\nabla f(p)=\left\{\frac{df(p)}{dx},\frac{df(p)}{dy},\frac{df(p)}{dz}\right\}\]
+
+De afgeleide is te benaderen met:
+
+\[\frac{df(p)}{dx}\approx\frac{f\left(p+\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)}{2\epsilon}\]
+
+Hieruit volgt:
+
+\[
+\ora{N}=\text{normalize}\begin{pmatrix} 
+f\left(p+\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right) \\
+f\left(p+\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right) \\
+f\left(p+\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)
+\end{pmatrix}\]
+
 \subsubsection{SDFs}
 \subsubsection{SDF operaties}
+\subsubsection{Transformaties}
 \subsubsection{Driehoeken}
 \subsubsection{Mesh Representatie}
 \subsubsection{Polygonale primitieven}
-\subsubsection{Translatie, rotatie en schaling}
-\subsubsection{Radiosity}
+\subsubsection{Radiosity}z
 \subsubsection{Interface}
 \subsubsection{Meten}
 \clearpage

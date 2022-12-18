@@ -993,6 +993,8 @@ De afgeleide is te benaderen met:
 
 \[\frac{df(p)}{dx}\approx\frac{f\left(p+\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)}{2\epsilon}\]
 
+Bij de afgeleide geldt $\lim\limits_{\epsilon \to 0}$ dus bij de de numerieke benadering is $\epsilon$ een heel klein getal.
+
 Hieruit volgt:
 
 \[
@@ -1002,13 +1004,418 @@ f\left(p+\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right)-f\left(p-\begin
 f\left(p+\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)
 \end{pmatrix}\]
 
+In de code ziet dat er als volgt uit:
+\begin{lstlisting}[language=C++]
+Vector3 estimateNormal(SDFObject *object, Vector3 P) {
+    return normalize((Vector3){
+        object->SDF((Vector3){P.x + EPSILON, P.y, P.z}) - object->SDF((Vector3){P.x - EPSILON, P.y, P.z}),
+        object->SDF((Vector3){P.x, P.y + EPSILON, P.z}) - object->SDF((Vector3){P.x, P.y - EPSILON, P.z}),
+        object->SDF((Vector3){P.x, P.y, P.z  + EPSILON}) - object->SDF((Vector3){P.x, P.y, P.z - EPSILON})
+    });
+}
+\end{lstlisting}
+
+In plaats van een vector van de bollen in het Scene() object is er nu een vector van pointers naar de verschillende SDFObjects. De bol wordt nu als volgt gedefiniëerd:
+\begin{lstlisting}[language=C++]
+class SDFSphere: public SDFObject {
+    public:
+        double radius;
+
+        SDFSphere(Vector3 center, double radius, ObjectMaterial material);
+        SDFSphere();
+
+        virtual double SDF(Vector3 P);
+};
+\end{lstlisting}
+
+Met als SDF:
+
+\begin{lstlisting}[language=C++]
+double SDFSphere::SDF(Vector3 P) {
+    return magnitude(subtract(P, center)) - radius;
+}
+\end{lstlisting}
+
+Verder is de initialisatie van de scène verplaatst naar de functie initScene(). Als we de volgende scène hiermee definiëren:
+\begin{lstlisting}[language=C++]
+void initScene(Scene *scene) {
+    scene -> AddObject(new SDFSphere(
+        (Vector3){-1.7, 0, 5}, // center
+        0.6, //radius
+        ObjectMaterial (
+            (Color){255, 0, 0, 255}, // color
+            500, // specular
+            0.1 // reflective
+        )
+    ));
+
+    scene -> AddObject(new SDFSphere(
+        (Vector3){0, 0, 5}, // center
+        1, //radius
+        ObjectMaterial (
+            (Color){0, 255, 0, 255}, // color
+            100, // specular
+            0.1 // reflective
+        )
+    ));
+
+    scene -> AddObject(new SDFSphere(
+        (Vector3){1.7, 0, 5}, // center
+        0.6, //radius
+        ObjectMaterial (
+            (Color){0, 0, 255, 255}, // color
+            500, // specular
+            0.1 // reflective
+        )
+    ));
+
+    scene -> AddLight(Light(
+        0, // Ambient
+        0.2
+    ));
+
+    scene -> AddLight(Light(
+        1, // Point
+        0.6,
+        (Vector3){2, 1, 0}
+    ));
+
+    scene -> AddLight(Light(
+        2, // Directional
+        0.2,
+        (Vector3){1, 4, 4}
+    ));
+}
+\end{lstlisting}
+
+Krijgen we de eerste render die gebruik maakt van raymarching.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/first_raymarched.png}
+    \caption{De bollen, nu gedefiniëerd met SDFs.}
+    \label{fig:first_raymarched}
+\end{figure}
+
 \subsubsection{SDFs}
+
+Voor de balk is de volgende SDF gedefiniëerd:
+\begin{lstlisting}[language=C++]
+double SDFBox::SDF(Vector3 P) {
+    P = subtract(P, center);
+    Vector3 b = box;
+    Vector3 q = subtract(abs(P), b);
+    return magnitude(max(q,0.0)) + std::min((double)std::max(q.x,std::max(q.y,q.z)),0.0);
+}
+\end{lstlisting}
+Waarin \emph{box} de lengte, breedte en hoogte van de balk beschrijft.
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFBox(
+    (Vector3){-3, 0, 10}, // center
+    (Vector3){1, 2, 1}, // box
+    ObjectMaterial (
+        (Color){255, 0, 0, 255}, // color
+        500, // specular
+        0.1 // reflective
+    )
+));
+
+scene -> AddObject(new SDFBox(
+    (Vector3){0, 0, 10}, // center
+    (Vector3){1, 1, 1}, // box
+    ObjectMaterial (
+        (Color){0, 255, 0, 255}, // color
+        100, // specular
+        0.1 // reflective
+    )
+));
+
+scene -> AddObject(new SDFBox(
+    (Vector3){3, 0, 10}, // center
+    (Vector3){1.5, 0.6, 0.6}, // box
+    ObjectMaterial (
+        (Color){0, 0, 255, 255}, // color
+        500, // specular
+        0.1 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/boxes.png}
+    \caption{Verschillende balken gerenderd met een SDF.}
+    \label{fig:boxes}
+\end{figure}
+
+Voor de torus is de volgende functie gedefiniëerd:
+\begin{lstlisting}[language=C++]
+double SDFTorus::SDF(Vector3 P) {
+    P = subtract(P, center);
+    Vector2 q = (Vector2){magnitude((Vector2){P.x,P.z})-holes.x,P.y};
+    return magnitude(q)-holes.y;
+}
+\end{lstlisting}
+
+Waarin $holes$ een Vector2 is met de straal van de torus, en de dikte.
+
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFTorus(
+    (Vector3){0, -3, 10}, // center
+    (Vector2){3, 0.5}, // radii
+    ObjectMaterial (
+        (Color){255, 0, 0, 255}, // color
+        500, // specular
+        0.1 // reflective
+    )
+));
+
+scene -> AddObject(new SDFTorus(
+    (Vector3){0, 0, 10}, // center
+    (Vector2){1, 1}, // radii
+    ObjectMaterial (
+        (Color){0, 255, 0, 255}, // color
+        100, // specular
+        0.1 // reflective
+    )
+));
+
+scene -> AddObject(new SDFTorus(
+    (Vector3){0, 3, 10}, // center
+    (Vector2){2, 1.5}, // radii
+    ObjectMaterial (
+        (Color){0, 0, 255, 255}, // color
+        500, // specular
+        0.1 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/tori.png}
+    \caption{Verschillende torussen gerenderd met een SDF.}
+    \label{fig:tori}
+\end{figure}
+
+Voor het vlak is de volgende functie gedefiniëerd:
+\begin{lstlisting}[language=C++]
+double SDFPlane::SDF(Vector3 P) {
+    return abs(P.y - center.y);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFPlane(
+    (Vector3){0, -1, 0}, // center
+    ObjectMaterial (
+        (Color){255, 255, 0, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/plane.png}
+    \caption{Een vlak gerenderd met een SDF.}
+    \label{fig:plane}
+\end{figure}
+
+Voor de cylinder is de volgende functie gedefiniëerd:
+\begin{lstlisting}[language=C++]
+double SDFCylinder::SDF(Vector3 P) {
+    P = subtract(P, center);
+    Vector2 d = (Vector2){
+        abs(magnitude((Vector2){P.x, P.z}))-radius,
+        abs(P.y) - height
+    };
+    return std::min((double)std::max(d.x, d.y), 0.0) + magnitude(max(d, 0.0));
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFCylinder(
+    (Vector3){0, 3, 10}, // center
+    1, // height
+    0.5, // radius
+    ObjectMaterial (
+        (Color){255, 0, 0, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+
+scene -> AddObject(new SDFCylinder(
+    (Vector3){0, 0, 10}, // center
+    1.5, // height
+    1, // radius
+    ObjectMaterial (
+        (Color){0, 255, 0, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+
+scene -> AddObject(new SDFCylinder(
+    (Vector3){0, -3, 10}, // center
+    1, // height
+    2, // radius
+    ObjectMaterial (
+        (Color){0, 0, 255, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/cylinders.png}
+    \caption{Cylinders gerenderd met SDFs.}
+    \label{fig:cylinders}
+\end{figure}
+
+
 \subsubsection{SDF operaties}
+
+De boolean operaties \emph{union}, \emph{subtraction} en \emph{intersection} worden ook als SDFObject() toegevoegd. Met de desbetreffende vormen als argumenten die ook van type SDFObject() zijn.
+
+Het SDFUnion() object is bijvoorbeeld als volgt gedefiniëerd:
+
+\begin{lstlisting}[language=C++]
+class SDFUnion: public SDFObject {
+    public:
+        Vector3 center;
+        
+        SDFObject *first_object;
+        SDFObject *second_object;
+
+        SDFUnion(Vector3 center, SDFObject *first_object, SDFObject *second_object, ObjectMaterial material);
+        SDFUnion();
+
+        virtual double SDF(Vector3 P);
+};
+\end{lstlisting}
+
+Met als SDF:
+
+\begin{lstlisting}[language=C++]
+double SDFUnion::SDF(Vector3 P) {
+    P = subtract(P, center);
+    return std::min(first_object -> SDF(P), second_object -> SDF(P));
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFUnion(
+    (Vector3){0, 0, 10}, // center
+    new SDFSphere(
+        (Vector3){-1, 0, 0}, // center
+        1.5, // radius
+        ObjectMaterial()
+    ),
+    new SDFTorus(
+        (Vector3){0, 0, 0}, // center
+        {1, 0.5}, // radii
+        ObjectMaterial()
+    ),
+    ObjectMaterial (
+        (Color){255, 0, 0, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/union.png}
+    \caption{De \emph{union} tussen een bol en een torus.}
+    \label{fig:union}
+\end{figure}
+
+De SDF van \emph{subtraction} is als volgt:
+
+\begin{lstlisting}[language=C++]
+double SDFSubtraction::SDF(Vector3 P) {
+    P = subtract(P, center);
+    return std::max(first_object -> SDF(P), -1 * second_object -> SDF(P));
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFSubtraction(
+    (Vector3){0, 0, 10}, // center
+    new SDFSphere(
+        (Vector3){-1, 0, 0}, // center
+        1.5, // radius
+        ObjectMaterial()
+    ),
+    new SDFSphere(
+        (Vector3){1, 0, -.5}, // center
+        1.5, // radius
+        ObjectMaterial()
+    ),
+    ObjectMaterial (
+        (Color){255, 0, 0, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/subtraction.png}
+    \caption{De \emph{subtraction} tussen twee bollen.}
+    \label{fig:subtraction}
+\end{figure}
+
+De SDF van \emph{intersection} is als volgt:
+
+\begin{lstlisting}[language=C++]
+double SDFIntersection::SDF(Vector3 P) {
+    P = subtract(P, center);
+    return std::max(first_object -> SDF(P), second_object -> SDF(P));
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFIntersection(
+    (Vector3){0, 0, 10}, // center
+    new SDFSphere(
+        (Vector3){-1, 0, 0}, // center
+        1.5, // radius
+        ObjectMaterial()
+    ),
+    new SDFSphere(
+        (Vector3){1, 0, -.5}, // center
+        1.5, // radius
+        ObjectMaterial()
+    ),
+    ObjectMaterial (
+        (Color){255, 0, 0, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/intersection.png}
+    \caption{De \emph{intersection} tussen twee bollen.}
+    \label{fig:intersection}
+\end{figure}
 \subsubsection{Transformaties}
 \subsubsection{Driehoeken}
 \subsubsection{Mesh Representatie}
 \subsubsection{Polygonale primitieven}
-\subsubsection{Radiosity}z
+\subsubsection{Radiosity}
 \subsubsection{Interface}
 \subsubsection{Meten}
 \clearpage

@@ -34,25 +34,25 @@
 \contentsline {subsubsection}{\numberline {5.3.7}Schaduwen}{35}{}%
 \contentsline {subsubsection}{\numberline {5.3.8}Reflecties}{36}{}%
 \contentsline {subsubsection}{\numberline {5.3.9}Raymarching}{39}{}%
-\contentsline {subsubsection}{\numberline {5.3.10}SDFs}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.12}Transformaties}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.16}Radiosity}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.17}Interface}{40}{}%
-\contentsline {subsubsection}{\numberline {5.3.18}Meten}{40}{}%
-\contentsline {section}{\numberline {6}Methode}{41}{}%
-\contentsline {subsection}{\numberline {6.1}Variabelen}{41}{}%
-\contentsline {subsection}{\numberline {6.2}Meetmethoden}{41}{}%
-\contentsline {section}{\numberline {7}Resultaten}{42}{}%
-\contentsline {subsection}{\numberline {7.1}Snelheid}{42}{}%
-\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{42}{}%
-\contentsline {subsection}{\numberline {7.3}Renders}{42}{}%
-\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{43}{}%
-\contentsline {section}{\numberline {9}Conclusie}{44}{}%
-\contentsline {section}{\numberline {10}Discussie}{45}{}%
-\contentsline {section}{\numberline {11}Nawoord}{46}{}%
-\contentsline {section}{\numberline {12}Literatuurlijst}{47}{}%
-\contentsline {section}{\numberline {13}Logboek}{48}{}%
+\contentsline {subsubsection}{\numberline {5.3.10}SDFs}{42}{}%
+\contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{47}{}%
+\contentsline {subsubsection}{\numberline {5.3.12}Transformaties}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.16}Radiosity}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.17}Interface}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.18}Meten}{51}{}%
+\contentsline {section}{\numberline {6}Methode}{52}{}%
+\contentsline {subsection}{\numberline {6.1}Variabelen}{52}{}%
+\contentsline {subsection}{\numberline {6.2}Meetmethoden}{52}{}%
+\contentsline {section}{\numberline {7}Resultaten}{53}{}%
+\contentsline {subsection}{\numberline {7.1}Snelheid}{53}{}%
+\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{53}{}%
+\contentsline {subsection}{\numberline {7.3}Renders}{53}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{54}{}%
+\contentsline {section}{\numberline {9}Conclusie}{55}{}%
+\contentsline {section}{\numberline {10}Discussie}{56}{}%
+\contentsline {section}{\numberline {11}Nawoord}{57}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{58}{}%
+\contentsline {section}{\numberline {13}Logboek}{59}{}%

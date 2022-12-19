@@ -248,6 +248,7 @@ Een andere interessante operatie is de modulus, hiermee is het mogelijk om een v
 
 \clearpage
 \section{Hypothese}
+Vanwege de polynomiale groei in complexiteit die het raytraceprincipe ondergaat met meer detail zijn zeer ingewikkelde vormen die makkelijk te beschrijven zijn met SDFs waarschijnlijk sneller te renderen met raymarching. Echter zijn er bepaalde vormen die beter bij polygonaal renderen passen, zo zijn veel organische objecten niet makkelijk te beschrijven met wiskundige formules. Dan wil je de details echt exact op lokaal niveau kunnen bepalen. In die gevallen zou het continu toevoegen van objecten juist meer rekenkracht betekenen. Verder is het polygonaal modelleren een zeer ontwikkelde kunst, terwijl vormen modelleren met \emph{Signed Distance Fields} weinig aanhangers kent. Het is dus nog de vraag wat een kunstenaar zou kunnen doen met deze tools, en of het werkelijk mogelijk is om de processen die gedaan worden met polygonale objecten te vervangen.
 \clearpage
 \section{Ontwikkeling}
 \subsection{Hardware}
@@ -1413,25 +1414,13 @@ scene -> AddObject(new SDFIntersection(
 \end{figure}
 \subsubsection{Transformaties}
 
+De volgende rotatiematrices beschrijven hoe een coördinaat respectievelijk rondom de x-, y-, en z-as gedraaid worden met hoek $\theta$.
 \[
 R_x(\theta) = \begin{bmatrix}
 1 &  0            &  0           \\
 0 &  \cos \theta  & -\sin \theta \\
 0 &  \sin \theta & \cos \theta \\
 \end{bmatrix}
-\]
-\[
-\begin{bmatrix}
-1 &  0            &  0           \\
-0 &  \cos \theta  & -\sin \theta \\
-0 &  \sin \theta & \cos \theta \\
-\end{bmatrix} \times
-\begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
-\begin{bmatrix}
-x \\
-y \cos \theta - z \sin \theta \\
-y \sin \theta + z \cos \theta \\
-\end{bmatrix} 
 \]
 \[
 R_y(\theta) = \begin{bmatrix}
@@ -1441,11 +1430,24 @@ R_y(\theta) = \begin{bmatrix}
 \end{bmatrix}
 \]
 \[
+R_z(\theta) = \begin{bmatrix}
+\cos \theta & -\sin \theta & 0 \\
+\sin \theta &  \cos \theta & 0 \\
+0           &  0           & 1 \\
+\end{bmatrix}
+\]
+Vermenigvuldigd met $\{x,y,z\}$ geeft dat:
+\[
+R_x(\theta)\times
+\begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
 \begin{bmatrix}
-\cos \theta & 0 & \sin \theta \\
-0           & 1 &  0           \\
--\sin \theta & 0 &  \cos \theta \\
-\end{bmatrix} \times
+x \\
+y \cos \theta - z \sin \theta \\
+y \sin \theta + z \cos \theta \\
+\end{bmatrix} 
+\]
+\[
+R_y(\theta)\times
 \begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
 \begin{bmatrix}
 x \cos \theta + z \sin \theta \\
@@ -1454,18 +1456,7 @@ y \\
 \end{bmatrix} 
 \]
 \[
-R_z(\theta) = \begin{bmatrix}
-\cos \theta & -\sin \theta & 0 \\
-\sin \theta &  \cos \theta & 0 \\
-0           &  0           & 1 \\
-\end{bmatrix}
-\]
-\[
-\begin{bmatrix}
-\cos \theta & -\sin \theta & 0 \\
-\sin \theta &  \cos \theta & 0 \\
-0           &  0           & 1 \\
-\end{bmatrix} \times
+R_z(\theta) \times
 \begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
 \begin{bmatrix}
 x \cos \theta - y \sin \theta \\
@@ -1473,6 +1464,111 @@ x \sin \theta + y \cos \theta \\
 z \\
 \end{bmatrix} 
 \]
+
+In de code is er een SDFRotate() object. Standaard zullen de rotaties in de volgorde XYZ uitgevoerd worden. Met de volgende SDF:
+\begin{lstlisting}[language=C++]
+double SDFRotate::SDF(Vector3 P) {
+    P = subtract(P, center);
+
+    P = (Vector3){
+        P.x,
+        P.y * cosx - P.z * sinx,
+        P.y * sinx + P.z * cosx,
+    }; // X rotation
+    P = (Vector3){
+        P.x * cosy + P.z * siny,
+        P.y,
+        - P.x * siny + P.z * cosy,
+    }; // Y rotation
+    P = (Vector3){
+        P.x * cosz - P.y * sinz,
+        P.x * sinz + P.y * cosz,
+        P.z,
+    }; // Z rotation
+    return object -> SDF(P);
+}
+\end{lstlisting}
+
+De verschillende cosinus en sinus berekeningen worden bij initialisatie berekend.
+
+\begin{lstlisting}[language=C++]
+void SDFRotate::initializeTransformations() {
+    double x_rad = radian(x_angle);
+    double y_rad = radian(y_angle);
+    double z_rad = radian(z_angle);
+
+    cosx = cos(radian(x_angle));
+    sinx = sin(radian(x_angle));
+
+    cosy = cos(radian(y_angle));
+    siny = sin(radian(y_angle));
+
+    cosz = cos(radian(z_angle));
+    sinz = sin(radian(z_angle));
+}
+\end{lstlisting}
+
+De volgende testscène laat de werking van rotaties zien:
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFIntersection(
+    {0, 0, 10},
+    new SDFRotate(
+        (Vector3){0, 0, 0}, // center
+        new SDFTorus(
+            (Vector3){0, 0, 0}, // center
+            {1, 0.5}, // radii
+            ObjectMaterial()
+        ),
+        45, // x rot
+        0, // y rot
+        30, // z rot
+        ObjectMaterial()
+    ),
+    new SDFRotate(      
+        (Vector3){0, 0, 0}, // center
+        new SDFBox(
+            (Vector3){0, 0, 0}, // center
+            {1, 1, 1}, // box
+            ObjectMaterial()
+        ),
+        -45, // x rot
+        90, // y rot
+        30, // z rot
+        ObjectMaterial()
+    ),
+    ObjectMaterial(
+        {255, 0, 0, 255},
+        500,
+        0.2
+    )
+
+));
+
+scene -> AddObject(new SDFRotate(
+    (Vector3){3, 0, 10}, // center
+    new SDFCylinder(
+        (Vector3){0, 0, 0}, // center
+        1,
+        0.3,
+        ObjectMaterial()
+    ),
+    -45, // x rot
+    90, // y rot
+    120, // z rot
+    ObjectMaterial (
+        (Color){0, 0, 255, 255}, // color
+        500, // specular
+        0.2 // reflective
+    )
+));
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\textwidth]{renders/rotaties.png}
+    \caption{Verschillende rotaties.}
+    \label{fig:rotaties}
+\end{figure}
 \subsubsection{Driehoeken}
 \subsubsection{Mesh Representatie}
 \subsubsection{Polygonale primitieven}

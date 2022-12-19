@@ -1412,6 +1412,67 @@ scene -> AddObject(new SDFIntersection(
     \label{fig:intersection}
 \end{figure}
 \subsubsection{Transformaties}
+
+\[
+R_x(\theta) = \begin{bmatrix}
+1 &  0            &  0           \\
+0 &  \cos \theta  & -\sin \theta \\
+0 &  \sin \theta & \cos \theta \\
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+1 &  0            &  0           \\
+0 &  \cos \theta  & -\sin \theta \\
+0 &  \sin \theta & \cos \theta \\
+\end{bmatrix} \times
+\begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
+\begin{bmatrix}
+x \\
+y \cos \theta - z \sin \theta \\
+y \sin \theta + z \cos \theta \\
+\end{bmatrix} 
+\]
+\[
+R_y(\theta) = \begin{bmatrix}
+\cos \theta & 0 & \sin \theta \\
+0           & 1 &  0           \\
+-\sin \theta & 0 &  \cos \theta \\
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+\cos \theta & 0 & \sin \theta \\
+0           & 1 &  0           \\
+-\sin \theta & 0 &  \cos \theta \\
+\end{bmatrix} \times
+\begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
+\begin{bmatrix}
+x \cos \theta + z \sin \theta \\
+y \\
+-x \sin \theta + z \cos \theta \\
+\end{bmatrix} 
+\]
+\[
+R_z(\theta) = \begin{bmatrix}
+\cos \theta & -\sin \theta & 0 \\
+\sin \theta &  \cos \theta & 0 \\
+0           &  0           & 1 \\
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+\cos \theta & -\sin \theta & 0 \\
+\sin \theta &  \cos \theta & 0 \\
+0           &  0           & 1 \\
+\end{bmatrix} \times
+\begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}=
+\begin{bmatrix}
+x \cos \theta - y \sin \theta \\
+x \sin \theta + y \cos \theta \\
+z \\
+\end{bmatrix} 
+\]
 \subsubsection{Driehoeken}
 \subsubsection{Mesh Representatie}
 \subsubsection{Polygonale primitieven}

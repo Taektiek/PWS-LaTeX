@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.14)  18 DEC 2022 22:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  19 DEC 2022 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,9 +1285,7 @@ Package pdftex.def Info: images//renders/intersection.png  used on input line 1
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [50 <./images//renders/subtraction.png (PNG copy)>] [51 <./images//renders/inte
-rsection.png (PNG copy)>] [52
-
-] [53
+rsection.png (PNG copy)>] [52] [53
 
 ] [54
 
@@ -1297,10 +1295,12 @@ rsection.png (PNG copy)>] [52
 
 ] [57
 
-] (./pws.bbl) [58
+] [58
 
-]
+] (./pws.bbl)
 [59
+
+] [60
 
 ] (./pws.aux)
 
@@ -1310,7 +1310,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  32054 strings out of 478238
  741445 string characters out of 5850455
- 1489481 words of memory out of 5000000
+ 1489493 words of memory out of 5000000
  49742 multiletter control sequences out of 15000+600000
  571920 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1329,10 +1329,10 @@ lic/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-ma
 thrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></
 usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf
 -dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (59 pages, 4910088 bytes).
+Output written on pws.pdf (60 pages, 4911516 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
+ 302 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

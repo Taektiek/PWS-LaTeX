@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  19 DEC 2022 11:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.15)  13 JAN 2023 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -726,7 +726,28 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+)))
+(/usr/share/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+calc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+3d.code.tex
+File: tikzlibrary3d.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+arrows.code.tex
+File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\arrowsize=\dimen279
+)))
+(/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 
@@ -735,7 +756,7 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@toka=\toks39
 \t@pgfplots@tokb=\toks40
 \t@pgfplots@tokc=\toks41
-\pgfplots@tmpa=\dimen279
+\pgfplots@tmpa=\dimen280
 \c@pgfplots@coordindex=\count306
 \c@pgfplots@scanlineindex=\count307
 
@@ -785,14 +806,14 @@ pgfsys-pdftex.def)))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 decorations.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen280
-\pgfdecoratedremainingdistance=\dimen281
-\pgfdecoratedinputsegmentcompleteddistance=\dimen282
-\pgfdecoratedinputsegmentremainingdistance=\dimen283
-\pgf@decorate@distancetomove=\dimen284
+\pgfdecoratedcompleteddistance=\dimen281
+\pgfdecoratedremainingdistance=\dimen282
+\pgfdecoratedinputsegmentcompleteddistance=\dimen283
+\pgfdecoratedinputsegmentremainingdistance=\dimen284
+\pgf@decorate@distancetomove=\dimen285
 \pgf@decorate@repeatstate=\count311
-\pgfdecorationsegmentamplitude=\dimen285
-\pgfdecorationsegmentlength=\dimen286
+\pgfdecorationsegmentamplitude=\dimen286
+\pgfdecorationsegmentlength=\dimen287
 )
 \tikz@lib@dec@box=\box70
 )
@@ -807,12 +828,12 @@ ons.pathreplacing.code.tex))
 (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua
 .code.tex)
 \pgfplots@numplots=\count312
-\pgfplots@xmin@reg=\dimen287
-\pgfplots@xmax@reg=\dimen288
-\pgfplots@ymin@reg=\dimen289
-\pgfplots@ymax@reg=\dimen290
-\pgfplots@zmin@reg=\dimen291
-\pgfplots@zmax@reg=\dimen292
+\pgfplots@xmin@reg=\dimen288
+\pgfplots@xmax@reg=\dimen289
+\pgfplots@ymin@reg=\dimen290
+\pgfplots@ymax@reg=\dimen291
+\pgfplots@zmin@reg=\dimen292
+\pgfplots@zmax@reg=\dimen293
 )
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 plotmarks.code.tex
@@ -831,9 +852,6 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box71
 \@float@everytoks=\toks44
 \@floatcapt=\box72
-)
-(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks45
 \c@algorithm=\count314
@@ -863,21 +881,65 @@ Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 )
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-calc.code.tex
-File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 angles.code.tex
 File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/share/texmf-dist/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(/usr/share/texmf-dist/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count322
 )
-LaTeX Font Info:    Trying to load font information for T1+stix on input line 4
-9.
- (/usr/share/texmf-dist/tex/latex/stix/t1stix.fd
+(/usr/share/texmf-dist/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count323
+\FP@xia=\count324
+\FP@xib=\count325
+\FP@xfa=\count326
+\FP@xfb=\count327
+\FP@rega=\count328
+\FP@regb=\count329
+\FP@regs=\count330
+\FP@times=\count331
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count332
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(/usr/share/texmf-dist/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+))
+LaTeX Font Info:    Trying to load font information for T1+stix on input line 5
+2.
+
+(/usr/share/texmf-dist/tex/latex/stix/t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count322
+\l__color_backend_stack_int=\count333
 \l__pdf_internal_box=\box73
 ) (./pws.aux
 
@@ -886,57 +948,57 @@ LaTeX Warning: Label `euclid' multiply defined.
 )
 \openout1 = `pws.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 49.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 4
-9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 52.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 5
+2.
  (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 52.
 LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
-49.
+52.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 52.
 LaTeX Font Info:    Trying to load font information for LS2+stix on input line 
-49.
+52.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stix.fd
 File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 49.
-\c@lstlisting=\count323
+LaTeX Font Info:    ... okay on input line 52.
+\c@lstlisting=\count334
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
-\scratchdimen=\dimen293
+\scratchcounter=\count335
+\scratchdimen=\dimen294
 \scratchbox=\box74
-\nofMPsegments=\count325
-\nofMParguments=\count326
+\nofMPsegments=\count336
+\nofMParguments=\count337
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count327
-\MPscratchDim=\dimen294
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
+\MPscratchCnt=\count338
+\MPscratchDim=\dimen295
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
 \everyMPtoPDFconversion=\toks47
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -951,49 +1013,49 @@ e
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 49.
+ on input line 52.
 
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 50.
+ne 53.
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 50.
+e 53.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 50.
+ine 53.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 50.
+e 53.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 50.
+ne 53.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 50.
+e 53.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 50.
+e 53.
 
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
@@ -1012,26 +1074,26 @@ File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 <images//toystory3comparison.jpg, id=20, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
-Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 65
+Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 68
 .
 (pdftex.def)             Requested size: 195.0pt x 129.99982pt.
 <images//minecraftrtx.jpg, id=21, 3854.4pt x 2168.1pt>
 File: images//minecraftrtx.jpg Graphic file (type jpg)
 <use images//minecraftrtx.jpg>
-Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 73.
+Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 76.
 (pdftex.def)             Requested size: 195.0pt x 109.66849pt.
 
-Underfull \hbox (badness 2837) in paragraph at lines 70--77
+Underfull \hbox (badness 2837) in paragraph at lines 73--80
 [][]\T1/stix/m/n/12 Voor Toy Story 3 (Fi-guur 2.1[])
  []
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 70--77
+Underfull \hbox (badness 2591) in paragraph at lines 73--80
 \T1/stix/m/n/12 werd er ge-mid-deld ze-ven uur over
  []
 
 
-Underfull \hbox (badness 3989) in paragraph at lines 70--77
+Underfull \hbox (badness 3989) in paragraph at lines 73--80
 \T1/stix/m/n/12 ge-daan om een frame te ren-de-ren
  []
 
@@ -1042,7 +1104,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  <./images//toystory3comparison.jpg>] [6 <./images//minecraftrtx.jpg>]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
-97.
+100.
 
 (/usr/share/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
@@ -1051,7 +1113,7 @@ File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
-e 129.
+e 132.
 (pdftex.def)             Requested size: 195.0pt x 156.00237pt.
  [8
 
@@ -1059,16 +1121,16 @@ e 129.
 <images//raytracing_diagram.png, id=47, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
-Package pdftex.def Info: images//raytracing_diagram.png  used on input line 155
+Package pdftex.def Info: images//raytracing_diagram.png  used on input line 158
 .
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
 <images//Phong_components.png, id=49, 724.95844pt x 201.75375pt>
 File: images//Phong_components.png Graphic file (type png)
 <use images//Phong_components.png>
-Package pdftex.def Info: images//Phong_components.png  used on input line 166.
+Package pdftex.def Info: images//Phong_components.png  used on input line 169.
 (pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
 
-Overfull \hbox (31.16399pt too wide) in paragraph at lines 163--170
+Overfull \hbox (31.16399pt too wide) in paragraph at lines 166--173
 \T1/stix/m/n/12 Eén ma-nier om licht-si-mu-la-ties te be-na-de-ren is het \T1/s
 tix/m/it/12 Phong Re-flec-tion Mo-del \T1/stix/m/n/12 [[]].
  []
@@ -1081,7 +1143,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//global_illumination.png Graphic file (type png)
 <use images//global_illumination.png>
 Package pdftex.def Info: images//global_illumination.png  used on input line 18
-4.
+7.
 (pdftex.def)             Requested size: 292.5pt x 219.38724pt.
 
 
@@ -1093,7 +1155,7 @@ tion.png>]
 File: images//Vertex-Vertex_Meshes.png Graphic file (type png)
 <use images//Vertex-Vertex_Meshes.png>
 Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 2
-05.
+08.
 (pdftex.def)             Requested size: 292.5pt x 215.81091pt.
 
 
@@ -1102,7 +1164,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images//Face-Vertex_Meshes.jpg, id=62, 702.625pt x 444.66125pt>
 File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
 <use images//Face-Vertex_Meshes.jpg>
-Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 212
+Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 215
 .
 (pdftex.def)             Requested size: 292.5pt x 185.11449pt.
 
@@ -1124,21 +1186,21 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on
- input line 336.
+ input line 339.
 
 (/usr/share/texmf-dist/tex/latex/sourcecodepro/T1SourceCodePro-TLF.fd
 File: T1SourceCodePro-TLF.fd 2018/02/18 (autoinst) Font definitions for T1/Sour
 ceCodePro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 336.
+(Font)              scaled to size 10.95pt on input line 339.
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 338.
+(Font)              scaled to size 10.95pt on input line 341.
  [22]
 <images//viewport.png, id=99, 265.2309pt x 248.6088pt>
 File: images//viewport.png Graphic file (type png)
 <use images//viewport.png>
-Package pdftex.def Info: images//viewport.png  used on input line 397.
+Package pdftex.def Info: images//viewport.png  used on input line 400.
 (pdftex.def)             Requested size: 292.5pt x 274.17987pt.
 
 [23] [24 <./images//viewport.png>] [25] [26]
@@ -1146,22 +1208,22 @@ Package pdftex.def Info: images//viewport.png  used on input line 397.
 File: images//renders/first_raytraced.png Graphic file (type png)
 <use images//renders/first_raytraced.png>
 Package pdftex.def Info: images//renders/first_raytraced.png  used on input lin
-e 539.
+e 542.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 <images//diffuse-diagram.png, id=114, 290.5254pt x 161.8848pt>
 File: images//diffuse-diagram.png Graphic file (type png)
 <use images//diffuse-diagram.png>
-Package pdftex.def Info: images//diffuse-diagram.png  used on input line 549.
+Package pdftex.def Info: images//diffuse-diagram.png  used on input line 552.
 (pdftex.def)             Requested size: 195.0pt x 108.65985pt.
  [27 <./images//renders/first_raytraced.png (PNG copy)>] [28 <./images//diffuse
 -diagram.png>]
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 593.
+(Font)              scaled to size 10.95pt on input line 596.
  [29] [30]
 <images//renders/diffused.png, id=128, 764.8575pt x 779.91376pt>
 File: images//renders/diffused.png Graphic file (type png)
 <use images//renders/diffused.png>
-Package pdftex.def Info: images//renders/diffused.png  used on input line 691.
+Package pdftex.def Info: images//renders/diffused.png  used on input line 694.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 Missing character: There is no ; in font nullfont!
@@ -1174,12 +1236,12 @@ Missing character: There is no ; in font nullfont!
 <images//L_decomposition.png, id=133, 293.4162pt x 177.7842pt>
 File: images//L_decomposition.png Graphic file (type png)
 <use images//L_decomposition.png>
-Package pdftex.def Info: images//L_decomposition.png  used on input line 736.
+Package pdftex.def Info: images//L_decomposition.png  used on input line 739.
 (pdftex.def)             Requested size: 195.0pt x 118.15445pt.
 <images//LR_Calculation.png, id=134, 293.4162pt x 177.7842pt>
 File: images//LR_Calculation.png Graphic file (type png)
 <use images//LR_Calculation.png>
-Package pdftex.def Info: images//LR_Calculation.png  used on input line 747.
+Package pdftex.def Info: images//LR_Calculation.png  used on input line 750.
 (pdftex.def)             Requested size: 195.0pt x 118.15445pt.
 
 
@@ -1189,7 +1251,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images//renders/specular.png, id=143, 764.8575pt x 779.91376pt>
 File: images//renders/specular.png Graphic file (type png)
 <use images//renders/specular.png>
-Package pdftex.def Info: images//renders/specular.png  used on input line 831.
+Package pdftex.def Info: images//renders/specular.png  used on input line 834.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
@@ -1199,7 +1261,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images//renders/schaduw.png, id=150, 764.8575pt x 779.91376pt>
 File: images//renders/schaduw.png Graphic file (type png)
 <use images//renders/schaduw.png>
-Package pdftex.def Info: images//renders/schaduw.png  used on input line 884.
+Package pdftex.def Info: images//renders/schaduw.png  used on input line 887.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
@@ -1209,7 +1271,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images//renders/reflection.png, id=158, 764.8575pt x 779.91376pt>
 File: images//renders/reflection.png Graphic file (type png)
 <use images//renders/reflection.png>
-Package pdftex.def Info: images//renders/reflection.png  used on input line 949
+Package pdftex.def Info: images//renders/reflection.png  used on input line 952
 .
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [38 <./images//renders/reflection.png (PNG copy)>] [39] [40] [41]
@@ -1217,13 +1279,13 @@ Package pdftex.def Info: images//renders/reflection.png  used on input line 949
 File: images//renders/first_raymarched.png Graphic file (type png)
 <use images//renders/first_raymarched.png>
 Package pdftex.def Info: images//renders/first_raymarched.png  used on input li
-ne 1095.
+ne 1098.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [42 <./images//renders/first_raymarched.png (PNG copy)>]
 <images//renders/boxes.png, id=175, 764.8575pt x 779.91376pt>
 File: images//renders/boxes.png Graphic file (type png)
 <use images//renders/boxes.png>
-Package pdftex.def Info: images//renders/boxes.png  used on input line 1147.
+Package pdftex.def Info: images//renders/boxes.png  used on input line 1150.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
@@ -1233,12 +1295,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images//renders/tori.png, id=183, 764.8575pt x 779.91376pt>
 File: images//renders/tori.png Graphic file (type png)
 <use images//renders/tori.png>
-Package pdftex.def Info: images//renders/tori.png  used on input line 1198.
+Package pdftex.def Info: images//renders/tori.png  used on input line 1201.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 <images//renders/plane.png, id=184, 764.8575pt x 779.91376pt>
 File: images//renders/plane.png Graphic file (type png)
 <use images//renders/plane.png>
-Package pdftex.def Info: images//renders/plane.png  used on input line 1223.
+Package pdftex.def Info: images//renders/plane.png  used on input line 1226.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
@@ -1249,14 +1311,14 @@ PNG copy)>]
 <images//renders/cylinders.png, id=191, 764.8575pt x 779.91376pt>
 File: images//renders/cylinders.png Graphic file (type png)
 <use images//renders/cylinders.png>
-Package pdftex.def Info: images//renders/cylinders.png  used on input line 1277
+Package pdftex.def Info: images//renders/cylinders.png  used on input line 1280
 .
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [47 <./images//renders/cylinders.png (PNG copy)>]
 <images//renders/union.png, id=195, 764.8575pt x 779.91376pt>
 File: images//renders/union.png Graphic file (type png)
 <use images//renders/union.png>
-Package pdftex.def Info: images//renders/union.png  used on input line 1336.
+Package pdftex.def Info: images//renders/union.png  used on input line 1339.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
@@ -1267,7 +1329,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//renders/subtraction.png Graphic file (type png)
 <use images//renders/subtraction.png>
 Package pdftex.def Info: images//renders/subtraction.png  used on input line 13
-73.
+76.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
@@ -1278,18 +1340,22 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images//renders/intersection.png Graphic file (type png)
 <use images//renders/intersection.png>
 Package pdftex.def Info: images//renders/intersection.png  used on input line 1
-410.
+413.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50 <./images//renders/subtraction.png (PNG copy)>] [51 <./images//renders/inte
-rsection.png (PNG copy)>] [52] [53
+[50 <./images//renders/subtraction.png (PNG copy)>]
+Missing character: There is no 3 in font nullfont!
 
-] [54
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-] [55
+[51 <./images//renders/intersection.png (PNG copy)>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[52] [53] [54] [55
 
 ] [56
 
@@ -1297,10 +1363,13 @@ rsection.png (PNG copy)>] [52] [53
 
 ] [58
 
-] (./pws.bbl)
-[59
+] [59
 
 ] [60
+
+] (./pws.bbl) [61
+
+] [62
 
 ] (./pws.aux)
 
@@ -1308,10 +1377,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32054 strings out of 478238
- 741445 string characters out of 5850455
- 1489493 words of memory out of 5000000
- 49742 multiletter control sequences out of 15000+600000
+ 33711 strings out of 478238
+ 773391 string characters out of 5850455
+ 1528244 words of memory out of 5000000
+ 51349 multiletter control sequences out of 15000+600000
  571920 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,99p,2029b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1329,10 +1398,10 @@ lic/stix/stix-mathit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-ma
 thrm-bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></
 usr/share/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf
 -dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (60 pages, 4911516 bytes).
+Output written on pws.pdf (62 pages, 4917321 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
+ 309 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

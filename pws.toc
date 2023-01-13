@@ -37,22 +37,21 @@
 \contentsline {subsubsection}{\numberline {5.3.10}SDFs}{42}{}%
 \contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{47}{}%
 \contentsline {subsubsection}{\numberline {5.3.12}Transformaties}{50}{}%
-\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{52}{}%
-\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{52}{}%
-\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{52}{}%
-\contentsline {subsubsection}{\numberline {5.3.16}Radiosity}{52}{}%
-\contentsline {subsubsection}{\numberline {5.3.17}Interface}{52}{}%
-\contentsline {subsubsection}{\numberline {5.3.18}Meten}{52}{}%
-\contentsline {section}{\numberline {6}Methode}{53}{}%
-\contentsline {subsection}{\numberline {6.1}Variabelen}{53}{}%
-\contentsline {subsection}{\numberline {6.2}Meetmethoden}{53}{}%
-\contentsline {section}{\numberline {7}Resultaten}{54}{}%
-\contentsline {subsection}{\numberline {7.1}Snelheid}{54}{}%
-\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{54}{}%
-\contentsline {subsection}{\numberline {7.3}Renders}{54}{}%
-\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{55}{}%
-\contentsline {section}{\numberline {9}Conclusie}{56}{}%
-\contentsline {section}{\numberline {10}Discussie}{57}{}%
-\contentsline {section}{\numberline {11}Nawoord}{58}{}%
-\contentsline {section}{\numberline {12}Literatuurlijst}{59}{}%
-\contentsline {section}{\numberline {13}Logboek}{60}{}%
+\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{51}{}%
+\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{53}{}%
+\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{54}{}%
+\contentsline {subsubsection}{\numberline {5.3.16}Interface}{54}{}%
+\contentsline {subsubsection}{\numberline {5.3.17}Meten}{54}{}%
+\contentsline {section}{\numberline {6}Methode}{55}{}%
+\contentsline {subsection}{\numberline {6.1}Variabelen}{55}{}%
+\contentsline {subsection}{\numberline {6.2}Meetmethoden}{55}{}%
+\contentsline {section}{\numberline {7}Resultaten}{56}{}%
+\contentsline {subsection}{\numberline {7.1}Snelheid}{56}{}%
+\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{56}{}%
+\contentsline {subsection}{\numberline {7.3}Renders}{56}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{57}{}%
+\contentsline {section}{\numberline {9}Conclusie}{58}{}%
+\contentsline {section}{\numberline {10}Discussie}{59}{}%
+\contentsline {section}{\numberline {11}Nawoord}{60}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{61}{}%
+\contentsline {section}{\numberline {13}Logboek}{62}{}%

@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: pws.aux
+The style file: apalike.bst
+Database file #1: refs.bib
+Warning--to sort, need author or key in ScienceBehindPixarRendering
+Warning--to sort, need author or key in StackOverflowSurvey
+Warning--empty author in StackOverflowSurvey
+Warning--empty journal in StackOverflowSurvey
+Warning--empty journal in NvidiaRTX
+Warning--empty journal in NeRFactor
+Warning--empty journal in HowToyStory3WasMade
+Warning--empty journal in CrammingComponents
+Warning--empty journal in PhongReflectionModel
+Warning--empty journal in VVSystems
+You've used 11 entries,
+            1935 wiz_defined-function locations,
+            533 strings with 5019 characters,
+and the built_in function-call counts, 2953 in all, are:
+= -- 268
+> -- 94
+< -- 8
++ -- 30
+- -- 30
+* -- 217
+:= -- 551
+add.period$ -- 23
+call.type$ -- 11
+change.case$ -- 69
+chr.to.int$ -- 11
+cite$ -- 23
+duplicate$ -- 135
+empty$ -- 215
+format.name$ -- 39
+if$ -- 546
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 9
+newline$ -- 48
+num.names$ -- 27
+pop$ -- 78
+preamble$ -- 1
+purify$ -- 70
+quote$ -- 0
+skip$ -- 110
+stack$ -- 0
+substring$ -- 134
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 64
+warning$ -- 10
+while$ -- 18
+width$ -- 0
+write$ -- 112
+(There were 10 warnings)

@@ -5,19 +5,19 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    numberstyle=\tiny\color{codegray},
-    keywordstyle=\color{black}\bfseries,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
+	backgroundcolor=\color{backcolour},   
+	numberstyle=\tiny\color{codegray},
+	keywordstyle=\color{black}\bfseries,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
 	basicstyle=\small\ttfamily
 }
 \lstset{style=mystyle}
@@ -29,6 +29,8 @@
 \usepackage{amsmath}
 \newcommand*{\ora}{\overrightarrow}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{3d}
 \usepackage{pgfplots}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
@@ -37,10 +39,11 @@
 \usepackage{chngcntr}
 \usetikzlibrary{calc}
 \usetikzlibrary{angles}
+\usepackage{fp}
 \counterwithin{figure}{section}
 \title{Efficiëntie van raymarching in renderen}
 \author{Taeke Roukema}
-\date{December 2023}
+\date{Januari 2023}
 
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
@@ -1570,7 +1573,108 @@ scene -> AddObject(new SDFRotate(
     \label{fig:rotaties}
 \end{figure}
 \subsubsection{Driehoeken}
+Een driehoek is gedefinieerd door drie hoekpunten. Die drie punten liggen op een vlak. Om de normaal van dat vlak te krijgen nemen we het kruisproduct van twee niet-paralelle vectoren op dat vlak. 
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1,    vector/.style={-stealth, thick},    origin/.style={black, fill=white, inner sep=1.5pt}]
+		% draw the vectors
+		\draw[vector] (1,0,1) -- (2,0,3);
+		\draw[vector] (1,0,1) -- (3,0,2);
+		\draw[vector,red,dashed] (1,0,1) -- (1,3,1);
+		% add labels
+		\node[right] at (2,0,3) {$\mathbf{a}$};
+		\node[right] at (3,0,2) {$\mathbf{b}$};
+		\node[above] at (1,3,1) {$\mathbf{a} \times \mathbf{b}$};
+		% set the view
+		\tdplotsetmaincoords{70}{110}
+		\begin{scope}[tdplot_main_coords]
+			% draw the coordinate system
+			\draw[thick] (0,0,0) -- (2,0,0) node[pos=1.1]{$x$};
+			\draw[thick] (0,0,0) -- (0,2,0) node[pos=1.1]{$y$};
+			\draw[thick] (0,0,0) -- (0,0,2) node[pos=1.1]{$z$};
+		\end{scope}3
+	\end{tikzpicture}
+	\caption{Het kruisproduct van $a$ en $b$.}
+	\label{fig:kruisproduct}
+\end{figure}
+
+Zoals eerder genoemd wordt de straal beschreven als een parameter-lijn in de vorm:
+
+\[l:P=O+t\ora{D}\]
+
+Met de vergelijking van een vlak
+
+\[v:ax+by+cz=d\]
+
+Waarbij:
+
+\[\ora{n}=\begin{pmatrix} a \\ b \\ c \\ \end{pmatrix}\]
+
+Als we een driehoek nemen met punten $P$, $Q$ en $R$ geldt:
+
+\[\ora{n}=\ora{PQ}\times\ora{PR}\]
+
+Om $d$ te krijgen nemen moet slechts enig punt op de driehoek ingevuld worden in de vergelijking van het vlak.
+
+Voor het snijpunt van de lijn en het vlak moet punt P van de lijn ingevuld worden in de vergelijking van het vlak. Daaruit volgt:
+
+\[t=\frac{d-aO_x-bO_y-cO_z}{\ora{D_x}+\ora{D_y}+\ora{D_z}}\]
+
+Hiermee kan een vlak getekend worden, om een driehoek te tekenen moet nog gecheckt worden of het punt binnen het vlak in die driehoek ligt.
+
+Bij een driehoek $ABC$ met punt $P$ wordt de som van de oppervlakten van driehoeken $ABP$, $ACP$ en $BCP$ vergeleken met het oppervlakte van $ABC$. Als het punt in de driehoek ligt zijn die gelijk, anders is de som groter.
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[]
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (5,0);
+		\coordinate (C) at (5,5);
+		
+		\coordinate (P) at (3,2);
+		\coordinate (P2) at (7,4);
+		
+		\node[below] at (A) {A};
+		\node[below] at (B) {B};
+		\node[right] at (C) {C};
+		
+		\filldraw (A) circle (1.5pt);
+		\filldraw (B) circle (1.5pt);
+		\filldraw (C) circle (1.5pt);
+		
+		\filldraw (P) circle (1.5pt);
+		
+		\node[right] at (P) {P};
+		
+		\filldraw (P2) circle (1.5pt);
+		
+		\node[right] at (P2) {P};
+		
+		\draw (A) -- (B) -- (C) -- (A);
+		
+		\draw[dashed] (A) -- (P);
+		\draw[dashed] (B) -- (P);
+		\draw[dashed] (C) -- (P);
+		
+		\draw[dashed] (A) -- (P2);
+		\draw[dashed] (B) -- (P2);
+		\draw[dashed] (C) -- (P2);
+	\end{tikzpicture}
+	\caption{De som van de driehoeken die $P$ buiten de driehoek vormt met de hoekpunten is groter dan de som van $P$ binnen de driehoek.}
+	\label{fig:driehoek_punt_check}
+\end{figure}
+
+Deze check werkt zo goed in twee dimensies. Maar de renderer werkt natuurlijk in drie dimensies. Daarom moet de driehoek geprojecteerd worden naar twee dimensies. Door de $x$, $y$ of $z$ waarde weg te laten is de check makkelijk uit te voeren. Dit geeft alleen problemen als een driehoek twee punten met dezelfde waarde op twee assen heeft. Stel de driehoek $ABC$ met $A=(1,2,3)$, $B=(1,2,1)$ en $C=(2,3,4)$. $A$ en $B$ delen een waarde op de x-as en de y-as. Hierdoor kan de z-waarde niet weggelaten worden. Want dan worden $A$ en $B$ gelijk. Als in plaats daarvan y weggelaten wordt volgt: $A=(1,3)$, $B=(1,1)$ en $C=(2,4)$. Hiermee kan de check als vorig beschreven uitgevoerd worden.
+
+In het programma hoeven alleen de x-waardes met elkaar vergeleken te worden. Als twee x-waardes gelijk zijn wordt x weggelaten, want dan moeten de y- of z-waardes niet gelijk zijn, anders liggen twee punten op dezelfde plek. Als ze niet gelijk zijn wordt de y-waarde weggelaten. Omdat de x-waardes dan niet gelijk zijn is er genoeg informatie om de check uit te voeren.
+
 \subsubsection{Mesh Representatie}
+
+\begin{itemize}
+	\item Bol
+	\item Balk
+	\item Cylinder
+\end{itemize}\subsubsection{Polygonale primitieven}
 \subsubsection{Polygonale primitieven}
 \subsubsection{Radiosity}
 \subsubsection{Interface}

@@ -40,13 +40,11 @@
 \contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{54}{}%
 \contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{56}{}%
 \contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{56}{}%
-\contentsline {subsubsection}{\numberline {5.3.16}Polygonale primitieven}{56}{}%
-\contentsline {subsubsection}{\numberline {5.3.17}Radiosity}{56}{}%
-\contentsline {subsubsection}{\numberline {5.3.18}Interface}{56}{}%
-\contentsline {subsubsection}{\numberline {5.3.19}Meten}{56}{}%
+\contentsline {subsubsection}{\numberline {5.3.16}Meten}{56}{}%
 \contentsline {section}{\numberline {6}Methode}{57}{}%
 \contentsline {subsection}{\numberline {6.1}Variabelen}{57}{}%
 \contentsline {subsection}{\numberline {6.2}Meetmethoden}{57}{}%
+\contentsline {subsection}{\numberline {6.3}Testscènes}{57}{}%
 \contentsline {section}{\numberline {7}Resultaten}{58}{}%
 \contentsline {subsection}{\numberline {7.1}Snelheid}{58}{}%
 \contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{58}{}%

@@ -1619,7 +1619,7 @@ Om $d$ te krijgen nemen moet slechts enig punt op de driehoek ingevuld worden in
 
 Voor het snijpunt van de lijn en het vlak moet punt P van de lijn ingevuld worden in de vergelijking van het vlak. Daaruit volgt:
 
-\[t=\frac{d-aO_x-bO_y-cO_z}{\ora{D_x}+\ora{D_y}+\ora{D_z}}\]
+\[t=\frac{d-aO_x-bO_y-cO_z}{a\ora{D_x}+b\ora{D_y}+c\ora{D_z}}\]
 
 Hiermee kan een vlak getekend worden, om een driehoek te tekenen moet nog gecheckt worden of het punt binnen het vlak in die driehoek ligt.
 
@@ -1664,25 +1664,53 @@ Bij een driehoek $ABC$ met punt $P$ wordt de som van de oppervlakten van driehoe
 	\label{fig:driehoek_punt_check}
 \end{figure}
 
+Om het oppervlakte te berekenen wordt gebruik gemaakt van Herons formule:
+
+\[T=\sqrt{s(s-a)(s-b)(s-c)}\]
+
+Waarbij $a$, $b$ en $c$ zijden van de driehoek zijn en $s=\frac{1}{2}(a+b+c)$\footnote{De helft van de omtrek van de driehoek}.
+
 Deze check werkt zo goed in twee dimensies. Maar de renderer werkt natuurlijk in drie dimensies. Daarom moet de driehoek geprojecteerd worden naar twee dimensies. Door de $x$, $y$ of $z$ waarde weg te laten is de check makkelijk uit te voeren. Dit geeft alleen problemen als een driehoek twee punten met dezelfde waarde op twee assen heeft. Stel de driehoek $ABC$ met $A=(1,2,3)$, $B=(1,2,1)$ en $C=(2,3,4)$. $A$ en $B$ delen een waarde op de x-as en de y-as. Hierdoor kan de z-waarde niet weggelaten worden. Want dan worden $A$ en $B$ gelijk. Als in plaats daarvan y weggelaten wordt volgt: $A=(1,3)$, $B=(1,1)$ en $C=(2,4)$. Hiermee kan de check als vorig beschreven uitgevoerd worden.
 
 In het programma hoeven alleen de x-waardes met elkaar vergeleken te worden. Als twee x-waardes gelijk zijn wordt x weggelaten, want dan moeten de y- of z-waardes niet gelijk zijn, anders liggen twee punten op dezelfde plek. Als ze niet gelijk zijn wordt de y-waarde weggelaten. Omdat de x-waardes dan niet gelijk zijn is er genoeg informatie om de check uit te voeren.
 
+
+
 \subsubsection{Mesh Representatie}
+\subsubsection{Polygonale primitieven}
 
 \begin{itemize}
 	\item Bol
 	\item Balk
 	\item Cylinder
-\end{itemize}\subsubsection{Polygonale primitieven}
-\subsubsection{Polygonale primitieven}
-\subsubsection{Radiosity}
-\subsubsection{Interface}
+\end{itemize}
 \subsubsection{Meten}
 \clearpage
 \section{Methode}
 \subsection{Variabelen}
 \subsection{Meetmethoden}
+\subsection{Testscènes}
+Resolutie: (1000, 1000)
+\begin{itemize}
+	\item {Enkele bol}
+		\subitem {Hoge resolutie (30, 30)}
+		\subitem {Lage resolutie (7, 7)}
+	\item{Enkele balk}
+	\item{Enkele cylinder}
+		\subitem {Hoge resolutie (50)}
+		\subitem {Lage resolutie (10)}
+	\item{Grote balk met bol erboven}
+		\subitem {Hoge resolutie (30, 30)}
+		\subitem {Lage resolutie (7, 7)}
+	\item{Twee balken tegenover elkaar met bol ertussen}
+		\subitem {Hoge resolutie (30, 30)}
+		\subitem {Lage resolutie (7, 7)}
+	\item{Veel bollen (20)}
+		\subitem {Hoge resolutie (30, 30)}
+		\subitem {Lage resolutie (7, 7)}
+	\item{Veel balken (20)}
+	\item{Balk, bol en cylinder}
+\end{itemize}
 \clearpage
 \section{Resultaten}
 \subsection{Snelheid}

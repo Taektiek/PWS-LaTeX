@@ -18,7 +18,7 @@
 	showstringspaces=false,
 	showtabs=false,                  
 	tabsize=2,
-	basicstyle=\small\ttfamily
+	basicstyle=\scriptsize\ttfamily
 }
 \lstset{style=mystyle}
 \usepackage[dutch]{babel}
@@ -35,11 +35,13 @@
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage{graphicx}
+\usepackage{subfig}
 \graphicspath{{images/}}
 \usepackage{chngcntr}
 \usetikzlibrary{calc}
 \usetikzlibrary{angles}
 \usepackage{fp}
+\usepackage{float}
 \counterwithin{figure}{section}
 \title{Efficiëntie van raymarching in renderen}
 \author{Taeke Roukema}
@@ -71,7 +73,7 @@ Renderen is overal. Als je je telefoon opent zie je allerlei gerenderde vormen. 
 \end{wrapfigure}
 
 Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphics \textbf{P}rocessing \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{minecraftrtx.jpg}
     \caption{De videogame Minecraft kan gebruik maken van Nvidia GPU's om realtime lichtsimulaties te berekenen.}
@@ -127,7 +129,7 @@ Renderen is, in feite, het weergeven van een representatie van een concept op ee
 Het algoritme beschouwt elke pixel die binnen de rechthoek valt en kleurt die pixel. In dit geval wordt dat gedaan door twee loops, die samen alle mogelijke combinaties van x- en y-coördinaten doorlopen. 
 
 Renderen omvat, in principe, niks anders dan het aansturen van individuele pixels. Zo'n pixel heeft op de meeste moderne beeldschermen drie waarden die de kleur aansturen: R, G en B, die respectievelijk staan voor rood, groen en blauw. Ze kunnen een geheel getal tussen de 0 en 255 aannemen wat resulteert in \(2^{24}\) mogelijke kleuren.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{RGB_channels_separation.png}
 \caption{De kleuren in een foto kunnen opgesplitst worden in rode, groene en blauwe kanalen.}
@@ -153,7 +155,7 @@ Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbr
 
 Om dit probleem op te lossen vuren we de stralen niet af vanuit de lichtbronnen, maar vanuit de camera. Voor elke pixel op het scherm wordt een straal door het zichtveld afgevuurd. Als die straal een object raakt kaatsen we die vervolgens af naar de lichtbronnen om te kijken hoe sterk die pixel belicht moet zijn, en of er eventueel een object in de weg zit die een schaduw zou werpen. Bovendien kunnen we de stralen door laten kaatsen tussen objecten, hiermee kunnen we een model van reflectie benaderen. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{raytracing_diagram.png}
     \caption{Een diagram die laat zien hoe raytracen werkt}
@@ -164,7 +166,7 @@ Het renderen wordt met deze methode al een stuk meer te overzien. Voor het gener
 
 \subsection{Hoe werkt shading?}
 Eén manier om lichtsimulaties te benaderen is het \emph{Phong Reflection Model} \cite{PhongReflectionModel}. Hierbij wordt de belichting van een object opgesplitst in drie delen: Ambient, Diffuse en Specular.
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{Phong_components.png}
 \caption{De verschillende componenten van het \emph{Phong Reflection Model}.}
@@ -182,7 +184,7 @@ Als deze drie technieken samengevoegd worden krijg je een vrij accurate benaderi
 \subsection{Wat is global illumination?}
 De methode die hierboven beschreven staat is niet perfect. Als een straal een object ziet tussen het raakpunt en de lichtbron wordt dat punt helemaal niet belicht. Dit is omdat het algoritme niet berekent hoe het licht door de kamer heen kaatst vanuit de lichtbron. Dat concept heet \emph{global illumination}. Het benaderen van \emph{global illumination} is in principe hetzelfde probleem als het benaderen van de rendervergelijking. Dit betekent dat we technieken uit de wiskunde voor het numeriek oplossen van integralen direct toe kunnen passen op de rendervergelijking, waarmee we realistische beelden kunnen tekenen. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{global_illumination.png}
     \caption{Een plaatje gerenderd met \emph{global illumination}.}
@@ -203,14 +205,14 @@ Driedimensionale vormen worden met moderne rendertechnieken vrijwel altijd besch
 \subsection{Hoe wordt een mesh opgeslagen?}
 Er zijn twee hoofdtechnieken: \emph{vertex-vertex meshes} \cite{VVSystems} en \emph{face-vertex meshes}. De \emph{vertex-vertex meshes} of VV-meshes bevatten één lijst die alle punten beschrijft. Daarnaast staan alle verbindingen die dat punt heeft met andere punten. In theorie minimaliseer je met deze techniek de geheugenbezetting. Echter maakt het het ontleden van driehoeken uit de vorm erg complex. Daarvoor zijn FV-meshes geschikter. Daar wordt van twee lijsten gebruik gemaakt. De eerste bevat weer alle punten, echter worden in plaats van de andere punten waarmee die verbonden zijn de verbonden vlakken beschreven. De andere lijst beschrijft al die vlakken en de hoekpunten ervan. De vlakken kunnen alleen driehoeken beschrijven, maar het eerder genoemde polygonale triangulatie principe betekent dat enige polygonale vorm hiermee beschreven kan worden.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Vertex-Vertex_Meshes.png}
     \caption{Voorbeeld van VV-representatie van een mesh.}
     \label{fig:vertex_vertex}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Face-Vertex_Meshes.jpg}
     \caption{Voorbeeld van FV-representatie van een mesh.}
@@ -396,7 +398,7 @@ Vector3 Viewport::CanvasToViewport(Canvas canvas, int x, int y) {
 }
 \end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{viewport.png}
     \caption{Projectie van camera op viewport.}
@@ -538,7 +540,7 @@ class ObjectMaterial {
 \end{lstlisting}
 
 Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor krijgen we onze eerste render.
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/first_raytraced.png}
     \caption{De eerste render gemaakt met de raytracer.}
@@ -548,7 +550,7 @@ Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor krijgen 
 \subsubsection{Diffusion}
 Diffusie in het Phong-Model. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{diffuse-diagram.png}
     \caption{Diagram die laat zien hoe licht op een oppervlakte terecht komt.}
@@ -690,7 +692,7 @@ Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
 }
 \end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/diffused.png}
     \caption{De renderer, nu met diffuse oppervlakten.}
@@ -701,7 +703,7 @@ Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
 
 Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, maar meer in de richting tegenover de vector van inkomend licht gespiegeld in de normaal. De distributie van het teruggekaatste licht kunnen we met een cosinus functie aangeven. Die geeft een duidelijk distributie rondom de y-as. We verheffen de cosinus tot een bepaalde macht $s$, om te bepalen hoe scherp de reflecties zijn.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -735,7 +737,7 @@ Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, ma
 
 We kunnen $\ora{L}$ ontleden in $\ora{L_P}$ en $\ora{L_N}$, waar $\ora{L_N}$ evenwijdig is aan $\ora{N}$ en $\ora{L_N}$ loodrecht staat op $\ora{N}$.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{L_decomposition.png}
     \caption{$\protect\overrightarrow{L}$ ontleden in componenten $\protect\overrightarrow{L_P}$ en $\protect\overrightarrow{L_N}$}
@@ -746,7 +748,7 @@ Omdat $\left|\ora{N}\right| = 1$, geldt $\left|\ora{L_N}\right|=\langle\ora{N},\
 
 $\ora{L}=\ora{L_P}+\ora{L_N}$ dus $\ora{L_P}=\ora{L}-\ora{L_N}=\ora{L}-\ora{N}\langle\ora{N},\ora{L}\rangle$.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{LR_Calculation.png}
     \caption{Het berekenen van $\protect\ora{L_R}$}
@@ -830,7 +832,7 @@ class ObjectMaterial {
 
 Nu kunnen we de bollen renderen met speculaire reflecties.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/specular.png}
     \caption{De bollen gerenderd met speculaire reflecties. De rode bol heeft een hogere waarde $s$ dan de groene bol.}
@@ -883,7 +885,7 @@ double ComputeLighting(Vector3 P, Vector3 N, Vector3 V, double s, Scene scene) {
 
 Dit zijn alle aanpassingen die gemaakt moeten worden aan de code.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/schaduw.png}
     \caption{De bollen gerenderd met schaduwen.}
@@ -948,7 +950,7 @@ class ObjectMaterial {
 
 Als reflective lager is dan 0 stellen we dat er geen reflecties zijn voor dat object. Deze kleine toevoegingen maken de basis van de raytracer af.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/reflection.png}
     \caption{De bollen gerenderd met reflecties.}
@@ -1094,15 +1096,16 @@ void initScene(Scene *scene) {
 
 Krijgen we de eerste render die gebruik maakt van raymarching.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/first_raymarched.png}
     \caption{De bollen, nu gedefiniëerd met SDFs.}
     \label{fig:first_raymarched}
 \end{figure}
 
-\subsubsection{SDFs}
+\subsubsection{SDFs}\footnote{Code van de renders staat in Appendix A}
 
+\paragraph{Balk}
 Voor de balk is de volgende SDF gedefiniëerd:
 \begin{lstlisting}[language=C++]
 double SDFBox::SDF(Vector3 P) {
@@ -1114,45 +1117,14 @@ double SDFBox::SDF(Vector3 P) {
 \end{lstlisting}
 Waarin \emph{box} de lengte, breedte en hoogte van de balk beschrijft.
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFBox(
-    (Vector3){-3, 0, 10}, // center
-    (Vector3){1, 2, 1}, // box
-    ObjectMaterial (
-        (Color){255, 0, 0, 255}, // color
-        500, // specular
-        0.1 // reflective
-    )
-));
-
-scene -> AddObject(new SDFBox(
-    (Vector3){0, 0, 10}, // center
-    (Vector3){1, 1, 1}, // box
-    ObjectMaterial (
-        (Color){0, 255, 0, 255}, // color
-        100, // specular
-        0.1 // reflective
-    )
-));
-
-scene -> AddObject(new SDFBox(
-    (Vector3){3, 0, 10}, // center
-    (Vector3){1.5, 0.6, 0.6}, // box
-    ObjectMaterial (
-        (Color){0, 0, 255, 255}, // color
-        500, // specular
-        0.1 // reflective
-    )
-));
-\end{lstlisting}
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/boxes.png}
     \caption{Verschillende balken gerenderd met een SDF.}
     \label{fig:boxes}
 \end{figure}
 
+\paragraph{Torus}
 Voor de torus is de volgende functie gedefiniëerd:
 \begin{lstlisting}[language=C++]
 double SDFTorus::SDF(Vector3 P) {
@@ -1165,45 +1137,15 @@ double SDFTorus::SDF(Vector3 P) {
 Waarin $holes$ een Vector2 is met de straal van de torus, en de dikte.
 
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFTorus(
-    (Vector3){0, -3, 10}, // center
-    (Vector2){3, 0.5}, // radii
-    ObjectMaterial (
-        (Color){255, 0, 0, 255}, // color
-        500, // specular
-        0.1 // reflective
-    )
-));
 
-scene -> AddObject(new SDFTorus(
-    (Vector3){0, 0, 10}, // center
-    (Vector2){1, 1}, // radii
-    ObjectMaterial (
-        (Color){0, 255, 0, 255}, // color
-        100, // specular
-        0.1 // reflective
-    )
-));
-
-scene -> AddObject(new SDFTorus(
-    (Vector3){0, 3, 10}, // center
-    (Vector2){2, 1.5}, // radii
-    ObjectMaterial (
-        (Color){0, 0, 255, 255}, // color
-        500, // specular
-        0.1 // reflective
-    )
-));
-\end{lstlisting}
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/tori.png}
     \caption{Verschillende torussen gerenderd met een SDF.}
     \label{fig:tori}
 \end{figure}
 
+\paragraph{Vlak}
 Voor het vlak is de volgende functie gedefiniëerd:
 \begin{lstlisting}[language=C++]
 double SDFPlane::SDF(Vector3 P) {
@@ -1211,24 +1153,16 @@ double SDFPlane::SDF(Vector3 P) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFPlane(
-    (Vector3){0, -1, 0}, // center
-    ObjectMaterial (
-        (Color){255, 255, 0, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-\end{lstlisting}
 
-\begin{figure}[h]
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/plane.png}
     \caption{Een vlak gerenderd met een SDF.}
     \label{fig:plane}
 \end{figure}
 
+\paragraph{Cylinder}
 Voor de cylinder is de volgende functie gedefiniëerd:
 \begin{lstlisting}[language=C++]
 double SDFCylinder::SDF(Vector3 P) {
@@ -1241,42 +1175,8 @@ double SDFCylinder::SDF(Vector3 P) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFCylinder(
-    (Vector3){0, 3, 10}, // center
-    1, // height
-    0.5, // radius
-    ObjectMaterial (
-        (Color){255, 0, 0, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
 
-scene -> AddObject(new SDFCylinder(
-    (Vector3){0, 0, 10}, // center
-    1.5, // height
-    1, // radius
-    ObjectMaterial (
-        (Color){0, 255, 0, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-
-scene -> AddObject(new SDFCylinder(
-    (Vector3){0, -3, 10}, // center
-    1, // height
-    2, // radius
-    ObjectMaterial (
-        (Color){0, 0, 255, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-\end{lstlisting}
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/cylinders.png}
     \caption{Cylinders gerenderd met SDFs.}
@@ -1314,28 +1214,8 @@ double SDFUnion::SDF(Vector3 P) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFUnion(
-    (Vector3){0, 0, 10}, // center
-    new SDFSphere(
-        (Vector3){-1, 0, 0}, // center
-        1.5, // radius
-        ObjectMaterial()
-    ),
-    new SDFTorus(
-        (Vector3){0, 0, 0}, // center
-        {1, 0.5}, // radii
-        ObjectMaterial()
-    ),
-    ObjectMaterial (
-        (Color){255, 0, 0, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-\end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/union.png}
     \caption{De \emph{union} tussen een bol en een torus.}
@@ -1351,28 +1231,8 @@ double SDFSubtraction::SDF(Vector3 P) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFSubtraction(
-    (Vector3){0, 0, 10}, // center
-    new SDFSphere(
-        (Vector3){-1, 0, 0}, // center
-        1.5, // radius
-        ObjectMaterial()
-    ),
-    new SDFSphere(
-        (Vector3){1, 0, -.5}, // center
-        1.5, // radius
-        ObjectMaterial()
-    ),
-    ObjectMaterial (
-        (Color){255, 0, 0, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-\end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/subtraction.png}
     \caption{De \emph{subtraction} tussen twee bollen.}
@@ -1388,28 +1248,8 @@ double SDFIntersection::SDF(Vector3 P) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFIntersection(
-    (Vector3){0, 0, 10}, // center
-    new SDFSphere(
-        (Vector3){-1, 0, 0}, // center
-        1.5, // radius
-        ObjectMaterial()
-    ),
-    new SDFSphere(
-        (Vector3){1, 0, -.5}, // center
-        1.5, // radius
-        ObjectMaterial()
-    ),
-    ObjectMaterial (
-        (Color){255, 0, 0, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-\end{lstlisting}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/intersection.png}
     \caption{De \emph{intersection} tussen twee bollen.}
@@ -1512,61 +1352,8 @@ void SDFRotate::initializeTransformations() {
 \end{lstlisting}
 
 De volgende testscène laat de werking van rotaties zien:
-\begin{lstlisting}[language=C++]
-scene -> AddObject(new SDFIntersection(
-    {0, 0, 10},
-    new SDFRotate(
-        (Vector3){0, 0, 0}, // center
-        new SDFTorus(
-            (Vector3){0, 0, 0}, // center
-            {1, 0.5}, // radii
-            ObjectMaterial()
-        ),
-        45, // x rot
-        0, // y rot
-        30, // z rot
-        ObjectMaterial()
-    ),
-    new SDFRotate(      
-        (Vector3){0, 0, 0}, // center
-        new SDFBox(
-            (Vector3){0, 0, 0}, // center
-            {1, 1, 1}, // box
-            ObjectMaterial()
-        ),
-        -45, // x rot
-        90, // y rot
-        30, // z rot
-        ObjectMaterial()
-    ),
-    ObjectMaterial(
-        {255, 0, 0, 255},
-        500,
-        0.2
-    )
 
-));
-
-scene -> AddObject(new SDFRotate(
-    (Vector3){3, 0, 10}, // center
-    new SDFCylinder(
-        (Vector3){0, 0, 0}, // center
-        1,
-        0.3,
-        ObjectMaterial()
-    ),
-    -45, // x rot
-    90, // y rot
-    120, // z rot
-    ObjectMaterial (
-        (Color){0, 0, 255, 255}, // color
-        500, // specular
-        0.2 // reflective
-    )
-));
-\end{lstlisting}
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/rotaties.png}
     \caption{Verschillende rotaties.}
@@ -1575,7 +1362,7 @@ scene -> AddObject(new SDFRotate(
 \subsubsection{Driehoeken}
 Een driehoek is gedefinieerd door drie hoekpunten. Die drie punten liggen op een vlak. Om de normaal van dat vlak te krijgen nemen we het kruisproduct van twee niet-paralelle vectoren op dat vlak. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[scale=1,    vector/.style={-stealth, thick},    origin/.style={black, fill=white, inner sep=1.5pt}]
 		% draw the vectors
@@ -1624,7 +1411,7 @@ Voor het snijpunt van de lijn en het vlak moet punt P van de lijn ingevuld worde
 Hiermee kan een vlak getekend worden, om een driehoek te tekenen moet nog gecheckt worden of het punt binnen het vlak in die driehoek ligt.
 
 Bij een driehoek $ABC$ met punt $P$ wordt de som van de oppervlakten van driehoeken $ABP$, $ACP$ en $BCP$ vergeleken met het oppervlakte van $ABC$. Als het punt in de driehoek ligt zijn die gelijk, anders is de som groter.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[]
 		\coordinate (A) at (0,0);
@@ -1668,54 +1455,519 @@ Om het oppervlakte te berekenen wordt gebruik gemaakt van Herons formule:
 
 \[T=\sqrt{s(s-a)(s-b)(s-c)}\]
 
-Waarbij $a$, $b$ en $c$ zijden van de driehoek zijn en $s=\frac{1}{2}(a+b+c)$\footnote{De helft van de omtrek van de driehoek}.
+Waarbij $a$, $b$ en $c$ zijden van de driehoek zijn en $s=\frac{1}{2}(a+b+c)$.
 
-Deze check werkt zo goed in twee dimensies. Maar de renderer werkt natuurlijk in drie dimensies. Daarom moet de driehoek geprojecteerd worden naar twee dimensies. Door de $x$, $y$ of $z$ waarde weg te laten is de check makkelijk uit te voeren. Dit geeft alleen problemen als een driehoek twee punten met dezelfde waarde op twee assen heeft. Stel de driehoek $ABC$ met $A=(1,2,3)$, $B=(1,2,1)$ en $C=(2,3,4)$. $A$ en $B$ delen een waarde op de x-as en de y-as. Hierdoor kan de z-waarde niet weggelaten worden. Want dan worden $A$ en $B$ gelijk. Als in plaats daarvan y weggelaten wordt volgt: $A=(1,3)$, $B=(1,1)$ en $C=(2,4)$. Hiermee kan de check als vorig beschreven uitgevoerd worden.
+Dit is als volgt in code beschreven:
 
-In het programma hoeven alleen de x-waardes met elkaar vergeleken te worden. Als twee x-waardes gelijk zijn wordt x weggelaten, want dan moeten de y- of z-waardes niet gelijk zijn, anders liggen twee punten op dezelfde plek. Als ze niet gelijk zijn wordt de y-waarde weggelaten. Omdat de x-waardes dan niet gelijk zijn is er genoeg informatie om de check uit te voeren.
+\begin{lstlisting}[language=c++]
+double triangleArea(Vector3 p1, Vector3 p2, Vector3 p3) {
+	double a = magnitude(subtract(p1, p2));
+	double b = magnitude(subtract(p2, p3));
+	double c = magnitude(subtract(p3, p1));
+	double s = 0.5 * (a + b + c);
+	
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
 
+bool pointInTriangle(Vector3 P, Vector3 A, Vector3 B, Vector3 C) {
+	return triangleArea(A, B, C) + EPSILON >= triangleArea(P, A, B) + triangleArea(P, A, C) + triangleArea(P, B, C);
+}
 
+bool isBackface(Vector3 corner, Vector3 O, Vector3 N) {
+	return dot(subtract(corner, O), N) >= 0;
+}
+
+double intersectRayTriangle(Vector3 O, Vector3 D, MeshObject* mesh, int faceIndex) {
+	Vector3 n = mesh -> FaceNormal(faceIndex);
+	
+	Vector3 v1 = mesh -> vertices[mesh -> faces[faceIndex].cornerIndices[0]].pos;
+	Vector3 v2 = mesh -> vertices[mesh -> faces[faceIndex].cornerIndices[1]].pos;
+	Vector3 v3 = mesh -> vertices[mesh -> faces[faceIndex].cornerIndices[2]].pos;
+	
+	double d = n.x * v1.x + n.y * v1.y + n.z * v1.z;
+	double t = (d-n.x*O.x-n.y*O.y-n.z*O.z)/(n.x*D.x+n.y*D.y+n.z*D.z);
+	
+	Vector3 P = add(O, multiply(D, t));
+	
+	if (!pointInTriangle(P, v1, v2, v3) | isBackface(v1, O, mesh -> FaceNormal(faceIndex))) {
+		return 1E9;
+	}
+	return t;
+}
+\end{lstlisting}
 
 \subsubsection{Mesh Representatie}
+Voor mesh representatie worden de in de inleiding genoemde \textit{face-vertex meshes} gebruikt. 
+
+De mesh staat in de code als volgt:
+\begin{lstlisting}[language=c++]
+class MeshObject {
+	public:
+	ObjectMaterial material;
+	
+	std::vector<Face> faces;
+	std::vector<Vertex> vertices;
+	
+	int AddVertex(Vector3 P);
+	int AddFace(int v1, int v2, int v3);
+	
+	Vector3 FaceNormal(int f);
+	
+	MeshObject(ObjectMaterial material);
+	MeshObject();
+};
+\end{lstlisting}
+
+Daar wordt gebruikt gemaakt van de types Face en Vertex, die als volgt zijn gedefiniëerd. Met referenties naar de index van de bijbehorende zijden/punten in de arrays zoals gedefinieerd in MeshObject. Verder is voor elke zijde de normaal van te voren berekend, om latere berekeningen te verminderen.
+
+\begin{lstlisting}[language=c++]
+struct Vertex {
+	Vector3 pos;
+	std::vector<int> faceIndices;
+};
+
+struct Face {
+	int cornerIndices[3];
+	Vector3 normal;
+};
+\end{lstlisting}
+
+\begin{lstlisting}[language=c++]
+int MeshObject::AddVertex(Vector3 P) {
+	Vertex V = {P, {}};
+	vertices.push_back(V);
+	return vertices.size()-1;
+}
+
+int MeshObject::AddFace(int p1, int p2, int p3) {
+	Vector3 P1 = vertices[p1].pos;
+	Vector3 P2 = vertices[p2].pos;
+	Vector3 P3 = vertices[p3].pos;
+	
+	Face F = {{p1, p2, p3}, normalize(cross(subtract(P1, P2), subtract(P1, P3)))};
+	faces.push_back(F);
+	int faceIndex = faces.size()-1;
+	vertices[p1].faceIndices.push_back(faceIndex);
+	vertices[p2].faceIndices.push_back(faceIndex);
+	vertices[p3].faceIndices.push_back(faceIndex);
+	return faceIndex;
+}
+\end{lstlisting}
+
 \subsubsection{Polygonale primitieven}
 
-\begin{itemize}
-	\item Bol
-	\item Balk
-	\item Cylinder
-\end{itemize}
+Voor de balk worden zowel de hoekpunten als de zijden handmatig gedefinieerd.
+
+\begin{lstlisting}[language=c++]
+void generateBox(MeshObject* mesh, Vector3 center, Vector3 box) {
+	Vector3 base = subtract(center, multiply(box, 0.5));
+	
+	int p000 = mesh -> AddVertex(base);
+	int p001 = mesh -> AddVertex(add(base, {0, 0, box.z}));
+	int p010 = mesh -> AddVertex(add(base, {0, box.y, 0}));
+	int p011 = mesh -> AddVertex(add(base, {0, box.y, box.z}));
+	int p100 = mesh -> AddVertex(add(base, {box.x, 0, 0}));
+	int p101 = mesh -> AddVertex(add(base, {box.x, 0, box.z}));
+	int p110 = mesh -> AddVertex(add(base, {box.x, box.y, 0}));
+	int p111 = mesh -> AddVertex(add(base, box));
+	
+	mesh -> AddFace(p000, p010, p100); // FRONT
+	mesh -> AddFace(p110, p100, p010); // FRONT
+	mesh -> AddFace(p010, p011, p110); // TOP
+	mesh -> AddFace(p110, p011, p111); // TOP
+	mesh -> AddFace(p100, p110, p111); // RIGHT
+	mesh -> AddFace(p100, p111, p101); // RIGHT
+	mesh -> AddFace(p000, p100, p001); // BOTTOM
+	mesh -> AddFace(p100, p101, p001); // BOTTOM
+	mesh -> AddFace(p001, p101, p011); // BACK
+	mesh -> AddFace(p111, p011, p101); // BACK
+	mesh -> AddFace(p000, p011, p010); // LEFT
+	mesh -> AddFace(p000, p001, p011); // LEFT
+}
+\end{lstlisting}
+
+Voor de bol wordt de zogenoemde \textit{UV-sphere} gebruikt. % Bron voor UV-sphere?
+Daarbij wordt de bol opgedeeld in verticaal verdeelde ringen, die vervolgens een bepaalde resolutie hebben. Dan worden de \textit{quads} tussen de ringen ingevuld.
+
+\begin{lstlisting}[language=c++]
+void generateSphere(MeshObject* mesh, Vector3 center, double radius, int rings, int detail) {
+	int pTop = mesh -> AddVertex(add(center, {0, radius, 0}));
+	int pBottom = mesh -> AddVertex(subtract(center, {0, radius, 0}));
+	
+	int currentVertex;
+	
+	for (int ring = 1; ring <= detail; ring ++) {
+		double ringHeight = center.y + radius - ring*radius*2/rings;
+		double currentRadius = sqrt(1-pow((1-(double)ring/rings)*2-1, 2))*radius;
+		std::cout << currentRadius << std::endl;
+		for (int i = 0; i < detail; i++) {
+			currentVertex = mesh -> AddVertex({
+				center.x+currentRadius*sin(2*M_PI*i/detail),
+				ringHeight,
+				center.z+currentRadius*cos(2*M_PI*i/detail)
+			});
+			if (ring == 1) {
+				mesh -> AddFace(pTop, currentVertex - 1, currentVertex);
+			} else if (i != 0) {
+				mesh -> AddFace(currentVertex - detail, currentVertex - 1, currentVertex);
+				mesh -> AddFace(currentVertex - detail, currentVertex - detail - 1, currentVertex - 1);
+				if (ring == detail) {
+					mesh -> AddFace(pBottom, currentVertex - 1, currentVertex);
+				}
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+Voor de cylinder worden twee cirkels aan punten aan de boven- en onderkant aangemaakt. Die cirkels worden met het \textit{ear clipping}\footnote{bron} algoritme ingevuld. Daarna worden de twee cirkels met elkaar verbonden met quads.
+
+\begin{lstlisting}[language=c++]
+void generateCylinder(MeshObject* mesh, Vector3 center, double height, double radius, int detail) {
+	int lastVertex = mesh -> vertices.size()-1;
+	int currentVertex;
+	
+	for (int i = 0; i < detail; i++) { // TOP RING
+		currentVertex = mesh -> AddVertex({
+			center.x+radius*sin(2*M_PI*i/detail), 
+			center.y+0.5*height, 
+			center.z+radius*cos(2*M_PI*i/detail)
+		});
+		if (i > 1) {
+			mesh -> AddFace(lastVertex+1, currentVertex - 1, currentVertex);
+		}
+	} 
+	for (int i = 0; i < detail; i++) { // BOTTOM RING
+		currentVertex = mesh -> AddVertex({
+			center.x+radius*sin(2*M_PI*i/detail), 
+			center.y-0.5*height, 
+			center.z+radius*cos(2*M_PI*i/detail)
+		});
+		if (i != 0) {
+			mesh -> AddFace(currentVertex, currentVertex - detail - 1, currentVertex - 1);
+			mesh -> AddFace(currentVertex, currentVertex - detail, currentVertex - detail - 1);
+			if (i != 1) {
+				mesh -> AddFace(lastVertex+1+detail, currentVertex, currentVertex - 1);
+			}
+		}
+	}
+}
+\end{lstlisting}
+
 \subsubsection{Meten}
+\begin{lstlisting}[language=c++]
+auto start = std::chrono::high_resolution_clock::now();
+int x = -canvas.width/2;
+
+while (!WindowShouldClose()) {
+	BeginDrawing();
+
+	for (int y = -canvas.height/2; y < canvas.height/2; y++) {
+		Vector3 D = normalize(vp.CanvasToViewport(canvas, x, y));
+		Color color = TraceRay(O, D, 1, 1E9, scene, 5);
+		canvas.PutPixel(x, y, color);
+	}
+	
+	if (x >= canvas.width/2) {
+		auto stop = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		std::cout << duration.count() << " milliseconds" << std::endl;
+		x = -canvas.width/2;
+		start = std::chrono::high_resolution_clock::now();
+	}
+	
+	x++;
+	
+	EndDrawing();
+}
+\end{lstlisting}
+
 \clearpage
 \section{Methode}
 \subsection{Variabelen}
 \subsection{Meetmethoden}
 \subsection{Testscènes}
 Resolutie: (1000, 1000)
-\begin{itemize}
-	\item {Enkele bol}
-		\subitem {Hoge resolutie (30, 30)}
-		\subitem {Lage resolutie (7, 7)}
-	\item{Enkele balk}
-	\item{Enkele cylinder}
-		\subitem {Hoge resolutie (50)}
-		\subitem {Lage resolutie (10)}
-	\item{Grote balk met bol erboven}
-		\subitem {Hoge resolutie (30, 30)}
-		\subitem {Lage resolutie (7, 7)}
-	\item{Twee balken tegenover elkaar met bol ertussen}
-		\subitem {Hoge resolutie (30, 30)}
-		\subitem {Lage resolutie (7, 7)}
-	\item{Veel bollen (20)}
-		\subitem {Hoge resolutie (30, 30)}
-		\subitem {Lage resolutie (7, 7)}
-	\item{Veel balken (20)}
-	\item{Balk, bol en cylinder}
-\end{itemize}
+\paragraph{Test \#1: Enkele bol}
+$ $
+\begin{figure}[H]
+	\centering
+	\subfloat[Enkele bol als SDF]{
+		\includegraphics[width=0.3\textwidth]{renders/test_001_sdf.png}
+		\label{fig:test_001_sdf}
+	}
+	\subfloat[Enkele bol als mesh met 7 cirkels in beide richtingen]{
+		\includegraphics[width=0.3\textwidth]{renders/test_001_mesh_lowres.png}
+		\label{fig:test_001_mesh_lowres}
+	}
+	\subfloat[Enkele bol als mesh met 14 cirkels in beide richtingen]{
+		\includegraphics[width=0.3\textwidth]{renders/test_001_mesh_highres.png}
+		\label{fig:test_001_mesh_highres}
+	}
+	\caption{Enkele bol}
+\end{figure}
+
+\paragraph{Test \#2: Enkele balk}
+$ $
+\begin{figure}[H]
+	\centering
+	\subfloat[Enkele balk als SDF]{
+		\includegraphics[width=0.3\textwidth]{renders/test_002_sdf.png}
+		\label{fig:test_002_sdf}
+	}
+	\subfloat[Enkele balk als mesh]{
+		\includegraphics[width=0.3\textwidth]{renders/test_002_mesh.png}
+		\label{fig:test_002_mesh}
+	}
+\end{figure}
+\paragraph{Test \#3: Enkele cylinder}
+$ $
+\begin{figure}[H]
+	\centering
+	\subfloat[Enkele cylinder als SDF]{
+		\includegraphics[width=0.3\textwidth]{renders/test_003_sdf.png}
+		\label{fig:test_003_sdf}
+	}
+	\subfloat[Enkele cylinder als mesh met een cirkel met 10 punten]{
+		\includegraphics[width=0.3\textwidth]{renders/test_003_mesh_lowres.png}
+		\label{fig:test_003_mesh_lowres}
+	}
+	\subfloat[Enkele cylinder als mesh met een cirkel met 50 punten]{
+		\includegraphics[width=0.3\textwidth]{renders/test_003_mesh_highres.png}
+		\label{fig:test_003_mesh_highres}
+	}
+	\caption{Enkele cylinder}
+\end{figure}
+\paragraph{Test \#4: Grote balk met bol erboven}
+$ $
+\begin{figure}[H]
+	\centering
+	\subfloat[Grote balk met bol erboven als SDF]{
+		\includegraphics[width=0.3\textwidth]{renders/test_004_sdf.png}
+		\label{fig:test_004_sdf}
+	}
+	\subfloat[Grote balk met bol erboven als mesh met 7 cirkels in beide richtingen]{
+		\includegraphics[width=0.3\textwidth]{renders/test_004_mesh_lowres.png}
+		\label{fig:test_004_mesh_lowres}
+	}
+	\subfloat[Grote balk met bol erboven als mesh met 14 cirkels in beide richtingen]{
+		\includegraphics[width=0.3\textwidth]{renders/test_004_mesh_highres.png}
+		\label{fig:test_004_mesh_highres}
+	}
+	\caption{Grote balk met bol erboven}
+\end{figure}
+
+\paragraph{Test \#5: Twee balken tegenover elkaar met bol ertussen}
+$ $
+\begin{figure}[H]
+	\centering
+	\subfloat[Twee balken tegenover elkaar met bol ertussen als SDF]{
+		\includegraphics[width=0.3\textwidth]{renders/test_005_sdf.png}
+		\label{fig:test_005_sdf}
+	}
+	\subfloat[Twee balken tegenover elkaar met bol ertussen als mesh met 7 cirkels in beide richtingen]{
+		\includegraphics[width=0.3\textwidth]{renders/test_005_mesh_lowres.png}
+		\label{fig:test_005_mesh_lowres}
+	}
+	\subfloat[Twee balken tegenover elkaar met bol ertussen als mesh met 14 cirkels in beide richtingen]{
+		\includegraphics[width=0.3\textwidth]{renders/test_005_mesh_highres.png}
+		\label{fig:test_005_mesh_highres}
+	}
+	\caption{Twee balken tegenover elkaar met bol ertussen}
+\end{figure}
+
+\paragraph{Test \#6: Veel bollen}
+$ $
+\begin{figure}[H]
+\centering
+\subfloat[Veel bollen als SDF]{
+	\includegraphics[width=0.3\textwidth]{renders/test_006_sdf.png}
+	\label{fig:test_006_sdf}
+}
+\caption{Veel bollen}
+\end{figure}
+
+\paragraph{Test \#7: Balk, bol en cylinder}
+$ $
+\begin{figure}[H]
+\centering
+\subfloat[Balk, bol en cylinder als SDF]{
+	\includegraphics[width=0.3\textwidth]{renders/test_007_sdf.png}
+	\label{fig:test_007_sdf}
+}
+\subfloat[Balk, bol en cylinder als mesh met een bol met 7 cirkels in beide richtingen en een cylinder met 10 cirkelpunten]{
+	\includegraphics[width=0.3\textwidth]{renders/test_007_mesh_lowres.png}
+	\label{fig:test_007_mesh_lowres}
+}
+\subfloat[Balk, bol en cylinder als mesh met een bol met 14 cirkels in beide richtingen en een cylinder met 50 cirkelpunten]{
+	\includegraphics[width=0.3\textwidth]{renders/test_007_mesh_highres.png}
+	\label{fig:test_007_mesh_highres}
+}
+\caption{Balk, bol en cylinder}
+\end{figure}
 \clearpage
 \section{Resultaten}
-\subsection{Snelheid}
-\subsection{Geheugenbezetting}
-\subsection{Renders}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1&17495&91144&398470 \\
+		2&17575&91123&397576 \\
+		3&17335&90507&398344 \\
+		4&17222&90557&399171 \\
+		5&17193&90588&397429 \\
+		6&17225&90790&397018 \\
+		7&17298&90553&398255 \\
+		8&17171&90495&399046 \\
+		9&17350&90551&397917 \\
+		10&17388&90447&397087 \\
+		\hline
+		Gemiddelde:&17325&90676&398031 \\
+		Standaarddeviatie:&132.7&257.8&758.0 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#1}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c c |}
+	\hline
+	Frame \# & SDF & Mesh \\
+	\hline
+	1 &16718 &6918 \\
+	2 &16666 &6807 \\
+	3 &16667 &6808 \\
+	4 &16668 &6798 \\
+	5 &16684 &6828 \\
+	6 &16668 &6831 \\
+	7 &16669 &6766 \\
+	8 &16668 &6827 \\
+	9 &16668 &6812 \\
+	10 &16666 &6803 \\
+	\hline
+	Gemiddelde &16674 &6820 \\
+	Standaarddeviatie &16.3 &39.3 \\
+	\hline
+\end{tabular}
+\caption{Scène \#2}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c c c |}
+	\hline
+	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+	\hline
+	1 &16891 &22995 &123775 \\
+	2 &16704 &22855 &123827 \\
+	3 &16933 &22869 &122268 \\
+	4 &16722 &22750 &124262 \\
+	5 &16705 &22762 &123421 \\
+	6 &16725 &22788 &122848 \\
+	7 &16702 &22970 &123431 \\
+	8 &16704 &22740 &124367 \\
+	9 &16709 &22601 &123249 \\
+	10 &16701 &22678 &124854 \\
+	\hline
+	Gemiddelde &16750 &22801 &123630 \\
+	Standaardeviatie &86.6 &123.3 &759.8 \\
+	\hline
+\end{tabular}
+\caption{Scène \#3}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c c c |}
+	\hline
+	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+	\hline
+	1 &18681 &82227 &313623 \\
+	2 &18461 &82022 &336735 \\
+	3 &18516 &81456 &346125 \\
+	4 &18506 &81354 &350117 \\
+	5 &18414 &82043 &327500 \\
+	6 &18499 &87246 &329645 \\
+	7 &18398 &90900 &348123 \\
+	8 &18442 &87984 &349862 \\
+	9 &18439 &89976 &323555 \\
+	10 &18452 &90801 &333629 \\
+	\hline
+	Gemiddelde &18481 &85601 &335891 \\
+	Standaarddeviatie &80.3 &4146.2 &12539.8 \\
+	\hline
+\end{tabular}
+\caption{Scène \#4}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c c c |}
+	\hline
+	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+	\hline
+	1 &90437 &230245 &806874 \\
+	2 &92625 &235090 &800643 \\
+	3 &88540 &235696 &753366 \\
+	4 &90483 &235927 &787410 \\
+	5 &87336 &234151 &800240 \\
+	6 &91159 &232951 &795410 \\
+	7 &88760 &227497 &769128 \\
+	8 &87523 &217086 &795889 \\
+	9 &95689 &229370 &806086 \\
+	10 &96145 &222327 &788370 \\
+	\hline
+	Gemiddelde &90870 &230034 &790342 \\
+	Standaarddeviatie &3129.1 &6251.9 &17034.1 \\
+	\hline
+\end{tabular}
+\caption{Scène \#5}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c c |}
+	\hline
+	Frame \# & SDF & Mesh (Lowres) \\
+	\hline
+	1 &99814 &2380656 \\
+	2 &100999 &2372409 \\
+	3 &102277 &2434919 \\
+	4 &101768 &2337521 \\
+	5 &102607 &2379138 \\
+	6 &102797 &2407282 \\
+	7 &101167 &2349685 \\
+	8 &98560 &2442271 \\
+	9 &98192 &2366792 \\
+	10 &101656 &2365858 \\
+	\hline
+	Gemiddelde &100984 &2383653 \\
+	Standaarddeviatie &1623.9 &34417.9 \\
+	\hline
+\end{tabular}
+\caption{Scène \#6}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{| c | c c c |}
+	\hline
+	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+	\hline
+	1 &16936 &66822 &282650 \\
+	2 &16677 &68738 &275631 \\
+	3 &16700 &66143 &271640 \\
+	4 &16676 &66990 &271614 \\
+	5 &16669 &66002 &280139 \\
+	6 &16700 &67626 &273630 \\
+	7 &16753 &64334 &270628 \\
+	8 &16723 &64273 &271166 \\
+	9 &16698 &64461 &275848 \\
+	10 &16676 &64276 &279083 \\
+	\hline
+	Gemiddelde &16721 &65967 &275203 \\
+	Standaarddeviatie &79.8 &1595.3 &4226.3 \\
+	\hline
+\end{tabular}
+\caption{Scène \#7}
+\end{table}
 \clearpage
 \section{Nauwkeurigheidsanalyse}
 \clearpage
@@ -1732,20 +1984,302 @@ Bedankt aan Ina, voor haar mentale steun.
 \bibliography{refs}
 \clearpage
 \section{Logboek}
-\begin{adjustbox}{angle=270}
-\begin{tabular}{ | c | c c c c c | }
-\hline
-Activiteit & Datum & Tijd (m) & Totale tijd (h) &       \% Voltooid \\
-\hline
-Programmeren & 20220906 & 45 & 0.8 & 0.94\% \\
-Programmeren & 20220908 & 30 & 1.3 & 1.56\% \\
-Gesprek met begeleider & 20220909 & 20 & 1.6 & 1.98\% \\
-Programmeren & 20220921 & 90 & 3.1 & 3.85\% \\
-Inhoudsopgave Opzet & 20220928 & 35 & 3.7 & 4.58\% \\
-Schrijven Theorie/Achtergrond Renderen & 20220930 & 45 & 4.4 & 5.52\% \\
-Opzetten \LaTeX \space Document & 20221002 & 120 & 6.4 & 8.02\% \\
-\hline
-\end{tabular}
-\end{adjustbox}
+\begin{table}[!htp]\centering
+	\scriptsize
+	\begin{tabular}{| c c c |}
+		\hline
+		\textbf{Activiteit} &\textbf{Datum} &\textbf{Tijd (minuten)} \\
+		\hline
+		Programmeren &20220906 &45 \\
+		Programmeren &20220908 &30 \\
+		Gesprek met begeleider &20220909 &20 \\
+		Programmeren &20220921 &90 \\
+		Inhoudsopgave Opzet &20220928 &35 \\
+		Schrijven Theorie/Achtergrond Renderen &20220930 &45 \\
+		Opzetten \LaTeX Document &20221002 &60 \\
+		Schrijven Theorie/Achtergrond Renderen &20221002 &180 \\
+		Schrijven Theorie/Achtergrond Renderen &20221003 &60 \\
+		Bronnenonderzoek &20221003 &45 \\
+		Beschrijven softwarekeuze &20221003 &75 \\
+		Berekenen kosten Monster's University &20221004 &45 \\
+		Beginnen uitleggen Rasterization &20221012 &45 \\
+		Boek ontvangen en opnieuw begonnen met programmeren &20221014 &150 \\
+		Eerste versie raytracer zonder lichtsimulaties af &20221015 &180 \\
+		Diffusion belichting in raytracer &20221015 &120 \\
+		Specular Highlights en Schaduwen in raytracer &20221015 &120 \\
+		Reflecties geïmplementeerd en vooronderzoek voor polygonaal renderen &20221017 &180 \\
+		Geschreven aan werkstuk &20221017 &90 \\
+		Theorie schrijven rasterization, raytracing en global illumination &20221019 &120 \\
+		Polygonen en mesh structuren onderzoek &20221205 &45 \\
+		Pseudocode geschreven &20221207 &60 \\
+		Stuk over SDFs geschreven &20221208 &45 \\
+		Stuk geschreven van eerste raytracer &20221212 &120 \\
+		Phong-model beschreven en begonnen met diffusion uitleggen &20221212 &45 \\
+		Eerste Diffusion code beschreven &20221213 &30 \\
+		Grafiek van de verschillende cosinus machten gemaakt voor specular &20221214 &60 \\
+		Geprobeerd tekening te maken &20221214 &30 \\
+		Speculaire reflectie beschreven &20221214 &60 \\
+		Wat LaTeX tutorials gekeken &20221215 &45 \\
+		Raymarching met Signed Distance Functions geïmplementeerd &20221215 &165 \\
+		SDFBox &20221216 &30 \\
+		SDFPlane, SDFCylinder, SDFUnion, SDFSubtraction, SDFIntersection &20221216 &210 \\
+		Shaduw bug gefixt &20221216 &60 \\
+		SDF operaties in document &20221218 &30 \\
+		Transformatiematrices vooronderzoek &20221219 &60 \\
+		Rotaties geïmplementeerd &20221219 &90 \\
+		Hypothese geschreven &20221219 &30 \\
+		Eerste versie ingeleverd &20221219 &45 \\
+		Onderzoek vlakken in $\mathbb{R}^3$ &20230111 &45 \\
+		Wiskunde achter driehoeken tekenen uitgewerkt &20230113 &75 \\
+		Begonnen implementeren driehoeken &20230115 &90 \\
+		Onderzoek en diagrammen &20230116 &90 \\
+		Driehoeken geïmplementeerd &20230117 &150 \\
+		Bronnen gelezen over ray tracing &20230117 &45 \\
+		Meer bronnen bestudeerd &20230118 &90 \\
+		Begonnen met presentatie &20230120 &90 \\
+		Meshes! &20230122 &30 \\
+		Geprobeerd balken te implementeren &20230122 &90 \\
+		Balken, bollen, cylinders en testscènes. Mockingjay 1.0 is af &20230123 &250 \\
+		Implementatie meshes, primitieven in document. Document opgeschoond &20230126 &70 \\
+		Alle testen geschreven en uitgevoerd &20230128 &300 \\
+		\hline
+	\end{tabular}
+	\caption{Logboek}
+\end{table}
+
+\appendix
+\clearpage
+\listoffigures{}
+\clearpage
+
+\section{Code van renders}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFBox(
+	(Vector3){-3, 0, 10}, // center
+	(Vector3){1, 2, 1}, // box
+	ObjectMaterial (
+		(Color){255, 0, 0, 255}, // color
+		500, // specular
+		0.1 // reflective
+	)
+));
+
+scene -> AddObject(new SDFBox(
+	(Vector3){0, 0, 10}, // center
+	(Vector3){1, 1, 1}, // box
+	ObjectMaterial (
+		(Color){0, 255, 0, 255}, // color
+		100, // specular
+		0.1 // reflective
+	)
+));
+
+scene -> AddObject(new SDFBox(
+	(Vector3){3, 0, 10}, // center
+	(Vector3){1.5, 0.6, 0.6}, // box
+	ObjectMaterial (
+		(Color){0, 0, 255, 255}, // color
+		500, // specular
+		0.1 // reflective
+	)
+));
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFTorus(
+	(Vector3){0, -3, 10}, // center
+	(Vector2){3, 0.5}, // radii
+	ObjectMaterial (
+		(Color){255, 0, 0, 255}, // color
+		500, // specular
+		0.1 // reflective
+	)
+));
+
+scene -> AddObject(new SDFTorus(
+	(Vector3){0, 0, 10}, // center
+	(Vector2){1, 1}, // radii
+	ObjectMaterial (
+		(Color){0, 255, 0, 255}, // color
+		100, // specular
+		0.1 // reflective
+	)
+));
+
+scene -> AddObject(new SDFTorus(
+	(Vector3){0, 3, 10}, // center
+	(Vector2){2, 1.5}, // radii
+	ObjectMaterial (
+		(Color){0, 0, 255, 255}, // color
+		500, // specular
+		0.1 // reflective
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFPlane(
+	(Vector3){0, -1, 0}, // center
+	ObjectMaterial (
+		(Color){255, 255, 0, 255}, // color
+		500, // specular
+		0.2 // reflective
+)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFCylinder(
+	(Vector3){0, 3, 10}, // center
+	1, // height
+	0.5, // radius
+	ObjectMaterial (
+		(Color){255, 0, 0, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+
+scene -> AddObject(new SDFCylinder(
+	(Vector3){0, 0, 10}, // center
+	1.5, // height
+	1, // radius
+	ObjectMaterial (
+		(Color){0, 255, 0, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+
+scene -> AddObject(new SDFCylinder(
+	(Vector3){0, -3, 10}, // center
+	1, // height
+	2, // radius
+	ObjectMaterial (
+		(Color){0, 0, 255, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFUnion(
+	(Vector3){0, 0, 10}, // center
+	new SDFSphere(
+		(Vector3){-1, 0, 0}, // center
+		1.5, // radius
+		ObjectMaterial()
+	),
+	new SDFTorus(
+		(Vector3){0, 0, 0}, // center
+		{1, 0.5}, // radii
+		ObjectMaterial()
+	),
+	ObjectMaterial (
+		(Color){255, 0, 0, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFSubtraction(
+	(Vector3){0, 0, 10}, // center
+	new SDFSphere(
+		(Vector3){-1, 0, 0}, // center
+		1.5, // radius
+		ObjectMaterial()
+	),
+	new SDFSphere(
+		(Vector3){1, 0, -.5}, // center
+		1.5, // radius
+		ObjectMaterial()
+	),
+	ObjectMaterial (
+		(Color){255, 0, 0, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFIntersection(
+	(Vector3){0, 0, 10}, // center
+	new SDFSphere(
+		(Vector3){-1, 0, 0}, // center
+		1.5, // radius
+		ObjectMaterial()
+	),
+	new SDFSphere(
+		(Vector3){1, 0, -.5}, // center
+		1.5, // radius
+		ObjectMaterial()
+	),
+	ObjectMaterial (
+		(Color){255, 0, 0, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++]
+scene -> AddObject(new SDFIntersection(
+	{0, 0, 10},
+	new SDFRotate(
+		(Vector3){0, 0, 0}, // center
+		new SDFTorus(
+			(Vector3){0, 0, 0}, // center
+			{1, 0.5}, // radii
+			ObjectMaterial()
+		),
+		45, // x rot
+		0, // y rot
+		30, // z rot
+		ObjectMaterial()
+		),
+		new SDFRotate(      
+			(Vector3){0, 0, 0}, // center
+			new SDFBox(
+				(Vector3){0, 0, 0}, // center
+				{1, 1, 1}, // box
+				ObjectMaterial()
+			),
+			-45, // x rot
+			90, // y rot
+			30, // z rot
+			ObjectMaterial()
+	),
+	ObjectMaterial(
+	{255, 0, 0, 255},
+	500,
+	0.2
+)
+
+));
+
+scene -> AddObject(new SDFRotate(
+	(Vector3){3, 0, 10}, // center
+	new SDFCylinder(
+		(Vector3){0, 0, 0}, // center
+		1,
+		0.3,
+		ObjectMaterial()
+	),
+	-45, // x rot
+	90, // y rot
+	120, // z rot
+	ObjectMaterial (
+		(Color){0, 0, 255, 255}, // color
+		500, // specular
+		0.2 // reflective
+	)
+));
+\end{lstlisting}
 
 \end{document}

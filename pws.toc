@@ -2,8 +2,8 @@
 \contentsline {section}{\numberline {1}Voorwoord}{4}{}%
 \contentsline {section}{\numberline {2}Inleiding}{5}{}%
 \contentsline {subsection}{\numberline {2.1}Introductie onderwerp}{5}{}%
-\contentsline {subsection}{\numberline {2.2}Onderzoeksvraag/deelvragen}{6}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Hoofdvraag WIP}{6}{}%
+\contentsline {subsection}{\numberline {2.2}Onderzoeksvraag/deelvragen}{7}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Hoofdvraag WIP}{7}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}Deelvragen WIP}{7}{}%
 \contentsline {section}{\numberline {3}Theorie}{8}{}%
 \contentsline {subsection}{\numberline {3.1}Wat is renderen?}{8}{}%
@@ -14,8 +14,8 @@
 \contentsline {subsection}{\numberline {3.6}Wat is global illumination?}{11}{}%
 \contentsline {subsection}{\numberline {3.7}Wat zijn polygonen?}{13}{}%
 \contentsline {subsection}{\numberline {3.8}Hoe wordt een mesh opgeslagen?}{13}{}%
-\contentsline {subsection}{\numberline {3.9}Wat is raymarching?}{13}{}%
-\contentsline {subsection}{\numberline {3.10}Wat zijn SDFs?}{14}{}%
+\contentsline {subsection}{\numberline {3.9}Wat is raymarching?}{14}{}%
+\contentsline {subsection}{\numberline {3.10}Wat zijn SDFs?}{15}{}%
 \contentsline {section}{\numberline {4}Hypothese}{16}{}%
 \contentsline {section}{\numberline {5}Ontwikkeling}{17}{}%
 \contentsline {subsection}{\numberline {5.1}Hardware}{17}{}%
@@ -29,29 +29,38 @@
 \contentsline {subsubsection}{\numberline {5.3.2}Raylib uitproberen}{20}{}%
 \contentsline {subsubsection}{\numberline {5.3.3}Computer Graphics From Scratch}{20}{}%
 \contentsline {subsubsection}{\numberline {5.3.4}Raytracing}{21}{}%
-\contentsline {subsubsection}{\numberline {5.3.5}Diffusion}{28}{}%
-\contentsline {subsubsection}{\numberline {5.3.6}Specular Highlights}{31}{}%
-\contentsline {subsubsection}{\numberline {5.3.7}Schaduwen}{35}{}%
-\contentsline {subsubsection}{\numberline {5.3.8}Reflecties}{36}{}%
-\contentsline {subsubsection}{\numberline {5.3.9}Raymarching}{39}{}%
-\contentsline {subsubsection}{\numberline {5.3.10}SDFs}{42}{}%
-\contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{47}{}%
-\contentsline {subsubsection}{\numberline {5.3.12}Transformaties}{50}{}%
-\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{54}{}%
-\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{56}{}%
-\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{56}{}%
-\contentsline {subsubsection}{\numberline {5.3.16}Meten}{56}{}%
-\contentsline {section}{\numberline {6}Methode}{57}{}%
-\contentsline {subsection}{\numberline {6.1}Variabelen}{57}{}%
-\contentsline {subsection}{\numberline {6.2}Meetmethoden}{57}{}%
-\contentsline {subsection}{\numberline {6.3}Testscènes}{57}{}%
-\contentsline {section}{\numberline {7}Resultaten}{58}{}%
-\contentsline {subsection}{\numberline {7.1}Snelheid}{58}{}%
-\contentsline {subsection}{\numberline {7.2}Geheugenbezetting}{58}{}%
-\contentsline {subsection}{\numberline {7.3}Renders}{58}{}%
-\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{59}{}%
-\contentsline {section}{\numberline {9}Conclusie}{60}{}%
-\contentsline {section}{\numberline {10}Discussie}{61}{}%
-\contentsline {section}{\numberline {11}Nawoord}{62}{}%
-\contentsline {section}{\numberline {12}Literatuurlijst}{63}{}%
-\contentsline {section}{\numberline {13}Logboek}{64}{}%
+\contentsline {subsubsection}{\numberline {5.3.5}Diffusion}{27}{}%
+\contentsline {subsubsection}{\numberline {5.3.6}Specular Highlights}{30}{}%
+\contentsline {subsubsection}{\numberline {5.3.7}Schaduwen}{34}{}%
+\contentsline {subsubsection}{\numberline {5.3.8}Reflecties}{35}{}%
+\contentsline {subsubsection}{\numberline {5.3.9}Raymarching}{37}{}%
+\contentsline {subsubsection}{\numberline {5.3.10}SDFs}{40}{}%
+\contentsline {paragraph}{Balk}{40}{}%
+\contentsline {paragraph}{Torus}{41}{}%
+\contentsline {paragraph}{Vlak}{42}{}%
+\contentsline {paragraph}{Cylinder}{42}{}%
+\contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{43}{}%
+\contentsline {subsubsection}{\numberline {5.3.12}Transformaties}{45}{}%
+\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{47}{}%
+\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{49}{}%
+\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{50}{}%
+\contentsline {subsubsection}{\numberline {5.3.16}Meten}{52}{}%
+\contentsline {section}{\numberline {6}Methode}{53}{}%
+\contentsline {subsection}{\numberline {6.1}Variabelen}{53}{}%
+\contentsline {subsection}{\numberline {6.2}Meetmethoden}{53}{}%
+\contentsline {subsection}{\numberline {6.3}Testscènes}{53}{}%
+\contentsline {paragraph}{Test \#1: Enkele bol}{53}{}%
+\contentsline {paragraph}{Test \#2: Enkele balk}{53}{}%
+\contentsline {paragraph}{Test \#3: Enkele cylinder}{53}{}%
+\contentsline {paragraph}{Test \#4: Grote balk met bol erboven}{54}{}%
+\contentsline {paragraph}{Test \#5: Twee balken tegenover elkaar met bol ertussen}{54}{}%
+\contentsline {paragraph}{Test \#6: Veel bollen}{55}{}%
+\contentsline {paragraph}{Test \#7: Balk, bol en cylinder}{55}{}%
+\contentsline {section}{\numberline {7}Resultaten}{57}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{61}{}%
+\contentsline {section}{\numberline {9}Conclusie}{62}{}%
+\contentsline {section}{\numberline {10}Discussie}{63}{}%
+\contentsline {section}{\numberline {11}Nawoord}{64}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{65}{}%
+\contentsline {section}{\numberline {13}Logboek}{66}{}%
+\contentsline {section}{\numberline {A}Code van renders}{69}{}%

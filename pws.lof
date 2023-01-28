@@ -1,0 +1,54 @@
+\babel@toc {dutch}{}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Een frame uit Toy Story 3, aan de linkerkant worden geen lichtberekeningen gedaan, en aan de rechterkant wel.\relax }}{5}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces De videogame Minecraft kan gebruik maken van Nvidia GPU's om realtime lichtsimulaties te berekenen.\relax }}{6}{}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces De kleuren in een foto kunnen opgesplitst worden in rode, groene en blauwe kanalen.\relax }}{8}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Een diagram die laat zien hoe raytracen werkt\relax }}{10}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces De verschillende componenten van het \emph {Phong Reflection Model}.\relax }}{11}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Een plaatje gerenderd met \emph {global illumination}.\relax }}{12}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Voorbeeld van VV-representatie van een mesh.\relax }}{14}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Voorbeeld van FV-representatie van een mesh.\relax }}{14}{}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Projectie van camera op viewport.\relax }}{24}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces De eerste render gemaakt met de raytracer.\relax }}{27}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Diagram die laat zien hoe licht op een oppervlakte terecht komt.\relax }}{27}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces De renderer, nu met diffuse oppervlakten.\relax }}{30}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Cosinus functies verheven tot verschillende machten $s$.\relax }}{31}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces $\overrightarrow {L}$ ontleden in componenten $\overrightarrow {L_P}$ en $\overrightarrow {L_N}$\relax }}{31}{}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Het berekenen van $\ora {L_R}$\relax }}{32}{}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces De bollen gerenderd met speculaire reflecties. De rode bol heeft een hogere waarde $s$ dan de groene bol.\relax }}{34}{}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces De bollen gerenderd met schaduwen.\relax }}{35}{}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces De bollen gerenderd met reflecties.\relax }}{37}{}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces De bollen, nu gedefiniëerd met SDFs.\relax }}{40}{}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Verschillende balken gerenderd met een SDF.\relax }}{41}{}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Verschillende torussen gerenderd met een SDF.\relax }}{41}{}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Een vlak gerenderd met een SDF.\relax }}{42}{}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Cylinders gerenderd met SDFs.\relax }}{43}{}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces De \emph {union} tussen een bol en een torus.\relax }}{44}{}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces De \emph {subtraction} tussen twee bollen.\relax }}{44}{}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces De \emph {intersection} tussen twee bollen.\relax }}{45}{}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Verschillende rotaties.\relax }}{47}{}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Het kruisproduct van $a$ en $b$.\relax }}{47}{}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces De som van de driehoeken die $P$ buiten de driehoek vormt met de hoekpunten is groter dan de som van $P$ binnen de driehoek.\relax }}{48}{}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Enkele bol\relax }}{53}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Enkele bol als SDF}}}{53}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Enkele bol als mesh met 7 cirkels in beide richtingen}}}{53}{}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Enkele bol als mesh met 14 cirkels in beide richtingen}}}{53}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Enkele balk als SDF}}}{53}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Enkele balk als mesh}}}{53}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Enkele cylinder\relax }}{54}{}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Enkele cylinder als SDF}}}{54}{}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Enkele cylinder als mesh met een cirkel met 10 punten}}}{54}{}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Enkele cylinder als mesh met een cirkel met 50 punten}}}{54}{}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Grote balk met bol erboven\relax }}{54}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Grote balk met bol erboven als SDF}}}{54}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Grote balk met bol erboven als mesh met 7 cirkels in beide richtingen}}}{54}{}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Grote balk met bol erboven als mesh met 14 cirkels in beide richtingen}}}{54}{}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Twee balken tegenover elkaar met bol ertussen\relax }}{55}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Twee balken tegenover elkaar met bol ertussen als SDF}}}{55}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Twee balken tegenover elkaar met bol ertussen als mesh met 7 cirkels in beide richtingen}}}{55}{}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Twee balken tegenover elkaar met bol ertussen als mesh met 14 cirkels in beide richtingen}}}{55}{}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Veel bollen\relax }}{55}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Veel bollen als SDF}}}{55}{}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Balk, bol en cylinder\relax }}{56}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Balk, bol en cylinder als SDF}}}{56}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Balk, bol en cylinder als mesh met een bol met 7 cirkels in beide richtingen en een cylinder met 10 cirkelpunten}}}{56}{}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Balk, bol en cylinder als mesh met een bol met 14 cirkels in beide richtingen en een cylinder met 50 cirkelpunten}}}{56}{}%

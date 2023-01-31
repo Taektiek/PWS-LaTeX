@@ -2,11 +2,11 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Een frame uit Toy Story 3, aan de linkerkant worden geen lichtberekeningen gedaan, en aan de rechterkant wel.\relax }}{5}{}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces De videogame Minecraft kan gebruik maken van Nvidia GPU's om realtime lichtsimulaties te berekenen.\relax }}{6}{}%
 \contentsline {figure}{\numberline {3.1}{\ignorespaces De kleuren in een foto kunnen opgesplitst worden in rode, groene en blauwe kanalen.\relax }}{8}{}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Een diagram die laat zien hoe raytracen werkt\relax }}{10}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Een diagram die laat zien hoe raytracen werkt\relax }}{11}{}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces De verschillende componenten van het \emph {Phong Reflection Model}.\relax }}{11}{}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Een plaatje gerenderd met \emph {global illumination}.\relax }}{12}{}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Voorbeeld van VV-representatie van een mesh.\relax }}{14}{}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Voorbeeld van FV-representatie van een mesh.\relax }}{14}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Een plaatje gerenderd met \emph {global illumination}.\relax }}{13}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Voorbeeld van VV-representatie van een mesh.\relax }}{15}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Voorbeeld van FV-representatie van een mesh.\relax }}{15}{}%
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Projectie van camera op viewport.\relax }}{24}{}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces De eerste render gemaakt met de raytracer.\relax }}{27}{}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Diagram die laat zien hoe licht op een oppervlakte terecht komt.\relax }}{27}{}%
@@ -48,6 +48,7 @@
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Twee balken tegenover elkaar met bol ertussen als mesh met 14 cirkels in beide richtingen}}}{55}{}%
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Veel bollen\relax }}{55}{}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Veel bollen als SDF}}}{55}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Veel bollen als mesh}}}{55}{}%
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Balk, bol en cylinder\relax }}{56}{}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Balk, bol en cylinder als SDF}}}{56}{}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Balk, bol en cylinder als mesh met een bol met 7 cirkels in beide richtingen en een cylinder met 10 cirkelpunten}}}{56}{}%

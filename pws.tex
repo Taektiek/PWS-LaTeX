@@ -47,9 +47,6 @@
 \author{Taeke Roukema}
 \date{Januari 2023}
 
-\makeatletter
-\def\BState{\State\hskip-\ALG@thistlm}
-\makeatother
 
 \begin{document}
 \maketitle
@@ -112,9 +109,9 @@ Hoe wegen raymarching en polygonaal renderen tegen elkaar op in rendersnelheid e
 \clearpage
 \section{Theorie}
 \subsection{Wat is renderen?}
-Renderen is, in feite, het weergeven van een representatie van een concept op een beeldscherm. Wij zijn voortdurend bezig met het interacteren met computers, en die interactie verloopt via het beeldscherm. Maar de computer kan uit zichzelf niet zomaar alles tekenen. Daar worden allemaal algoritmes voor geschreven. Een voorbeeld van zo'n algoritme is het tekenen van een rechthoek. In pseudocode zou je dat als volgt voor kunnen stellen:
+Renderen is niks meer dan een computer die vormen tekent. Mensen zijn voortdurend bezig met het interacteren met computers, en die interactie verloopt via het beeldscherm. Maar de computer kan uit zichzelf niet zomaar alles tekenen. Daar worden allemaal algoritmes voor gebruikt. Een voorbeeld van zo'n algoritme is het tekenen van een rechthoek. In pseudocode zou dat als volgt voorgesteld kunnen worden:
 \begin{algorithm}
-\caption{Rechthoek Algoritme}\label{euclid}
+\caption{Rechthoek Algoritme}
 \begin{algorithmic}[1]
 \Procedure{DrawRectangle}{x1, x2, y1, y2}
     \For{$x \gets x1$ to $x2$}             
@@ -136,24 +133,38 @@ Renderen omvat, in principe, niks anders dan het aansturen van individuele pixel
 \label{fig:rgb_separated}
 \end{figure}
 
-Renderen doen we op een twee-dimensionaal beeldscherm. Dat betekent dat de positie van elke pixel te beschrijven is met twee waarden. Maar de wereld om ons heen kent niet twee, maar drie ruimtelijke dimensies. Door licht dat op ons netvlies valt na weerkaatst te zijn door verschillende objecten kunnen wij die wereld representeren in onze hersenen op een tweedimensionale manier. Camera's gebruiken een gelijksoortige techniek, de lens neemt het licht en projecteert het op een sensor die de intensiteit en de kleur waarneemt. Met het renderen van driedimensionale objecten proberen we deze processen na te bootsen. 
+Renderen gebeurt op een twee-dimensionaal beeldscherm. Dat betekent dat de positie van elke pixel te beschrijven is met twee waarden. Maar de wereld om ons heen kent niet twee, maar drie ruimtelijke dimensies. Door licht dat op ons netvlies valt na weerkaatst te zijn door verschillende objecten kunnen wij die wereld representeren in onze hersenen op een tweedimensionale manier. Camera's gebruiken een gelijksoortige techniek, de lens neemt het licht op en projecteert het op een sensor die de intensiteit en de kleur waarneemt. Met het renderen van driedimensionale objecten worden deze processen nagebootst. 
 
-\subsection{De rendervergelijking}
+\subsection{Wat is realistisch?}
+Het ligt nog niet zo voor de hand wanneer een door de computer gegenereerde afbeelding realistisch is, en wanneer niet. Gelukkig is de natuurkunde van licht in het dagelijks leven vrij simpel. In 1986 is de \textit{rendering equation} bedacht, die vrijwel al het gedrag van licht beschrijft \cite{RenderingEquation}.
 \[
 L_{\text{o}}(\mathbf x, \omega_{\text{o}}, \lambda, t) = L_{\text{e}}(\mathbf x, \omega_{\text{o}}, \lambda, t) \ + \int_\Omega f_{\text{r}}(\mathbf x, \omega_{\text{i}}, \omega_{\text{o}}, \lambda, t) L_{\text{i}}(\mathbf x, \omega_{\text{i}}, \lambda, t) (\omega_{\text{i}}\cdot\mathbf n) \operatorname d \omega_{\text{i}}
 \]
 
+Deze vergelijking oogt ingewikkeld, maar is in de werkelijkheid goed te overzien. 
+\begin{itemize}
+	\item $L_{\text{o}}(\mathbf x, \omega_{\text{o}}, \lambda, t)$ staat voor de uitkomende stralen licht
+	\item $L_{\text{e}}(\mathbf x, \omega_{\text{o}}, \lambda, t)$ staat voor het uitgezonden licht van het object
+	\item $	f_{\text{r}}(\mathbf x, \omega_{\text{i}}, \omega_{\text{o}}, \lambda, t)$ staat voor de materiaaleigenschappen van het object
+	\item $L_{\text{i}}(\mathbf x, \omega_{\text{i}}, \lambda, t)$ staat voor het inkomende licht
+	\item $(\omega_{\text{i}}\cdot\mathbf n)$ staat voor de normaal
+\end{itemize}
+
+De integraal $\int_\Omega \dots \operatorname d\omega_{\text{i}}$ betekent dat dit berekend wordt voor elke lichtstraal in de scène. De integraal is een continue operatie dus om een perfecte render te krijgen zouden oneindig veel berekeningen gemaakt moeten worden. Daarom wordt gebruik gemaakt van verschillende trucs om zo dicht in de buurt van deze perfecte render te komen als mogelijk.
+
 \subsection{Wat is rasterization?}
-In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar we vandaag de dag toegang tot hebben. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(\frac{1}{2^{20}}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes zoals raytracing toe te passen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
+In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar vandaag de dag toegang toe is. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(2^{-20}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes zoals raytracing toe te passen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
 
-De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan je de vorm gewoon invullen, wat een vrij goedkoop proces is.
+De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan de vorm gewoon ingevuld worden, wat een vrij goedkoop proces is.
 
-Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. 
+Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Verder zijn moderne gpu's speciaal ingericht om dit proces zo snel mogelijk te laten verlopen. %bron?
+ Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. 
 \subsection{Wat is raytracing?}
 
-Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbron miljoenen lichtstralen af te vuren, die laat je door de scène kaatsen totdat ze het zichtveld van de observeerder raken. In theorie is dit de realistische benadering, en ook exact wat de rendervergelijking op het eerste oog impliceert. Deze methode wordt \emph{photon tracing} genoemd, naar de naam van lichtdeeltjes: fotonen. Maar in de werkelijkheid is dit vrijwel onmogelijk. Maar een klein gedeelte van de lichtstralen bereikt daadwerkelijk ooit de camera, wat betekent dat verreweg de meeste berekeningen die gemaakt worden geen invloed hebben op het uiteindelijke eindbeeld. 
+Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbron miljoenen lichtstralen af te vuren, die laat je door de scène kaatsen totdat ze het zichtveld van de observeerder raken. In theorie is dit de realistische benadering, en ook exact wat de rendervergelijking op het eerste oog impliceert. Deze methode wordt \emph{photon tracing} % bron?
+ genoemd, naar de naam van lichtdeeltjes: fotonen. Maar in de werkelijkheid is dit vrijwel onmogelijk. Maar een klein gedeelte van de lichtstralen bereikt daadwerkelijk ooit de camera, wat betekent dat verreweg de meeste berekeningen die gemaakt worden geen invloed hebben op het uiteindelijke eindbeeld. 
 
-Om dit probleem op te lossen vuren we de stralen niet af vanuit de lichtbronnen, maar vanuit de camera. Voor elke pixel op het scherm wordt een straal door het zichtveld afgevuurd. Als die straal een object raakt kaatsen we die vervolgens af naar de lichtbronnen om te kijken hoe sterk die pixel belicht moet zijn, en of er eventueel een object in de weg zit die een schaduw zou werpen. Bovendien kunnen we de stralen door laten kaatsen tussen objecten, hiermee kunnen we een model van reflectie benaderen. 
+Om dit probleem op te lossen worden de lichtstralen niet afgevuurd vanuit de lichtbronnen, maar vanuit de camera. Voor elke pixel op het scherm wordt een straal door het zichtveld afgevuurd. Als die straal een object raakt kaatst die vervolgens af naar de lichtbronnen om te kijken hoe sterk die pixel belicht moet zijn, en of er eventueel een object in de weg zit die een schaduw zou werpen. Bovendien kunnen de stralen doorkaatsen tussen objecten, hiermee wordt een model van reflectie benaderd. 
 
 \begin{figure}[H]
     \centering
@@ -165,6 +176,7 @@ Om dit probleem op te lossen vuren we de stralen niet af vanuit de lichtbronnen,
 Het renderen wordt met deze methode al een stuk meer te overzien. Voor het genereren van een plaatje van \(1000\times 1000\) pixels vuren we een miljoen stralen af, wat klinkt alsof het veel is. Maar voor moderne computers is dat zeker haalbaar. Pas als we reflecties toe gaan passen lopen we tegen een klein probleem aan, omdat de rendertijd dan polynomiaal groeit met het aantal objecten in de scène. Dit is omdat we elk object moeten testen met ieder ander, wat zorgt voor een kwadratisch verband.
 
 \subsection{Hoe werkt shading?}
+\textit{Shading} bepaalt hoe het licht dat op de objecten weerkaatst er daadwerkelijk uitziet. 
 Eén manier om lichtsimulaties te benaderen is het \emph{Phong Reflection Model} \cite{PhongReflectionModel}. Hierbij wordt de belichting van een object opgesplitst in drie delen: Ambient, Diffuse en Specular.
 \begin{figure}[H]
 \centering
@@ -182,7 +194,7 @@ Bij gladdere oppervlakten is er sprake van specular reflectie. Hier wordt het li
 Als deze drie technieken samengevoegd worden krijg je een vrij accurate benadering van de beweging van echt licht.
 
 \subsection{Wat is global illumination?}
-De methode die hierboven beschreven staat is niet perfect. Als een straal een object ziet tussen het raakpunt en de lichtbron wordt dat punt helemaal niet belicht. Dit is omdat het algoritme niet berekent hoe het licht door de kamer heen kaatst vanuit de lichtbron. Dat concept heet \emph{global illumination}. Het benaderen van \emph{global illumination} is in principe hetzelfde probleem als het benaderen van de rendervergelijking. Dit betekent dat we technieken uit de wiskunde voor het numeriek oplossen van integralen direct toe kunnen passen op de rendervergelijking, waarmee we realistische beelden kunnen tekenen. 
+De methode die hierboven beschreven staat is niet perfect. Als een punt in schaduw zit is het onduidelijk hoe het belicht zou worden. Dit is omdat het algoritme niet berekent hoe het licht door de kamer heen kaatst vanuit de lichtbron. Dat concept heet \emph{global illumination}. Het benaderen van \emph{global illumination} is in principe hetzelfde probleem als het benaderen van de rendervergelijking. Dit betekent dat technieken uit de wiskunde voor het numeriek oplossen van integralen direct toegepast kunnen worden op de rendervergelijking, waarmee realistische beelden getekend kunnen worden. 
 
 \begin{figure}[H]
     \centering
@@ -191,9 +203,7 @@ De methode die hierboven beschreven staat is niet perfect. Als een straal een ob
     \label{fig:global_illumination}
 \end{figure}
 
-Eén van die technieken valt binnen de categorie van Monte-Carlosimulaties. Monte-Carlosimulaties gebruiken een willekeurig element  om in principe deterministische problemen op te lossen. Bij de rendervergelijking manifesteert dit zich in \emph{path tracing}. Bij \emph{path tracing} worden bij elk geraakt punt willekeurige nieuwe stralen afgevuurd, deze kaatsen door totdat ze een licht bereikt hebben. We komen hier bij hetzelfde probleem als eerder besproken terecht, de kans op het raken van een licht is niet erg groot. Hiertoe zijn twee belangrijke oplossingen. De eerste is \emph{bidirectional path tracing}, hier wordt tegelijk een straal vanuit de camera afgevuurd als van het licht. Na een bepaalde hoeveelheid kaatsen worden de twee verbonden waardoor er altijd een pad van de camera naar het licht is. De andere oplossing wordt \emph{importance sampling} genoemd. Daarbij is de distributie van de willekeurig afgekaatste lichtstralen niet uniform, er worden meer stralen richting de lichtbronnen afgekaatst. Hierdoor bereiken de stralen natuurlijk sneller de lichtbronnen. Met genoeg \emph{samples}\footnote{Hoeveelheid stralen} geeft dit algoritme een bijna perfecte benadering van de rendervergelijking, dat maakt het ook de industriële standaard van het moment. Maar het is relatief inefficiënt, dit komt doordat er met te weinig \emph{samples} veel ruis in het plaatje ontstaat. Dit is simpel te verklaren, omdat het algoritme fundamenteel willekeurig is zullen sommige pixels meer licht vinden dan die er direct naast. Puur omdat ze 'geluk' hadden. Slechts de limiet van het aantal \emph{samples} naar oneindig zou een werkelijk antwoord geven op de rendervergelijking. Daarom is er altijd een compromis met hoeveel tijd je wil besteden aan het renderen van een frame en de kwaliteit van het resultaat. Steeds vaker wordt kunstmatige intelligente gebruikt om die ruis weg te nemen of te verminderen \cite{MonteCarloDenoiser} maar in de industrie is dat nog steeds niet de norm. 
-
-Een andere manier om integralen op te lossen is de eindige-elementenmethode
+Eén van die technieken valt binnen de categorie van Monte-Carlosimulaties. Monte-Carlosimulaties gebruiken een willekeurig element  om in principe deterministische problemen op te lossen. Bij de rendervergelijking manifesteert dit zich in \emph{path tracing}. Bij \emph{path tracing} worden bij elk geraakt punt willekeurige nieuwe stralen afgevuurd, deze kaatsen door totdat ze een licht bereikt hebben. Hier ontstaat hetzelfde probleem als eerder besproken, de kans op het raken van een licht is niet erg groot. Hiertoe zijn twee belangrijke oplossingen. De eerste is \emph{bidirectional path tracing}, hier wordt tegelijk een straal vanuit de camera afgevuurd als van het licht. Na een bepaalde hoeveelheid kaatsen worden de twee verbonden waardoor er altijd een pad van de camera naar het licht is. De andere oplossing wordt \emph{importance sampling} genoemd. Daarbij is de distributie van de willekeurig afgekaatste lichtstralen niet uniform, er worden meer stralen richting de lichtbronnen afgekaatst. Hierdoor bereiken de stralen natuurlijk sneller de lichtbronnen. Met genoeg \emph{samples}\footnote{Hoeveelheid stralen} geeft dit algoritme een bijna perfecte benadering van de rendervergelijking, dat maakt het ook de industriële standaard van het moment. Maar het is relatief inefficiënt, dit komt doordat er met te weinig \emph{samples} veel ruis in het plaatje ontstaat. Dit is simpel te verklaren, omdat het algoritme fundamenteel willekeurig is zullen sommige pixels meer licht vinden dan die er direct naast. Puur omdat ze 'geluk' hadden. Slechts de limiet van het aantal \emph{samples} naar oneindig zou een werkelijk antwoord geven op de rendervergelijking. Daarom is er altijd een compromis met hoeveel tijd wordt besteed aan het renderen van een frame en de kwaliteit van het resultaat. Steeds vaker wordt kunstmatige intelligente gebruikt om die ruis weg te nemen of te verminderen \cite{MonteCarloDenoiser} maar in de industrie is dat nog steeds niet de norm. 
 
 \subsection{Wat zijn polygonen?}
 Een polygoon is, in zijn elementairste vorm, een eindig aantal 1ijnstukken die met elkaar verbonden zijn in een polygonale lijn. Dit houdt in dat elk uiteinde van een lijnstuk het begin van een nieuwe betekent. Bovendien betekent dit dat de lijnstukken altijd één keten vormen. 
@@ -220,9 +230,10 @@ Er zijn twee hoofdtechnieken: \emph{vertex-vertex meshes} \cite{VVSystems} en \e
 \end{figure}
 
 \subsection{Wat is raymarching?}
-Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet sphere tracing. Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde van de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
+Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet \textit{sphere tracing}. % bron?
+ Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde van de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
 \begin{algorithm}
-\caption{Raymarch Algoritme}\label{euclid}
+\caption{Raymarch Algoritme}
 \begin{algorithmic}[1]
 \Procedure{MarchRay}{pos, rot, obj, $\epsilon$}
 \State $\textit{r} \gets \text{distance between }\textit{pos}\text{ and }\textit{obj}$
@@ -235,12 +246,14 @@ Raymarching is een methode om het snijpunt van een straal en een vorm te vinden 
 \end{algorithmic}
 \end{algorithm}
 
+%% Afbeelding ?
+
 \subsection{Wat zijn SDFs?}
 Het bepalen van de afstand van een punt tot het dichstbijzijnde punt op een vorm wordt gedaan met zogeheten \emph{signed distance}-functies. \emph{Signed} staat in deze term voor het feit dat aan de binnenkant van de vorm de functie een negatief getal geeft. De functie van een bol met middelpunt \(C\) en straal \(r\) is bijvoorbeeld als volgt:
 \[\phi (x)=\left |x-C \right | -r\]
-SDFs zijn enorm nuttig omdat we bewerkingen op deze formule toe kunnen passen waardoor we met vrijwel geen rekenkracht complexe vormen kunnen creëren. 
+SDFs zijn enorm nuttig omdat bewerkingen op deze formule toegepast kunnen worden waardoor met vrijwel geen rekenkracht complexe vormen gecreëerd kunnen worden. 
 
-Neem vorm $\phi_1$ en vorm $\phi_2$. Als je de \emph{union}\footnote{De vormen samengevoegd} wil nemen van de vormen gebruik je de volgende simpelweg de volgende formule: 
+Neem vorm $\phi_1$ en vorm $\phi_2$. Om de \emph{union}\footnote{De vormen samengevoegd} van de vormen te nemen wordt de volgende formule gebruikt: 
 \[\phi_{u(1,2)}=min(\phi_1, \phi_2)\]
 De \emph{subtraction}\footnote{De ene vorm van de andere afgetrokken} wordt als volgt berekend:
 \[\phi_{s(1,2)}=max(-\phi_1, \phi_2)\]
@@ -263,7 +276,7 @@ Het uitvoeren en programmeren van de code zal volledig met Linux gedaan worden. 
 
 Als distributie\footnote{Linux zelf is slechts een \emph{kernel} die de interactie tussen de hardware en de software regelt. Bovenop deze \emph{kernel} bestaan distributies die het een werkend besturingssysteem maken.} is voor Manjaro\footnote{https://manjaro.org/} gekozen. Dit is een fork van Arch Linux. Arch Linux staat erom bekend dat het altijd de nieuwste versie van software support. Dit komt doordat het een \emph{rolling release model} heeft, in tegenstelling tot \emph{fixed release}, waar distributies zoals Debian gebruik van maken. Bovendien heeft Arch Linux toegang tot de Arch User Repository (AUR). Dat is een enorme collectie van software die gebruikers zelf kunnen uploaden naar de Arch servers, met helpers zoals \emph{yay} kan je met één commando vrijwel alle software die beschikbaar is op GNU/Linux op de computer installeren. De combinatie van deze voordelen maken Arch Linux een erg aantrekkelijke distributie om te gebruiken als programmeur. Manjaro voegt de rest van de functies toe aan het besturingssysteem, zoals een Desktop Environment (DE) en een terminal.
 \subsubsection{Programmeertaal}
-Er zijn talloze programmmeertalen die geschikt zijn voor graphics programming. Daarom was de keuze voor de programmeertaal niet makkelijk. Zelf heb ik al jarenlang ervaring met Python\footnote{https://www.python.org/}, maar deze taal staat niet bekend om de snelheid. Dit komt doordat het een \emph{interpreted} taal is. Dat betekent dat de code live gelezen wordt wanneer gerund. Dit staat tegenover \emph{compiled} talen, die de code eerst compileren naar machinetaal. Die machinetaal is veel efficiënter te lezen door computers, waardoor de snelheid toeneemt. Een andere optie was Javascript, het grote voordeel van deze taal is dat hij speciaal voor het web gemaakt is. Hierdoor zou het delen van het gemaakte project met anderen zo simpel zijn als het doorsturen van een url. Bovendien maakt Javascript op moderne browsers gebruik van Just In Time (JIT) compilation. Dat is een combinatie tussen \emph{interpreted} en \emph{compiled} waar de code live omgezet wordt in machinetaal voordat het gerund wordt. Maar toch is zelfs Javascript niet snel genoeg. Bovendien missen beide talen iets wat erg belangrijk is in computer graphics: controle over het geheugen. Scènes kunnen enorm complex zijn dus het is belangrijk dat die zo efficiënt mogelijk in het geheugen geplaatst worden, en het geheugen moet weer gewist worden wanneer het niet meer gebruikt wordt. Python en Javascript geven allebei niet die controle, in plaats daarvan probeert de \emph{interpreter} zelf zo efficiënt mogelijk het geheugen te gebruiken. Om deze redenen heb ik gekozen voor C++, deze taal is in 1985 uitgevonden door Brane Stroustrup en wordt vandaag de dag nog door 20,17\% van Stack Overflow gebruikers gebruikt\cite{StackOverflowSurvey}. De taal is ontwikkeld als extensie voor C, waardoor het moderne functies heeft zoals \emph{Object Oriented Programming} (OOP) en datastructuren. Maar het heeft tegelijkertijd alle voordelen die C heeft als low-level taal. 
+Er zijn talloze programmmeertalen die geschikt zijn voor graphics programming. Daarom was de keuze voor de programmeertaal niet makkelijk. Zelf heb ik al jarenlang ervaring met Python\footnote{https://www.python.org/}, maar deze taal staat niet bekend om de snelheid. Dit komt doordat het een \emph{interpreted} taal is. Dat betekent dat de code live gelezen wordt wanneer gerund. Dit staat tegenover \emph{compiled} talen, die de code eerst compileren naar machinetaal. Die machinetaal is veel efficiënter te lezen door computers, waardoor de snelheid toeneemt. Een andere optie was Javascript, het grote voordeel van deze taal is dat hij speciaal voor het web gemaakt is. Hierdoor zou het delen van het gemaakte project met anderen zo simpel zijn als het doorsturen van een url. Bovendien maakt Javascript op moderne browsers gebruik van \textit{Just In Time} (JIT) compilation. Dat is een combinatie tussen \emph{interpreted} en \emph{compiled} waar de code live omgezet wordt in machinetaal voordat het gerund wordt. Maar toch is zelfs Javascript niet snel genoeg. Bovendien missen beide talen iets wat erg belangrijk is in computer graphics: controle over het geheugen. Scènes kunnen enorm complex zijn dus het is belangrijk dat die zo efficiënt mogelijk in het geheugen geplaatst worden, en het geheugen moet weer gewist worden wanneer het niet meer gebruikt wordt. Python en Javascript geven allebei niet die controle, in plaats daarvan probeert de \emph{interpreter} zelf zo efficiënt mogelijk het geheugen te gebruiken. Om deze redenen heb ik gekozen voor C++, deze taal is in 1985 uitgevonden door Brane Stroustrup en wordt vandaag de dag nog door 20,17\% van Stack Overflow gebruikers gebruikt\cite{StackOverflowSurvey}. De taal is ontwikkeld als extensie voor C, waardoor het moderne functies heeft zoals \emph{Object Oriented Programming} (OOP) en datastructuren. Maar het heeft tegelijkertijd alle voordelen die C heeft als low-level taal. 
 \subsubsection{Framework}
 C++ heeft uit zichzelf nog geen grafische capabiliteiten. Daar is een framework voor nodig. Moderne grafische kaarten zijn allemaal gemaakt met speciale specificaties, die ervoor zorgen dat het besturingssysteem weet hoe hij moet communiceren met de GPU. Er zijn verschillende van deze specificaties met verschillende doelen. Zo heb je DirectX, die specifiek gemaakt is voor Windows. En wat algemenere API\footnote{\textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface} is OpenGL (Open Graphics Library). Met C++ is het dan ook mogelijk om direct gebruik te maken van deze API, net als in de meeste programmeertalen. 
 
@@ -277,10 +290,7 @@ Voor het onderzoek ga ik twee verschillende renderers ontwikkelen. De eerste geb
 De renderer moet kunnen renderen vanuit een \textbf{camera} die een bepaalde positie heeft binnen de driedimensionale ruimte. De camera heeft ook een \emph{field of view} (fov), die aangeeft hoe breed het zichtveld is. Uit de camera komt uit elke pixel een \emph{ray} die snijdt met de \emph{viewport}. De resolutie van het beeldscherm wordt in het programma aangegeven. Waarschijnlijk willen we renderen op een resolutie van \(500\times 500\). De \emph{rays} worden beschreven als parametrische vergelijking. Hierdoor kan de parameter \(t\) gebruikt worden om de straal te snijden met de objecten. De objecten zijn uiteraard anders beschreven in de twee verschillende programma's, maar ze hebben wel delen gemeen. Zo heeft een object altijd een positie, een draaiing en een grootte. Verder wordt het materiaal van elk object beschreven met een kleur, de \emph{specularity} en het reflectievermogen. De kleur wordt beschreven met RGBA, met waarden op \([0, 255]\). De \emph{specularity} geeft de macht waarmee de cosinus die de verspreiding van de \emph{highlights} beschrijft wordt verheven. Het reflectievermogen is een getal op \([0, 1]\) die het aandeel van de kleur beschrijft die komt uit reflecties. Bovendien willen we een aantal primitieve vormen hebben die standaard beschikbaar zijn. Voor raymarching zal dit triviaal zijn aangezien elke vorm slechts een \emph{signed distance function} is. Maar voor het polygonale renderen moeten hier nog aparte algoritmes voor komen. De vormen die ondersteund moeten worden zijn als volgt:
 \begin{itemize}
 	\item Bol
-	\item Vlak
-	\item Driehoek
 	\item Balk
-	\item Ellipsoïde
 	\item Cylinder
 \end{itemize}
 
@@ -293,7 +303,6 @@ Verder zijn er ook verschillende soorten lichten mogelijk. Die nemen drie typen 
 Alle lichten hebben een intensiteit, die aangeeft hoe vel dat licht is. Ambient lichten belichten de hele scène met een standaard hoeveelheid, er wordt hierbij dus geen rekening gehouden met schaduwen. Ambient lichten hebben maar één waarde: de intensiteit, die een waarde op \([0, 1]\) aanneemt. Point lichten hebben daarbij ook nog een positie, bovendien kan de intensiteit hoger dan 1 zijn. Directional lichten hebben geen positie maar een richting, en hebben ook een intensiteit die hoger kan zijn dan 1.
 
 De camera, alle objecten en de lichten worden allemaal beschreven met een Scene() object. Die heeft de methodes AddSDFObject(), AddPolygon(), AddPolygonalPrimitive() en AddLight(). De scène zal in een los bestand van de rest van de code beschreven worden.
-\subsubsection{Raylib uitproberen}
 \subsubsection{Computer Graphics From Scratch}
 Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een renderer kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde heb je een programma die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. 
 \subsubsection{Raytracing}
@@ -1684,8 +1693,7 @@ while (!WindowShouldClose()) {
 
 \clearpage
 \section{Methode}
-\subsection{Variabelen}
-\subsection{Meetmethoden}
+Om de nu ontwikkelde renderprogramma's met elkaar te vergelijken wordt de rendersnelheid per frame gemeten. Voor elke scène wordt dit tien keer gedaan, om eventuele ruis in de data te verminderen. 
 \subsection{Testscènes}
 Resolutie: (1000, 1000)
 \paragraph{Test \#1: Enkele bol}
@@ -1720,6 +1728,7 @@ $ $
 		\label{fig:test_002_mesh}
 	}
 \end{figure}
+\clearpage
 \paragraph{Test \#3: Enkele cylinder}
 $ $
 \begin{figure}[H]
@@ -1756,7 +1765,7 @@ $ $
 	}
 	\caption{Grote balk met bol erboven}
 \end{figure}
-
+\clearpage
 \paragraph{Test \#5: Twee balken tegenover elkaar met bol ertussen}
 $ $
 \begin{figure}[H]
@@ -1784,9 +1793,13 @@ $ $
 	\includegraphics[width=0.3\textwidth]{renders/test_006_sdf.png}
 	\label{fig:test_006_sdf}
 }
+\subfloat[Veel bollen als mesh]{
+\includegraphics[width=0.3\textwidth]{renders/test_006_mesh_lowres.png}
+\label{fig:test_006_mesh_lowres}
+}
 \caption{Veel bollen}
 \end{figure}
-
+\clearpage
 \paragraph{Test \#7: Balk, bol en cylinder}
 $ $
 \begin{figure}[H]
@@ -1807,167 +1820,26 @@ $ $
 \end{figure}
 \clearpage
 \section{Resultaten}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{| c | c c c |}
-		\hline
-		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
-		\hline
-		1&17495&91144&398470 \\
-		2&17575&91123&397576 \\
-		3&17335&90507&398344 \\
-		4&17222&90557&399171 \\
-		5&17193&90588&397429 \\
-		6&17225&90790&397018 \\
-		7&17298&90553&398255 \\
-		8&17171&90495&399046 \\
-		9&17350&90551&397917 \\
-		10&17388&90447&397087 \\
-		\hline
-		Gemiddelde:&17325&90676&398031 \\
-		Standaarddeviatie:&132.7&257.8&758.0 \\
-		\hline
-	\end{tabular}
-	\caption{Scène \#1}
-\end{table}
+
 \begin{table}[H]
 \centering
-\begin{tabular}{| c | c c |}
+\begin{tabular}{| c | c c c || c c |}
 	\hline
-	Frame \# & SDF & Mesh \\
+	Test & SDF & Mesh (Lowres) & Mesh (Highres) & $\text{lowres}/\text{sdf}$ & $\text{highres}/\text{sdf}$ \\
 	\hline
-	1 &16718 &6918 \\
-	2 &16666 &6807 \\
-	3 &16667 &6808 \\
-	4 &16668 &6798 \\
-	5 &16684 &6828 \\
-	6 &16668 &6831 \\
-	7 &16669 &6766 \\
-	8 &16668 &6827 \\
-	9 &16668 &6812 \\
-	10 &16666 &6803 \\
-	\hline
-	Gemiddelde &16674 &6820 \\
-	Standaarddeviatie &16.3 &39.3 \\
+	1 & 17325 & 90676 & 398031 & 5,23 & 22,97 \\
+	2 & 16674 & 6820 & - & 0,41 & - \\
+	3 & 16750 & 22801 & 123630 & 1,36 & 7,00 \\
+	4 & 18481 & 85601 & 335891 & 4,63 & 18,18 \\
+	5 & 90870 & 230034 & 790342 & 2,53 & 8,70 \\
+	6 & 100984 & 2383653 & - & 23,60 & - \\
+	7 & 16721 & 65967 & 275203 & 3,95 & 16,46 \\
 	\hline
 \end{tabular}
-\caption{Scène \#2}
+\caption{Verschillende testen samen}
 \end{table}
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c c c |}
-	\hline
-	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
-	\hline
-	1 &16891 &22995 &123775 \\
-	2 &16704 &22855 &123827 \\
-	3 &16933 &22869 &122268 \\
-	4 &16722 &22750 &124262 \\
-	5 &16705 &22762 &123421 \\
-	6 &16725 &22788 &122848 \\
-	7 &16702 &22970 &123431 \\
-	8 &16704 &22740 &124367 \\
-	9 &16709 &22601 &123249 \\
-	10 &16701 &22678 &124854 \\
-	\hline
-	Gemiddelde &16750 &22801 &123630 \\
-	Standaardeviatie &86.6 &123.3 &759.8 \\
-	\hline
-\end{tabular}
-\caption{Scène \#3}
-\end{table}
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c c c |}
-	\hline
-	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
-	\hline
-	1 &18681 &82227 &313623 \\
-	2 &18461 &82022 &336735 \\
-	3 &18516 &81456 &346125 \\
-	4 &18506 &81354 &350117 \\
-	5 &18414 &82043 &327500 \\
-	6 &18499 &87246 &329645 \\
-	7 &18398 &90900 &348123 \\
-	8 &18442 &87984 &349862 \\
-	9 &18439 &89976 &323555 \\
-	10 &18452 &90801 &333629 \\
-	\hline
-	Gemiddelde &18481 &85601 &335891 \\
-	Standaarddeviatie &80.3 &4146.2 &12539.8 \\
-	\hline
-\end{tabular}
-\caption{Scène \#4}
-\end{table}
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c c c |}
-	\hline
-	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
-	\hline
-	1 &90437 &230245 &806874 \\
-	2 &92625 &235090 &800643 \\
-	3 &88540 &235696 &753366 \\
-	4 &90483 &235927 &787410 \\
-	5 &87336 &234151 &800240 \\
-	6 &91159 &232951 &795410 \\
-	7 &88760 &227497 &769128 \\
-	8 &87523 &217086 &795889 \\
-	9 &95689 &229370 &806086 \\
-	10 &96145 &222327 &788370 \\
-	\hline
-	Gemiddelde &90870 &230034 &790342 \\
-	Standaarddeviatie &3129.1 &6251.9 &17034.1 \\
-	\hline
-\end{tabular}
-\caption{Scène \#5}
-\end{table}
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c c |}
-	\hline
-	Frame \# & SDF & Mesh (Lowres) \\
-	\hline
-	1 &99814 &2380656 \\
-	2 &100999 &2372409 \\
-	3 &102277 &2434919 \\
-	4 &101768 &2337521 \\
-	5 &102607 &2379138 \\
-	6 &102797 &2407282 \\
-	7 &101167 &2349685 \\
-	8 &98560 &2442271 \\
-	9 &98192 &2366792 \\
-	10 &101656 &2365858 \\
-	\hline
-	Gemiddelde &100984 &2383653 \\
-	Standaarddeviatie &1623.9 &34417.9 \\
-	\hline
-\end{tabular}
-\caption{Scène \#6}
-\end{table}
-\begin{table}[H]
-\centering
-\begin{tabular}{| c | c c c |}
-	\hline
-	Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
-	\hline
-	1 &16936 &66822 &282650 \\
-	2 &16677 &68738 &275631 \\
-	3 &16700 &66143 &271640 \\
-	4 &16676 &66990 &271614 \\
-	5 &16669 &66002 &280139 \\
-	6 &16700 &67626 &273630 \\
-	7 &16753 &64334 &270628 \\
-	8 &16723 &64273 &271166 \\
-	9 &16698 &64461 &275848 \\
-	10 &16676 &64276 &279083 \\
-	\hline
-	Gemiddelde &16721 &65967 &275203 \\
-	Standaarddeviatie &79.8 &1595.3 &4226.3 \\
-	\hline
-\end{tabular}
-\caption{Scène \#7}
-\end{table}
+
+Het wordt snel duidelijk dat het renderen met \textit{signed distance functions} velen malen sneller is dan met polygonen. Naast test 2, met de balk, is het in elke situatie sneller. Bovendien geeft de SDF ook betere kwaliteit renders, aangezien er geen randen tussen driehoeken zichtbaar zijn. In sommige situaties is het zelfs meer dan 23 keer zo snel. De individuele resultaten staan beschreven in Appendix \ref{resultaten}.
 \clearpage
 \section{Nauwkeurigheidsanalyse}
 \clearpage
@@ -2281,5 +2153,168 @@ scene -> AddObject(new SDFRotate(
 	)
 ));
 \end{lstlisting}
+
+\section{Individuele meetresultaten} \label{resultaten}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1&17495&91144&398470 \\
+		2&17575&91123&397576 \\
+		3&17335&90507&398344 \\
+		4&17222&90557&399171 \\
+		5&17193&90588&397429 \\
+		6&17225&90790&397018 \\
+		7&17298&90553&398255 \\
+		8&17171&90495&399046 \\
+		9&17350&90551&397917 \\
+		10&17388&90447&397087 \\
+		\hline
+		Gemiddelde:&17325&90676&398031 \\
+		Standaarddeviatie:&132.7&257.8&758.0 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#1}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c |}
+		\hline
+		Frame \# & SDF & Mesh \\
+		\hline
+		1 &16718 &6918 \\
+		2 &16666 &6807 \\
+		3 &16667 &6808 \\
+		4 &16668 &6798 \\
+		5 &16684 &6828 \\
+		6 &16668 &6831 \\
+		7 &16669 &6766 \\
+		8 &16668 &6827 \\
+		9 &16668 &6812 \\
+		10 &16666 &6803 \\
+		\hline
+		Gemiddelde &16674 &6820 \\
+		Standaarddeviatie &16.3 &39.3 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#2}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1 &16891 &22995 &123775 \\
+		2 &16704 &22855 &123827 \\
+		3 &16933 &22869 &122268 \\
+		4 &16722 &22750 &124262 \\
+		5 &16705 &22762 &123421 \\
+		6 &16725 &22788 &122848 \\
+		7 &16702 &22970 &123431 \\
+		8 &16704 &22740 &124367 \\
+		9 &16709 &22601 &123249 \\
+		10 &16701 &22678 &124854 \\
+		\hline
+		Gemiddelde &16750 &22801 &123630 \\
+		Standaardeviatie &86.6 &123.3 &759.8 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#3}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1 &18681 &82227 &313623 \\
+		2 &18461 &82022 &336735 \\
+		3 &18516 &81456 &346125 \\
+		4 &18506 &81354 &350117 \\
+		5 &18414 &82043 &327500 \\
+		6 &18499 &87246 &329645 \\
+		7 &18398 &90900 &348123 \\
+		8 &18442 &87984 &349862 \\
+		9 &18439 &89976 &323555 \\
+		10 &18452 &90801 &333629 \\
+		\hline
+		Gemiddelde &18481 &85601 &335891 \\
+		Standaarddeviatie &80.3 &4146.2 &12539.8 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#4}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1 &90437 &230245 &806874 \\
+		2 &92625 &235090 &800643 \\
+		3 &88540 &235696 &753366 \\
+		4 &90483 &235927 &787410 \\
+		5 &87336 &234151 &800240 \\
+		6 &91159 &232951 &795410 \\
+		7 &88760 &227497 &769128 \\
+		8 &87523 &217086 &795889 \\
+		9 &95689 &229370 &806086 \\
+		10 &96145 &222327 &788370 \\
+		\hline
+		Gemiddelde &90870 &230034 &790342 \\
+		Standaarddeviatie &3129.1 &6251.9 &17034.1 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#5}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) \\
+		\hline
+		1 &99814 &2380656 \\
+		2 &100999 &2372409 \\
+		3 &102277 &2434919 \\
+		4 &101768 &2337521 \\
+		5 &102607 &2379138 \\
+		6 &102797 &2407282 \\
+		7 &101167 &2349685 \\
+		8 &98560 &2442271 \\
+		9 &98192 &2366792 \\
+		10 &101656 &2365858 \\
+		\hline
+		Gemiddelde &100984 &2383653 \\
+		Standaarddeviatie &1623.9 &34417.9 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#6}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Frame \# & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1 &16936 &66822 &282650 \\
+		2 &16677 &68738 &275631 \\
+		3 &16700 &66143 &271640 \\
+		4 &16676 &66990 &271614 \\
+		5 &16669 &66002 &280139 \\
+		6 &16700 &67626 &273630 \\
+		7 &16753 &64334 &270628 \\
+		8 &16723 &64273 &271166 \\
+		9 &16698 &64461 &275848 \\
+		10 &16676 &64276 &279083 \\
+		\hline
+		Gemiddelde &16721 &65967 &275203 \\
+		Standaarddeviatie &79.8 &1595.3 &4226.3 \\
+		\hline
+	\end{tabular}
+	\caption{Scène \#7}
+\end{table}
 
 \end{document}

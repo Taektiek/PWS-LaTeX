@@ -7,60 +7,58 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Deelvragen WIP}{7}{}%
 \contentsline {section}{\numberline {3}Theorie}{8}{}%
 \contentsline {subsection}{\numberline {3.1}Wat is renderen?}{8}{}%
-\contentsline {subsection}{\numberline {3.2}De rendervergelijking}{9}{}%
+\contentsline {subsection}{\numberline {3.2}Wat is realistisch?}{9}{}%
 \contentsline {subsection}{\numberline {3.3}Wat is rasterization?}{9}{}%
-\contentsline {subsection}{\numberline {3.4}Wat is raytracing?}{9}{}%
-\contentsline {subsection}{\numberline {3.5}Hoe werkt shading?}{10}{}%
-\contentsline {subsection}{\numberline {3.6}Wat is global illumination?}{11}{}%
-\contentsline {subsection}{\numberline {3.7}Wat zijn polygonen?}{13}{}%
-\contentsline {subsection}{\numberline {3.8}Hoe wordt een mesh opgeslagen?}{13}{}%
-\contentsline {subsection}{\numberline {3.9}Wat is raymarching?}{14}{}%
-\contentsline {subsection}{\numberline {3.10}Wat zijn SDFs?}{15}{}%
-\contentsline {section}{\numberline {4}Hypothese}{16}{}%
-\contentsline {section}{\numberline {5}Ontwikkeling}{17}{}%
-\contentsline {subsection}{\numberline {5.1}Hardware}{17}{}%
-\contentsline {subsection}{\numberline {5.2}Software}{17}{}%
-\contentsline {subsubsection}{\numberline {5.2.1}Besturingssysteem}{17}{}%
-\contentsline {subsubsection}{\numberline {5.2.2}Programmeertaal}{17}{}%
-\contentsline {subsubsection}{\numberline {5.2.3}Framework}{18}{}%
-\contentsline {subsubsection}{\numberline {5.2.4}Integrated Development Environment}{19}{}%
-\contentsline {subsection}{\numberline {5.3}Programmeren}{19}{}%
-\contentsline {subsubsection}{\numberline {5.3.1}Specificaties}{19}{}%
-\contentsline {subsubsection}{\numberline {5.3.2}Raylib uitproberen}{20}{}%
-\contentsline {subsubsection}{\numberline {5.3.3}Computer Graphics From Scratch}{20}{}%
-\contentsline {subsubsection}{\numberline {5.3.4}Raytracing}{21}{}%
-\contentsline {subsubsection}{\numberline {5.3.5}Diffusion}{27}{}%
-\contentsline {subsubsection}{\numberline {5.3.6}Specular Highlights}{30}{}%
-\contentsline {subsubsection}{\numberline {5.3.7}Schaduwen}{34}{}%
-\contentsline {subsubsection}{\numberline {5.3.8}Reflecties}{35}{}%
-\contentsline {subsubsection}{\numberline {5.3.9}Raymarching}{37}{}%
-\contentsline {subsubsection}{\numberline {5.3.10}SDFs}{40}{}%
+\contentsline {subsection}{\numberline {3.4}Wat is raytracing?}{10}{}%
+\contentsline {subsection}{\numberline {3.5}Hoe werkt shading?}{11}{}%
+\contentsline {subsection}{\numberline {3.6}Wat is global illumination?}{12}{}%
+\contentsline {subsection}{\numberline {3.7}Wat zijn polygonen?}{14}{}%
+\contentsline {subsection}{\numberline {3.8}Hoe wordt een mesh opgeslagen?}{14}{}%
+\contentsline {subsection}{\numberline {3.9}Wat is raymarching?}{15}{}%
+\contentsline {subsection}{\numberline {3.10}Wat zijn SDFs?}{16}{}%
+\contentsline {section}{\numberline {4}Hypothese}{17}{}%
+\contentsline {section}{\numberline {5}Ontwikkeling}{18}{}%
+\contentsline {subsection}{\numberline {5.1}Hardware}{18}{}%
+\contentsline {subsection}{\numberline {5.2}Software}{18}{}%
+\contentsline {subsubsection}{\numberline {5.2.1}Besturingssysteem}{18}{}%
+\contentsline {subsubsection}{\numberline {5.2.2}Programmeertaal}{18}{}%
+\contentsline {subsubsection}{\numberline {5.2.3}Framework}{19}{}%
+\contentsline {subsubsection}{\numberline {5.2.4}Integrated Development Environment}{20}{}%
+\contentsline {subsection}{\numberline {5.3}Programmeren}{20}{}%
+\contentsline {subsubsection}{\numberline {5.3.1}Specificaties}{20}{}%
+\contentsline {subsubsection}{\numberline {5.3.2}Computer Graphics From Scratch}{21}{}%
+\contentsline {subsubsection}{\numberline {5.3.3}Raytracing}{22}{}%
+\contentsline {subsubsection}{\numberline {5.3.4}Diffusion}{27}{}%
+\contentsline {subsubsection}{\numberline {5.3.5}Specular Highlights}{30}{}%
+\contentsline {subsubsection}{\numberline {5.3.6}Schaduwen}{34}{}%
+\contentsline {subsubsection}{\numberline {5.3.7}Reflecties}{35}{}%
+\contentsline {subsubsection}{\numberline {5.3.8}Raymarching}{37}{}%
+\contentsline {subsubsection}{\numberline {5.3.9}SDFs}{40}{}%
 \contentsline {paragraph}{Balk}{40}{}%
 \contentsline {paragraph}{Torus}{41}{}%
 \contentsline {paragraph}{Vlak}{42}{}%
 \contentsline {paragraph}{Cylinder}{42}{}%
-\contentsline {subsubsection}{\numberline {5.3.11}SDF operaties}{43}{}%
-\contentsline {subsubsection}{\numberline {5.3.12}Transformaties}{45}{}%
-\contentsline {subsubsection}{\numberline {5.3.13}Driehoeken}{47}{}%
-\contentsline {subsubsection}{\numberline {5.3.14}Mesh Representatie}{49}{}%
-\contentsline {subsubsection}{\numberline {5.3.15}Polygonale primitieven}{50}{}%
-\contentsline {subsubsection}{\numberline {5.3.16}Meten}{52}{}%
+\contentsline {subsubsection}{\numberline {5.3.10}SDF operaties}{43}{}%
+\contentsline {subsubsection}{\numberline {5.3.11}Transformaties}{45}{}%
+\contentsline {subsubsection}{\numberline {5.3.12}Driehoeken}{47}{}%
+\contentsline {subsubsection}{\numberline {5.3.13}Mesh Representatie}{49}{}%
+\contentsline {subsubsection}{\numberline {5.3.14}Polygonale primitieven}{50}{}%
+\contentsline {subsubsection}{\numberline {5.3.15}Meten}{52}{}%
 \contentsline {section}{\numberline {6}Methode}{53}{}%
-\contentsline {subsection}{\numberline {6.1}Variabelen}{53}{}%
-\contentsline {subsection}{\numberline {6.2}Meetmethoden}{53}{}%
-\contentsline {subsection}{\numberline {6.3}Testscènes}{53}{}%
+\contentsline {subsection}{\numberline {6.1}Testscènes}{53}{}%
 \contentsline {paragraph}{Test \#1: Enkele bol}{53}{}%
 \contentsline {paragraph}{Test \#2: Enkele balk}{53}{}%
-\contentsline {paragraph}{Test \#3: Enkele cylinder}{53}{}%
+\contentsline {paragraph}{Test \#3: Enkele cylinder}{54}{}%
 \contentsline {paragraph}{Test \#4: Grote balk met bol erboven}{54}{}%
-\contentsline {paragraph}{Test \#5: Twee balken tegenover elkaar met bol ertussen}{54}{}%
+\contentsline {paragraph}{Test \#5: Twee balken tegenover elkaar met bol ertussen}{55}{}%
 \contentsline {paragraph}{Test \#6: Veel bollen}{55}{}%
-\contentsline {paragraph}{Test \#7: Balk, bol en cylinder}{55}{}%
+\contentsline {paragraph}{Test \#7: Balk, bol en cylinder}{56}{}%
 \contentsline {section}{\numberline {7}Resultaten}{57}{}%
-\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{61}{}%
-\contentsline {section}{\numberline {9}Conclusie}{62}{}%
-\contentsline {section}{\numberline {10}Discussie}{63}{}%
-\contentsline {section}{\numberline {11}Nawoord}{64}{}%
-\contentsline {section}{\numberline {12}Literatuurlijst}{65}{}%
-\contentsline {section}{\numberline {13}Logboek}{66}{}%
-\contentsline {section}{\numberline {A}Code van renders}{69}{}%
+\contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{58}{}%
+\contentsline {section}{\numberline {9}Conclusie}{59}{}%
+\contentsline {section}{\numberline {10}Discussie}{60}{}%
+\contentsline {section}{\numberline {11}Nawoord}{61}{}%
+\contentsline {section}{\numberline {12}Literatuurlijst}{62}{}%
+\contentsline {section}{\numberline {13}Logboek}{63}{}%
+\contentsline {section}{\numberline {A}Code van renders}{66}{}%
+\contentsline {section}{\numberline {B}Individuele meetresultaten}{69}{}%

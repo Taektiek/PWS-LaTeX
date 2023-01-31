@@ -32,6 +32,11 @@ Gambetta, G. (2021).
 \newblock {\em Computer Graphics from Scratch}.
 \newblock No Starch Press.
 
+\bibitem[Kajiya, 1986]{RenderingEquation}
+Kajiya, J.~T. (1986).
+\newblock The rendering equation.
+\newblock {\em SIGGRAPH Comput. Graph.}, 20(4):143–150.
+
 \bibitem[Lehrer, 2010]{HowToyStory3WasMade}
 Lehrer, J. (2010).
 \newblock How toy story 3 was made.

@@ -1,9 +1,15 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: pws.aux
-The style file: apalike.bst
+The style file: plain.bst
 Database file #1: refs.bib
+I was expecting a `,' or a `}'---line 194 of file refs.bib
+ :  
+ :  publisher = {Nibud},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in ScienceBehindPixarRendering
+Warning--to sort, need author or key in EnergieGebruik
 Warning--to sort, need author or key in StackOverflowSurvey
 Warning--empty author in StackOverflowSurvey
 Warning--empty journal in StackOverflowSurvey
@@ -12,45 +18,45 @@ Warning--empty journal in NeRFactor
 Warning--empty journal in SphereTracing
 Warning--empty journal in HowToyStory3WasMade
 Warning--empty journal in VVSystems
-You've used 15 entries,
-            1935 wiz_defined-function locations,
-            567 strings with 5759 characters,
-and the built_in function-call counts, 4853 in all, are:
-= -- 464
-> -- 144
-< -- 13
-+ -- 48
-- -- 46
-* -- 363
-:= -- 845
-add.period$ -- 37
-call.type$ -- 15
-change.case$ -- 97
-chr.to.int$ -- 15
-cite$ -- 26
-duplicate$ -- 224
-empty$ -- 366
-format.name$ -- 61
-if$ -- 958
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 13
-newline$ -- 69
-num.names$ -- 39
-pop$ -- 100
+You've used 18 entries,
+            2118 wiz_defined-function locations,
+            614 strings with 6508 characters,
+and the built_in function-call counts, 4659 in all, are:
+= -- 444
+> -- 161
+< -- 2
++ -- 70
+- -- 50
+* -- 264
+:= -- 755
+add.period$ -- 49
+call.type$ -- 18
+change.case$ -- 78
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 203
+empty$ -- 423
+format.name$ -- 50
+if$ -- 997
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 14
+newline$ -- 87
+num.names$ -- 30
+pop$ -- 117
 preamble$ -- 1
-purify$ -- 98
+purify$ -- 61
 quote$ -- 0
-skip$ -- 184
+skip$ -- 161
 stack$ -- 0
-substring$ -- 295
-swap$ -- 30
+substring$ -- 228
+swap$ -- 37
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
-warning$ -- 9
-while$ -- 32
-width$ -- 0
-write$ -- 170
-(There were 9 warnings)
+type$ -- 70
+warning$ -- 10
+while$ -- 38
+width$ -- 20
+write$ -- 173
+(There was 1 error message)

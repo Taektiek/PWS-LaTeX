@@ -58,12 +58,10 @@ Raytracen met gebruik van SDF's en raymarching levert een significant voordeel o
 \clearpage
 \tableofcontents{}
 \clearpage
-\section{Voorwoord}
-\clearpage
 \section{Inleiding}
 \subsection{Introductie onderwerp}
 
-Renderen is overal. Als je je telefoon opent zie je allerlei gerenderde vormen. Bij het ontbijt zijn verpakkingen volgeprint met teksten die met de computer getekend zijn. Als je langs een bouwterrein loopt zie je hyperrealistische visualisaties van de architectuur. Moderne blockbuster-films zitten tegenwoordig bomvol CGI\footnote{\textbf{C}omputer \textbf{G}enerated \textbf{I}magery}. En er zijn al tientallen jaren films te zien die helemaal door de computer gemaakt zijn. 
+Renderen is overal. Telefoons zijn vol met allerlei gerenderde vormen. Bij het ontbijt zijn verpakkingen volgeprint met teksten die met de computer getekend zijn. Op bouwterreinen zijn hyperrealistische visualisaties van de architectuur zichtbaar. Moderne blockbuster-films zitten tegenwoordig bomvol CGI\footnote{\textbf{C}omputer \textbf{G}enerated \textbf{I}magery}. En er zijn al tientallen jaren films te zien die helemaal door de computer gemaakt zijn. 
 
 \begin{wrapfigure}{s}{0.5\textwidth}
     \includegraphics[width=1\linewidth]{toystory3comparison.jpg}
@@ -79,35 +77,10 @@ Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over g
     \label{fig:minecraftrtx}
 \end{figure}
 
-Er zijn twee belangrijke maatstaffen waarmee we de efficiëntie van een renderalgoritme kunnen meten. De eerste is vanzelfsprekend: snelheid. Als een frame sneller gerenderd is wordt er minder energie gebruikt en zijn we goedkoper uit. Maar ook geheugenbezetting is belangrijk om rekening mee te houden. Het geheugen is simpelweg de plaats in de computer waar alle informatie wordt opgeslagen. Als je berekeningen doet moet je ergens de resultaten tussendoor opslaan. Complexe scènes kunnen enorm veel details hebben, die allemaal in het geheugen opgeslagen zijn. Het is niet gratis om extra geheugen toe te voegen, het is dus belangrijk om de geheugenbezetting te minimaliseren. 
-
 Vrijwel alles is tegenwoordig op een manier gerenderd. Objecten zijn gedesigned met gebruik van CAD\footnote{\textbf{C}omputer \textbf{A}ided \textbf{D}esign}. Besturingssytemen runnen op een grafische shell. En een meerendeel van advertenties gebruikt CGI.
 % Beschrijven hoe renderen voorkomt in het dagelijkse leven
 
-Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render farm van pixar 24000 processor cores verdeeld over 2000 computers. Er wordt dus waarschijnlijk gebruik gemaakt van computers met \(24000/2000=12\) cores. De Ryzen 9 5900x is een voorbeeld van een processor met 12 cores, het energiegebruik zal niet exact hetzelfde zijn maar het ligt bij elkaar in de buurt. De 5900x gebruikt 105 Watt. \(105W\cdot 2000\approx 2,10\cdot 10^5W\). Volgens dezelfde bron kostte het renderen van Monster's University twee jaar. Dat is \(2\cdot 365\cdot 24\approx17520h\). \[210kW \cdot 17520h\approx 3679200kWh\] Een gemiddeld huishouden in Nederland gebruikt 2479 kWh per jaar. Dit betekent dat het renderen van Monster's University \(3679200/2479\approx 1484\) huishoudens een jaar lang van energie had kunnen voorzien. En dat is alleen nog maar de processorkracht, er gaat ook nog energie naar de moederborden, het geheugen, de koeling en de harde schijven. Kortom, er valt een hoop te besparen.
-% Beschrijven hoeveel energie renderen kan kosten
-% Impact klimaat
-\subsection{Onderzoeksvraag/deelvragen}
-\subsubsection{Hoofdvraag WIP}
-In welke situaties is raymarching een efficiëntere rendertechniek dan polygonaal renderen?
-
-Vergelijking van twee rendermethoden in rendersnelheid en geheugenbezetting.
-
-Vergelijking van raymarching en polygonaal renderen in rendersnelheid en geheugenbezetting.
-
-Hoe wegen raymarching en polygonaal renderen tegen elkaar op in rendersnelheid en geheugenbezetting?
-\subsubsection{Deelvragen WIP}
-\begin{itemize}
-\item{Hoe beschrijf je een driedimensionale vorm?}
-\item{Hoe werkt raytracing?}
-\item{Hoe werkt raymarching?}
-\item{Hoe werkt rasterization?}
-\item{Hoe beschrijf je een vorm zodat het gerenderd kan worden met raymarching?}
-\item{Hoeveel geheugen neemt polygonaal renderen in?}
-\item{Hoeveel geheugen neemt renderen met raymarching in?}
-\item{Hoe snel is renderen met raymarching vergeleken met polygonaal renderen?}
-\item{Hoe kan je met raymarching objecten modelleren?}
-\end{itemize}
+Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render farm van Pixar 24000 processor cores verdeeld over 2000 computers. Er wordt dus waarschijnlijk gebruik gemaakt van computers met \(24000/2000=12\) cores. De Ryzen 9 5900x is een voorbeeld van een processor met 12 cores, het energiegebruik zal niet exact hetzelfde zijn maar het ligt bij elkaar in de buurt. De 5900x gebruikt 105 Watt. \(105W\cdot 2000\approx 2,10\cdot 10^5W\). Volgens dezelfde bron kostte het renderen van Monster's University twee jaar. Dat is \(2\cdot 365\cdot 24\approx17520h\). \[210kW \cdot 17520h\approx 3679200kWh\] Een gemiddeld huishouden in Nederland gebruikt 2800 kWh per jaar\cite{EnergieGebruik}. Dit betekent dat het renderen van Monster's University \(3679200/2800\approx 1314\) huishoudens een jaar lang van energie had kunnen voorzien. En dat is alleen nog maar de processorkracht, er gaat ook nog energie naar de moederborden, het geheugen, de koeling en de harde schijven. Kortom, er valt een hoop te besparen.
 \clearpage
 \section{Theorie}
 \subsection{Wat is renderen?}
@@ -265,11 +238,12 @@ Een andere interessante operatie is de modulus, hiermee is het mogelijk om een v
 \[\phi_{mod}= \phi +\frac{1}{2}c\mod{c}\]
 
 \clearpage
+\section{Hoofdvraag}
+\Large In welke situaties is renderen met raymarching efficiënter dan renderen met polygonen? \normalsize
 \section{Hypothese}
 Vanwege de polynomiale groei in complexiteit die het raytraceprincipe ondergaat met meer detail zijn zeer ingewikkelde vormen die makkelijk te beschrijven zijn met SDFs waarschijnlijk sneller te renderen met raymarching. Echter zijn er bepaalde vormen die beter bij polygonaal renderen passen, zo zijn veel organische objecten niet makkelijk te beschrijven met wiskundige formules. Dan wil je de details echt exact op lokaal niveau kunnen bepalen. In die gevallen zou het continu toevoegen van objecten juist meer rekenkracht betekenen. Verder is het polygonaal modelleren een zeer ontwikkelde kunst, terwijl vormen modelleren met \emph{Signed Distance Fields} weinig aanhangers kent. Het is dus nog de vraag wat een kunstenaar zou kunnen doen met deze tools, en of het werkelijk mogelijk is om de processen die gedaan worden met polygonale objecten te vervangen.
 \clearpage
 \section{Ontwikkeling}
-\subsection{Hardware}
 \subsection{Software}
 \subsubsection{Besturingssysteem}
 Het uitvoeren en programmeren van de code zal volledig met Linux gedaan worden. Deze keuze is om meerdere redenen gemaakt. Ten eerste is Linux de standaardkeuze voor developers om te ontwikkelen. Windows en MacOS zijn ontwikkeld als product voor de gebruiker, terwijl Linux ontwikkeld is voor stabiliteit en betrouwbaarheid. Dit heeft als effect dat er met Linux veel minder tegen het besturingssysteem in gewerkt hoeft te worden. Bovendien zijn alle tools die gebruikt worden voor dit onderzoek FOSS\footnote{\textbf{F}ree and \textbf{O}pen \textbf{S}ource \textbf{S}oftware}, en daardoor voor zowel Windows als Linux beschikbaar. Dus qua support maakt het geen verschil.
@@ -1126,6 +1100,8 @@ Daaruit volgt de eerste render die gebruik maakt van raymarching.
 
 \subsubsection{SDFs}
 
+De code van de SDFs is geïnspireerd door de shadercode op de website van Inigo Quilez\cite{SDFs}.
+
 \paragraph{Balk}
 Voor de balk is de volgende SDF gedefiniëerd:
 \begin{lstlisting}[language=C++]
@@ -1575,6 +1551,13 @@ int MeshObject::AddFace(int p1, int p2, int p3) {
 }
 \end{lstlisting}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.50\textwidth]{renders/tri.png}
+	\label{fig:tri}
+	\caption{Enkele driehoek}
+\end{figure}
+
 \subsubsection{Polygonale primitieven}
 
 Voor de balk worden zowel de hoekpunten als de zijden handmatig gedefinieerd.
@@ -1606,6 +1589,13 @@ void generateBox(MeshObject* mesh, Vector3 center, Vector3 box) {
 	mesh -> AddFace(p000, p001, p011); // LEFT
 }
 \end{lstlisting}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.50\textwidth]{renders/test_002_mesh.png}
+	\label{fig:box_mesh}
+	\caption{Een balk}
+\end{figure}
 
 Voor de bol wordt de zogenoemde \textit{UV-sphere} gebruikt. % Bron voor UV-sphere?
 Daarbij wordt de bol opgedeeld in verticaal verdeelde ringen, die vervolgens een bepaalde resolutie hebben. Dan worden de \textit{quads} tussen de ringen ingevuld.
@@ -1641,7 +1631,14 @@ void generateSphere(MeshObject* mesh, Vector3 center, double radius, int rings, 
 }
 \end{lstlisting}
 
-Voor de cylinder worden twee cirkels aan punten aan de boven- en onderkant aangemaakt. Die cirkels worden met het \textit{ear clipping}\footnote{bron} algoritme ingevuld. Daarna worden de twee cirkels met elkaar verbonden met quads.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.50\textwidth]{renders/test_001_mesh_highres.png}
+	\label{fig:sphere_mesh}
+	\caption{Een bol}
+\end{figure}
+
+Voor de cylinder worden twee cirkels aan punten aan de boven- en onderkant aangemaakt. Die cirkels worden met het \textit{ear clipping} algoritme ingevuld\cite{10.2307/2319703}. Daarna worden de twee cirkels met elkaar verbonden met quads.
 
 \begin{lstlisting}[language=c++]
 void generateCylinder(MeshObject* mesh, Vector3 center, double height, double radius, int detail) {
@@ -1675,7 +1672,16 @@ void generateCylinder(MeshObject* mesh, Vector3 center, double height, double ra
 }
 \end{lstlisting}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.48\textwidth]{renders/test_003_mesh_highres.png}
+	\label{fig:cylinder_mesh}
+	\caption{Een cylinder}
+\end{figure}
+
 \subsubsection{Meten}
+
+Voor het meten van de tijd wordt std::chrono gebruikt. De tijd wordt in de terminal laten zien.
 \begin{lstlisting}[language=c++]
 auto start = std::chrono::high_resolution_clock::now();
 int x = -canvas.width/2;
@@ -1705,7 +1711,7 @@ while (!WindowShouldClose()) {
 
 \clearpage
 \section{Methode}
-Om de nu ontwikkelde renderprogramma's met elkaar te vergelijken wordt de rendersnelheid per frame gemeten. Voor elke scène wordt dit tien keer gedaan, om eventuele ruis in de data te verminderen. 
+Om de nu ontwikkelde renderprogramma's met elkaar te vergelijken wordt de rendersnelheid per frame gemeten. Voor elke scène wordt dit tien keer gedaan, om eventuele ruis in de data te verminderen. De code van de testscènes is te zien in Appendix \ref{test_code}.
 \subsection{Testscènes}
 Resolutie: $1000\times 1000$
 \paragraph{Test \#1: Enkele bol}
@@ -1830,6 +1836,8 @@ $ $
 }
 \caption{Balk, bol en cylinder}
 \end{figure}
+\subsection{Hardware}
+De testen zullen worden gerund op een PC op één core van een Intel(R) Core(TM) i7-8700 CPU. Verder heeft de PC 16 GB DDR4 RAM van het merk Kingston, verdeeld over twee sticks van 8 GB. De code wordt gerund vanaf een Samsung 980 PRO NVMe M.2 SSD van 500 GB. Het moederbord is een Medion B360H4-EM.
 \clearpage
 \section{Resultaten}
 
@@ -1894,13 +1902,12 @@ Verder is een duidelijke \textit{user interface} van belang. Eén potentiele opt
 	\label{fig:node_editor}
 \end{figure}
 \clearpage
-\section{Nawoord}
-Bedankt aan mijn moeder Arria Gosman.
-Bedankt aan Ina, voor haar mentale steun.
-\clearpage
 \section{Literatuurlijst}
-\bibliographystyle{apalike}
+\begingroup
+\renewcommand{\section}[2]{}%
+\bibliographystyle{acm}
 \bibliography{refs}
+\endgroup
 \clearpage
 \section{Logboek}
 \begin{table}[!htp]\centering
@@ -1988,7 +1995,7 @@ Bedankt aan Ina, voor haar mentale steun.
 
 \section{Code van renders}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Balken}]
 scene -> AddObject(new SDFBox(
 	(Vector3){-3, 0, 10}, // center
 	(Vector3){1, 2, 1}, // box
@@ -2021,7 +2028,7 @@ scene -> AddObject(new SDFBox(
 \end{lstlisting}
 
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Torussen}]
 scene -> AddObject(new SDFTorus(
 	(Vector3){0, -3, 10}, // center
 	(Vector2){3, 0.5}, // radii
@@ -2053,7 +2060,7 @@ scene -> AddObject(new SDFTorus(
 ));
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Vlak}]
 scene -> AddObject(new SDFPlane(
 	(Vector3){0, -1, 0}, // center
 	ObjectMaterial (
@@ -2064,7 +2071,7 @@ scene -> AddObject(new SDFPlane(
 ));
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Cylinders}]
 scene -> AddObject(new SDFCylinder(
 	(Vector3){0, 3, 10}, // center
 	1, // height
@@ -2099,7 +2106,7 @@ scene -> AddObject(new SDFCylinder(
 ));
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Union}]
 scene -> AddObject(new SDFUnion(
 	(Vector3){0, 0, 10}, // center
 	new SDFSphere(
@@ -2120,7 +2127,7 @@ scene -> AddObject(new SDFUnion(
 ));
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Subtraction}]
 scene -> AddObject(new SDFSubtraction(
 	(Vector3){0, 0, 10}, // center
 	new SDFSphere(
@@ -2141,7 +2148,7 @@ scene -> AddObject(new SDFSubtraction(
 ));
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Intersection}]
 scene -> AddObject(new SDFIntersection(
 	(Vector3){0, 0, 10}, // center
 	new SDFSphere(
@@ -2162,7 +2169,7 @@ scene -> AddObject(new SDFIntersection(
 ));
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++,caption={Rotaties}]
 scene -> AddObject(new SDFIntersection(
 	{0, 0, 10},
 	new SDFRotate(
@@ -2214,6 +2221,525 @@ scene -> AddObject(new SDFRotate(
 		0.2 // reflective
 	)
 ));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Driehoek}]
+MeshObject* obj = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+int v1 = obj -> AddVertex({0, 0, 10});
+int v2 = obj -> AddVertex({1, 1, 10});
+int v3 = obj -> AddVertex({1, 0, 10});
+
+obj -> AddFace(v1, v2, v3);
+
+scene.AddObject(obj);
+\end{lstlisting}
+
+\clearpage
+
+\section{Code van testscènes} \label{test_code}
+
+\begin{lstlisting}[language=C++,caption={Test \#1 SDF}]
+scene -> AddObject(new SDFSphere(
+	{0, 0, 5}, //center
+	1, // radius
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+));
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#1 Lowres Mesh}]
+MeshObject* sphere = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateSphere(sphere, {0, 0, 5}, 2, 7, 7);
+
+scene.AddObject(sphere);
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#1 Highres Mesh}]
+MeshObject* sphere = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateSphere(sphere, {0, 0, 5}, 2, 14, 14);
+
+scene.AddObject(sphere);
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#2 SDF}]
+scene -> AddObject(new SDFBox(
+	{-1, -1, 7}, // center
+	{1, 1.5, 3}, // box
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+));
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#2 Mesh}]
+MeshObject* box = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box, {-1, -1, 7}, {1, 1.5, 3});
+
+scene.AddObject(box);
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#3 SDF}]
+scene -> AddObject(new SDFCylinder(
+	{-1, -1.5, 7}, // center
+	1.2, // height
+	1.5, // radius
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#3 Lowres Mesh}]
+MeshObject* cylinder = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateCylinder(cylinder, {-1, -1.5, 7}, 2.4, 1.5, 50);
+
+scene.AddObject(cylinder);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#3 Highres Mesh}]
+MeshObject* cylinder = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateCylinder(cylinder, {-1, -1.5, 7}, 2.4, 1.5, 10);
+
+scene.AddObject(cylinder);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#4 SDF}]
+scene -> AddObject(new SDFSphere(
+	{0, -0.3, 10}, //center
+	1, // radius
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#4 Lowres Mesh}]
+MeshObject* box = new MeshObject(
+	ObjectMaterial(
+		{255, 255, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box, {0, -2, 10}, {10, 0.2, 10});
+
+scene.AddObject(box);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#4 Highres Mesh}]
+MeshObject* box = new MeshObject(
+	ObjectMaterial(
+		{255, 255, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box, {0, -2, 10}, {10, 0.2, 10});
+
+scene.AddObject(box);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#5 SDF}]
+scene -> AddObject(new SDFBox(
+	{-3, 0, 10}, //center
+	{0.5, 7, 7}, // box
+	ObjectMaterial(
+		{255, 0, 255, 255},
+		500,
+		0.2
+	)
+));
+
+scene -> AddObject(new SDFBox(
+	{3, 0, 10}, //center
+	{0.5, 7, 7}, // box
+	ObjectMaterial(
+		{0, 255, 255, 255},
+		500,
+		0.2
+	)
+));
+
+scene -> AddObject(new SDFBox(
+	{0, -3, 10}, //center
+	{5, 0.5, 7}, // box
+	ObjectMaterial(
+		{0, 255, 0, 255},
+		500,
+		0.2
+	)
+));
+
+scene -> AddObject(new SDFSphere(
+	{0, 0, 10}, // center
+	2, // radius
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#5 Lowres Mesh}]
+MeshObject* box1 = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 255, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box1, {-3, 0, 10}, {0.5, 7, 7});
+
+scene.AddObject(box1);
+
+MeshObject* box2 = new MeshObject(
+	ObjectMaterial(
+		{0, 255, 255, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box2, {3, 0, 10}, {0.5, 7, 7});
+
+scene.AddObject(box2);
+
+MeshObject* box3 = new MeshObject(
+	ObjectMaterial(
+		{0, 255, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box3, {0, -3, 10}, {5, 0.5, 7});
+
+scene.AddObject(box3);
+
+MeshObject* sphere = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateSphere(sphere, {0, 0, 10}, 2, 7, 7);
+
+scene.AddObject(sphere);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#5 Highres Mesh}]
+MeshObject* box1 = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 255, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box1, {-3, 0, 10}, {0.5, 7, 7});
+
+scene.AddObject(box1);
+
+MeshObject* box2 = new MeshObject(
+	ObjectMaterial(
+		{0, 255, 255, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box2, {3, 0, 10}, {0.5, 7, 7});
+
+scene.AddObject(box2);
+
+MeshObject* box3 = new MeshObject(
+	ObjectMaterial(
+		{0, 255, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(box3, {0, -3, 10}, {5, 0.5, 7});
+
+scene.AddObject(box3);
+
+MeshObject* sphere = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateSphere(sphere, {0, 0, 10}, 2, 14, 14);
+
+scene.AddObject(sphere);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#6 SDF}]
+Color possibleColors[] = {
+	YELLOW,
+	GOLD,
+	ORANGE,
+	PINK,
+	RED,
+	MAROON,
+	GREEN,
+	LIME,
+	DARKGREEN,
+	SKYBLUE,
+	BLUE,
+	DARKBLUE,
+	PURPLE,
+	VIOLET,
+	DARKPURPLE,
+	BEIGE,
+};
+
+std::vector<Vector3> centers;
+
+for (int i = -4; i<=4; i+=2) {
+	for (int j = -4; j<=4; j+=2) {
+		centers.push_back((Vector3){i, j, 10+sin(i+j)});
+	}
+}
+
+std::vector<Color> colors;
+
+for (int i = 0; i < centers.size(); i++) {
+	colors.push_back(possibleColors[i % 16]);
+}
+
+for (int i = 0; i < centers.size(); i++) {
+	scene -> AddObject(new SDFSphere(
+		centers[i], // center
+		0.5+(sin((double)i)+1)/4,
+		ObjectMaterial(
+			colors[i],
+			500,
+			0.2
+		)
+	));
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#6 Lowres Mesh}]
+Color possibleColors[] = {
+	YELLOW,
+	GOLD,
+	ORANGE,
+	PINK,
+	RED,
+	MAROON,
+	GREEN,
+	LIME,
+	DARKGREEN,
+	SKYBLUE,
+	BLUE,
+	DARKBLUE,
+	PURPLE,
+	VIOLET,
+	DARKPURPLE,
+	BEIGE,
+};
+
+std::vector<Vector3> centers;
+
+for (int i = -4; i<=4; i+=2) {
+	for (int j = -4; j<=4; j+=2) {
+		centers.push_back((Vector3){i, j, 10+sin(i+j)});
+	}
+}
+
+std::vector<Color> colors;
+
+for (int i = 0; i < centers.size(); i++) {
+	colors.push_back(possibleColors[i % 16]);
+}
+
+for (int i = 0; i < centers.size(); i++) {
+	MeshObject* mesh = new MeshObject(
+		ObjectMaterial(
+			colors[i],
+			500,
+			0.2
+		)
+	);
+	generateSphere(mesh, centers[i], 0.5+(sin((double)i)+1)/4, 7, 7);
+	scene.AddObject(mesh);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#7 SDF}]
+scene -> AddObject(new SDFSphere(
+	{0, 0, 10}, //center
+	1, // radius
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+));
+
+scene -> AddObject(new SDFCylinder(
+	{-2, 0, 10}, //center
+	1, // length
+	0.5, // radius
+	ObjectMaterial(
+		{0, 0, 255, 255},
+		500,
+		0.2
+	)
+));
+
+scene -> AddObject(new SDFBox(
+	{2, 0, 10}, //center
+	{1, 1, 1}, // box
+	ObjectMaterial(
+		{0, 255, 0, 255},
+		500,
+		0.2
+	)
+));
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#7 Lowres Mesh}]
+MeshObject* obj = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateSphere(obj, {0, 0, 10}, 1, 14, 14);
+
+scene.AddObject(obj);
+
+obj = new MeshObject(
+	ObjectMaterial(
+		{0, 0, 255, 255},
+		500,
+		0.2
+	)
+);
+
+generateCylinder(obj, {-2, 0, 10}, 2, 0.5, 50);
+
+scene.AddObject(obj);
+
+obj = new MeshObject(
+	ObjectMaterial(
+		{0, 255, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(obj, {2, 0, 10}, {1, 1, 1});
+
+scene.AddObject(obj);
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Test \#7 Highres Mesh}]
+MeshObject* obj = new MeshObject(
+	ObjectMaterial(
+		{255, 0, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateSphere(obj, {0, 0, 10}, 1, 7, 7);
+
+scene.AddObject(obj);
+
+obj = new MeshObject(
+	ObjectMaterial(
+		{0, 0, 255, 255},
+		500,
+		0.2
+	)
+);
+
+generateCylinder(obj, {-2, 0, 10}, 2, 0.5, 10);
+
+scene.AddObject(obj);
+
+obj = new MeshObject(
+	ObjectMaterial(
+		{0, 255, 0, 255},
+		500,
+		0.2
+	)
+);
+
+generateBox(obj, {2, 0, 10}, {1, 1, 1});
+
+scene.AddObject(obj);
 \end{lstlisting}
 
 \clearpage

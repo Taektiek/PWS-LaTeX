@@ -58,19 +58,39 @@
 }
 
 @article{CrammingComponents,
-  title={Cramming more components onto integrated circuits},
-  author={Gordon Moore},
-  url={https://newsroom.intel.com/wp-content/uploads/sites/11/2018/05/moores-law-electronics.pdf},
-  year={1965},
-  publisher={Electronics Magazine}
+	author={Moore, G.E.},
+	journal={Proceedings of the IEEE}, 
+	title={Cramming More Components Onto Integrated Circuits}, 
+	year={1998},
+	volume={86},
+	number={1},
+	pages={82-85},
+	abstract={},
+	keywords={},
+	doi={10.1109/JPROC.1998.658762},
+	ISSN={1558-2256},
+	month={Jan},
 }
 
+
 @article{PhongReflectionModel,
-  title={Illumination for Computer Generated Images},
-  author={Bui Thong Phong},
-  url={https://users.cs.northwestern.edu/~ago820/cs395/Papers/Phong_1975.pdf},
-  year={1975},
-  publisher={University of Utah}
+	author = {Phong, Bui Tuong},
+	title = {Illumination for Computer Generated Pictures},
+	year = {1975},
+	issue_date = {June 1975},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	volume = {18},
+	number = {6},
+	issn = {0001-0782},
+	url = {https://doi.org/10.1145/360825.360839},
+	doi = {10.1145/360825.360839},
+	abstract = {The quality of computer generated images of three-dimensional scenes depends on the shading technique used to paint the objects on the cathode-ray tube screen. The shading algorithm itself depends in part on the method for modeling the object, which also determines the hidden surface algorithm. The various methods of object modeling, shading, and hidden surface removal are thus strongly interconnected. Several shading techniques corresponding to different methods of object modeling and the related hidden surface algorithms are presented here. Human visual perception and the fundamental laws of optics are considered in the development of a shading rule that provides better quality and increased realism in generated images.},
+	journal = {Commun. ACM},
+	month = {jun},
+	pages = {311–317},
+	numpages = {7},
+	keywords = {computer graphics, graphic display, hidden surface removal, shading}
 }
 
 @misc{MonteCarloDenoiser,
@@ -106,4 +126,45 @@
 	month = {aug},
 	pages = {143–150},
 	numpages = {8}
+}
+
+@inproceedings{10.1145/2018323.2018337,
+	author = {Laine, Samuli and Karras, Tero},
+	title = {High-Performance Software Rasterization on GPUs},
+	year = {2011},
+	isbn = {9781450308960},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/2018323.2018337},
+	doi = {10.1145/2018323.2018337},
+	abstract = {In this paper, we implement an efficient, completely software-based graphics pipeline on a GPU. Unlike previous approaches, we obey ordering constraints imposed by current graphics APIs, guarantee hole-free rasterization, and support multisample antialiasing. Our goal is to examine the performance implications of not exploiting the fixed-function graphics pipeline, and to discern which additional hardware support would benefit software-based graphics the most.We present significant improvements over previous work in terms of scalability, performance, and capabilities. Our pipeline is malleable and easy to extend, and we demonstrate that in a wide variety of test cases its performance is within a factor of 2--8x compared to the hardware graphics pipeline on a top of the line GPU.Our implementation is open sourced and available at http://code.google.com/p/cudaraster/},
+	booktitle = {Proceedings of the ACM SIGGRAPH Symposium on High Performance Graphics},
+	pages = {79–88},
+	numpages = {10},
+	location = {Vancouver, British Columbia, Canada},
+	series = {HPG '11}
+}
+
+@article{SphereTracing,
+	author = {Hart, John C.},
+	title = {Sphere tracing: a geometric method for the antialiased ray tracing of implicit surfaces
+	},
+	journaltitle = {The Visual Computer},
+	date = {December 1996},
+	year = {1996},
+}
+
+@inproceedings{BoundingVolumeHierarchy,
+	author={Gunther, Johannes and Popov, Stefan and Seidel, Hans-Peter and Slusallek, Philipp},
+	booktitle={2007 IEEE Symposium on Interactive Ray Tracing}, 
+	title={Realtime Ray Tracing on GPU with BVH-based Packet Traversal}, 
+	year={2007},
+	volume={},
+	number={},
+	pages={113-118},
+	abstract={Recent GPU ray tracers can already achieve performance competitive to that of their CPU counterparts. Nevertheless, these systems can not yet fully exploit the capabilities of modern GPUs and can only handle medium-sized, static scenes. In this paper we present a BVH-based GPU ray tracer with a parallel packet traversal algorithm using a shared stack. We also present a fast, CPU-based BVH construction algorithm which very accurately approximates the surface area heuristic using streamed binning while still being one order of magnitude faster than previously published results. Furthermore, using a BVH allows us to push the size limit of supported scenes on the GPU: We can now ray trace the 12.7 million triangle Power Plant at 1024 times 1024 image resolution with 3 fps, including shading and shadows.},
+	keywords={},
+	doi={10.1109/RT.2007.4342598},
+	ISSN={},
+	month={Sep.},
 }

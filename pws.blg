@@ -9,49 +9,48 @@ Warning--empty author in StackOverflowSurvey
 Warning--empty journal in StackOverflowSurvey
 Warning--empty journal in NvidiaRTX
 Warning--empty journal in NeRFactor
+Warning--empty journal in SphereTracing
 Warning--empty journal in HowToyStory3WasMade
-Warning--empty journal in CrammingComponents
-Warning--empty journal in PhongReflectionModel
 Warning--empty journal in VVSystems
-You've used 12 entries,
+You've used 15 entries,
             1935 wiz_defined-function locations,
-            543 strings with 5181 characters,
-and the built_in function-call counts, 3325 in all, are:
-= -- 304
-> -- 101
-< -- 9
-+ -- 34
-- -- 32
-* -- 249
-:= -- 614
-add.period$ -- 26
-call.type$ -- 12
-change.case$ -- 75
-chr.to.int$ -- 12
-cite$ -- 24
-duplicate$ -- 149
-empty$ -- 247
-format.name$ -- 42
-if$ -- 619
+            567 strings with 5759 characters,
+and the built_in function-call counts, 4853 in all, are:
+= -- 464
+> -- 144
+< -- 13
++ -- 48
+- -- 46
+* -- 363
+:= -- 845
+add.period$ -- 37
+call.type$ -- 15
+change.case$ -- 97
+chr.to.int$ -- 15
+cite$ -- 26
+duplicate$ -- 224
+empty$ -- 366
+format.name$ -- 61
+if$ -- 958
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 10
-newline$ -- 53
-num.names$ -- 30
-pop$ -- 81
+missing$ -- 13
+newline$ -- 69
+num.names$ -- 39
+pop$ -- 100
 preamble$ -- 1
-purify$ -- 76
+purify$ -- 98
 quote$ -- 0
-skip$ -- 121
+skip$ -- 184
 stack$ -- 0
-substring$ -- 175
-swap$ -- 2
-text.length$ -- 0
+substring$ -- 295
+swap$ -- 30
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 70
-warning$ -- 10
-while$ -- 21
+type$ -- 88
+warning$ -- 9
+while$ -- 32
 width$ -- 0
-write$ -- 125
-(There were 10 warnings)
+write$ -- 170
+(There were 9 warnings)

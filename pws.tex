@@ -43,15 +43,17 @@
 \usepackage{fp}
 \usepackage{float}
 \counterwithin{figure}{section}
-\title{Efficiëntie van raymarching in renderen}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\title{\Huge SDF's vs. Polygonen:\\ \large Een vergelijking van rendertechnieken}
 \author{Taeke Roukema}
-\date{Januari 2023}
+\date{Februari 2023}
 
 
 \begin{document}
 \maketitle
 \begin{abstract}
-Renderen met raymarching
+Raytracen met gebruik van SDF's en raymarching levert een significant voordeel op tegenover het beschrijven van dezelfde vormen met meshes van polygonen.
 \end{abstract}
 \clearpage
 \tableofcontents{}
@@ -157,12 +159,11 @@ In de vroege jaren van de ontwikkeling van de computer was de rekenkracht minisc
 
 De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan de vorm gewoon ingevuld worden, wat een vrij goedkoop proces is.
 
-Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Verder zijn moderne gpu's speciaal ingericht om dit proces zo snel mogelijk te laten verlopen. %bron?
+Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Verder zijn moderne gpu's speciaal ingericht om dit proces zo snel mogelijk te laten verlopen. \cite{10.1145/2018323.2018337}
  Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. 
 \subsection{Wat is raytracing?}
 
-Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbron miljoenen lichtstralen af te vuren, die laat je door de scène kaatsen totdat ze het zichtveld van de observeerder raken. In theorie is dit de realistische benadering, en ook exact wat de rendervergelijking op het eerste oog impliceert. Deze methode wordt \emph{photon tracing} % bron?
- genoemd, naar de naam van lichtdeeltjes: fotonen. Maar in de werkelijkheid is dit vrijwel onmogelijk. Maar een klein gedeelte van de lichtstralen bereikt daadwerkelijk ooit de camera, wat betekent dat verreweg de meeste berekeningen die gemaakt worden geen invloed hebben op het uiteindelijke eindbeeld. 
+Om licht realistischer te simuleren ligt het voor de hand om vanuit elke lichtbron miljoenen lichtstralen af te vuren, die laat je door de scène kaatsen totdat ze het zichtveld van de observeerder raken. In theorie is dit de realistische benadering, en ook exact wat de rendervergelijking op het eerste oog impliceert. Deze methode wordt \emph{photon tracing} genoemd, naar de naam van lichtdeeltjes: fotonen. Maar in de werkelijkheid is dit vrijwel onmogelijk. Maar een klein gedeelte van de lichtstralen bereikt daadwerkelijk ooit de camera, wat betekent dat verreweg de meeste berekeningen die gemaakt worden geen invloed hebben op het uiteindelijke eindbeeld. 
 
 Om dit probleem op te lossen worden de lichtstralen niet afgevuurd vanuit de lichtbronnen, maar vanuit de camera. Voor elke pixel op het scherm wordt een straal door het zichtveld afgevuurd. Als die straal een object raakt kaatst die vervolgens af naar de lichtbronnen om te kijken hoe sterk die pixel belicht moet zijn, en of er eventueel een object in de weg zit die een schaduw zou werpen. Bovendien kunnen de stralen doorkaatsen tussen objecten, hiermee wordt een model van reflectie benaderd. 
 
@@ -230,8 +231,7 @@ Er zijn twee hoofdtechnieken: \emph{vertex-vertex meshes} \cite{VVSystems} en \e
 \end{figure}
 
 \subsection{Wat is raymarching?}
-Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet \textit{sphere tracing}. % bron?
- Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde van de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
+Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet \textit{sphere tracing}.\cite{SphereTracing} Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde van de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
 \begin{algorithm}
 \caption{Raymarch Algoritme}
 \begin{algorithmic}[1]
@@ -304,13 +304,14 @@ Alle lichten hebben een intensiteit, die aangeeft hoe vel dat licht is. Ambient 
 
 De camera, alle objecten en de lichten worden allemaal beschreven met een Scene() object. Die heeft de methodes AddSDFObject(), AddPolygon(), AddPolygonalPrimitive() en AddLight(). De scène zal in een los bestand van de rest van de code beschreven worden.
 \subsubsection{Computer Graphics From Scratch}
-Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een renderer kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde heb je een programma die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. 
+Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een renderer kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde is een programma ontwikkeld die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. 
 \subsubsection{Raytracing}
-De stralen worden aangegeven met een paramatervergelijking in de vorm:
+De stralen worden aangegeven met een parametervergelijking in de vorm:
 \[P=O+t(V-O)\]
+
 Hier is $P$ enig punt in de straal van $O$ naar $V$. $t$ geeft aan hoe ver op de straal punt $P$ is.
 
-$(V-O)$ is gelijk aan de richting van de straal, dus die noemen we $\overrightarrow{D}$. Dan krijg je:
+$(V-O)$ is gelijk aan de richting van de straal, dus die wordt $\overrightarrow{D}$ genoemd. Daaruit volgt:
 \[P=O+t\overrightarrow{D}\]
 
 In het begin zal de raytracer alleen bollen kunnen tekenen, de vergelijking van punt $P$ op een bol met middenpunt $C$ en straal $r$ is:
@@ -318,16 +319,22 @@ In het begin zal de raytracer alleen bollen kunnen tekenen, de vergelijking van 
 
 De lengte van een vector is gelijk aan de wortel van het inwendig product met zichzelf. Het inwendig product wordt aangegeven als $\langle\overrightarrow{V},\overrightarrow{V} \rangle$. Dat geeft:
 \[\langle P-C,P-C\rangle=r^2\]
+
 Dit combineren met de vergelijking van de straal $P=O+t\overrightarrow{D}$ geeft:
 \[\langle O+t\overrightarrow{D}-C,O+t\overrightarrow{D}-C\rangle=r^2\]
-$O-C$ kunnen we opschrijven als $\overrightarrow{CO}$:
+
+$O-C$ kan opgeschreven worden als $\overrightarrow{CO}$:
 \[\langle{CO}+t\overrightarrow{D},\overrightarrow{CO}+t\overrightarrow{D}\rangle=r^2\]
+
 Inwendige producten zijn bilineair, dit betekent dat:
 \[\langle x+y,z\rangle=\langle x,z\rangle+\langle y,z\rangle\]
+
 En:
 \[\langle x,y+z\rangle=\langle x,y\rangle+\langle x,z\rangle\]
+
 En:
 \[\langle x,\lambda y\rangle=\lambda\langle x,y\rangle=\langle\lambda x,y\rangle\]
+
 Hieruit kunnen we de vergelijking afsplitsen tot:
 \[\langle \overrightarrow{CO},\overrightarrow{CO} \rangle + \langle t\overrightarrow{D},\overrightarrow{CO} \rangle + \langle \overrightarrow{CO},t\overrightarrow{D} \rangle + \langle t\overrightarrow{D},t\overrightarrow{D} \rangle = r^2\]
 
@@ -336,12 +343,13 @@ Verder zijn kruisproducten commutatief dus $\langle x,y\rangle=\langle y,x\rangl
 Hieruit volgt:
 \[\langle t\overrightarrow{D},t\overrightarrow{D} \rangle + 2\langle t\overrightarrow{D},\overrightarrow{CO} \rangle + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle = r^2\]
 
-Met de derde bilineairiteitsregel kunnen we dit weer omschrijven naar:
+Met de derde bilineairiteitsregel kan dit omgeschreven worden naar:
 \[t^2\langle \overrightarrow{D},\overrightarrow{D} \rangle + t\left(2\langle \overrightarrow{D},\overrightarrow{CO} \rangle
 \right) + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle - r^2 = 0\]
 
-Nu heeft het de vorm aangenomen van de kwadratische vergelijking, die we op kunnen lossen met de ABC-formule.
+Nu heeft het de vorm aangenomen van de kwadratische vergelijking, die opgelost kan worden met de ABC-formule.
 \[\{t_1, t_2\}=\frac{-b\pm \sqrt{b^2-4ac}}{2a}\]
+
 Hierbij geldt dus:
 \[a=\langle \overrightarrow{D},\overrightarrow{D}\rangle\]
 \[b=2\langle \overrightarrow{CO},\overrightarrow{D}\rangle\]
@@ -428,7 +436,8 @@ Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
     return closest_sphere.material.color;
 }
 \end{lstlisting}
-De functie geeft een kleur terug, in dit vroegste geval is dat gewoon de kleur van het object. Die kleur wordt vervolgens voor de bijbehorende pixel getekend.
+
+De functie geeft een kleur terug, in deze eerste versie is dat de kleur van het object. Die kleur wordt vervolgens voor de bijbehorende pixel getekend.
 
 Er wordt gebruik gemaakt van de ClosestIntersection() functie. 
 
@@ -456,9 +465,10 @@ std::pair<Sphere, double> ClosestIntersection(Vector3 O, Vector3 D, double t_min
     return std::make_pair(closest_sphere, closest_t);
 }
 \end{lstlisting}
+
 Deze geeft terug welke bol het dichst bij is, en hoe ver die bol precies is. 
 
-Samen geeft dit de eerste versie van de raytracer. We initialiseren de scène als volgt:
+Samen geeft dit de eerste versie van de raytracer. De eerste scène wordt geinitialiseerd als volgt:
 
 \begin{lstlisting}[language=C++]
 Viewport vp(1, 1, 1);
@@ -506,7 +516,7 @@ scene.AddSphere(Sphere(
 ));
 \end{lstlisting}
 
-In het begin wordt een Scene() object aangemaakt. Daaraan kunnen vervolgens objecten aan toegevoegd worden. Dat Scene() object ziet er zo uit:
+In het begin wordt een Scene() object aangemaakt. Daar kunnen vervolgens objecten aan toegevoegd worden. Dat Scene() object ziet er zo uit:
 
 \begin{lstlisting}[language=C++]
 class Scene {
@@ -557,7 +567,7 @@ Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor krijgen 
 \end{figure}
 
 \subsubsection{Diffusion}
-Diffusie in het Phong-Model. 
+Er wordt gebruik gemaakt van het diffusieprincipe van het Phong-Model. 
 
 \begin{figure}[H]
     \centering
@@ -579,7 +589,7 @@ Dus:
 
 \[\frac{I}{A} = \frac{\langle \overrightarrow{N},\overrightarrow{L}\rangle}{|\overrightarrow{N}||\overrightarrow{L}|}\]
 
-Hieruit kunnen we de volgende algemene formule voor diffusie opstellen, met een som voor elke lichtbron met intensiteit $I_i$ en richting $\overrightarrow{L_i}$. Verder is $I_A$ de ambient belichting.
+Hieruit wordt de volgende algemene formule voor diffusie opgesteld, met een som voor elke lichtbron met intensiteit $I_i$ en richting $\overrightarrow{L_i}$. Verder is $I_A$ de \textit{ambient} belichting.
 
 \[I_P=I_A+\sum_{i=l}^{n}I_i\frac{\langle \overrightarrow{N}, \overrightarrow{L_i} \rangle}{|\overrightarrow{N}||\overrightarrow{L_i}|}\]
 
@@ -660,7 +670,7 @@ Light::Light(int t, double i, Vector3 pos_or_rot) {
 }
 \end{lstlisting}
 
-We voegen aan de scène de volgende lichten toe:
+Aan de scène worden de volgende lichten toegevoegd:
 
 \begin{lstlisting}[language=C++]
 scene.AddLight(Light(
@@ -681,7 +691,7 @@ scene.AddLight(Light(
 ));
 \end{lstlisting}
 
-In de TraceRay() functie vermenigvuldigen we nu de originele kleur met de teruggegeven intensiteit. 
+In de TraceRay() functie wordt de originele kleur vermenigvuldigd met de teruggegeven intensiteit. 
 
 \begin{lstlisting}[language=C++]
 Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {   
@@ -710,7 +720,7 @@ Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene) {
 
 \subsubsection{Specular Highlights}
 
-Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, maar meer in de richting tegenover de vector van inkomend licht gespiegeld in de normaal. De distributie van het teruggekaatste licht kunnen we met een cosinus functie aangeven. Die geeft een duidelijk distributie rondom de y-as. We verheffen de cosinus tot een bepaalde macht $s$, om te bepalen hoe scherp de reflecties zijn.
+Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, maar meer in de richting tegenover de vector van inkomend licht gespiegeld in de normaal. De distributie van het teruggekaatste licht kan met een cosinus functie aangegeven worden. Die geeft een duidelijk distributie rondom de y-as. De cosinus wordt verheven tot een bepaalde macht $s$, om te bepalen hoe scherp de reflecties zijn.
 
 \begin{figure}[H]
     \centering
@@ -744,7 +754,7 @@ Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, ma
     \label{fig:cosini}
 \end{figure}
 
-We kunnen $\ora{L}$ ontleden in $\ora{L_P}$ en $\ora{L_N}$, waar $\ora{L_N}$ evenwijdig is aan $\ora{N}$ en $\ora{L_N}$ loodrecht staat op $\ora{N}$.
+$\ora{L}$ kan ontleden worden in $\ora{L_P}$ en $\ora{L_N}$, waar $\ora{L_N}$ evenwijdig is aan $\ora{N}$ en $\ora{L_N}$ loodrecht staat op $\ora{N}$.
 
 \begin{figure}[H]
     \centering
@@ -766,18 +776,18 @@ $\ora{L}=\ora{L_P}+\ora{L_N}$ dus $\ora{L_P}=\ora{L}-\ora{L_N}=\ora{L}-\ora{N}\l
 
 $\ora{R}$ is aan de andere kant van $\ora{N}$ en heeft dezelfde hoogte als $\ora{R}$ dus $\ora{R}=\ora{L_N}-\ora{L_P}$
 
-Als we hierin de eerder verkregen formules substitueren krijgen we:
+Als hierin de eerder verkregen formules gesubstitueerd worden volgt:
 
 \[\ora{R}=\ora{N}\langle\ora{N},\ora{L}\rangle-\ora{L}+\ora{N}\langle\ora{N},\ora{L}\rangle\]
 \[\ora{R}=2\ora{N}\langle\ora{N},\ora{L}\rangle-\ora{L}\]
 
-Verder weten we dat:
+Verder geldt:
 \[\cos\left(\angle\left(\ora{R}, \ora{V}\right)\right)=\frac{\langle\ora{R},\ora{V}\rangle}{\left|\ora{R}\right|\left|\ora{V}\right|}\]
 
 Hieruit volgt de volgende formule voor speculaire reflecties:
 \[I_S=I_L\left(\frac{\langle\ora{R},\ora{V}\rangle}{\left|\ora{R}\right|\left|\ora{V}\right|}\right)^s\]
 
-Dit kunnen we samenvoegen met de eerder vergaarde formule voor diffusie voor een volledige belichtingsformule:
+Dit kan samengevoegd worden met de eerder vergaarde formule voor diffusie voor een volledige belichtingsformule:
 
 \[
 I_P=
@@ -824,9 +834,9 @@ double ComputeLighting(Vector3 P, Vector3 N, Vector3 V, double s, Scene scene) {
 }
 \end{lstlisting}
 
-We stellen dat een object geen speculaire reflecties heeft als $s=-1$. 
+Een object heeft geen speculaire reflecties als $s=-1$. 
 
-We voegen aan de ObjectMaterial() klasse de specular eigenschap toe:
+Aan de ObjectMaterial() klasse wordt de specular eigenschap toegevoegd:
 
 \begin{lstlisting}[language=C++]
 class ObjectMaterial {
@@ -839,7 +849,7 @@ class ObjectMaterial {
 };
 \end{lstlisting}
 
-Nu kunnen we de bollen renderen met speculaire reflecties.
+Nu worden de bollen gerenderd met speculaire reflecties.
 
 \begin{figure}[H]
     \centering
@@ -849,7 +859,7 @@ Nu kunnen we de bollen renderen met speculaire reflecties.
 \end{figure}
 
 \subsubsection{Schaduwen}
-Om te weten waar schaduwen getekend moeten worden wordt een nieuwe straal vanaf een punt op de vorm afgevuurd richting de camera. Als er een andere vorm tussenzit berekenen we voor dat punt niet de diffuse en speculaire reflectie. We kunnen hiervoor de eerder geschreven ClosestIntersection() functie hergebruiken. De ComputeLighting functie ziet er dan als volgt uit:
+Om te weten waar schaduwen getekend moeten worden wordt een nieuwe straal vanaf een punt op de vorm afgevuurd richting de camera. Als er een andere vorm tussenzit wordt voor dat punt niet de diffuse en speculaire reflectie berekend. Hiervoor kan de eerder geschreven ClosestIntersection() functie hergebruikt worden. De ComputeLighting functie ziet er dan als volgt uit:
 
 \begin{lstlisting}[language=C++]
 double ComputeLighting(Vector3 P, Vector3 N, Vector3 V, double s, Scene scene) {
@@ -914,7 +924,7 @@ Vector3 ReflectRay(Vector3 R, Vector3 N) {
 }
 \end{lstlisting}
 
-We passen de TraceRay() functie recursief toe:
+De TraceRay() functie wordt recursief toegepast:
 \begin{lstlisting}[language=C++]
 Color TraceRay(Vector3 O, Vector3 D, double t_min, double t_max, Scene scene, int recursion_depth) {   
     std::pair<Sphere, double> closest_intersection = ClosestIntersection(O, D, t_min, t_max, scene);
@@ -957,7 +967,7 @@ class ObjectMaterial {
 };
 \end{lstlisting}
 
-Als reflective lager is dan 0 stellen we dat er geen reflecties zijn voor dat object. Deze kleine toevoegingen maken de basis van de raytracer af.
+Als reflective lager is dan 0 zijn er geen reflecties voor dat object. Deze kleine toevoegingen maken de basis van de raytracer af.
 
 \begin{figure}[H]
     \centering
@@ -968,7 +978,7 @@ Als reflective lager is dan 0 stellen we dat er geen reflecties zijn voor dat ob
 
 \subsubsection{Raymarching}
 
-De IntersectRaySphere() functie wordt vervangen door MarchRay(). Verder is het Sphere() object nu weg. In plaats daarvan spreken we over een SDFObject(), die een methode SDF() heeft.
+De IntersectRaySphere() functie wordt vervangen door MarchRay(). Verder is het Sphere() object nu weg. In plaats daarvan is er een SDFObject(), die een methode SDF() heeft.
 
 \begin{lstlisting}[language=C++]
 double marchRay(Vector3 O, Vector3 D, SDFObject *object, double max_distance, int max_marching_steps, double max_depth) {
@@ -996,7 +1006,7 @@ Er wordt steeds een stap in de richting van de straal gezet met de grootte van d
 
 Verder moet de normaal nog berekend worden. De normaal is gelijk aan de gradiënt van het oppervlakte:
 
-\[\ora{N} = \text{normalize}(\nabla f(p))\]
+\[\ora{N} = \nabla f(p)\]
 
 Waar $f(p)$ de SDF is.
 
@@ -1013,7 +1023,7 @@ Bij de afgeleide geldt $\lim\limits_{\epsilon \to 0}$ dus bij de de numerieke be
 Hieruit volgt:
 
 \[
-\ora{N}=\text{normalize}\begin{pmatrix} 
+\ora{N}=\begin{pmatrix} 
 f\left(p+\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right) \\
 f\left(p+\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right) \\
 f\left(p+\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)
@@ -1051,7 +1061,7 @@ double SDFSphere::SDF(Vector3 P) {
 }
 \end{lstlisting}
 
-Verder is de initialisatie van de scène verplaatst naar de functie initScene(). Als we de volgende scène hiermee definiëren:
+Verder is de initialisatie van de scène verplaatst naar de functie initScene(). Als volgt wordt hiermee een scène gedefinieerd:
 \begin{lstlisting}[language=C++]
 void initScene(Scene *scene) {
     scene -> AddObject(new SDFSphere(
@@ -1103,7 +1113,7 @@ void initScene(Scene *scene) {
 }
 \end{lstlisting}
 
-Krijgen we de eerste render die gebruik maakt van raymarching.
+Daaruit volgt de eerste render die gebruik maakt van raymarching.
 
 \begin{figure}[H]
     \centering
@@ -1112,7 +1122,9 @@ Krijgen we de eerste render die gebruik maakt van raymarching.
     \label{fig:first_raymarched}
 \end{figure}
 
-\subsubsection{SDFs}\footnote{Code van de renders staat in Appendix A}
+\clearpage
+
+\subsubsection{SDFs}
 
 \paragraph{Balk}
 Voor de balk is de volgende SDF gedefiniëerd:
@@ -1133,6 +1145,8 @@ Waarin \emph{box} de lengte, breedte en hoogte van de balk beschrijft.
     \label{fig:boxes}
 \end{figure}
 
+\clearpage
+
 \paragraph{Torus}
 Voor de torus is de volgende functie gedefiniëerd:
 \begin{lstlisting}[language=C++]
@@ -1144,8 +1158,6 @@ double SDFTorus::SDF(Vector3 P) {
 \end{lstlisting}
 
 Waarin $holes$ een Vector2 is met de straal van de torus, en de dikte.
-
-
 
 \begin{figure}[H]
     \centering
@@ -1695,7 +1707,7 @@ while (!WindowShouldClose()) {
 \section{Methode}
 Om de nu ontwikkelde renderprogramma's met elkaar te vergelijken wordt de rendersnelheid per frame gemeten. Voor elke scène wordt dit tien keer gedaan, om eventuele ruis in de data te verminderen. 
 \subsection{Testscènes}
-Resolutie: (1000, 1000)
+Resolutie: $1000\times 1000$
 \paragraph{Test \#1: Enkele bol}
 $ $
 \begin{figure}[H]
@@ -1840,12 +1852,47 @@ $ $
 \end{table}
 
 Het wordt snel duidelijk dat het renderen met \textit{signed distance functions} velen malen sneller is dan met polygonen. Naast test 2, met de balk, is het in elke situatie sneller. Bovendien geeft de SDF ook betere kwaliteit renders, aangezien er geen randen tussen driehoeken zichtbaar zijn. In sommige situaties is het zelfs meer dan 23 keer zo snel. De individuele resultaten staan beschreven in Appendix \ref{resultaten}.
-\clearpage
 \section{Nauwkeurigheidsanalyse}
-\clearpage
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c c c |}
+		\hline
+		Test & SDF & Mesh (Lowres) & Mesh (Highres) \\
+		\hline
+		1 & 132,7 & 257,8 & 758,0\\
+		2 & 16,3 & 39,3 & - \\
+		3 & 86,6 & 123,3 & 759,8  \\
+		4 & 80,3 & 4146,2 & 12539,8 \\
+		5 & 3129,1 & 6251,9 & 17034,1 \\
+		6 & 1623,9 & 34417,9 & - \\
+		7 & 79,8 & 1595,3 & 4226,3 \\
+		\hline
+	\end{tabular}
+	\caption{Standaarddeviaties}
+\end{table}
+De standaarddeviaties lopen in sommige situaties op tot wel 34 seconden, echter is het verschil tussen de mesh- en sdf-resultaten in iedere situatie meerdere standaarddeviaties groot. Dit betekent dat de resultaten als significant beschouwd kunnen worden. 
+
 \section{Conclusie}
-\clearpage
+Het blijkt uit de resultaten duidelijk dat het renderen met SDF's significant sneller is dan met meshes in alles behalve de allersimpelste situaties. Bovendien hebben de SDF's een visuele kwaliteit die met meshes bijna niet te evenaren is. 
+
+In de hypothese was gesteld dat de SDF's sneller zouden zijn in de meeste situaties, maar dat meshes simpele objecten sneller zouden kunnen renderen. Uit de resultaten blijkt een nog sterker voordeel. 
+
+Verder zijn er vragen gesteld over het gemak van het maken van scènes met SDF's tegenover meshes. Aangezien er geen editor gemaakt is voor dit onderzoek kan daar geen antwoord op gegeven worden.
+
 \section{Discussie}
+
+Er kunnen wel vragen gesteld worden bij de implementatie van de polygons en meshes. Zo zal er in professionele programma's meer aandacht gestoken zijn in het geheugengebruik van de meshes. Verder wordt er gebruik gemaakt van \textit{bounding boxes} rondom meshes zodat niet elke straal met elke driehoek in de scène vergeleken hoeft te worden.\cite{BoundingVolumeHierarchy} Dit zou bijvoorbeeld scène 6 een enorme snelheidsboost geven. 
+
+Om in de toekomst de render engine verder uit te werken is het verbeteren van de rendersnelheden van het hoogste belang. De beste manier om dit te doen is het gebruik van de gpu. Raytracing is onderdeel van de klasse \textit{embarrassingly parallelizable problems}. Omdat lichtstralen geen massa hebben, hebben ze geen invloed op elkaar. Vanuit dit principe is elke straal te zien als een los programma die apart uitgevoerd kan worden. De GPU is gespecialiseerd in het uitvoeren van die parallelle taken. De raytracer zou geschreven kunnen worden als zogeheten \textit{fragment shader}. Een andere optie is de \textit{compute shader}, die in theorie beter schaalbaar is.
+
+Verder is een duidelijke \textit{user interface} van belang. Eén potentiele optie is een \textit{node based editor}, waarin de SDF's visueel veranderd een aangepast kunnen worden. Dit systeem past goed bij de modulariteit die het huidige ontwikkelde systeem al met zich meebrengt.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{node_editor.png}
+	\caption{Node Based SDF Editor Markup}
+	\label{fig:node_editor}
+\end{figure}
 \clearpage
 \section{Nawoord}
 Bedankt aan mijn moeder Arria Gosman.
@@ -1920,7 +1967,22 @@ Bedankt aan Ina, voor haar mentale steun.
 \end{table}
 
 \appendix
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\section}{\secdef\Appendix\Appendix}
+\newcommand{\Appendix}[2][?]{%
+	\refstepcounter{section}%
+	\addcontentsline{toc}{section}{Appendix \thesection\ #1}%
+	\vspace{0.5cm}
+	{\noindent\large\bfseries Appendix \thesection\ #2}%
+	\vspace{0.3cm}}
 \clearpage
+\makeatletter
+\renewcommand\listoffigures{%
+	\@starttoc{lof}%
+}
+\makeatother
+\section{Lijst van figuren}
 \listoffigures{}
 \clearpage
 
@@ -2154,6 +2216,8 @@ scene -> AddObject(new SDFRotate(
 ));
 \end{lstlisting}
 
+\clearpage
+
 \section{Individuele meetresultaten} \label{resultaten}
 \begin{table}[H]
 	\centering
@@ -2173,7 +2237,7 @@ scene -> AddObject(new SDFRotate(
 		10&17388&90447&397087 \\
 		\hline
 		Gemiddelde:&17325&90676&398031 \\
-		Standaarddeviatie:&132.7&257.8&758.0 \\
+		Standaarddeviatie:&132,7&257,8&758,0 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#1}
@@ -2196,7 +2260,7 @@ scene -> AddObject(new SDFRotate(
 		10 &16666 &6803 \\
 		\hline
 		Gemiddelde &16674 &6820 \\
-		Standaarddeviatie &16.3 &39.3 \\
+		Standaarddeviatie &16,3 &39,3 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#2}
@@ -2219,7 +2283,7 @@ scene -> AddObject(new SDFRotate(
 		10 &16701 &22678 &124854 \\
 		\hline
 		Gemiddelde &16750 &22801 &123630 \\
-		Standaardeviatie &86.6 &123.3 &759.8 \\
+		Standaardeviatie &86,6 &123,3 &759,8 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#3}
@@ -2242,7 +2306,7 @@ scene -> AddObject(new SDFRotate(
 		10 &18452 &90801 &333629 \\
 		\hline
 		Gemiddelde &18481 &85601 &335891 \\
-		Standaarddeviatie &80.3 &4146.2 &12539.8 \\
+		Standaarddeviatie &80,3 &4146,2 &12539,8 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#4}
@@ -2265,7 +2329,7 @@ scene -> AddObject(new SDFRotate(
 		10 &96145 &222327 &788370 \\
 		\hline
 		Gemiddelde &90870 &230034 &790342 \\
-		Standaarddeviatie &3129.1 &6251.9 &17034.1 \\
+		Standaarddeviatie &3129,1 &6251,9 &17034,1 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#5}
@@ -2288,7 +2352,7 @@ scene -> AddObject(new SDFRotate(
 		10 &101656 &2365858 \\
 		\hline
 		Gemiddelde &100984 &2383653 \\
-		Standaarddeviatie &1623.9 &34417.9 \\
+		Standaarddeviatie &1623,9 &34417,9 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#6}
@@ -2311,7 +2375,7 @@ scene -> AddObject(new SDFRotate(
 		10 &16676 &64276 &279083 \\
 		\hline
 		Gemiddelde &16721 &65967 &275203 \\
-		Standaarddeviatie &79.8 &1595.3 &4226.3 \\
+		Standaarddeviatie &79,8 &1595,3 &4226,3 \\
 		\hline
 	\end{tabular}
 	\caption{Scène \#7}

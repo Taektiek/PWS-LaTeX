@@ -27,7 +27,7 @@
 \usepackage{wrapfig}
 \usepackage{stix}
 \usepackage{amsmath}
-\newcommand*{\ora}{\overrightarrow}
+\newcommand*{\ora}{\vec}
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usetikzlibrary{3d}
@@ -45,6 +45,12 @@
 \counterwithin{figure}{section}
 \usepackage{hyperref}
 \usepackage{titlesec}
+
+\makeatletter
+\renewcommand*{\ALG@name}{Algoritme}
+\makeatother
+
+
 \title{\Huge SDF's vs. Polygonen:\\ \large Een vergelijking van rendertechnieken}
 \author{Taeke Roukema}
 \date{Februari 2023}
@@ -69,7 +75,7 @@ Renderen is overal. Telefoons zijn vol met allerlei gerenderde vormen. Bij het o
     \label{fig:toystory3}
 \end{wrapfigure}
 
-Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurd. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphics \textbf{P}rocessing \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor realtime raytracing\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
+Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurt8765. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphics \textbf{P}rocessing \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor \textit{realtime raytracing}\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{minecraftrtx.jpg}
@@ -77,10 +83,7 @@ Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over g
     \label{fig:minecraftrtx}
 \end{figure}
 
-Vrijwel alles is tegenwoordig op een manier gerenderd. Objecten zijn gedesigned met gebruik van CAD\footnote{\textbf{C}omputer \textbf{A}ided \textbf{D}esign}. Besturingssytemen runnen op een grafische shell. En een meerendeel van advertenties gebruikt CGI.
-% Beschrijven hoe renderen voorkomt in het dagelijkse leven
-
-Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render farm van Pixar 24000 processor cores verdeeld over 2000 computers. Er wordt dus waarschijnlijk gebruik gemaakt van computers met \(24000/2000=12\) cores. De Ryzen 9 5900x is een voorbeeld van een processor met 12 cores, het energiegebruik zal niet exact hetzelfde zijn maar het ligt bij elkaar in de buurt. De 5900x gebruikt 105 Watt. \(105W\cdot 2000\approx 2,10\cdot 10^5W\). Volgens dezelfde bron kostte het renderen van Monster's University twee jaar. Dat is \(2\cdot 365\cdot 24\approx17520h\). \[210kW \cdot 17520h\approx 3679200kWh\] Een gemiddeld huishouden in Nederland gebruikt 2800 kWh per jaar\cite{EnergieGebruik}. Dit betekent dat het renderen van Monster's University \(3679200/2800\approx 1314\) huishoudens een jaar lang van energie had kunnen voorzien. En dat is alleen nog maar de processorkracht, er gaat ook nog energie naar de moederborden, het geheugen, de koeling en de harde schijven. Kortom, er valt een hoop te besparen.
+Volgens Peter Collinridge\cite{ScienceBehindPixarRendering} gebruikt de render farm van Pixar 24000 \textit{processor cores} verdeeld over 2000 computers. Er wordt dus waarschijnlijk gebruik gemaakt van computers met \(24000/2000=12\) \textit{cores}. De Ryzen 9 5900x is een voorbeeld van een processor met 12 cores, het energiegebruik zal niet exact hetzelfde zijn maar het ligt bij elkaar in de buurt. De 5900x gebruikt 105 Watt. \(105W\cdot 2000\approx 2,10\cdot 10^5W\). Volgens dezelfde bron kostte het renderen van \textit{Monster's University} twee jaar. Dat is \(2\cdot 365\cdot 24\approx17520h\). \[210kW \cdot 17520h\approx 3679200kWh\] Een gemiddeld huishouden in Nederland gebruikt 2800 kWh per jaar\cite{EnergieGebruik}. Dit betekent dat het renderen van \textit{Monster's University} \(3679200/2800\approx 1314\) huishoudens een jaar lang van energie had kunnen voorzien. En dat is alleen nog maar de processorkracht, er gaat ook nog energie naar de moederborden, het geheugen, de koeling en de harde schijven. Kortom, er valt een hoop te besparen.
 \clearpage
 \section{Theorie}
 \subsection{Wat is renderen?}
@@ -122,15 +125,15 @@ Deze vergelijking oogt ingewikkeld, maar is in de werkelijkheid goed te overzien
 	\item $L_{\text{e}}(\mathbf x, \omega_{\text{o}}, \lambda, t)$ staat voor het uitgezonden licht van het object
 	\item $	f_{\text{r}}(\mathbf x, \omega_{\text{i}}, \omega_{\text{o}}, \lambda, t)$ staat voor de materiaaleigenschappen van het object
 	\item $L_{\text{i}}(\mathbf x, \omega_{\text{i}}, \lambda, t)$ staat voor het inkomende licht
-	\item $(\omega_{\text{i}}\cdot\mathbf n)$ staat voor de normaal
+	\item $(\omega_{\text{i}}\cdot\mathbf n)$ staat voor de normaal\footnote{De richting die het oppervlakte van een vorm heeft in een punt}
 \end{itemize}
 
 De integraal $\int_\Omega \dots \operatorname d\omega_{\text{i}}$ betekent dat dit berekend wordt voor elke lichtstraal in de scène. De integraal is een continue operatie dus om een perfecte render te krijgen zouden oneindig veel berekeningen gemaakt moeten worden. Daarom wordt gebruik gemaakt van verschillende trucs om zo dicht in de buurt van deze perfecte render te komen als mogelijk.
 
 \subsection{Wat is rasterization?}
-In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar vandaag de dag toegang toe is. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(2^{-20}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes zoals raytracing toe te passen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
+In de vroege jaren van de ontwikkeling van de computer was de rekenkracht miniscuul vergeleken met waar vandaag de dag toegang toe is. Gordon Moore, mede-oprichter van Intel en legendarische informaticus, stelde in 1965 Moore's Law voor (al had het toen nog een andere naam). Moore's Law stelt dat elke twee jaar het aantal transistors in een \emph{integrated circuit} verdubbelt \cite{CrammingComponents}. Dit betekent dus dat 40 jaar geleden de computers \(2^{-20}\) keer zoveel rekenkracht hadden. Wat ongeveer één miljoenste is. Het was toen simpelweg niet mogelijk om algoritmes te gebruiken die lichstralen individueel berekenen, omdat de complexiteit van dat soort algoritmes de capaciteit van de computers ver te boven gingen.
 
-De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit kijk je alleen maar naar de positie van de hoeken van een vorm. Als je daar vervolgens de schermcoördinaten van hebt kan de vorm gewoon ingevuld worden, wat een vrij goedkoop proces is.
+De oplossing was relatief simpel, in plaats van voor elke pixel te checken of er een object in de weg zit wordt alleen maar gekeken naar de positie van de hoeken van een vorm. Met de schermcoördinaten van de punten kan de vorm gewoon ingevuld worden, wat een vrij goedkoop proces is. Dit heet rasterization.
 
 Rasterization is de standaard in de wereld van realtime renderen, vanwege het significante voordeel op de snelheid. Verder zijn moderne gpu's speciaal ingericht om dit proces zo snel mogelijk te laten verlopen. \cite{10.1145/2018323.2018337}
  Echter kent de methode veel nadelen. De belangrijkste van deze nadelen is het feit dat het beeld altijd een benadering zal zijn van de echte wereld. Het licht wordt niet gesimuleerd, er worden verschillende trucs gebruikt om te doen alsof het echt is maar het zal nooit echt kunnen zijn. 
@@ -147,7 +150,7 @@ Om dit probleem op te lossen worden de lichtstralen niet afgevuurd vanuit de lic
     \label{fig:raytracing_diagram}
 \end{figure}
 
-Het renderen wordt met deze methode al een stuk meer te overzien. Voor het genereren van een plaatje van \(1000\times 1000\) pixels vuren we een miljoen stralen af, wat klinkt alsof het veel is. Maar voor moderne computers is dat zeker haalbaar. Pas als we reflecties toe gaan passen lopen we tegen een klein probleem aan, omdat de rendertijd dan polynomiaal groeit met het aantal objecten in de scène. Dit is omdat we elk object moeten testen met ieder ander, wat zorgt voor een kwadratisch verband.
+Het renderen wordt met deze methode al een stuk meer te overzien. Voor het genereren van een plaatje van \(1000\times 1000\) pixels worden een miljoen stralen afgevuurd. Wat voor moderne computers te doen is. Pas als met reflecties tussen objecten ontstaat er een probleem, omdat de rendertijd dan polynomiaal groeit met het aantal objecten in de scène werkt het slechter met hele complexe scènes. Dit is omdat elk object getest moet worden met ieder ander, wat zorgt voor een kwadratisch verband.
 
 \subsection{Hoe werkt shading?}
 \textit{Shading} bepaalt hoe het licht dat op de objecten weerkaatst er daadwerkelijk uitziet. 
@@ -161,7 +164,7 @@ Eén manier om lichtsimulaties te benaderen is het \emph{Phong Reflection Model}
 
 Ambient reflectie staat voor de kleine hoeveelheden licht die eigenlijk altijd wel aanwezig zijn door licht wat door de ruimte heen kaatst. Aangezien het berekenen van deze weerkaatsingen enorm veel rekenkracht kost wordt er uitgegaan van een universele gelijke belichting. 
 
-Diffuse reflectie wordt berekend aan de hand van de hoek tussen het licht op het object en de normaal. Als deze hoek groter is wordt de intensiteit kleiner, omdat het licht meer verdeeld wordt over het oppervlakte. Bij diffuse reflectie ga je ervan uit dat het licht evenveel in elke richting wordt afgekaatst, daarom wordt dit vooral veel voor ruwe oppervlakten gebruikt, waar kleine imperfecties in de textuur ervoor zorgen dat het licht alle kanten op gekaatst wordt.
+Diffuse reflectie wordt berekend aan de hand van de hoek tussen het licht op het object en de normaal. Als deze hoek groter is wordt de intensiteit kleiner, omdat het licht meer verdeeld wordt over het oppervlakte. Bij diffuse reflectie wordt ervan uitgegaan dat het licht evenveel in elke richting wordt afgekaatst, daarom wordt dit vooral veel voor ruwe oppervlakten gebruikt, waar kleine imperfecties in de textuur ervoor zorgen dat het licht alle kanten op gekaatst wordt.
 
 Bij gladdere oppervlakten is er sprake van specular reflectie. Hier wordt het licht meer gereflecteerd in de tegenovergestelde richting dat het binnenkomt tegenover de normaal. 
 
@@ -170,19 +173,19 @@ Als deze drie technieken samengevoegd worden krijg je een vrij accurate benaderi
 \subsection{Wat is global illumination?}
 De methode die hierboven beschreven staat is niet perfect. Als een punt in schaduw zit is het onduidelijk hoe het belicht zou worden. Dit is omdat het algoritme niet berekent hoe het licht door de kamer heen kaatst vanuit de lichtbron. Dat concept heet \emph{global illumination}. Het benaderen van \emph{global illumination} is in principe hetzelfde probleem als het benaderen van de rendervergelijking. Dit betekent dat technieken uit de wiskunde voor het numeriek oplossen van integralen direct toegepast kunnen worden op de rendervergelijking, waarmee realistische beelden getekend kunnen worden. 
 
+Eén van die technieken valt binnen de categorie van Monte-Carlosimulaties. Monte-Carlosimulaties gebruiken een willekeurig element  om in principe deterministische problemen op te lossen. Bij de rendervergelijking manifesteert dit zich in \emph{path tracing}. Bij \emph{path tracing} worden bij elk geraakt punt willekeurige nieuwe stralen afgevuurd, deze kaatsen door totdat ze een licht bereikt hebben. Hier ontstaat hetzelfde probleem als eerder besproken, de kans op het raken van een licht is niet erg groot. Hiertoe zijn twee belangrijke oplossingen. De eerste is \emph{bidirectional path tracing}, hier wordt tegelijk een straal vanuit de camera afgevuurd als van het licht. Na een bepaalde hoeveelheid kaatsen worden de twee verbonden waardoor er altijd een pad van de camera naar het licht is. De andere oplossing wordt \emph{importance sampling} genoemd. Daarbij is de distributie van de willekeurig afgekaatste lichtstralen niet uniform, er worden meer stralen richting de lichtbronnen afgekaatst. Hierdoor bereiken de stralen natuurlijk sneller de lichtbronnen. Met genoeg \emph{samples}\footnote{Hoeveelheid stralen} geeft dit algoritme een perfecte benadering van de rendervergelijking, dat maakt het ook de industriële standaard van het moment. Maar het is relatief inefficiënt, dit komt doordat er met te weinig \emph{samples} veel ruis in het plaatje ontstaat. Dit is simpel te verklaren, omdat het algoritme fundamenteel willekeurig is zullen sommige pixels meer licht vinden dan die er direct naast. Puur omdat ze ‘geluk’ hadden. Slechts de limiet van het aantal \emph{samples} naar oneindig zou een werkelijk antwoord geven op de rendervergelijking. Daarom is er altijd een compromis met hoeveel tijd wordt besteed aan het renderen van een frame en de kwaliteit van het resultaat. Steeds vaker wordt kunstmatige intelligente gebruikt om die ruis weg te nemen of te verminderen \cite{MonteCarloDenoiser} maar in de industrie is dat nog steeds niet de norm. 
+
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{global_illumination.png}
-    \caption{Een plaatje gerenderd met \emph{global illumination}.}
-    \label{fig:global_illumination}
+	\centering
+	\includegraphics[width=0.75\textwidth]{global_illumination.png}
+	\caption{Een plaatje gerenderd met \emph{global illumination}.}
+	\label{fig:global_illumination}
 \end{figure}
 
-Eén van die technieken valt binnen de categorie van Monte-Carlosimulaties. Monte-Carlosimulaties gebruiken een willekeurig element  om in principe deterministische problemen op te lossen. Bij de rendervergelijking manifesteert dit zich in \emph{path tracing}. Bij \emph{path tracing} worden bij elk geraakt punt willekeurige nieuwe stralen afgevuurd, deze kaatsen door totdat ze een licht bereikt hebben. Hier ontstaat hetzelfde probleem als eerder besproken, de kans op het raken van een licht is niet erg groot. Hiertoe zijn twee belangrijke oplossingen. De eerste is \emph{bidirectional path tracing}, hier wordt tegelijk een straal vanuit de camera afgevuurd als van het licht. Na een bepaalde hoeveelheid kaatsen worden de twee verbonden waardoor er altijd een pad van de camera naar het licht is. De andere oplossing wordt \emph{importance sampling} genoemd. Daarbij is de distributie van de willekeurig afgekaatste lichtstralen niet uniform, er worden meer stralen richting de lichtbronnen afgekaatst. Hierdoor bereiken de stralen natuurlijk sneller de lichtbronnen. Met genoeg \emph{samples}\footnote{Hoeveelheid stralen} geeft dit algoritme een bijna perfecte benadering van de rendervergelijking, dat maakt het ook de industriële standaard van het moment. Maar het is relatief inefficiënt, dit komt doordat er met te weinig \emph{samples} veel ruis in het plaatje ontstaat. Dit is simpel te verklaren, omdat het algoritme fundamenteel willekeurig is zullen sommige pixels meer licht vinden dan die er direct naast. Puur omdat ze 'geluk' hadden. Slechts de limiet van het aantal \emph{samples} naar oneindig zou een werkelijk antwoord geven op de rendervergelijking. Daarom is er altijd een compromis met hoeveel tijd wordt besteed aan het renderen van een frame en de kwaliteit van het resultaat. Steeds vaker wordt kunstmatige intelligente gebruikt om die ruis weg te nemen of te verminderen \cite{MonteCarloDenoiser} maar in de industrie is dat nog steeds niet de norm. 
-
 \subsection{Wat zijn polygonen?}
-Een polygoon is, in zijn elementairste vorm, een eindig aantal 1ijnstukken die met elkaar verbonden zijn in een polygonale lijn. Dit houdt in dat elk uiteinde van een lijnstuk het begin van een nieuwe betekent. Bovendien betekent dit dat de lijnstukken altijd één keten vormen. 
+Een polygoon is, in zijn elementairste vorm, een eindig aantal lijnstukken die met elkaar verbonden zijn in een polygonale lijn. Dit houdt in dat elk uiteinde van een lijnstuk het begin van een nieuwe betekent. Bovendien betekent dit dat de lijnstukken altijd één keten vormen. 
 
-Bij computer graphics hebben we het altijd over simpele polygonen. Deze polygonen snijden zichzelf niet en hebben geen gaten. Die simpele polygonen hebben een handige eigenschap, ze zijn altijd op te delen in driehoeken. Die driehoeken liggen altijd op een vlak, waar makkelijk een lijn mee te snijden valt. Vervolgens zijn er andere strategieën waarme te bepalen valt of dat punt in de driehoek ligt. 
+Bij \textit{computer graphics} gaat het altijd over simpele polygonen. Deze polygonen snijden zichzelf niet en hebben geen gaten. Die simpele polygonen hebben een handige eigenschap, ze zijn altijd op te delen in driehoeken \cite{10.2307/2319703}. Die driehoeken liggen altijd op een vlak, waar makkelijk een lijn mee te snijden valt. Vervolgens zijn er andere strategieën waarme te bepalen valt of dat punt in de driehoek ligt. 
 
 Driedimensionale vormen worden met moderne rendertechnieken vrijwel altijd beschreven met deze polygonen. De vorm wordt dan een \emph{mesh} genoemd.
 
@@ -204,7 +207,7 @@ Er zijn twee hoofdtechnieken: \emph{vertex-vertex meshes} \cite{VVSystems} en \e
 \end{figure}
 
 \subsection{Wat is raymarching?}
-Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet \textit{sphere tracing}.\cite{SphereTracing} Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde van de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
+Raymarching is een methode om het snijpunt van een straal en een vorm te vinden door iteratief stappen te zetten richting die vorm. De meest gebruikelijke methode hiervoor heet \textit{sphere tracing} \cite{SphereTracing}. Hierbij wordt gebruik gemaakt van de afstand van het originele punt tot het dichstbijzijnde punt op de vorm. In de richting van de straal wordt verplaatst met de afstand \(r\) tot dat dichtstbijzijnde punt. Dit wordt de locatie van het nieuwe punt. Op dat punt wordt het proces weer herhaald totdat de afstand onder een van te voren bepaalde grenswaarde valt.
 \begin{algorithm}
 \caption{Raymarch Algoritme}
 \begin{algorithmic}[1]
@@ -222,16 +225,16 @@ Raymarching is een methode om het snijpunt van een straal en een vorm te vinden 
 %% Afbeelding ?
 
 \subsection{Wat zijn SDFs?}
-Het bepalen van de afstand van een punt tot het dichstbijzijnde punt op een vorm wordt gedaan met zogeheten \emph{signed distance}-functies. \emph{Signed} staat in deze term voor het feit dat aan de binnenkant van de vorm de functie een negatief getal geeft. De functie van een bol met middelpunt \(C\) en straal \(r\) is bijvoorbeeld als volgt:
+Het bepalen van de afstand van een punt tot het dichstbijzijnde punt op een vorm wordt gedaan met zogeheten \emph{signed distance}-functies. \emph{Signed} staat in deze term voor het feit dat aan de binnenkant van de vorm de functie een negatief getal geeft. De functie van een bol met middelpunt \(C\) en straal \(r\) is bijvoorbeeld:
 \[\phi (x)=\left |x-C \right | -r\]
-SDFs zijn enorm nuttig omdat bewerkingen op deze formule toegepast kunnen worden waardoor met vrijwel geen rekenkracht complexe vormen gecreëerd kunnen worden. 
+SDF'szijn enorm nuttig omdat bewerkingen op deze formule toegepast kunnen worden waardoor met vrijwel geen rekenkracht complexe vormen gecreëerd kunnen worden. 
 
 Neem vorm $\phi_1$ en vorm $\phi_2$. Om de \emph{union}\footnote{De vormen samengevoegd} van de vormen te nemen wordt de volgende formule gebruikt: 
-\[\phi_{u(1,2)}=min(\phi_1, \phi_2)\]
+\[{union(\phi_1, \phi_2)}=min(\phi_1, \phi_2)\]
 De \emph{subtraction}\footnote{De ene vorm van de andere afgetrokken} wordt als volgt berekend:
-\[\phi_{s(1,2)}=max(-\phi_1, \phi_2)\]
+\[{subtraction(\phi_1, \phi_2)}=max(-\phi_1, \phi_2)\]
 En de \emph{intersection}\footnote{Het deel wat bij beide vormen hoort} zo:
-\[\phi_{i(1,2)}=max(\phi_1, \phi_2)\]
+\[{intersection(\phi_1, \phi_2)}=max(\phi_1, \phi_2)\]
 Dit worden de boolean operaties genoemd, en staan respectievelijk voor: OR, NOT en AND.
 
 Een andere interessante operatie is de modulus, hiermee is het mogelijk om een vorm voor eeuwig te laten herhalen. Voor een periode $c$ en een SDF $\phi$ is de formule hiervoor:
@@ -239,29 +242,32 @@ Een andere interessante operatie is de modulus, hiermee is het mogelijk om een v
 
 \clearpage
 \section{Hoofdvraag}
+De complexiteit die geïntroduceerd wordt met het beschrijven van elke losse kant van een vorm is met het gebruik van SDF's verdwenen. Vanuit dat principe is de hoofdvraag opgesteld:
+\newline
+\newline
 \Large In welke situaties is renderen met raymarching efficiënter dan renderen met polygonen? \normalsize
 \section{Hypothese}
-Vanwege de polynomiale groei in complexiteit die het raytraceprincipe ondergaat met meer detail zijn zeer ingewikkelde vormen die makkelijk te beschrijven zijn met SDFs waarschijnlijk sneller te renderen met raymarching. Echter zijn er bepaalde vormen die beter bij polygonaal renderen passen, zo zijn veel organische objecten niet makkelijk te beschrijven met wiskundige formules. Dan wil je de details echt exact op lokaal niveau kunnen bepalen. In die gevallen zou het continu toevoegen van objecten juist meer rekenkracht betekenen. Verder is het polygonaal modelleren een zeer ontwikkelde kunst, terwijl vormen modelleren met \emph{Signed Distance Fields} weinig aanhangers kent. Het is dus nog de vraag wat een kunstenaar zou kunnen doen met deze tools, en of het werkelijk mogelijk is om de processen die gedaan worden met polygonale objecten te vervangen.
+Vanwege de polynomiale groei in complexiteit die het raytraceprincipe ondergaat met meer detail zijn zeer ingewikkelde vormen die makkelijk te beschrijven zijn met SDF's waarschijnlijk sneller te renderen met raymarching. Echter zullen er bepaalde vormen zijn die beter bij polygonaal renderen passen, zo zijn veel organische objecten niet makkelijk te beschrijven met wiskundige formules. Dan moet de details echt exact op lokaal niveau bepaald kunnen worden. In die gevallen zou het continu toevoegen van objecten juist meer rekenkracht betekenen. Verder is het polygonaal modelleren een zeer ontwikkelde kunst, terwijl vormen modelleren met \emph{Signed Distance Fields} weinig aanhangers kent. Het is dus nog de vraag wat een kunstenaar zou kunnen doen met deze tools, en of het werkelijk mogelijk is om de processen die gedaan worden met polygonale objecten te vervangen.
 \clearpage
 \section{Ontwikkeling}
 \subsection{Software}
 \subsubsection{Besturingssysteem}
 Het uitvoeren en programmeren van de code zal volledig met Linux gedaan worden. Deze keuze is om meerdere redenen gemaakt. Ten eerste is Linux de standaardkeuze voor developers om te ontwikkelen. Windows en MacOS zijn ontwikkeld als product voor de gebruiker, terwijl Linux ontwikkeld is voor stabiliteit en betrouwbaarheid. Dit heeft als effect dat er met Linux veel minder tegen het besturingssysteem in gewerkt hoeft te worden. Bovendien zijn alle tools die gebruikt worden voor dit onderzoek FOSS\footnote{\textbf{F}ree and \textbf{O}pen \textbf{S}ource \textbf{S}oftware}, en daardoor voor zowel Windows als Linux beschikbaar. Dus qua support maakt het geen verschil.
 
-Als distributie\footnote{Linux zelf is slechts een \emph{kernel} die de interactie tussen de hardware en de software regelt. Bovenop deze \emph{kernel} bestaan distributies die het een werkend besturingssysteem maken.} is voor Manjaro\footnote{https://manjaro.org/} gekozen. Dit is een fork van Arch Linux. Arch Linux staat erom bekend dat het altijd de nieuwste versie van software support. Dit komt doordat het een \emph{rolling release model} heeft, in tegenstelling tot \emph{fixed release}, waar distributies zoals Debian gebruik van maken. Bovendien heeft Arch Linux toegang tot de Arch User Repository (AUR). Dat is een enorme collectie van software die gebruikers zelf kunnen uploaden naar de Arch servers, met helpers zoals \emph{yay} kan je met één commando vrijwel alle software die beschikbaar is op GNU/Linux op de computer installeren. De combinatie van deze voordelen maken Arch Linux een erg aantrekkelijke distributie om te gebruiken als programmeur. Manjaro voegt de rest van de functies toe aan het besturingssysteem, zoals een Desktop Environment (DE) en een terminal.
+Als distributie\footnote{Linux zelf is slechts een \emph{kernel} die de interactie tussen de hardware en de software regelt. Bovenop deze \emph{kernel} bestaan distributies die het een werkend besturingssysteem maken.} is voor Manjaro\footnote{https://manjaro.org/} gekozen. Dit is een \textit{fork} van Arch Linux. Arch Linux staat erom bekend dat het altijd de nieuwste versie van software support. Dit komt doordat het een \emph{rolling release model} heeft, in tegenstelling tot \emph{fixed release}, waar distributies zoals Debian gebruik van maken. Bovendien heeft Arch Linux toegang tot de Arch User Repository (AUR). Dat is een enorme collectie van software die gebruikers zelf kunnen uploaden naar de Arch servers, met helpers zoals \emph{yay} kan je met één commando vrijwel alle software die beschikbaar is voor GNU/Linux op de computer installeren. De combinatie van deze voordelen maken Arch Linux een erg aantrekkelijke distributie om te gebruiken als programmeur. Manjaro voegt de rest van de functies toe aan het besturingssysteem, zoals een Desktop Environment (DE) en een terminal.
 \subsubsection{Programmeertaal}
-Er zijn talloze programmmeertalen die geschikt zijn voor graphics programming. Daarom was de keuze voor de programmeertaal niet makkelijk. Zelf heb ik al jarenlang ervaring met Python\footnote{https://www.python.org/}, maar deze taal staat niet bekend om de snelheid. Dit komt doordat het een \emph{interpreted} taal is. Dat betekent dat de code live gelezen wordt wanneer gerund. Dit staat tegenover \emph{compiled} talen, die de code eerst compileren naar machinetaal. Die machinetaal is veel efficiënter te lezen door computers, waardoor de snelheid toeneemt. Een andere optie was Javascript, het grote voordeel van deze taal is dat hij speciaal voor het web gemaakt is. Hierdoor zou het delen van het gemaakte project met anderen zo simpel zijn als het doorsturen van een url. Bovendien maakt Javascript op moderne browsers gebruik van \textit{Just In Time} (JIT) compilation. Dat is een combinatie tussen \emph{interpreted} en \emph{compiled} waar de code live omgezet wordt in machinetaal voordat het gerund wordt. Maar toch is zelfs Javascript niet snel genoeg. Bovendien missen beide talen iets wat erg belangrijk is in computer graphics: controle over het geheugen. Scènes kunnen enorm complex zijn dus het is belangrijk dat die zo efficiënt mogelijk in het geheugen geplaatst worden, en het geheugen moet weer gewist worden wanneer het niet meer gebruikt wordt. Python en Javascript geven allebei niet die controle, in plaats daarvan probeert de \emph{interpreter} zelf zo efficiënt mogelijk het geheugen te gebruiken. Om deze redenen heb ik gekozen voor C++, deze taal is in 1985 uitgevonden door Brane Stroustrup en wordt vandaag de dag nog door 20,17\% van Stack Overflow gebruikers gebruikt\cite{StackOverflowSurvey}. De taal is ontwikkeld als extensie voor C, waardoor het moderne functies heeft zoals \emph{Object Oriented Programming} (OOP) en datastructuren. Maar het heeft tegelijkertijd alle voordelen die C heeft als low-level taal. 
+Er zijn talloze programmmeertalen die geschikt zijn voor \textit{graphics programming}. Daarom was de keuze voor de programmeertaal niet makkelijk. Vanwege ervaring met de taal leek Python\footnote{https://www.python.org/} een goede optie, maar deze taal staat niet bekend om de snelheid. Dit komt doordat het een \emph{interpreted} taal is. Dat betekent dat de code live gelezen wordt wanneer gerund. Dit staat tegenover \emph{compiled} talen, die de code eerst compileren naar machinetaal. Die machinetaal is veel efficiënter te lezen door computers, waardoor de snelheid toeneemt. Een andere optie was Javascript, het grote voordeel van deze taal is dat hij speciaal voor het web gemaakt is. Hierdoor zou het delen van het gemaakte project met anderen zo simpel zijn als het doorsturen van een url. Bovendien maakt Javascript op moderne browsers gebruik van \textit{Just In Time} (JIT) compilation. Dat is een combinatie tussen \emph{interpreted} en \emph{compiled} waar de code live omgezet wordt in machinetaal voordat het gerund wordt. Maar toch is zelfs Javascript niet snel genoeg. Bovendien missen beide talen iets wat erg belangrijk is in computer graphics: controle over het geheugen. Scènes kunnen enorm complex zijn dus het is belangrijk dat die zo efficiënt mogelijk in het geheugen geplaatst worden, en het geheugen moet weer gewist worden wanneer het niet meer gebruikt wordt. Python en Javascript geven allebei niet die controle, in plaats daarvan probeert de \emph{interpreter} zelf zo efficiënt mogelijk het geheugen te gebruiken. Om deze redenen is gekozen voor C++, deze taal is in 1985 uitgevonden door Brane Stroustrup en wordt vandaag de dag nog door 20,17\% van Stack Overflow gebruikers gebruikt \cite{StackOverflowSurvey}. De taal is ontwikkeld als extensie voor C, waardoor het moderne functies heeft zoals \emph{Object Oriented Programming} (OOP) en datastructuren. Maar het heeft tegelijkertijd alle voordelen die C heeft als low-level taal. 
 \subsubsection{Framework}
-C++ heeft uit zichzelf nog geen grafische capabiliteiten. Daar is een framework voor nodig. Moderne grafische kaarten zijn allemaal gemaakt met speciale specificaties, die ervoor zorgen dat het besturingssysteem weet hoe hij moet communiceren met de GPU. Er zijn verschillende van deze specificaties met verschillende doelen. Zo heb je DirectX, die specifiek gemaakt is voor Windows. En wat algemenere API\footnote{\textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface} is OpenGL (Open Graphics Library). Met C++ is het dan ook mogelijk om direct gebruik te maken van deze API, net als in de meeste programmeertalen. 
+C++ heeft uit zichzelf nog geen grafische capabiliteiten. Daar is een framework voor nodig. Moderne grafische kaarten zijn allemaal gemaakt met speciale specificaties, die ervoor zorgen dat het besturingssysteem weet hoe hij moet communiceren met de GPU. Er zijn verschillende van deze specificaties met verschillende doelen. Zo is er DirectX, die specifiek gemaakt is voor Windows. Een wat algemenere API\footnote{\textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface} is OpenGL (Open Graphics Library). Met C++ is het ook mogelijk om direct gebruik te maken van deze API, net als in de meeste programmeertalen. 
 
-Maar toch heb ik daar niet voor gekozen. Dit is omdat OpenGL heel goed is in het implementeren van bestaande rendermethodes, waar de GPU ook voor ontwikkeld is. Dit maakt het ideaal voor het bouwen van videogames, omdat het daar heel snel in is. Maar minder voor dit specifieke onderzoek. Ik wil objectief vergelijken hoe de verschillende rendermethoden tegen elkaar opwegen, als de gebruikelijkere methodes heel goed geoptimaliseerd zijn door de GPU en OpenGL zou dat oneerlijk zijn en de data onbetrouwbaar maken. Daarom heb ik gekozen voor raylib\footnote{https://www.raylib.com/}. Raylib is een zeer minimalistische \emph{library} die alle basistools geven die we nodig hebben om te kunnen tekenen op een canvas, terwijl het tegelijkertijd razendsnel blijft. 
+Maar toch is daar niet voor gekozen. Dit is omdat OpenGL heel goed is in het implementeren van bestaande rendermethodes, waar de GPU ook voor ontwikkeld is. Dit maakt het ideaal voor het bouwen van videogames, omdat het daar heel snel in is. Maar minder voor dit specifieke onderzoek. Er moet objectief vergeleken worden hoe de verschillende rendermethoden tegen elkaar opwegen, als de gebruikelijkere methodes heel goed geoptimaliseerd zijn door de GPU en OpenGL zou dat oneerlijk zijn en de data onbetrouwbaar maken. Daarom is gekozen voor raylib\footnote{https://www.raylib.com/}. Raylib is een zeer minimalistische \emph{library} die alle basistools geeft die nodig zijn om te kunnen tekenen op een canvas, terwijl het tegelijkertijd razendsnel blijft. 
 \subsubsection{Integrated Development Environment}
-Ik ga al mijn programmeren doen in Visual Studio Code\footnote{https://code.visualstudio.com/} omdat het een mooie simpele text editor is die precies doet wat ik wil. Het geeft goede IntelliSense\footnote{Verzamelnaam voor tools die helpen in het schrijven van code zoals: code completion en informatie over parameters}, syntax highlighting en het geeft een goed overzicht van het project. Bovendien heeft het een enorme markt van plugins die het product nog meer verbeteren. Zo gebruik ik de Vim keybinds plugin om de efficiënte workflow van de editor Vim\footnote{https://www.vim.org/} te emuleren. 
+Al het programmeren wordt gedaan in Visual Studio Code\footnote{https://code.visualstudio.com/} omdat het een mooie simpele text editor is die precies doet wat nodig is. Het geeft goede \textit{IntelliSense}\footnote{Verzamelnaam voor tools die helpen in het schrijven van code zoals: code completion en informatie over parameters}, \textit{syntax highlighting} en het geeft een goed overzicht van het project. Bovendien heeft het een enorme markt van plugins die het product nog meer verbeteren.
 \subsection{Programmeren}
 \subsubsection{Specificaties}
-Voor het onderzoek ga ik twee verschillende renderers ontwikkelen. De eerste gebruikt raytracing, en de objecten worden beschreven met raymarching. De tweede gebruikt ook raytracing alleen worden de objecten polygonaal beschreven. Het is voor het onderzoek belangrijk dat de twee algoritmes zo veel mogelijk op elkaar lijken, zodat het vergelijkende onderzoek iets objectiefs kan zeggen over de effectiviteit van de verschillende technieken. Vandaar dat hier eerst de specificaties worden beschreven waar de algoritmes aan zullen moeten doen. Deze specificaties kunnen uitgebreid worden of ingekort gebaseerd op de progressie over de tijd.
+Voor het onderzoek worden twee raytracers ontwikkeld: één die alle vormen beschrijft met meshes van polygonen en één die de vormen beschrijft met SDFs. Om ervoor te zorgen dat de twee render engines zo vergelijkbaar mogelijke resultaten geven worden hier de specificaties benoemd waar ze aan moeten voldoen.
 
-De renderer moet kunnen renderen vanuit een \textbf{camera} die een bepaalde positie heeft binnen de driedimensionale ruimte. De camera heeft ook een \emph{field of view} (fov), die aangeeft hoe breed het zichtveld is. Uit de camera komt uit elke pixel een \emph{ray} die snijdt met de \emph{viewport}. De resolutie van het beeldscherm wordt in het programma aangegeven. Waarschijnlijk willen we renderen op een resolutie van \(500\times 500\). De \emph{rays} worden beschreven als parametrische vergelijking. Hierdoor kan de parameter \(t\) gebruikt worden om de straal te snijden met de objecten. De objecten zijn uiteraard anders beschreven in de twee verschillende programma's, maar ze hebben wel delen gemeen. Zo heeft een object altijd een positie, een draaiing en een grootte. Verder wordt het materiaal van elk object beschreven met een kleur, de \emph{specularity} en het reflectievermogen. De kleur wordt beschreven met RGBA, met waarden op \([0, 255]\). De \emph{specularity} geeft de macht waarmee de cosinus die de verspreiding van de \emph{highlights} beschrijft wordt verheven. Het reflectievermogen is een getal op \([0, 1]\) die het aandeel van de kleur beschrijft die komt uit reflecties. Bovendien willen we een aantal primitieve vormen hebben die standaard beschikbaar zijn. Voor raymarching zal dit triviaal zijn aangezien elke vorm slechts een \emph{signed distance function} is. Maar voor het polygonale renderen moeten hier nog aparte algoritmes voor komen. De vormen die ondersteund moeten worden zijn als volgt:
+De raytracer rendert vanaf $O(0,0,0)$. Vanuit dat punt worden stralen afgevuurd voor elke pixel die snijden met de \textit{viewport}. Die viewport heeft een afstand $d$ van de oorsprong.De resolutie van het beeldscherm wordt in het programma aangegeven. Dit zal voor het experiment $1000\times 1000$ zijn. De \emph{rays} worden beschreven als parametrische vergelijking. Hierdoor kan de parameter \(t\) gebruikt worden om de straal te snijden met de objecten. De objecten zijn uiteraard anders beschreven in de twee verschillende programma's, maar ze hebben wel delen gemeen. Zo heeft een object altijd een positie. Verder wordt het materiaal van elk object beschreven met een kleur, de \emph{specularity} en het reflectievermogen. De kleur wordt beschreven met RGB, met waarden op \([0, 255]\). De \emph{specularity} geeft de macht waarmee de cosinus die de verspreiding van de \emph{highlights} beschrijft wordt verheven, zoals later beschreven. Het reflectievermogen is een getal op \([0, 1]\) die het aandeel van de kleur beschrijft die komt uit reflecties. Bovendien moeten een aantal primitieve vormen standaard beschikbaar zijn. Voor raymarching zal dit triviaal zijn aangezien elke vorm slechts een \emph{signed distance function} is. Maar voor het polygonale renderen moeten hier nog aparte algoritmes voor komen. De vormen die ondersteund moeten worden zijn als volgt:
 \begin{itemize}
 	\item Bol
 	\item Balk
@@ -275,30 +281,28 @@ Verder zijn er ook verschillende soorten lichten mogelijk. Die nemen drie typen 
 	\item Directional
 \end{itemize}
 Alle lichten hebben een intensiteit, die aangeeft hoe vel dat licht is. Ambient lichten belichten de hele scène met een standaard hoeveelheid, er wordt hierbij dus geen rekening gehouden met schaduwen. Ambient lichten hebben maar één waarde: de intensiteit, die een waarde op \([0, 1]\) aanneemt. Point lichten hebben daarbij ook nog een positie, bovendien kan de intensiteit hoger dan 1 zijn. Directional lichten hebben geen positie maar een richting, en hebben ook een intensiteit die hoger kan zijn dan 1.
-
-De camera, alle objecten en de lichten worden allemaal beschreven met een Scene() object. Die heeft de methodes AddSDFObject(), AddPolygon(), AddPolygonalPrimitive() en AddLight(). De scène zal in een los bestand van de rest van de code beschreven worden.
 \subsubsection{Computer Graphics From Scratch}
-Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een renderer kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde is een programma ontwikkeld die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. 
+Voor het bouwen van de raytracer is gebruik gemaakt van het boek \emph{Computer Graphics From Scratch} \cite{ComputerGraphicsFromScratch} van Gabriel Gambetta. Het boek beschrijft stap voor stap hoe men een \textit{render engine} kan bouwen, de eerste helft gaat over een raytracer en de tweede helft een rasterizer. Het geeft een duidelijke beschrijving van de wiskundige theorie achter raytracen en stelt met pseudocode een structuur voor waarmee het geprogrammeerd kan worden. Aan het einde is een programma ontwikkeld die kan raytracen met diffuse belichting, specular highlighting, schaduwen en reflecties. Het boek beschrijft alleen maar hoe bollen getekend kunnen worden, dus de hele implementatie van de raymarching zal zelf bedacht moeten worden. Daarbovenop is er ook geen implementatie van polygonen. Maar het eerste deel van de ontwikkeling tot \ref{raymarching} is vrijwel volledig uit dit boek.
 \subsubsection{Raytracing}
 De stralen worden aangegeven met een parametervergelijking in de vorm:
 \[P=O+t(V-O)\]
 
 Hier is $P$ enig punt in de straal van $O$ naar $V$. $t$ geeft aan hoe ver op de straal punt $P$ is.
 
-$(V-O)$ is gelijk aan de richting van de straal, dus die wordt $\overrightarrow{D}$ genoemd. Daaruit volgt:
-\[P=O+t\overrightarrow{D}\]
+$(V-O)$ is gelijk aan de richting van de straal, dus die wordt $\vec{D}$ genoemd. Daaruit volgt:
+\[P=O+t\vec{D}\]
 
 In het begin zal de raytracer alleen bollen kunnen tekenen, de vergelijking van punt $P$ op een bol met middenpunt $C$ en straal $r$ is:
 \[|P-C|=r\]
 
-De lengte van een vector is gelijk aan de wortel van het inwendig product met zichzelf. Het inwendig product wordt aangegeven als $\langle\overrightarrow{V},\overrightarrow{V} \rangle$. Dat geeft:
+De lengte van een vector is gelijk aan de wortel van het inwendig product met zichzelf. Het inwendig product wordt aangegeven als $\langle\vec{V},\vec{V} \rangle$. Dat geeft:
 \[\langle P-C,P-C\rangle=r^2\]
 
-Dit combineren met de vergelijking van de straal $P=O+t\overrightarrow{D}$ geeft:
-\[\langle O+t\overrightarrow{D}-C,O+t\overrightarrow{D}-C\rangle=r^2\]
+Dit combineren met de vergelijking van de straal $P=O+t\vec{D}$ geeft:
+\[\langle O+t\vec{D}-C,O+t\vec{D}-C\rangle=r^2\]
 
-$O-C$ kan opgeschreven worden als $\overrightarrow{CO}$:
-\[\langle{CO}+t\overrightarrow{D},\overrightarrow{CO}+t\overrightarrow{D}\rangle=r^2\]
+$O-C$ kan opgeschreven worden als $\vec{CO}$:
+\[\langle{CO}+t\vec{D},\vec{CO}+t\vec{D}\rangle=r^2\]
 
 Inwendige producten zijn bilineair, dit betekent dat:
 \[\langle x+y,z\rangle=\langle x,z\rangle+\langle y,z\rangle\]
@@ -309,25 +313,25 @@ En:
 En:
 \[\langle x,\lambda y\rangle=\lambda\langle x,y\rangle=\langle\lambda x,y\rangle\]
 
-Hieruit kunnen we de vergelijking afsplitsen tot:
-\[\langle \overrightarrow{CO},\overrightarrow{CO} \rangle + \langle t\overrightarrow{D},\overrightarrow{CO} \rangle + \langle \overrightarrow{CO},t\overrightarrow{D} \rangle + \langle t\overrightarrow{D},t\overrightarrow{D} \rangle = r^2\]
+Hiermee kan de vergelijking afgesplitst worden tot:
+\[\langle \vec{CO},\vec{CO} \rangle + \langle t\vec{D},\vec{CO} \rangle + \langle \vec{CO},t\vec{D} \rangle + \langle t\vec{D},t\vec{D} \rangle = r^2\]
 
 Verder zijn kruisproducten commutatief dus $\langle x,y\rangle=\langle y,x\rangle$.
 
 Hieruit volgt:
-\[\langle t\overrightarrow{D},t\overrightarrow{D} \rangle + 2\langle t\overrightarrow{D},\overrightarrow{CO} \rangle + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle = r^2\]
+\[\langle t\vec{D},t\vec{D} \rangle + 2\langle t\vec{D},\vec{CO} \rangle + \langle \vec{CO},\vec{CO} \rangle = r^2\]
 
 Met de derde bilineairiteitsregel kan dit omgeschreven worden naar:
-\[t^2\langle \overrightarrow{D},\overrightarrow{D} \rangle + t\left(2\langle \overrightarrow{D},\overrightarrow{CO} \rangle
-\right) + \langle \overrightarrow{CO},\overrightarrow{CO} \rangle - r^2 = 0\]
+\[t^2\langle \vec{D},\vec{D} \rangle + t\left(2\langle \vec{D},\vec{CO} \rangle
+\right) + \langle \vec{CO},\vec{CO} \rangle - r^2 = 0\]
 
 Nu heeft het de vorm aangenomen van de kwadratische vergelijking, die opgelost kan worden met de ABC-formule.
 \[\{t_1, t_2\}=\frac{-b\pm \sqrt{b^2-4ac}}{2a}\]
 
 Hierbij geldt dus:
-\[a=\langle \overrightarrow{D},\overrightarrow{D}\rangle\]
-\[b=2\langle \overrightarrow{CO},\overrightarrow{D}\rangle\]
-\[c=\langle \overrightarrow{CO},\overrightarrow{CO}\rangle-r^2\]
+\[a=\langle \vec{D},\vec{D}\rangle\]
+\[b=2\langle \vec{CO},\vec{D}\rangle\]
+\[c=\langle \vec{CO},\vec{CO}\rangle-r^2\]
 
 In de code wordt dit als volgt geschreven:
 \begin{lstlisting}[language=C++]
@@ -380,7 +384,7 @@ class Viewport {
 };
 \end{lstlisting}
 
-De viewport is een virtueel vlak die op een bepaalde afstand $d$ van de camera staat. De stralen worden afgevuurd door deze viewport. Uit een punt $P$ op de viewport kan de vector $\overrightarrow{OP}$ gehaald worden. Dit is hetzelfde als de $\overrightarrow{D}$ uit de parametervergelijking van de straal.
+De viewport is een virtueel vlak die op een bepaalde afstand $d$ van de camera staat. De stralen worden afgevuurd door deze viewport. Uit een punt $P$ op de viewport kan de vector $\vec{OP}$ gehaald worden. Dit is hetzelfde als de $\vec{D}$ uit de parametervergelijking van de straal.
 
 De volgende functie converteert screenspace coördinaten naar de coördinaten op de viewport.
 \begin{lstlisting}[language=C++]
@@ -532,7 +536,7 @@ class ObjectMaterial {
 };
 \end{lstlisting}
 
-Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor krijgen we onze eerste render.
+Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor ontstaat de eerste render.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{renders/first_raytraced.png}
@@ -540,7 +544,7 @@ Hierna wordt de eerder beschreven loop over elke pixel gerund, hierdoor krijgen 
     \label{fig:first_raytraced}
 \end{figure}
 
-\subsubsection{Diffusion}
+\subsubsection{Diffusie}
 Er wordt gebruik gemaakt van het diffusieprincipe van het Phong-Model. 
 
 \begin{figure}[H]
@@ -551,24 +555,24 @@ Er wordt gebruik gemaakt van het diffusieprincipe van het Phong-Model.
 \end{figure}
 
 
-In figuur \ref{fig:diffuse-diagram} raakt lichtstraal $\overrightarrow{L}$ het object in P met hoek $\alpha$ tot normaal $\overrightarrow{N}$. De lichtstraal heeft intensiteit $I$, en is verspreidt over oppervlakte $A$. Dit betekent dat de intensiteit per eenheid oppervlakte $\frac{I}{A}$ is. In een rechte driehoek geldt: 
+In figuur \ref{fig:diffuse-diagram} raakt lichtstraal $\vec{L}$ het object in P met hoek $\alpha$ tot normaal $\vec{N}$. De lichtstraal heeft intensiteit $I$, en is verspreidt over oppervlakte $A$. Dit betekent dat de intensiteit per eenheid oppervlakte $\frac{I}{A}$ is. In een rechte driehoek geldt: 
 \[\cos{\alpha}=\frac{A}{S}\]
 
 Hier is $A$ de aanliggende zijde en $S$ de schuine zijde. In het bovenstaande diagram is dat gelijk aan $\frac{I}{A}$.
 
 Ook geldt dat:
-\[\cos \alpha = \frac{\langle \overrightarrow{N},\overrightarrow{L}\rangle}{|\overrightarrow{N}||\overrightarrow{L}|}\]
+\[\cos \alpha = \frac{\langle \vec{N},\vec{L}\rangle}{|\vec{N}||\vec{L}|}\]
 
 Dus: 
 
-\[\frac{I}{A} = \frac{\langle \overrightarrow{N},\overrightarrow{L}\rangle}{|\overrightarrow{N}||\overrightarrow{L}|}\]
+\[\frac{I}{A} = \frac{\langle \vec{N},\vec{L}\rangle}{|\vec{N}||\vec{L}|}\]
 
-Hieruit wordt de volgende algemene formule voor diffusie opgesteld, met een som voor elke lichtbron met intensiteit $I_i$ en richting $\overrightarrow{L_i}$. Verder is $I_A$ de \textit{ambient} belichting.
+Hieruit wordt de volgende algemene formule voor diffusie opgesteld, met een som voor elke lichtbron met intensiteit $I_i$ en richting $\vec{L_i}$. Verder is $I_A$ de \textit{ambient} belichting.
 
-\[I_P=I_A+\sum_{i=l}^{n}I_i\frac{\langle \overrightarrow{N}, \overrightarrow{L_i} \rangle}{|\overrightarrow{N}||\overrightarrow{L_i}|}\]
+\[I_P=I_A+\sum_{i=l}^{n}I_i\frac{\langle \vec{N}, \vec{L_i} \rangle}{|\vec{N}||\vec{L_i}|}\]
 
 De normaal van de bol met middelpunt $C$ in punt $P$ wordt zo bepaald:
-\[\overrightarrow{N}=\frac{P-C}{|P-C|}\]
+\[\vec{N}=\frac{P-C}{|P-C|}\]
 
 Door te delen met $|P-C|$ wordt de vector genormaliseerd, waardoor de lengte 1 wordt.
 
@@ -728,38 +732,38 @@ Voor speculaire reflectie wordt het licht niet in alle richtingen weerkaatst, ma
     \label{fig:cosini}
 \end{figure}
 
-$\ora{L}$ kan ontleden worden in $\ora{L_P}$ en $\ora{L_N}$, waar $\ora{L_N}$ evenwijdig is aan $\ora{N}$ en $\ora{L_N}$ loodrecht staat op $\ora{N}$.
+De lichtstraal $\vec{L}$ kan ontleden worden in $\vec{L_P}$ en $\vec{L_N}$, waar $\vec{L_N}$ evenwijdig is aan $\vec{N}$ en $\vec{L_N}$ loodrecht staat op de normaal $\vec{N}$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{L_decomposition.png}
-    \caption{$\protect\overrightarrow{L}$ ontleden in componenten $\protect\overrightarrow{L_P}$ en $\protect\overrightarrow{L_N}$}
+    \caption{$\protect\vec{L}$ ontleden in componenten $\protect\vec{L_P}$ en $\protect\vec{L_N}$}
     \label{fig:L_decomposition}
 \end{figure}
 
-Omdat $\left|\ora{N}\right| = 1$, geldt $\left|\ora{L_N}\right|=\langle\ora{N},\ora{L}\rangle$. $\ora{L_N}$ is evenwijdig met $\ora{N}$ dus $\ora{L_N}=\ora{N}\langle\ora{N},\ora{L}\rangle$.
+Omdat $\left|\vec{N}\right| = 1$, geldt $\left|\vec{L_N}\right|=\langle\vec{N},\vec{L}\rangle$. $\vec{L_N}$ is evenwijdig met $\vec{N}$ dus $\vec{L_N}=\vec{N}\langle\vec{N},\vec{L}\rangle$.
 
-$\ora{L}=\ora{L_P}+\ora{L_N}$ dus $\ora{L_P}=\ora{L}-\ora{L_N}=\ora{L}-\ora{N}\langle\ora{N},\ora{L}\rangle$.
+$\vec{L}=\vec{L_P}+\vec{L_N}$ dus $\vec{L_P}=\vec{L}-\vec{L_N}=\vec{L}-\vec{N}\langle\vec{N},\vec{L}\rangle$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{LR_Calculation.png}
-    \caption{Het berekenen van $\protect\ora{L_R}$}
+    \caption{Het berekenen van $\protect\vec{L_R}$}
     \label{fig:LR_Calculation}
 \end{figure}
 
-$\ora{R}$ is aan de andere kant van $\ora{N}$ en heeft dezelfde hoogte als $\ora{R}$ dus $\ora{R}=\ora{L_N}-\ora{L_P}$
+$\vec{R}$ is aan de andere kant van $\vec{N}$ en heeft dezelfde hoogte als $\vec{R}$ dus $\vec{R}=\vec{L_N}-\vec{L_P}$
 
 Als hierin de eerder verkregen formules gesubstitueerd worden volgt:
 
-\[\ora{R}=\ora{N}\langle\ora{N},\ora{L}\rangle-\ora{L}+\ora{N}\langle\ora{N},\ora{L}\rangle\]
-\[\ora{R}=2\ora{N}\langle\ora{N},\ora{L}\rangle-\ora{L}\]
+\[\vec{R}=\vec{N}\langle\vec{N},\vec{L}\rangle-\vec{L}+\vec{N}\langle\vec{N},\vec{L}\rangle\]
+\[\vec{R}=2\vec{N}\langle\vec{N},\vec{L}\rangle-\vec{L}\]
 
 Verder geldt:
-\[\cos\left(\angle\left(\ora{R}, \ora{V}\right)\right)=\frac{\langle\ora{R},\ora{V}\rangle}{\left|\ora{R}\right|\left|\ora{V}\right|}\]
+\[\cos\left(\angle\left(\vec{R}, \vec{V}\right)\right)=\frac{\langle\vec{R},\vec{V}\rangle}{\left|\vec{R}\right|\left|\vec{V}\right|}\]
 
 Hieruit volgt de volgende formule voor speculaire reflecties:
-\[I_S=I_L\left(\frac{\langle\ora{R},\ora{V}\rangle}{\left|\ora{R}\right|\left|\ora{V}\right|}\right)^s\]
+\[I_S=I_L\left(\frac{\langle\vec{R},\vec{V}\rangle}{\left|\vec{R}\right|\left|\vec{V}\right|}\right)^s\]
 
 Dit kan samengevoegd worden met de eerder vergaarde formule voor diffusie voor een volledige belichtingsformule:
 
@@ -767,8 +771,8 @@ Dit kan samengevoegd worden met de eerder vergaarde formule voor diffusie voor e
 I_P=
 I_A+
 \sum_{i=l}^{n}I_i\cdot\left[
-\frac{\langle \overrightarrow{N}, \overrightarrow{L_i} \rangle}{|\overrightarrow{N}||\overrightarrow{L_i}|}+
-\left(\frac{\langle\ora{R_i},\ora{V}\rangle}{\left|\ora{R_i}\right|\left|\ora{V}\right|}\right)^s\right]
+\frac{\langle \vec{N}, \vec{L_i} \rangle}{|\vec{N}||\vec{L_i}|}+
+\left(\frac{\langle\vec{R_i},\vec{V}\rangle}{\left|\vec{R_i}\right|\left|\vec{V}\right|}\right)^s\right]
 \]
 
 In de code ziet de ComputeLighting() functie er nu als volgt uit:
@@ -833,7 +837,7 @@ Nu worden de bollen gerenderd met speculaire reflecties.
 \end{figure}
 
 \subsubsection{Schaduwen}
-Om te weten waar schaduwen getekend moeten worden wordt een nieuwe straal vanaf een punt op de vorm afgevuurd richting de camera. Als er een andere vorm tussenzit wordt voor dat punt niet de diffuse en speculaire reflectie berekend. Hiervoor kan de eerder geschreven ClosestIntersection() functie hergebruikt worden. De ComputeLighting functie ziet er dan als volgt uit:
+Om te weten waar schaduwen getekend moeten worden wordt een nieuwe straal vanaf een punt op de vorm afgevuurd richting de camera. Als er een andere vorm tussenzit wordt voor dat punt niet de diffuse en speculaire reflectie berekend. Hiervoor kan de eerder geschreven ClosestIntersection() functie hergebruikt worden. De ComputeLighting() functie ziet er dan als volgt uit:
 
 \begin{lstlisting}[language=C++]
 double ComputeLighting(Vector3 P, Vector3 N, Vector3 V, double s, Scene scene) {
@@ -888,7 +892,7 @@ Dit zijn alle aanpassingen die gemaakt moeten worden aan de code.
 \subsubsection{Reflecties}
 
 Om reflecties te tekenen moet de TraceRay() functie vanaf het raakpunt opnieuw uitgevoerd worden in de tegenovergestelde richting van de normaal. De formule voor reflectie was eerder vastgesteld als:
-\[\ora{L}=2\ora{N}\langle\ora{N},\ora{R}\rangle-\ora{R}\]
+\[\vec{L}=2\vec{N}\langle\vec{N},\vec{R}\rangle-\vec{R}\]
 
 Daaruit is de volgende functie geschreven:
 
@@ -950,7 +954,7 @@ Als reflective lager is dan 0 zijn er geen reflecties voor dat object. Deze klei
     \label{fig:reflection}
 \end{figure}
 
-\subsubsection{Raymarching}
+\subsubsection{Raymarching}\label{raymarching}
 
 De IntersectRaySphere() functie wordt vervangen door MarchRay(). Verder is het Sphere() object nu weg. In plaats daarvan is er een SDFObject(), die een methode SDF() heeft.
 
@@ -980,7 +984,7 @@ Er wordt steeds een stap in de richting van de straal gezet met de grootte van d
 
 Verder moet de normaal nog berekend worden. De normaal is gelijk aan de gradiënt van het oppervlakte:
 
-\[\ora{N} = \nabla f(p)\]
+\[\vec{N} = \nabla f(p)\]
 
 Waar $f(p)$ de SDF is.
 
@@ -997,7 +1001,7 @@ Bij de afgeleide geldt $\lim\limits_{\epsilon \to 0}$ dus bij de de numerieke be
 Hieruit volgt:
 
 \[
-\ora{N}=\begin{pmatrix} 
+\vec{N}=\begin{pmatrix} 
 f\left(p+\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} \epsilon \\ 0 \\ 0 \end{pmatrix}\right) \\
 f\left(p+\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ \epsilon \\ 0 \end{pmatrix}\right) \\
 f\left(p+\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)-f\left(p-\begin{pmatrix} 0 \\ 0 \\ \epsilon \end{pmatrix}\right)
@@ -1100,7 +1104,7 @@ Daaruit volgt de eerste render die gebruik maakt van raymarching.
 
 \subsubsection{SDFs}
 
-De code van de SDFs is geïnspireerd door de shadercode op de website van Inigo Quilez\cite{SDFs}.
+De code van de SDF's is geïnspireerd door de shadercode op de website van Inigo Quilez\cite{SDFs}.
 
 \paragraph{Balk}
 Voor de balk is de volgende SDF gedefiniëerd:
@@ -1116,7 +1120,7 @@ Waarin \emph{box} de lengte, breedte en hoogte van de balk beschrijft.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\textwidth]{renders/boxes.png}
+    \includegraphics[width=0.45\textwidth]{renders/boxes.png}
     \caption{Verschillende balken gerenderd met een SDF.}
     \label{fig:boxes}
 \end{figure}
@@ -1137,7 +1141,7 @@ Waarin $holes$ een Vector2 is met de straal van de torus, en de dikte.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\textwidth]{renders/tori.png}
+    \includegraphics[width=0.45\textwidth]{renders/tori.png}
     \caption{Verschillende torussen gerenderd met een SDF.}
     \label{fig:tori}
 \end{figure}
@@ -1154,7 +1158,7 @@ double SDFPlane::SDF(Vector3 P) {
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\textwidth]{renders/plane.png}
+    \includegraphics[width=0.45\textwidth]{renders/plane.png}
     \caption{Een vlak gerenderd met een SDF.}
     \label{fig:plane}
 \end{figure}
@@ -1175,7 +1179,7 @@ double SDFCylinder::SDF(Vector3 P) {
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\textwidth]{renders/cylinders.png}
+    \includegraphics[width=0.45\textwidth]{renders/cylinders.png}
     \caption{Cylinders gerenderd met SDFs.}
     \label{fig:cylinders}
 \end{figure}
@@ -1357,7 +1361,7 @@ De volgende testscène laat de werking van rotaties zien:
     \label{fig:rotaties}
 \end{figure}
 \subsubsection{Driehoeken}
-Een driehoek is gedefinieerd door drie hoekpunten. Die drie punten liggen op een vlak. Om de normaal van dat vlak te krijgen nemen we het kruisproduct van twee niet-paralelle vectoren op dat vlak. 
+Een driehoek is gedefinieerd door drie hoekpunten. Die drie punten liggen op een vlak. Om de normaal van dat vlak te krijgen wordt het kruisproduct van twee niet-paralelle vectoren op dat vlak genomen. 
 
 \begin{figure}[H]
 	\centering
@@ -1374,7 +1378,7 @@ Een driehoek is gedefinieerd door drie hoekpunten. Die drie punten liggen op een
 		\tdplotsetmaincoords{70}{110}
 		\begin{scope}[tdplot_main_coords]
 			% draw the coordinate system
-			\draw[thick] (0,0,0) -- (2,0,0) node[pos=1.1]{$x$};
+			\draw[thick] (0,0,0) -- (2,0,0) node[pos=1.2]{$x$};
 			\draw[thick] (0,0,0) -- (0,2,0) node[pos=1.1]{$y$};
 			\draw[thick] (0,0,0) -- (0,0,2) node[pos=1.1]{$z$};
 		\end{scope}3
@@ -1385,25 +1389,25 @@ Een driehoek is gedefinieerd door drie hoekpunten. Die drie punten liggen op een
 
 Zoals eerder genoemd wordt de straal beschreven als een parameter-lijn in de vorm:
 
-\[l:P=O+t\ora{D}\]
+\[P=O+t\vec{D}\]
 
 Met de vergelijking van een vlak
 
-\[v:ax+by+cz=d\]
+\[ax+by+cz=d\]
 
 Waarbij:
 
-\[\ora{n}=\begin{pmatrix} a \\ b \\ c \\ \end{pmatrix}\]
+\[\vec{n}=\begin{pmatrix} a \\ b \\ c \\ \end{pmatrix}\]
 
-Als we een driehoek nemen met punten $P$, $Q$ en $R$ geldt:
+Voor een driehoek met punten $P$, $Q$ en $R$ geldt:
 
-\[\ora{n}=\ora{PQ}\times\ora{PR}\]
+\[\vec{n}=\vec{PQ}\times\vec{PR}\]
 
 Om $d$ te krijgen nemen moet slechts enig punt op de driehoek ingevuld worden in de vergelijking van het vlak.
 
 Voor het snijpunt van de lijn en het vlak moet punt P van de lijn ingevuld worden in de vergelijking van het vlak. Daaruit volgt:
 
-\[t=\frac{d-aO_x-bO_y-cO_z}{a\ora{D_x}+b\ora{D_y}+c\ora{D_z}}\]
+\[t=\frac{d-aO_x-bO_y-cO_z}{a\vec{D_x}+b\vec{D_y}+c\vec{D_z}}\]
 
 Hiermee kan een vlak getekend worden, om een driehoek te tekenen moet nog gecheckt worden of het punt binnen het vlak in die driehoek ligt.
 
@@ -1856,7 +1860,7 @@ De testen zullen worden gerund op een PC op één core van een Intel(R) Core(TM)
 	7 & 16721 & 65967 & 275203 & 3,95 & 16,46 \\
 	\hline
 \end{tabular}
-\caption{Verschillende testen samen}
+\caption{Resulaten van de verschillende testen in milliseconden}
 \end{table}
 
 Het wordt snel duidelijk dat het renderen met \textit{signed distance functions} velen malen sneller is dan met polygonen. Naast test 2, met de balk, is het in elke situatie sneller. Bovendien geeft de SDF ook betere kwaliteit renders, aangezien er geen randen tussen driehoeken zichtbaar zijn. In sommige situaties is het zelfs meer dan 23 keer zo snel. De individuele resultaten staan beschreven in Appendix \ref{resultaten}.
@@ -1876,8 +1880,9 @@ Het wordt snel duidelijk dat het renderen met \textit{signed distance functions}
 		7 & 79,8 & 1595,3 & 4226,3 \\
 		\hline
 	\end{tabular}
-	\caption{Standaarddeviaties}
+	\caption{Standaarddeviaties in milliseconden}
 \end{table}
+
 De standaarddeviaties lopen in sommige situaties op tot wel 34 seconden, echter is het verschil tussen de mesh- en sdf-resultaten in iedere situatie meerdere standaarddeviaties groot. Dit betekent dat de resultaten als significant beschouwd kunnen worden. 
 
 \section{Conclusie}
@@ -1889,9 +1894,9 @@ Verder zijn er vragen gesteld over het gemak van het maken van scènes met SDF's
 
 \section{Discussie}
 
-Er kunnen wel vragen gesteld worden bij de implementatie van de polygons en meshes. Zo zal er in professionele programma's meer aandacht gestoken zijn in het geheugengebruik van de meshes. Verder wordt er gebruik gemaakt van \textit{bounding boxes} rondom meshes zodat niet elke straal met elke driehoek in de scène vergeleken hoeft te worden.\cite{BoundingVolumeHierarchy} Dit zou bijvoorbeeld scène 6 een enorme snelheidsboost geven. 
+Er kunnen wel vragen gesteld worden bij de implementatie van de polygonen en meshes. Zo zal er in professionele programma's meer aandacht gestoken zijn in het geheugengebruik van de meshes. Verder wordt er gebruik gemaakt van \textit{bounding boxes} rondom meshes zodat niet elke straal met elke driehoek in de scène vergeleken hoeft te worden \cite{BoundingVolumeHierarchy}. Dit zou bijvoorbeeld scène 6 een enorme snelheidsboost geven. 
 
-Om in de toekomst de render engine verder uit te werken is het verbeteren van de rendersnelheden van het hoogste belang. De beste manier om dit te doen is het gebruik van de gpu. Raytracing is onderdeel van de klasse \textit{embarrassingly parallelizable problems}. Omdat lichtstralen geen massa hebben, hebben ze geen invloed op elkaar. Vanuit dit principe is elke straal te zien als een los programma die apart uitgevoerd kan worden. De GPU is gespecialiseerd in het uitvoeren van die parallelle taken. De raytracer zou geschreven kunnen worden als zogeheten \textit{fragment shader}. Een andere optie is de \textit{compute shader}, die in theorie beter schaalbaar is.
+Om in de toekomst de render engine verder uit te werken is het verbeteren van de rendersnelheden van het hoogste belang. De beste manier om dit te doen is het gebruik van de gpu. Raytracing is onderdeel van de klasse \textit{embarrassingly parallelizable problems}. Omdat lichtstralen geen massa hebben, hebben ze geen invloed op elkaar. Vanuit dit principe is elke straal te zien als een los programma die apart uitgevoerd kan worden. De GPU is gespecialiseerd in het uitvoeren van die parallelle taken. De raytracer zou geschreven kunnen worden als zogeheten \textit{fragment shader}, die voor elke pixel uitgevoerd wordt. Een andere optie is de \textit{compute shader}, die in theorie beter schaalbaar is.
 
 Verder is een duidelijke \textit{user interface} van belang. Eén potentiele optie is een \textit{node based editor}, waarin de SDF's visueel veranderd een aangepast kunnen worden. Dit systeem past goed bij de modulariteit die het huidige ontwikkelde systeem al met zich meebrengt.
 
@@ -1905,73 +1910,83 @@ Verder is een duidelijke \textit{user interface} van belang. Eén potentiele opt
 \section{Literatuurlijst}
 \begingroup
 \renewcommand{\section}[2]{}%
-\bibliographystyle{acm}
+\bibliographystyle{apalike}
 \bibliography{refs}
 \endgroup
 \clearpage
 \section{Logboek}
 \begin{table}[!htp]\centering
-	\scriptsize
-	\begin{tabular}{| c c c |}
-		\hline
-		\textbf{Activiteit} &\textbf{Datum} &\textbf{Tijd (minuten)} \\
-		\hline
-		Programmeren &20220906 &45 \\
-		Programmeren &20220908 &30 \\
-		Gesprek met begeleider &20220909 &20 \\
-		Programmeren &20220921 &90 \\
-		Inhoudsopgave Opzet &20220928 &35 \\
-		Schrijven Theorie/Achtergrond Renderen &20220930 &45 \\
-		Opzetten \LaTeX Document &20221002 &60 \\
-		Schrijven Theorie/Achtergrond Renderen &20221002 &180 \\
-		Schrijven Theorie/Achtergrond Renderen &20221003 &60 \\
-		Bronnenonderzoek &20221003 &45 \\
-		Beschrijven softwarekeuze &20221003 &75 \\
-		Berekenen kosten Monster's University &20221004 &45 \\
-		Beginnen uitleggen Rasterization &20221012 &45 \\
-		Boek ontvangen en opnieuw begonnen met programmeren &20221014 &150 \\
-		Eerste versie raytracer zonder lichtsimulaties af &20221015 &180 \\
-		Diffusion belichting in raytracer &20221015 &120 \\
-		Specular Highlights en Schaduwen in raytracer &20221015 &120 \\
-		Reflecties geïmplementeerd en vooronderzoek voor polygonaal renderen &20221017 &180 \\
-		Geschreven aan werkstuk &20221017 &90 \\
-		Theorie schrijven rasterization, raytracing en global illumination &20221019 &120 \\
-		Polygonen en mesh structuren onderzoek &20221205 &45 \\
-		Pseudocode geschreven &20221207 &60 \\
-		Stuk over SDFs geschreven &20221208 &45 \\
-		Stuk geschreven van eerste raytracer &20221212 &120 \\
-		Phong-model beschreven en begonnen met diffusion uitleggen &20221212 &45 \\
-		Eerste Diffusion code beschreven &20221213 &30 \\
-		Grafiek van de verschillende cosinus machten gemaakt voor specular &20221214 &60 \\
-		Geprobeerd tekening te maken &20221214 &30 \\
-		Speculaire reflectie beschreven &20221214 &60 \\
-		Wat LaTeX tutorials gekeken &20221215 &45 \\
-		Raymarching met Signed Distance Functions geïmplementeerd &20221215 &165 \\
-		SDFBox &20221216 &30 \\
-		SDFPlane, SDFCylinder, SDFUnion, SDFSubtraction, SDFIntersection &20221216 &210 \\
-		Shaduw bug gefixt &20221216 &60 \\
-		SDF operaties in document &20221218 &30 \\
-		Transformatiematrices vooronderzoek &20221219 &60 \\
-		Rotaties geïmplementeerd &20221219 &90 \\
-		Hypothese geschreven &20221219 &30 \\
-		Eerste versie ingeleverd &20221219 &45 \\
-		Onderzoek vlakken in $\mathbb{R}^3$ &20230111 &45 \\
-		Wiskunde achter driehoeken tekenen uitgewerkt &20230113 &75 \\
-		Begonnen implementeren driehoeken &20230115 &90 \\
-		Onderzoek en diagrammen &20230116 &90 \\
-		Driehoeken geïmplementeerd &20230117 &150 \\
-		Bronnen gelezen over ray tracing &20230117 &45 \\
-		Meer bronnen bestudeerd &20230118 &90 \\
-		Begonnen met presentatie &20230120 &90 \\
-		Meshes! &20230122 &30 \\
-		Geprobeerd balken te implementeren &20230122 &90 \\
-		Balken, bollen, cylinders en testscènes. Mockingjay 1.0 is af &20230123 &250 \\
-		Implementatie meshes, primitieven in document. Document opgeschoond &20230126 &70 \\
-		Alle testen geschreven en uitgevoerd &20230128 &300 \\
-		\hline
-	\end{tabular}
+	\scalebox{0.55}{
+		\begin{tabular}{| c c c |}
+			\hline
+			\textbf{Activiteit} &\textbf{Datum} &\textbf{Tijd (minuten)} \\
+			\hline
+			Programmeren                                                         & 06/09/2022 & 45             \\
+			Programmeren                                                         & 08/09/2022 & 30             \\
+			Gesprek met begeleider                                               & 09/09/2022 & 20             \\
+			Programmeren                                                         & 21/09/2022 & 90             \\
+			Inhoudsopgave Opzet                                                  & 28/09/2022 & 35             \\
+			Schrijven Theorie/Achtergrond Renderen                               & 30/09/2022 & 45             \\
+			Opzetten \LaTeX Document                                              & 02/10/2022 & 60             \\
+			Schrijven Theorie/Achtergrond Renderen                               & 02/10/2022 & 180            \\
+			Schrijven Theorie/Achtergrond Renderen                               & 03/10/2022 & 60             \\
+			Bronnenonderzoek                                                     & 03/10/2022 & 45             \\
+			Beschrijven softwarekeuze                                            & 03/10/2022 & 75             \\
+			Berekenen kosten Monster's University                                & 04/10/2022 & 45             \\
+			Beginnen uitleggen Rasterization                                     & 12/10/2022 & 45             \\
+			Boek ontvangen en opnieuw begonnen met programmeren                  & 14/10/2022 & 150            \\
+			Eerste versie raytracer zonder lichtsimulaties af                    & 15/10/2022 & 180            \\
+			Diffusion belichting in raytracer                                    & 15/10/2022 & 120            \\
+			Specular Highlights en Schaduwen in raytracer                        & 15/10/2022 & 120            \\
+			Reflecties geïmplementeerd en vooronderzoek voor polygonaal renderen & 17/10/2022 & 180            \\
+			Geschreven aan werkstuk                                              & 17/10/2022 & 90             \\
+			Theorie schrijven rasterization, raytracing en global illumination   & 19/10/2022 & 120            \\
+			Polygonen en mesh structuren onderzoek                               & 05/12/2022 & 45             \\
+			Pseudocode geschreven                                                & 07/12/2022 & 60             \\
+			Stuk over SDFs geschreven                                            & 08/12/2022 & 45             \\
+			Stuk geschreven van eerste raytracer                                 & 12/12/2022 & 120            \\
+			Phong-model beschreven en begonnen met diffusion uitleggen           & 12/12/2022 & 45             \\
+			Eerste Diffusion code beschreven                                     & 13/12/2022 & 30             \\
+			Grafiek van de verschillende cosinus machten gemaakt voor specular   & 14/12/2022 & 60             \\
+			Geprobeerd tekening te maken                                         & 14/12/2022 & 30             \\
+			Speculaire reflectie beschreven                                      & 14/12/2022 & 60             \\
+			Wat LaTeX tutorials gekeken                                          & 15/12/2022 & 45             \\
+			Raymarching met Signed Distance Functions geïmplementeerd            & 15/12/2022 & 165            \\
+			SDFBox                                                               & 16/12/2022 & 30             \\
+			SDFPlane, SDFCylinder, SDFUnion, SDFSubtraction, SDFIntersection     & 16/12/2022 & 210            \\
+			Shaduw bug gefixt                                                    & 16/12/2022 & 60             \\
+			SDF operaties in document                                            & 18/12/2022 & 30             \\
+			Transformatiematrices vooronderzoek                                  & 19/12/2022 & 60             \\
+			Rotaties geïmplementeerd                                             & 19/12/2022 & 90             \\
+			Hypothese geschreven                                                 & 19/12/2022 & 30             \\
+			Eerste versie ingeleverd                                             & 19/12/2022 & 45             \\
+			Onderzoek vlakken in $\mathbb{R}^3$                                  & 11/01/2023 & 45             \\
+			Wiskunde achter driehoeken tekenen uitgewerkt                        & 13/01/2023 & 75             \\
+			Begonnen implementeren driehoeken                                    & 15/01/2023 & 90             \\
+			Onderzoek en diagrammen                                              & 16/01/2023 & 90             \\
+			Driehoeken geïmplementeerd                                           & 17/01/2023 & 150            \\
+			Bronnen gelezen over ray tracing                                     & 17/01/2023 & 45             \\
+			Meer bronnen bestudeerd                                              & 18/01/2023 & 90             \\
+			Begonnen met presentatie                                             & 20/01/2023 & 90             \\
+			Meshes!                                                              & 22/01/2023 & 30             \\
+			Geprobeerd balken te implementeren                                   & 22/01/2023 & 90             \\
+			Balken, bollen, cylinders en testscènes. Mockingjay 1.0 is af        & 23/01/2023 & 250            \\
+			Implementatie meshes, primitieven in document. Document opgeschoond  & 26/01/2023 & 70             \\
+			Alle testen geschreven en uitgevoerd, en in het document verwerkt    & 28/01/2023 & 340            \\
+			Raytracer gemaakt in Blender                                         & 29/01/2023 & 60             \\
+			Dingen herschreven/beschreven                                        & 29/01/2023 & 120            \\
+			Document bijgewerkt                                                  & 31/01/2023 & 90             \\
+			Appendixen goed geformateerd, linkjes en etc.                        & 02/02/2023 & 45             \\
+			Herschrijven                                                         & 02/02/2023 & 30             \\
+			Allemaal puntjes op de I                                             & 02/02/2023 & 120            \\
+			PWS afgerond                                                         & 02/04/2023 & 120           \\
+			\hline
+		\end{tabular}
+	}
 	\caption{Logboek}
 \end{table}
+
+In totaal heb ik 5035 minuten, oftewel 83,9 uur besteed aan het PWS.
 
 \appendix
 \renewcommand{\thesection}{\Alph{section}}

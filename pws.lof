@@ -5,29 +5,29 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Een diagram die laat zien hoe raytracen werkt\relax }}{9}{figure.caption.4}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces De verschillende componenten van het \emph {Phong Reflection Model}.\relax }}{9}{figure.caption.5}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Een plaatje gerenderd met \emph {global illumination}.\relax }}{11}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Voorbeeld van VV-representatie van een mesh.\relax }}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Voorbeeld van VV-representatie van een mesh.\relax }}{12}{figure.caption.7}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Voorbeeld van FV-representatie van een mesh.\relax }}{13}{figure.caption.8}%
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Projectie van camera op viewport.\relax }}{22}{figure.caption.9}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces De eerste render gemaakt met de raytracer.\relax }}{25}{figure.caption.10}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Diagram die laat zien hoe licht op een oppervlakte terecht komt.\relax }}{25}{figure.caption.11}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces De renderer, nu met diffuse oppervlakten.\relax }}{28}{figure.caption.12}%
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Cosinus functies verheven tot verschillende machten $s$.\relax }}{29}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces $\overrightarrow {L}$ ontleden in componenten $\overrightarrow {L_P}$ en $\overrightarrow {L_N}$\relax }}{29}{figure.caption.14}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Het berekenen van $\ora {L_R}$\relax }}{30}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces $\vec {L}$ ontleden in componenten $\vec {L_P}$ en $\vec {L_N}$\relax }}{29}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Het berekenen van $\vec {L_R}$\relax }}{30}{figure.caption.15}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces De bollen gerenderd met speculaire reflecties. De rode bol heeft een hogere waarde $s$ dan de groene bol.\relax }}{32}{figure.caption.16}%
 \contentsline {figure}{\numberline {5.9}{\ignorespaces De bollen gerenderd met schaduwen.\relax }}{33}{figure.caption.17}%
 \contentsline {figure}{\numberline {5.10}{\ignorespaces De bollen gerenderd met reflecties.\relax }}{35}{figure.caption.18}%
 \contentsline {figure}{\numberline {5.11}{\ignorespaces De bollen, nu gedefiniëerd met SDFs.\relax }}{38}{figure.caption.19}%
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Verschillende balken gerenderd met een SDF.\relax }}{39}{figure.caption.20}%
 \contentsline {figure}{\numberline {5.13}{\ignorespaces Verschillende torussen gerenderd met een SDF.\relax }}{40}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Een vlak gerenderd met een SDF.\relax }}{41}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Een vlak gerenderd met een SDF.\relax }}{40}{figure.caption.22}%
 \contentsline {figure}{\numberline {5.15}{\ignorespaces Cylinders gerenderd met SDFs.\relax }}{41}{figure.caption.23}%
 \contentsline {figure}{\numberline {5.16}{\ignorespaces De \emph {union} tussen een bol en een torus.\relax }}{42}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces De \emph {subtraction} tussen twee bollen.\relax }}{43}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces De \emph {subtraction} tussen twee bollen.\relax }}{42}{figure.caption.25}%
 \contentsline {figure}{\numberline {5.18}{\ignorespaces De \emph {intersection} tussen twee bollen.\relax }}{43}{figure.caption.26}%
 \contentsline {figure}{\numberline {5.19}{\ignorespaces Verschillende rotaties.\relax }}{45}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Het kruisproduct van $a$ en $b$.\relax }}{46}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces De som van de driehoeken die $P$ buiten de driehoek vormt met de hoekpunten is groter dan de som van $P$ binnen de driehoek.\relax }}{47}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Het kruisproduct van $a$ en $b$.\relax }}{45}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces De som van de driehoeken die $P$ buiten de driehoek vormt met de hoekpunten is groter dan de som van $P$ binnen de driehoek.\relax }}{46}{figure.caption.29}%
 \contentsline {figure}{\numberline {5.22}{\ignorespaces Enkele driehoek\relax }}{49}{figure.caption.30}%
 \contentsline {figure}{\numberline {5.23}{\ignorespaces Een balk\relax }}{50}{figure.caption.31}%
 \contentsline {figure}{\numberline {5.24}{\ignorespaces Een bol\relax }}{51}{figure.caption.32}%
@@ -57,4 +57,4 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Balk, bol en cylinder als SDF}}}{56}{subfigure.6.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Balk, bol en cylinder als mesh met een bol met 7 cirkels in beide richtingen en een cylinder met 10 cirkelpunten}}}{56}{subfigure.6.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Balk, bol en cylinder als mesh met een bol met 14 cirkels in beide richtingen en een cylinder met 50 cirkelpunten}}}{56}{subfigure.6.3}%
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Node Based SDF Editor Markup\relax }}{58}{figure.caption.43}%
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Node Based SDF Editor Markup\relax }}{59}{figure.caption.43}%

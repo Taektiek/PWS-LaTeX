@@ -4,14 +4,14 @@
 \contentsline {section}{\numberline {2}Theorie}{6}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Wat is renderen?}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Wat is realistisch?}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Wat is rasterization?}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Wat is rasterization?}{8}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Wat is raytracing?}{8}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Hoe werkt shading?}{9}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Wat is global illumination?}{10}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Wat zijn polygonen?}{12}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.7}Wat zijn polygonen?}{11}{subsection.2.7}%
 \contentsline {subsection}{\numberline {2.8}Hoe wordt een mesh opgeslagen?}{12}{subsection.2.8}%
 \contentsline {subsection}{\numberline {2.9}Wat is raymarching?}{13}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Wat zijn SDFs?}{14}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.10}Wat zijn SDFs?}{13}{subsection.2.10}%
 \contentsline {section}{\numberline {3}Hoofdvraag}{15}{section.3}%
 \contentsline {section}{\numberline {4}Hypothese}{15}{section.4}%
 \contentsline {section}{\numberline {5}Ontwikkeling}{16}{section.5}%
@@ -23,8 +23,8 @@
 \contentsline {subsection}{\numberline {5.2}Programmeren}{18}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Specificaties}{18}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}Computer Graphics From Scratch}{19}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Raytracing}{20}{subsubsection.5.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.4}Diffusion}{25}{subsubsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.3}Raytracing}{19}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Diffusie}{25}{subsubsection.5.2.4}%
 \contentsline {subsubsection}{\numberline {5.2.5}Specular Highlights}{28}{subsubsection.5.2.5}%
 \contentsline {subsubsection}{\numberline {5.2.6}Schaduwen}{32}{subsubsection.5.2.6}%
 \contentsline {subsubsection}{\numberline {5.2.7}Reflecties}{33}{subsubsection.5.2.7}%
@@ -34,10 +34,10 @@
 \contentsline {paragraph}{Torus}{40}{figure.caption.20}%
 \contentsline {paragraph}{Vlak}{40}{figure.caption.21}%
 \contentsline {paragraph}{Cylinder}{41}{figure.caption.22}%
-\contentsline {subsubsection}{\numberline {5.2.10}SDF operaties}{42}{subsubsection.5.2.10}%
-\contentsline {subsubsection}{\numberline {5.2.11}Transformaties}{44}{subsubsection.5.2.11}%
+\contentsline {subsubsection}{\numberline {5.2.10}SDF operaties}{41}{subsubsection.5.2.10}%
+\contentsline {subsubsection}{\numberline {5.2.11}Transformaties}{43}{subsubsection.5.2.11}%
 \contentsline {subsubsection}{\numberline {5.2.12}Driehoeken}{45}{subsubsection.5.2.12}%
-\contentsline {subsubsection}{\numberline {5.2.13}Mesh Representatie}{48}{subsubsection.5.2.13}%
+\contentsline {subsubsection}{\numberline {5.2.13}Mesh Representatie}{47}{subsubsection.5.2.13}%
 \contentsline {subsubsection}{\numberline {5.2.14}Polygonale primitieven}{49}{subsubsection.5.2.14}%
 \contentsline {subsubsection}{\numberline {5.2.15}Meten}{52}{subsubsection.5.2.15}%
 \contentsline {section}{\numberline {6}Methode}{53}{section.6}%
@@ -54,9 +54,9 @@
 \contentsline {section}{\numberline {8}Nauwkeurigheidsanalyse}{57}{section.8}%
 \contentsline {section}{\numberline {9}Conclusie}{58}{section.9}%
 \contentsline {section}{\numberline {10}Discussie}{58}{section.10}%
-\contentsline {section}{\numberline {11}Literatuurlijst}{59}{section.11}%
-\contentsline {section}{\numberline {12}Logboek}{61}{section.12}%
-\contentsline {section}{Appendix A\ Lijst van figuren}{62}{appendix.A}%
-\contentsline {section}{Appendix B\ Code van renders}{64}{appendix.B}%
-\contentsline {section}{Appendix C\ Code van testscènes}{69}{appendix.C}%
-\contentsline {section}{Appendix D\ Individuele meetresultaten}{78}{appendix.D}%
+\contentsline {section}{\numberline {11}Literatuurlijst}{60}{section.11}%
+\contentsline {section}{\numberline {12}Logboek}{62}{section.12}%
+\contentsline {section}{Appendix A\ Lijst van figuren}{63}{appendix.A}%
+\contentsline {section}{Appendix B\ Code van renders}{65}{appendix.B}%
+\contentsline {section}{Appendix C\ Code van testscènes}{70}{appendix.C}%
+\contentsline {section}{Appendix D\ Individuele meetresultaten}{79}{appendix.D}%

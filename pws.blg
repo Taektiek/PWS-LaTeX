@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: pws.aux
-The style file: plain.bst
+The style file: apalike.bst
 Database file #1: refs.bib
 I was expecting a `,' or a `}'---line 194 of file refs.bib
  :  
@@ -19,44 +19,44 @@ Warning--empty journal in SphereTracing
 Warning--empty journal in HowToyStory3WasMade
 Warning--empty journal in VVSystems
 You've used 18 entries,
-            2118 wiz_defined-function locations,
-            614 strings with 6508 characters,
-and the built_in function-call counts, 4659 in all, are:
-= -- 444
-> -- 161
-< -- 2
-+ -- 70
+            1935 wiz_defined-function locations,
+            586 strings with 6180 characters,
+and the built_in function-call counts, 5665 in all, are:
+= -- 549
+> -- 158
+< -- 15
++ -- 54
 - -- 50
-* -- 264
-:= -- 755
-add.period$ -- 49
+* -- 424
+:= -- 988
+add.period$ -- 46
 call.type$ -- 18
-change.case$ -- 78
-chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 203
-empty$ -- 423
-format.name$ -- 50
-if$ -- 997
-int.to.chr$ -- 0
-int.to.str$ -- 18
+change.case$ -- 114
+chr.to.int$ -- 18
+cite$ -- 31
+duplicate$ -- 258
+empty$ -- 429
+format.name$ -- 67
+if$ -- 1113
+int.to.chr$ -- 1
+int.to.str$ -- 0
 missing$ -- 14
-newline$ -- 87
-num.names$ -- 30
-pop$ -- 117
+newline$ -- 84
+num.names$ -- 45
+pop$ -- 110
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 115
 quote$ -- 0
-skip$ -- 161
+skip$ -- 211
 stack$ -- 0
-substring$ -- 228
-swap$ -- 37
+substring$ -- 359
+swap$ -- 31
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 70
+type$ -- 106
 warning$ -- 10
 while$ -- 38
-width$ -- 20
-write$ -- 173
+width$ -- 0
+write$ -- 206
 (There was 1 error message)

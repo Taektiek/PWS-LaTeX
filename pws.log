@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.12)  4 FEB 2023 16:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.12)  4 FEB 2023 16:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1728,7 +1728,7 @@ Package rerunfilecheck Info: File `pws.out' has not changed.
 Here is how much of TeX's memory you used:
  44227 strings out of 478238
  944450 string characters out of 5850456
- 1718185 words of memory out of 5000000
+ 1718201 words of memory out of 5000000
  60068 multiletter control sequences out of 15000+600000
  575306 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1748,7 +1748,7 @@ thit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></
 usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texmf-
 dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf-dist/fonts/type
 1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (82 pages, 6308551 bytes).
+Output written on pws.pdf (82 pages, 6308541 bytes).
 PDF statistics:
  2725 PDF objects out of 2984 (max. 8388607)
  2514 compressed objects within 26 object streams

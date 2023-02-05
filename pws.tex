@@ -75,7 +75,7 @@ Renderen is overal. Telefoons zijn vol met allerlei gerenderde vormen. Bij het o
     \label{fig:toystory3}
 \end{wrapfigure}
 
-Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurt8765. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphics \textbf{P}rocessing \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor \textit{realtime raytracing}\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
+Voor Toy Story 3 (Figuur \ref{fig:toystory3}) werd er gemiddeld zeven uur over gedaan om een frame te renderen \cite{HowToyStory3WasMade}. En dat terwijl er gebruik werd gemaakt van twee gigantische render farms\footnote{Een computercluster speciaal gemaakt voor het renderen van CGI, de term was geïntroduceerd in de productie voor Bored Room\cite{MakingOfBoredRoom}}. Het renderen van films kost niet alleen enorm veel tijd, maar ook veel energie. Het is dus belangrijk dat het zo efficiënt mogelijk gebeurt. Er wordt over de hele wereld voortdurend onderzoek gedaan naar manieren om dit proces efficiënter te maken en te verbeteren. De opkomst van kunstmatige intelligentie begint al bewegingen te maken in de wereld van CGI \cite{NeRFactor}. Maar er wordt ook voortdurend voortuitgang gemaakt op fundamentelere manieren. Zo zijn er de afgelopen vijf jaar GPU's\footnote{\textbf{G}raphics \textbf{P}rocessing \textbf{U}nit} van Nvidia op de markt gekomen met ingebouwde support voor \textit{realtime raytracing}\cite{NvidiaRTX}. Door op het hardware niveau de chips zo te ontwerpen dat ze heel goed zijn in bepaalde berekeningen die gebruikt worden voor het simuleren van licht kunnen GPU's gebruikt worden om voormalig minutendurende processen meer dan zestig keer per seconde uit te voeren. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{minecraftrtx.jpg}
@@ -264,6 +264,7 @@ Maar toch is daar niet voor gekozen. Dit is omdat OpenGL heel goed is in het imp
 \subsubsection{Integrated Development Environment}
 Al het programmeren wordt gedaan in Visual Studio Code\footnote{https://code.visualstudio.com/} omdat het een mooie simpele text editor is die precies doet wat nodig is. Het geeft goede \textit{IntelliSense}\footnote{Verzamelnaam voor tools die helpen in het schrijven van code zoals: code completion en informatie over parameters}, \textit{syntax highlighting} en het geeft een goed overzicht van het project. Bovendien heeft het een enorme markt van plugins die het product nog meer verbeteren.
 \subsection{Programmeren}
+Alle geschreven code is beschikbaar op \href{https://github.com/Taektiek/mockingjay}{https://github.com/Taektiek/mockingjay}. Daar is de branch \textbf{main} voor de raymarching implementatie en de branch \textbf{polygons} voor de polygonen.
 \subsubsection{Specificaties}
 Voor het onderzoek worden twee raytracers ontwikkeld: één die alle vormen beschrijft met meshes van polygonen en één die de vormen beschrijft met SDFs. Om ervoor te zorgen dat de twee render engines zo vergelijkbaar mogelijke resultaten geven worden hier de specificaties benoemd waar ze aan moeten voldoen.
 
@@ -1913,6 +1914,25 @@ Verder is een duidelijke \textit{user interface} van belang. Eén potentiele opt
 \bibliographystyle{apalike}
 \bibliography{refs}
 \endgroup
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c c |}
+		\hline
+		Figuur & Bron \\
+		\hline
+		\ref{fig:toystory3} & Toy Story 3, Pixar Animation Studios \\
+		\ref{fig:minecraftrtx} & \underline{\hyperlink{https://www.youtube.com/watch?v=91kxRGeg9wQ}{Nvidia}} \\
+		\ref{fig:raytracing_diagram} & \underline{\hyperlink{https://commons.wikimedia.org/wiki/File:Ray_trace_diagram.svg}{Wikimedia Commons}} \\
+		\ref{fig:phong_components} & \underline{\hyperlink{https://commons.wikimedia.org/wiki/File:Phong_components_version_4.png}{Wikimedia Commons}} \\
+		\ref{fig:global_illumination} & \underline{\hyperlink{https://commons.wikimedia.org/wiki/File:Global_illumination1.png}{Wikimedia Commons}} \\
+		\ref{fig:vertex_vertex} & \underline{\hyperlink{https://commons.wikimedia.org/wiki/File:Vertex-Vertex_Meshes_(VV).png}{Wikimedia Commons}} \\
+		\ref{fig:face_vertex} & \underline{\hyperlink{https://commons.wikimedia.org/wiki/File:Mesh_fv.jpg}{Wikimedia Commons}} \\
+		\ref{fig:viewport} & \cite{ComputerGraphicsFromScratch} \\
+		\ref{fig:diffuse-diagram} & \cite{ComputerGraphicsFromScratch} \\
+		\hline
+	\end{tabular}
+	\caption{Bronnen van figuren. Alle andere figuren zijn gemaakt met de raytracers of op een andere manier zelf gemaakt.}
+\end{table}
 \clearpage
 \section{Logboek}
 \begin{table}[!htp]\centering
@@ -1987,6 +2007,16 @@ Verder is een duidelijke \textit{user interface} van belang. Eén potentiele opt
 \end{table}
 
 In totaal heb ik 5035 minuten, oftewel 83,9 uur besteed aan het PWS.
+
+\section{Dankwoord}
+
+Bedankt aan mijn begeleider Claudio Versaci voor het begeleiden.
+
+Bedankt aan \underline{\hyperlink{https://www.youtube.com/@SebastianLague}{Sebastian Lague}} voor het inspireren van het onderzoek.
+
+Bedankt aan \underline{\hyperlink{https://iquilezles.org/}{Inigo Quilez}} voor de eindeloze informatie over raymarching en rendermethoden.
+
+Bedankt aan \underline{\hyperlink{https://wikipedia.org/}{Wikipedia}} voor het bieden van een enorme bron van bronnen.
 
 \appendix
 \renewcommand{\thesection}{\Alph{section}}

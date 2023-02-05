@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.12)  4 FEB 2023 16:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.12)  5 FEB 2023 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1272,13 +1272,13 @@ File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 \openout5 = `pws.toc'.
 
  [3]
-<images//toystory3comparison.jpg, id=274, 1195.46625pt x 796.9775pt>
+<images//toystory3comparison.jpg, id=279, 1195.46625pt x 796.9775pt>
 File: images//toystory3comparison.jpg Graphic file (type jpg)
 <use images//toystory3comparison.jpg>
 Package pdftex.def Info: images//toystory3comparison.jpg  used on input line 73
 .
 (pdftex.def)             Requested size: 195.0pt x 129.99982pt.
-<images//minecraftrtx.jpg, id=282, 3854.4pt x 2168.1pt>
+<images//minecraftrtx.jpg, id=287, 3854.4pt x 2168.1pt>
 File: images//minecraftrtx.jpg Graphic file (type jpg)
 <use images//minecraftrtx.jpg>
 Package pdftex.def Info: images//minecraftrtx.jpg  used on input line 81.
@@ -1303,7 +1303,7 @@ Underfull \hbox (badness 3989) in paragraph at lines 78--84
  <./images//toystory3comparison.jpg>] [5 <./images//minecraftrtx.jpg>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 92.
-<images//RGB_channels_separation.png, id=308, 401.5pt x 321.2pt>
+<images//RGB_channels_separation.png, id=313, 401.5pt x 321.2pt>
 File: images//RGB_channels_separation.png Graphic file (type png)
 <use images//RGB_channels_separation.png>
 Package pdftex.def Info: images//RGB_channels_separation.png  used on input lin
@@ -1319,34 +1319,34 @@ LaTeX Font Info:    Trying to load font information for TS1+stix on input line
 (/usr/share/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 ) [7]
-<images//raytracing_diagram.png, id=330, 803.0pt x 533.995pt>
+<images//raytracing_diagram.png, id=336, 803.0pt x 533.995pt>
 File: images//raytracing_diagram.png Graphic file (type png)
 <use images//raytracing_diagram.png>
 Package pdftex.def Info: images//raytracing_diagram.png  used on input line 148
 .
 (pdftex.def)             Requested size: 292.5pt x 194.51952pt.
  [8]
-<images//Phong_components.png, id=340, 724.95844pt x 201.75375pt>
+<images//Phong_components.png, id=345, 724.95844pt x 201.75375pt>
 File: images//Phong_components.png Graphic file (type png)
 <use images//Phong_components.png>
 Package pdftex.def Info: images//Phong_components.png  used on input line 160.
 (pdftex.def)             Requested size: 312.00119pt x 86.82938pt.
  [9 <./images//raytracing_diagram.png> <./images//Phong_components.png (PNG cop
 y)>] [10]
-<images//global_illumination.png, id=356, 462.528pt x 346.896pt>
+<images//global_illumination.png, id=361, 462.528pt x 346.896pt>
 File: images//global_illumination.png Graphic file (type png)
 <use images//global_illumination.png>
 Package pdftex.def Info: images//global_illumination.png  used on input line 18
 0.
 (pdftex.def)             Requested size: 292.5pt x 219.38724pt.
  [11 <./images//global_illumination.png>]
-<images//Vertex-Vertex_Meshes.png, id=366, 571.38469pt x 421.575pt>
+<images//Vertex-Vertex_Meshes.png, id=371, 571.38469pt x 421.575pt>
 File: images//Vertex-Vertex_Meshes.png Graphic file (type png)
 <use images//Vertex-Vertex_Meshes.png>
 Package pdftex.def Info: images//Vertex-Vertex_Meshes.png  used on input line 1
 97.
 (pdftex.def)             Requested size: 292.5pt x 215.81091pt.
-<images//Face-Vertex_Meshes.jpg, id=367, 702.625pt x 444.66125pt>
+<images//Face-Vertex_Meshes.jpg, id=372, 702.625pt x 444.66125pt>
 File: images//Face-Vertex_Meshes.jpg Graphic file (type jpg)
 <use images//Face-Vertex_Meshes.jpg>
 Package pdftex.def Info: images//Face-Vertex_Meshes.jpg  used on input line 204
@@ -1362,55 +1362,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 245--249
 
 ] [16
 
-] [17] [18] [19] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+] [17] [18] [19] [20]
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+)
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on
- input line 337.
+ input line 338.
 
 (/usr/share/texmf-dist/tex/latex/sourcecodepro/T1SourceCodePro-TLF.fd
 File: T1SourceCodePro-TLF.fd 2018/02/18 (autoinst) Font definitions for T1/Sour
 ceCodePro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 337.
- [20]
+(Font)              scaled to size 8.0pt on input line 338.
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 339.
-
-[21]
-<images//viewport.png, id=489, 265.2309pt x 248.6088pt>
+(Font)              scaled to size 8.0pt on input line 340.
+ [21]
+<images//viewport.png, id=492, 265.2309pt x 248.6088pt>
 File: images//viewport.png Graphic file (type png)
 <use images//viewport.png>
-Package pdftex.def Info: images//viewport.png  used on input line 398.
+Package pdftex.def Info: images//viewport.png  used on input line 399.
 (pdftex.def)             Requested size: 292.5pt x 274.17987pt.
- [22 <./images//viewport.png>] [23]
-<images//renders/first_raytraced.png, id=567, 764.8575pt x 779.91376pt>
+
+[22 <./images//viewport.png>] [23]
+<images//renders/first_raytraced.png, id=566, 764.8575pt x 779.91376pt>
 File: images//renders/first_raytraced.png Graphic file (type png)
 <use images//renders/first_raytraced.png>
 Package pdftex.def Info: images//renders/first_raytraced.png  used on input lin
-e 542.
+e 543.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [24]
-<images//diffuse-diagram.png, id=617, 290.5254pt x 161.8848pt>
+<images//diffuse-diagram.png, id=623, 290.5254pt x 161.8848pt>
 File: images//diffuse-diagram.png Graphic file (type png)
 <use images//diffuse-diagram.png>
-Package pdftex.def Info: images//diffuse-diagram.png  used on input line 552.
+Package pdftex.def Info: images//diffuse-diagram.png  used on input line 553.
 (pdftex.def)             Requested size: 195.0pt x 108.65985pt.
  [25 <./images//renders/first_raytraced.png (PNG copy)> <./images//diffuse-diag
 ram.png>]
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 596.
+(Font)              scaled to size 8.0pt on input line 597.
  [26] [27]
-<images//renders/diffused.png, id=715, 764.8575pt x 779.91376pt>
+<images//renders/diffused.png, id=717, 764.8575pt x 779.91376pt>
 File: images//renders/diffused.png Graphic file (type png)
 <use images//renders/diffused.png>
-Package pdftex.def Info: images//renders/diffused.png  used on input line 694.
+Package pdftex.def Info: images//renders/diffused.png  used on input line 695.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
 Missing character: There is no ; in font nullfont!
@@ -1420,265 +1421,265 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 [28 <./images//renders/diffused.png (PNG copy)>]
-<images//L_decomposition.png, id=731, 293.4162pt x 177.7842pt>
+<images//L_decomposition.png, id=737, 293.4162pt x 177.7842pt>
 File: images//L_decomposition.png Graphic file (type png)
 <use images//L_decomposition.png>
-Package pdftex.def Info: images//L_decomposition.png  used on input line 739.
+Package pdftex.def Info: images//L_decomposition.png  used on input line 740.
 (pdftex.def)             Requested size: 195.0pt x 118.15445pt.
-<images//LR_Calculation.png, id=732, 293.4162pt x 177.7842pt>
+<images//LR_Calculation.png, id=738, 293.4162pt x 177.7842pt>
 File: images//LR_Calculation.png Graphic file (type png)
 <use images//LR_Calculation.png>
-Package pdftex.def Info: images//LR_Calculation.png  used on input line 750.
+Package pdftex.def Info: images//LR_Calculation.png  used on input line 751.
 (pdftex.def)             Requested size: 195.0pt x 118.15445pt.
  [29 <./images//L_decomposition.png>] [30 <./images//LR_Calculation.png>]
-<images//renders/specular.png, id=757, 764.8575pt x 779.91376pt>
+<images//renders/specular.png, id=763, 764.8575pt x 779.91376pt>
 File: images//renders/specular.png Graphic file (type png)
 <use images//renders/specular.png>
-Package pdftex.def Info: images//renders/specular.png  used on input line 834.
+Package pdftex.def Info: images//renders/specular.png  used on input line 835.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [31] [32 <./images//renders/specular.png (PNG copy)>]
-<images//renders/schaduw.png, id=825, 764.8575pt x 779.91376pt>
+<images//renders/schaduw.png, id=831, 764.8575pt x 779.91376pt>
 File: images//renders/schaduw.png Graphic file (type png)
 <use images//renders/schaduw.png>
-Package pdftex.def Info: images//renders/schaduw.png  used on input line 887.
+Package pdftex.def Info: images//renders/schaduw.png  used on input line 888.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [33 <./images//renders/schaduw.png (PNG copy)>]
-<images//renders/reflection.png, id=849, 764.8575pt x 779.91376pt>
+<images//renders/reflection.png, id=855, 764.8575pt x 779.91376pt>
 File: images//renders/reflection.png Graphic file (type png)
 <use images//renders/reflection.png>
-Package pdftex.def Info: images//renders/reflection.png  used on input line 952
+Package pdftex.def Info: images//renders/reflection.png  used on input line 953
 .
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [34] [35 <./images//renders/reflection.png (PNG copy)>] [36] [37]
-<images//renders/first_raymarched.png, id=992, 764.8575pt x 779.91376pt>
+<images//renders/first_raymarched.png, id=998, 764.8575pt x 779.91376pt>
 File: images//renders/first_raymarched.png Graphic file (type png)
 <use images//renders/first_raymarched.png>
 Package pdftex.def Info: images//renders/first_raymarched.png  used on input li
-ne 1098.
+ne 1099.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [38 <./images//renders/first_raymarched.png (PNG copy)>]
-<images//renders/boxes.png, id=1004, 764.8575pt x 779.91376pt>
+<images//renders/boxes.png, id=1010, 764.8575pt x 779.91376pt>
 File: images//renders/boxes.png Graphic file (type png)
 <use images//renders/boxes.png>
-Package pdftex.def Info: images//renders/boxes.png  used on input line 1123.
+Package pdftex.def Info: images//renders/boxes.png  used on input line 1124.
 (pdftex.def)             Requested size: 175.49881pt x 178.94797pt.
  [39
 
  <./images//renders/boxes.png (PNG copy)>]
-<images//renders/tori.png, id=1018, 764.8575pt x 779.91376pt>
+<images//renders/tori.png, id=1024, 764.8575pt x 779.91376pt>
 File: images//renders/tori.png Graphic file (type png)
 <use images//renders/tori.png>
-Package pdftex.def Info: images//renders/tori.png  used on input line 1144.
+Package pdftex.def Info: images//renders/tori.png  used on input line 1145.
 (pdftex.def)             Requested size: 175.49881pt x 178.94797pt.
-<images//renders/plane.png, id=1019, 764.8575pt x 779.91376pt>
+<images//renders/plane.png, id=1025, 764.8575pt x 779.91376pt>
 File: images//renders/plane.png Graphic file (type png)
 <use images//renders/plane.png>
-Package pdftex.def Info: images//renders/plane.png  used on input line 1161.
+Package pdftex.def Info: images//renders/plane.png  used on input line 1162.
 (pdftex.def)             Requested size: 175.49881pt x 178.94797pt.
 
 [40
 
  <./images//renders/tori.png (PNG copy)> <./images//renders/plane.png (PNG copy
 )>]
-<images//renders/cylinders.png, id=1036, 764.8575pt x 779.91376pt>
+<images//renders/cylinders.png, id=1042, 764.8575pt x 779.91376pt>
 File: images//renders/cylinders.png Graphic file (type png)
 <use images//renders/cylinders.png>
-Package pdftex.def Info: images//renders/cylinders.png  used on input line 1182
+Package pdftex.def Info: images//renders/cylinders.png  used on input line 1183
 .
 (pdftex.def)             Requested size: 175.49881pt x 178.94797pt.
  [41 <./images//renders/cylinders.png (PNG copy)>]
-<images//renders/union.png, id=1067, 764.8575pt x 779.91376pt>
+<images//renders/union.png, id=1073, 764.8575pt x 779.91376pt>
 File: images//renders/union.png Graphic file (type png)
 <use images//renders/union.png>
-Package pdftex.def Info: images//renders/union.png  used on input line 1221.
+Package pdftex.def Info: images//renders/union.png  used on input line 1222.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
-<images//renders/subtraction.png, id=1068, 764.8575pt x 779.91376pt>
+<images//renders/subtraction.png, id=1074, 764.8575pt x 779.91376pt>
 File: images//renders/subtraction.png Graphic file (type png)
 <use images//renders/subtraction.png>
 Package pdftex.def Info: images//renders/subtraction.png  used on input line 12
-38.
+39.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [42 <./images//renders/union.png (PNG copy)> <./images//renders/subtraction.pn
 g (PNG copy)>]
-<images//renders/intersection.png, id=1082, 764.8575pt x 779.91376pt>
+<images//renders/intersection.png, id=1088, 764.8575pt x 779.91376pt>
 File: images//renders/intersection.png Graphic file (type png)
 <use images//renders/intersection.png>
 Package pdftex.def Info: images//renders/intersection.png  used on input line 1
-255.
+256.
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
 
-Overfull \hbox (0.57594pt too wide) in paragraph at lines 1261--1262
+Overfull \hbox (0.57594pt too wide) in paragraph at lines 1262--1263
 \T1/stix/m/n/12 De vol-gende ro-ta-tie-ma-tri-ces be-schrij-ven hoe een co-ör-d
 i-naat res-pec-tie-ve-lijk rondom
  []
 
 [43 <./images//renders/intersection.png (PNG copy)>]
-<images//renders/rotaties.png, id=1095, 764.8575pt x 779.91376pt>
+<images//renders/rotaties.png, id=1101, 764.8575pt x 779.91376pt>
 File: images//renders/rotaties.png Graphic file (type png)
 <use images//renders/rotaties.png>
-Package pdftex.def Info: images//renders/rotaties.png  used on input line 1359.
+Package pdftex.def Info: images//renders/rotaties.png  used on input line 1360.
 
 (pdftex.def)             Requested size: 195.0pt x 198.83372pt.
  [44]
 Missing character: There is no 3 in font nullfont!
 [45 <./images//renders/rotaties.png (PNG copy)>] [46] [47]
-<images//renders/tri.png, id=1200, 1003.75pt x 1003.75pt>
+<images//renders/tri.png, id=1206, 1003.75pt x 1003.75pt>
 File: images//renders/tri.png Graphic file (type png)
 <use images//renders/tri.png>
-Package pdftex.def Info: images//renders/tri.png  used on input line 1560.
+Package pdftex.def Info: images//renders/tri.png  used on input line 1561.
 (pdftex.def)             Requested size: 195.0pt x 194.98764pt.
  [48]
-<images//renders/test_002_mesh.png, id=1238, 1003.75pt x 1003.75pt>
+<images//renders/test_002_mesh.png, id=1244, 1003.75pt x 1003.75pt>
 File: images//renders/test_002_mesh.png Graphic file (type png)
 <use images//renders/test_002_mesh.png>
 Package pdftex.def Info: images//renders/test_002_mesh.png  used on input line 
-1599.
+1600.
 (pdftex.def)             Requested size: 195.0pt x 194.98764pt.
  [49 <./images//renders/tri.png>]
-<images//renders/test_001_mesh_highres.png, id=1272, 1003.75pt x 1003.75pt>
+<images//renders/test_001_mesh_highres.png, id=1278, 1003.75pt x 1003.75pt>
 File: images//renders/test_001_mesh_highres.png Graphic file (type png)
 <use images//renders/test_001_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_001_mesh_highres.png  used on inp
-ut line 1640.
+ut line 1641.
 (pdftex.def)             Requested size: 195.0pt x 194.98764pt.
  [50 <./images//renders/test_002_mesh.png>]
-Overfull \hbox (32.48793pt too wide) in paragraph at lines 1645--1646
+Overfull \hbox (32.48793pt too wide) in paragraph at lines 1646--1647
 \T1/stix/m/n/12 aan-ge-maakt. Die cir-kels wor-den met het \T1/stix/m/it/12 ear
  clip-ping \T1/stix/m/n/12 al-go-ritme ingevuld[[]].
  []
 
-<images//renders/test_003_mesh_highres.png, id=1310, 1003.75pt x 1003.75pt>
+<images//renders/test_003_mesh_highres.png, id=1316, 1003.75pt x 1003.75pt>
 File: images//renders/test_003_mesh_highres.png Graphic file (type png)
 <use images//renders/test_003_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_003_mesh_highres.png  used on inp
-ut line 1681.
+ut line 1682.
 (pdftex.def)             Requested size: 187.19833pt x 187.1918pt.
 [51 <./images//renders/test_001_mesh_highres.png>] [52 <./images//renders/test_
 003_mesh_highres.png>]
-<images//renders/test_001_sdf.png, id=1379, 1003.75pt x 1003.75pt>
+<images//renders/test_001_sdf.png, id=1385, 1003.75pt x 1003.75pt>
 File: images//renders/test_001_sdf.png Graphic file (type png)
 <use images//renders/test_001_sdf.png>
 Package pdftex.def Info: images//renders/test_001_sdf.png  used on input line 1
-728.
+729.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_001_mesh_lowres.png, id=1380, 1003.75pt x 1003.75pt>
+<images//renders/test_001_mesh_lowres.png, id=1386, 1003.75pt x 1003.75pt>
 File: images//renders/test_001_mesh_lowres.png Graphic file (type png)
 <use images//renders/test_001_mesh_lowres.png>
 Package pdftex.def Info: images//renders/test_001_mesh_lowres.png  used on inpu
-t line 1732.
+t line 1733.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
 File: images//renders/test_001_mesh_highres.png Graphic file (type png)
 <use images//renders/test_001_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_001_mesh_highres.png  used on inp
-ut line 1736.
+ut line 1737.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_002_sdf.png, id=1381, 1003.75pt x 1003.75pt>
+<images//renders/test_002_sdf.png, id=1387, 1003.75pt x 1003.75pt>
 File: images//renders/test_002_sdf.png Graphic file (type png)
 <use images//renders/test_002_sdf.png>
 Package pdftex.def Info: images//renders/test_002_sdf.png  used on input line 1
-747.
+748.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
 File: images//renders/test_002_mesh.png Graphic file (type png)
 <use images//renders/test_002_mesh.png>
 Package pdftex.def Info: images//renders/test_002_mesh.png  used on input line 
-1751.
+1752.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
  [53
 
  <./images//renders/test_001_sdf.png> <./images//renders/test_001_mesh_lowres.p
 ng> <./images//renders/test_002_sdf.png>]
-<images//renders/test_003_sdf.png, id=1396, 1003.75pt x 1003.75pt>
+<images//renders/test_003_sdf.png, id=1402, 1003.75pt x 1003.75pt>
 File: images//renders/test_003_sdf.png Graphic file (type png)
 <use images//renders/test_003_sdf.png>
 Package pdftex.def Info: images//renders/test_003_sdf.png  used on input line 1
-761.
+762.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_003_mesh_lowres.png, id=1397, 1003.75pt x 1003.75pt>
+<images//renders/test_003_mesh_lowres.png, id=1403, 1003.75pt x 1003.75pt>
 File: images//renders/test_003_mesh_lowres.png Graphic file (type png)
 <use images//renders/test_003_mesh_lowres.png>
 Package pdftex.def Info: images//renders/test_003_mesh_lowres.png  used on inpu
-t line 1765.
+t line 1766.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
 File: images//renders/test_003_mesh_highres.png Graphic file (type png)
 <use images//renders/test_003_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_003_mesh_highres.png  used on inp
-ut line 1769.
+ut line 1770.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_004_sdf.png, id=1398, 1003.75pt x 1003.75pt>
+<images//renders/test_004_sdf.png, id=1404, 1003.75pt x 1003.75pt>
 File: images//renders/test_004_sdf.png Graphic file (type png)
 <use images//renders/test_004_sdf.png>
 Package pdftex.def Info: images//renders/test_004_sdf.png  used on input line 1
-779.
+780.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_004_mesh_lowres.png, id=1399, 1003.75pt x 1003.75pt>
+<images//renders/test_004_mesh_lowres.png, id=1405, 1003.75pt x 1003.75pt>
 File: images//renders/test_004_mesh_lowres.png Graphic file (type png)
 <use images//renders/test_004_mesh_lowres.png>
 Package pdftex.def Info: images//renders/test_004_mesh_lowres.png  used on inpu
-t line 1783.
+t line 1784.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_004_mesh_highres.png, id=1400, 1003.75pt x 1003.75pt>
+<images//renders/test_004_mesh_highres.png, id=1406, 1003.75pt x 1003.75pt>
 File: images//renders/test_004_mesh_highres.png Graphic file (type png)
 <use images//renders/test_004_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_004_mesh_highres.png  used on inp
-ut line 1787.
+ut line 1788.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
  [54
 
  <./images//renders/test_003_sdf.png> <./images//renders/test_003_mesh_lowres.p
 ng> <./images//renders/test_004_sdf.png> <./images//renders/test_004_mesh_lowre
 s.png> <./images//renders/test_004_mesh_highres.png>]
-<images//renders/test_005_sdf.png, id=1418, 1003.75pt x 1003.75pt>
+<images//renders/test_005_sdf.png, id=1424, 1003.75pt x 1003.75pt>
 File: images//renders/test_005_sdf.png Graphic file (type png)
 <use images//renders/test_005_sdf.png>
 Package pdftex.def Info: images//renders/test_005_sdf.png  used on input line 1
-798.
+799.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_005_mesh_lowres.png, id=1419, 1003.75pt x 1003.75pt>
+<images//renders/test_005_mesh_lowres.png, id=1425, 1003.75pt x 1003.75pt>
 File: images//renders/test_005_mesh_lowres.png Graphic file (type png)
 <use images//renders/test_005_mesh_lowres.png>
 Package pdftex.def Info: images//renders/test_005_mesh_lowres.png  used on inpu
-t line 1802.
+t line 1803.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_005_mesh_highres.png, id=1420, 1003.75pt x 1003.75pt>
+<images//renders/test_005_mesh_highres.png, id=1426, 1003.75pt x 1003.75pt>
 File: images//renders/test_005_mesh_highres.png Graphic file (type png)
 <use images//renders/test_005_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_005_mesh_highres.png  used on inp
-ut line 1806.
+ut line 1807.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_006_sdf.png, id=1421, 1003.75pt x 1003.75pt>
+<images//renders/test_006_sdf.png, id=1427, 1003.75pt x 1003.75pt>
 File: images//renders/test_006_sdf.png Graphic file (type png)
 <use images//renders/test_006_sdf.png>
 Package pdftex.def Info: images//renders/test_006_sdf.png  used on input line 1
-817.
+818.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_006_mesh_lowres.png, id=1422, 1003.75pt x 1003.75pt>
+<images//renders/test_006_mesh_lowres.png, id=1428, 1003.75pt x 1003.75pt>
 File: images//renders/test_006_mesh_lowres.png Graphic file (type png)
 <use images//renders/test_006_mesh_lowres.png>
 Package pdftex.def Info: images//renders/test_006_mesh_lowres.png  used on inpu
-t line 1821.
+t line 1822.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
  [55
 
  <./images//renders/test_005_sdf.png> <./images//renders/test_005_mesh_lowres.p
 ng> <./images//renders/test_005_mesh_highres.png> <./images//renders/test_006_s
 df.png> <./images//renders/test_006_mesh_lowres.png>]
-<images//renders/test_007_sdf.png, id=1441, 1003.75pt x 1003.75pt>
+<images//renders/test_007_sdf.png, id=1447, 1003.75pt x 1003.75pt>
 File: images//renders/test_007_sdf.png Graphic file (type png)
 <use images//renders/test_007_sdf.png>
 Package pdftex.def Info: images//renders/test_007_sdf.png  used on input line 1
-832.
+833.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_007_mesh_lowres.png, id=1442, 1003.75pt x 1003.75pt>
+<images//renders/test_007_mesh_lowres.png, id=1448, 1003.75pt x 1003.75pt>
 File: images//renders/test_007_mesh_lowres.png Graphic file (type png)
 <use images//renders/test_007_mesh_lowres.png>
 Package pdftex.def Info: images//renders/test_007_mesh_lowres.png  used on inpu
-t line 1836.
+t line 1837.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
-<images//renders/test_007_mesh_highres.png, id=1443, 1003.75pt x 1003.75pt>
+<images//renders/test_007_mesh_highres.png, id=1449, 1003.75pt x 1003.75pt>
 File: images//renders/test_007_mesh_highres.png Graphic file (type png)
 <use images//renders/test_007_mesh_highres.png>
 Package pdftex.def Info: images//renders/test_007_mesh_highres.png  used on inp
-ut line 1840.
+ut line 1841.
 (pdftex.def)             Requested size: 117.00119pt x 116.9987pt.
  [56
 
@@ -1687,10 +1688,10 @@ ng> <./images//renders/test_007_mesh_highres.png>]
 [57
 
 ]
-<images//node_editor.png, id=1463, 1571.8725pt x 327.2225pt>
+<images//node_editor.png, id=1469, 1571.8725pt x 327.2225pt>
 File: images//node_editor.png Graphic file (type png)
 <use images//node_editor.png>
-Package pdftex.def Info: images//node_editor.png  used on input line 1905.
+Package pdftex.def Info: images//node_editor.png  used on input line 1906.
 (pdftex.def)             Requested size: 390.0pt x 81.18628pt.
  [58] [59 <./images//node_editor.png>] (./pws.bbl
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
@@ -1705,53 +1706,91 @@ rceCodePro-TLF/m/n/12 http : / /
 
 ]) [61] [62
 
-] (./pws.lof [63
+] [63] (./pws.lof [64
 
 ])
 \tf@lof=\write6
 \openout6 = `pws.lof'.
 
- [64]
+ [65]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 2013.
- [65
+nput line 2043.
+ [66
 
-] [66] [67] [68] [69] [70
+] [67] [68] [69] [70] [71
 
-] [71]
-[72] [73] [74] [75] [76] [77] [78] [79
+]
+[72] [73] [74] [75] [76] [77] [78] [79] [80
 
-] [80] [81] [82] (./pws.aux)
+] [81] [82] [83] (./pws.aux)
 Package rerunfilecheck Info: File `pws.out' has not changed.
-(rerunfilecheck)             Checksum: 282A7F0049D5CB1FA2639D850E29691D;6916.
+(rerunfilecheck)             Checksum: 893A89E38F2C3A58371CF9C1EF9945DC;7006.
  ) 
 Here is how much of TeX's memory you used:
- 44227 strings out of 478238
- 944450 string characters out of 5850456
- 1718201 words of memory out of 5000000
- 60068 multiletter control sequences out of 15000+600000
+ 44240 strings out of 478238
+ 944939 string characters out of 5850456
+ 1717441 words of memory out of 5000000
+ 60069 multiletter control sequences out of 15000+600000
  575306 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,19n,133p,2015b,2224s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/sourcecodepro/a_lutrty.enc}{/usr/share
-/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}{/usr/share/texmf-dist/fonts/enc/
-dvips/stix/stix-t1.enc}</usr/share/texmf-dist/fonts/type1/public/stix/STIXGener
-al-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.p
-fb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr
-/share/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Bold.pfb></usr/
-share/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-It.pfb></usr/sha
-re/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texmf-dist/
-fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/stix/stix-mathex.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-ma
-thit.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></
-usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texmf-
-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf-dist/fonts/type
-1/public/stix/stix-mathsf.pfb>
-Output written on pws.pdf (82 pages, 6308541 bytes).
+
+pdfTeX warning (dest): name{https://wikipedia.org/} has been referenced but doe
+s not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{https://iquilezles.org/} has been referenced but do
+es not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{https://www.youtube.com/@SebastianLague} has been r
+eferenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{https://commons.wikimedia.org/wiki/File:Mesh_fv.jpg
+} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{https://commons.wikimedia.org/wiki/File:Vertex-Vert
+ex_Meshes_\(VV\).png} has been referenced but does not exist, replaced by a fix
+ed one
+
+
+pdfTeX warning (dest): name{https://commons.wikimedia.org/wiki/File:Global_illu
+mination1.png} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{https://commons.wikimedia.org/wiki/File:Phong_compo
+nents_version_4.png} has been referenced but does not exist, replaced by a fixe
+d one
+
+
+pdfTeX warning (dest): name{https://commons.wikimedia.org/wiki/File:Ray_trace_d
+iagram.svg} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{https://www.youtube.com/watch?v=91kxRGeg9wQ} has be
+en referenced but does not exist, replaced by a fixed one
+
+{/usr/share/texmf-dist/fonts/enc/dvips/sourcecodepro/a_lutrty.enc}{/usr/share/t
+exmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dv
+ips/stix/stix-t1.enc}</usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral
+-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb
+></usr/share/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/s
+hare/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Bold.pfb></usr/sh
+are/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-It.pfb></usr/share
+/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texmf-dist/fo
+nts/type1/public/stix/stix-mathcal.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/stix/stix-mathex.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-math
+it.pfb></usr/share/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></us
+r/share/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texmf-di
+st/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texmf-dist/fonts/type1/
+public/stix/stix-mathsf.pfb>
+Output written on pws.pdf (83 pages, 6311274 bytes).
 PDF statistics:
- 2725 PDF objects out of 2984 (max. 8388607)
- 2514 compressed objects within 26 object streams
- 1655 named destinations out of 1728 (max. 500000)
- 648 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2768 PDF objects out of 2984 (max. 8388607)
+ 2556 compressed objects within 26 object streams
+ 1667 named destinations out of 1728 (max. 500000)
+ 656 words of extra memory for PDF output out of 10000 (max. 10000000)
 

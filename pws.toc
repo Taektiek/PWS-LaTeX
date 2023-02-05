@@ -56,7 +56,8 @@
 \contentsline {section}{\numberline {10}Discussie}{58}{section.10}%
 \contentsline {section}{\numberline {11}Literatuurlijst}{60}{section.11}%
 \contentsline {section}{\numberline {12}Logboek}{62}{section.12}%
-\contentsline {section}{Appendix A\ Lijst van figuren}{63}{appendix.A}%
-\contentsline {section}{Appendix B\ Code van renders}{65}{appendix.B}%
-\contentsline {section}{Appendix C\ Code van testscènes}{70}{appendix.C}%
-\contentsline {section}{Appendix D\ Individuele meetresultaten}{79}{appendix.D}%
+\contentsline {section}{\numberline {13}Dankwoord}{63}{section.13}%
+\contentsline {section}{Appendix A\ Lijst van figuren}{64}{appendix.A}%
+\contentsline {section}{Appendix B\ Code van renders}{66}{appendix.B}%
+\contentsline {section}{Appendix C\ Code van testscènes}{71}{appendix.C}%
+\contentsline {section}{Appendix D\ Individuele meetresultaten}{80}{appendix.D}%
